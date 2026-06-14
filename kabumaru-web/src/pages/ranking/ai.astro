@@ -1,0 +1,439 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
+
+const rankingTitle = "AIが選ぶ注目日本株ランキング";
+---
+
+<!doctype html>
+<html lang="ja">
+	<head>
+		<BaseHead title={`${rankingTitle} - ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		
+		<main class="ranking-main fade-in">
+			<!-- Breadcrumb -->
+			<div class="breadcrumb">
+				<a href="/">トップ</a> &gt; <span class="current">ランキング</span>
+			</div>
+
+			<div class="ranking-layout">
+				<!-- Sidebar -->
+				<aside class="ranking-sidebar">
+					<div class="glass-card sidebar-card">
+						<h2 class="sidebar-title">ランキング</h2>
+						<div class="sidebar-links">
+							<a href="/ranking/ai" class="sidebar-link active">AI注目銘柄ランキング</a>
+							<a href="#growth" class="sidebar-link">売上成長率ランキング</a>
+							<a href="#dividend" class="sidebar-link">配当利回りランキング</a>
+							<a href="#nisa" class="sidebar-link">新NISA買付ランキング</a>
+							<a href="#popular" class="sidebar-link">個人投資家人気ランキング</a>
+						</div>
+					</div>
+
+					<div class="glass-card sidebar-info-card">
+						<h3>ランキングの見方</h3>
+						<p>独自AIスコアは財務力・成長力・市場シェア・材料などを多角的に分析し、100点満点で評価しています。</p>
+						<a href="#criteria" class="info-link">評価基準を見る &rarr;</a>
+					</div>
+				</aside>
+
+				<!-- Main Content Area -->
+				<section class="ranking-content">
+					<div class="glass-card content-card">
+						<h1 class="main-title">{rankingTitle} <span class="info-icon" title="評価方法について">ⓘ</span></h1>
+						<p class="main-desc">独自のAIアルゴリズムが、成長性・収益性・割安感・独自シェアを総合的にスコアリング</p>
+
+						<div class="table-container">
+							<table class="ranking-table">
+								<thead>
+									<tr>
+										<th class="col-rank">順位</th>
+										<th class="col-stock">銘柄・コード</th>
+										<th class="col-score">AIスコア</th>
+										<th class="col-change">前日比</th>
+										<th class="col-trend">トレンド</th>
+										<th class="col-point">注目ポイント</th>
+									</tr>
+								</thead>
+								<tbody>
+									<!-- Row 1: レゾナック -->
+									<tr>
+										<td class="col-rank"><span class="rank-badge rank-1">1</span></td>
+										<td class="col-stock">
+											<a href="/stock/4004" class="stock-info-link">
+												<div class="stock-meta">
+													<span class="stock-name">レゾナック・HD</span>
+													<span class="stock-ticker">4004 ｜ 東証プライム</span>
+												</div>
+											</a>
+										</td>
+										<td class="col-score"><span class="score-val">91.2</span></td>
+										<td class="col-change"><span class="change-val positive">+1.8</span></td>
+										<td class="col-trend">
+											<svg class="trend-sparkline" viewBox="0 0 100 30">
+												<path d="M0 25 L20 20 L40 22 L60 12 L80 15 L100 5" fill="none" stroke="var(--positive)" stroke-width="2.5" stroke-linecap="round"/>
+											</svg>
+										</td>
+										<td class="col-point">AI半導体向けパッケージ材料で世界トップシェア。V字回復が鮮明。</td>
+									</tr>
+
+									<!-- Row 2: ふじくら -->
+									<tr>
+										<td class="col-rank"><span class="rank-badge rank-2">2</span></td>
+										<td class="col-stock">
+											<a href="/stock/5803" class="stock-info-link">
+												<div class="stock-meta">
+													<span class="stock-name">フジクラ</span>
+													<span class="stock-ticker">5803 ｜ 東証プライム</span>
+												</div>
+											</a>
+										</td>
+										<td class="col-score"><span class="score-val">88.5</span></td>
+										<td class="col-change"><span class="change-val positive">+3.2</span></td>
+										<td class="col-trend">
+											<svg class="trend-sparkline" viewBox="0 0 100 30">
+												<path d="M0 28 L20 26 L40 15 L60 18 L80 10 L100 8" fill="none" stroke="var(--positive)" stroke-width="2.5" stroke-linecap="round"/>
+											</svg>
+										</td>
+										<td class="col-point">データセンター向け超多心光ファイバコネクタの需要が世界的に急増。</td>
+									</tr>
+
+									<!-- Row 3: スクリーン -->
+									<tr>
+										<td class="col-rank"><span class="rank-badge rank-3">3</span></td>
+										<td class="col-stock">
+											<a href="/stock/7735" class="stock-info-link">
+												<div class="stock-meta">
+													<span class="stock-name">SCREEN・HD</span>
+													<span class="stock-ticker">7735 ｜ 東証プライム</span>
+												</div>
+											</a>
+										</td>
+										<td class="col-score"><span class="score-val">86.4</span></td>
+										<td class="col-change"><span class="change-val negative">-0.8</span></td>
+										<td class="col-trend">
+											<svg class="trend-sparkline" viewBox="0 0 100 30">
+												<path d="M0 8 L20 10 L40 18 L60 15 L80 22 L100 24" fill="none" stroke="var(--negative)" stroke-width="2.5" stroke-linecap="round"/>
+											</svg>
+										</td>
+										<td class="col-point">半導体洗浄装置で世界シェア首位。ファウンドリ投資の回復が追い風。</td>
+									</tr>
+
+									<!-- Row 4: NTT -->
+									<tr>
+										<td class="col-rank"><span class="rank-badge">4</span></td>
+										<td class="col-stock">
+											<a href="/stock/9432" class="stock-info-link">
+												<div class="stock-meta">
+													<span class="stock-name">日本電信電話</span>
+													<span class="stock-ticker">9432 ｜ 東証プライム</span>
+												</div>
+											</a>
+										</td>
+										<td class="col-score"><span class="score-val">81.2</span></td>
+										<td class="col-change"><span class="change-val positive">+0.2</span></td>
+										<td class="col-trend">
+											<svg class="trend-sparkline" viewBox="0 0 100 30">
+												<path d="M0 20 L20 18 L40 22 L60 16 L80 12 L100 10" fill="none" stroke="var(--positive)" stroke-width="2.5" stroke-linecap="round"/>
+											</svg>
+										</td>
+										<td class="col-point">安定した通信事業に加え、IOWN光電融合技術などの成長カタリスト。</td>
+									</tr>
+
+									<!-- Row 5: ソニーFG -->
+									<tr>
+										<td class="col-rank"><span class="rank-badge">5</span></td>
+										<td class="col-stock">
+											<a href="/stock/5803" class="stock-info-link">
+												<div class="stock-meta">
+													<span class="stock-name">ソニーフィナンシャルG</span>
+													<span class="stock-ticker">8521 ｜ 東証プライム</span>
+												</div>
+											</a>
+										</td>
+										<td class="col-score"><span class="score-val">78.9</span></td>
+										<td class="col-change"><span class="change-val negative">-0.4</span></td>
+										<td class="col-trend">
+											<svg class="trend-sparkline" viewBox="0 0 100 30">
+												<path d="M0 12 L20 10 L40 14 L60 18 L80 15 L100 18" fill="none" stroke="var(--negative)" stroke-width="2.5" stroke-linecap="round"/>
+											</svg>
+										</td>
+										<td class="col-point">金利上昇期における保険・金融事業の利ざや拡大と安定財務。</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+						<div class="content-footer">
+							<a href="#more" class="more-link">ランキングをもっと見る &gt;</a>
+						</div>
+					</div>
+				</section>
+			</div>
+		</main>
+
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.ranking-main {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 2rem 1.5rem;
+	}
+	.breadcrumb {
+		font-size: 0.85rem;
+		color: var(--text-secondary);
+		margin-bottom: 2rem;
+	}
+	.breadcrumb a {
+		color: var(--text-secondary);
+	}
+	.breadcrumb a:hover {
+		color: var(--accent);
+	}
+	.breadcrumb .current {
+		color: var(--text-muted);
+	}
+	
+	.ranking-layout {
+		display: grid;
+		grid-template-columns: 280px 1fr;
+		gap: 2rem;
+		align-items: start;
+	}
+
+	/* Sidebar Styles */
+	.ranking-sidebar {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+	.sidebar-card {
+		padding: 1.5rem;
+	}
+	.sidebar-title {
+		font-size: 1.1rem;
+		font-weight: 700;
+		margin-bottom: 1.25rem;
+		padding-bottom: 0.75rem;
+		border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+	}
+	.sidebar-links {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+	.sidebar-link {
+		font-size: 0.95rem;
+		padding: 0.75rem 1rem;
+		border-radius: 8px;
+		color: var(--text-secondary);
+		transition: all 0.2s ease;
+		font-weight: 500;
+	}
+	.sidebar-link:hover {
+		background: rgba(0, 0, 0, 0.02);
+		color: var(--accent);
+	}
+	.sidebar-link.active {
+		background: var(--accent);
+		color: #ffffff;
+		font-weight: 700;
+		box-shadow: 0 4px 12px var(--accent-glow);
+	}
+	.sidebar-info-card {
+		padding: 1.5rem;
+	}
+	.sidebar-info-card h3 {
+		font-size: 0.95rem;
+		font-weight: 700;
+		margin-bottom: 0.75rem;
+	}
+	.sidebar-info-card p {
+		font-size: 0.82rem;
+		color: var(--text-secondary);
+		margin-bottom: 1.25rem;
+		line-height: 1.6;
+	}
+	.info-link {
+		font-size: 0.85rem;
+		font-weight: 700;
+		color: var(--accent);
+	}
+
+	/* Content Area Styles */
+	.ranking-content {
+		min-width: 0;
+	}
+	.content-card {
+		padding: 2.2rem;
+	}
+	.main-title {
+		font-size: 1.8rem;
+		font-weight: 800;
+		margin-bottom: 0.5rem;
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		color: var(--text-primary);
+	}
+	.info-icon {
+		font-size: 1.1rem;
+		color: var(--text-muted);
+		cursor: help;
+	}
+	.main-desc {
+		font-size: 0.95rem;
+		color: var(--text-secondary);
+		margin-bottom: 2.5rem;
+	}
+
+	/* Table Styles */
+	.table-container {
+		overflow-x: auto;
+	}
+	.ranking-table {
+		width: 100%;
+		border-collapse: collapse;
+		text-align: left;
+		font-size: 0.95rem;
+	}
+	.ranking-table th, 
+	.ranking-table td {
+		padding: 1.2rem 1rem;
+		border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+		vertical-align: middle;
+	}
+	.ranking-table th {
+		font-weight: 700;
+		color: var(--text-secondary);
+		font-size: 0.85rem;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		padding-bottom: 1rem;
+	}
+	.col-rank { width: 8%; text-align: center; }
+	.col-stock { width: 22%; }
+	.col-score { width: 15%; text-align: center; }
+	.col-change { width: 12%; text-align: center; }
+	.col-trend { width: 15%; text-align: center; }
+	.col-point { width: 28%; }
+
+	/* Row Styling */
+	.rank-badge {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 24px;
+		height: 24px;
+		border-radius: 50%;
+		font-size: 0.8rem;
+		font-weight: 700;
+		background: rgba(0, 0, 0, 0.05);
+		color: var(--text-secondary);
+	}
+	.rank-1 {
+		background: linear-gradient(135deg, #ffd700 0%, #ff8c00 100%);
+		color: #ffffff;
+		box-shadow: 0 2px 8px rgba(255, 140, 0, 0.2);
+	}
+	.rank-2 {
+		background: linear-gradient(135deg, #c0c0c0 0%, #a9a9a9 100%);
+		color: #ffffff;
+	}
+	.rank-3 {
+		background: linear-gradient(135deg, #cd7f32 0%, #8b4513 100%);
+		color: #ffffff;
+	}
+
+	.stock-info-link {
+		text-decoration: none;
+		display: block;
+	}
+	.stock-meta {
+		display: flex;
+		flex-direction: column;
+	}
+	.stock-name {
+		font-weight: 700;
+		color: var(--text-primary);
+	}
+	.stock-ticker {
+		font-size: 0.75rem;
+		color: var(--text-secondary);
+		margin-top: 0.1rem;
+	}
+	.score-val {
+		font-family: var(--font-display);
+		font-size: 1.15rem;
+		font-weight: 700;
+		color: var(--text-primary);
+	}
+	.change-val {
+		font-family: var(--font-display);
+		font-weight: 700;
+	}
+	.change-val.positive {
+		color: var(--positive); /* In JP market, RED is positive */
+	}
+	.change-val.negative {
+		color: var(--negative); /* Blue is negative */
+	}
+	.trend-sparkline {
+		width: 70px;
+		height: 22px;
+		display: inline-block;
+		overflow: visible;
+	}
+	.col-point {
+		font-size: 0.85rem;
+		color: var(--text-secondary);
+		line-height: 1.5;
+	}
+
+	.content-footer {
+		margin-top: 2rem;
+		text-align: center;
+	}
+	.more-link {
+		font-size: 0.9rem;
+		color: var(--text-secondary);
+		font-weight: 600;
+	}
+	.more-link:hover {
+		color: var(--accent);
+	}
+
+	/* Responsive layout */
+	@media (max-width: 968px) {
+		.ranking-layout {
+			grid-template-columns: 1fr;
+		}
+		.ranking-sidebar {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 1.5rem;
+		}
+	}
+	@media (max-width: 640px) {
+		.ranking-sidebar {
+			grid-template-columns: 1fr;
+		}
+		.content-card {
+			padding: 1.25rem;
+		}
+		.ranking-table th, .ranking-table td {
+			padding: 0.8rem 0.5rem;
+		}
+		.col-trend, .col-point {
+			display: none;
+		}
+	}
+</style>

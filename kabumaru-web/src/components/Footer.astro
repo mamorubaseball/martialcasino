@@ -1,0 +1,96 @@
+---
+const today = new Date();
+---
+
+<footer class="footer">
+	<div class="footer-content">
+		<div class="footer-info">
+			<span class="footer-logo">かぶまる</span>
+			<p class="footer-desc">日本株分析・新NISA・堅実な資産形成を丸っとわかりやすく届ける情報プラットフォーム</p>
+		</div>
+		<div class="footer-links">
+			<a href="/">トップ</a>
+			<a href="/stock/5803">銘柄一覧</a>
+			<a href="/ranking/ai">ランキング</a>
+			<a href="/about">ABOUT</a>
+		</div>
+	</div>
+	<div class="footer-bottom">
+		&copy; {today.getFullYear()} かぶまる / AntigravityCompany. All rights reserved.
+		<p class="disclaimer">※当サイトで提供する情報は、投資の勧誘や個別銘柄の売買推奨を目的としたものではありません。投資判断はご自身の判断と責任において行ってください。</p>
+	</div>
+</footer>
+
+<style>
+	.footer {
+		background: #f3f4f6;
+		border-top: 1px solid rgba(0, 0, 0, 0.06);
+		padding: 3.5rem 1.5rem 2.5rem 1.5rem;
+		margin-top: 5rem;
+	}
+	.footer-content {
+		max-width: 1200px;
+		margin: 0 auto;
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		flex-wrap: wrap;
+		gap: 2rem;
+		padding-bottom: 2rem;
+		border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+	}
+	.footer-info {
+		max-width: 380px;
+	}
+	.footer-logo {
+		font-family: var(--font-display);
+		font-size: 1.35rem;
+		font-weight: 800;
+		color: var(--text-primary);
+		letter-spacing: -0.01em;
+		display: block;
+		margin-bottom: 0.6rem;
+	}
+	.footer-desc {
+		font-size: 0.85rem;
+		color: var(--text-secondary);
+		line-height: 1.6;
+	}
+	.footer-links {
+		display: flex;
+		gap: 2.5rem;
+	}
+	.footer-links a {
+		font-size: 0.9rem;
+		font-weight: 500;
+		color: var(--text-secondary);
+	}
+	.footer-links a:hover {
+		color: var(--accent);
+	}
+	.footer-bottom {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding-top: 2rem;
+		text-align: center;
+		font-size: 0.85rem;
+		color: var(--text-secondary);
+	}
+	.disclaimer {
+		font-size: 0.75rem;
+		color: var(--text-muted);
+		margin-top: 0.8rem;
+		line-height: 1.5;
+	}
+
+	@media (max-width: 768px) {
+		.footer-content {
+			flex-direction: column;
+			gap: 1.5rem;
+		}
+		.footer-links {
+			flex-direction: column;
+			gap: 0.8rem;
+		}
+	}
+</style>

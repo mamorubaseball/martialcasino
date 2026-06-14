@@ -1,0 +1,211 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import Header from '../components/Header.astro';
+
+type Props = CollectionEntry<'blog'>['data'];
+
+const { title, description, pubDate, updatedDate, heroImage, customLayout = false } = Astro.props;
+---
+
+<html lang="ja">
+	<head>
+		<BaseHead title={title} description={description} />
+	</head>
+
+	<body>
+		<Header />
+		{customLayout ? (
+			<main class="post-main-custom fade-in">
+				<slot />
+			</main>
+		) : (
+			<main class="post-main fade-in">
+				<article class="glass-card post-card">
+					{heroImage && (
+						<div class="hero-image">
+							<Image width={1020} height={510} src={heroImage} alt="" class="hero-img-content" />
+						</div>
+					)}
+					<div class="prose">
+						<header class="post-header">
+							<div class="post-meta">
+								<span class="badge badge-positive">分析記事</span>
+								<time class="post-date">
+									<FormattedDate date={pubDate} />
+								</time>
+								{updatedDate && (
+									<span class="last-updated-on">
+										(更新日: <FormattedDate date={updatedDate} />)
+									</span>
+								)}
+							</div>
+							<h1 class="post-title">{title}</h1>
+							<p class="post-description">{description}</p>
+							<hr class="divider" />
+						</header>
+						
+						<div class="markdown-body">
+							<slot />
+						</div>
+					</div>
+				</article>
+			</main>
+		)}
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.post-main-custom {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 1.5rem 4rem 1.5rem;
+	}
+	.post-main {
+		max-width: 900px;
+		margin: 0 auto;
+		padding: 2rem 1.5rem;
+	}
+	.post-card {
+		overflow: hidden;
+		border-radius: 16px;
+	}
+	.hero-image {
+		width: 100%;
+		aspect-ratio: 2/1;
+		overflow: hidden;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+	}
+	.hero-img-content {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+	.prose {
+		padding: 3rem;
+	}
+	.post-header {
+		margin-bottom: 2.5rem;
+	}
+	.post-meta {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		font-size: 0.85rem;
+		color: var(--text-secondary);
+		margin-bottom: 1rem;
+	}
+	.post-date {
+		font-weight: 500;
+	}
+	.last-updated-on {
+		font-style: italic;
+		color: var(--text-muted);
+	}
+	.post-title {
+		font-size: 2.25rem;
+		font-weight: 800;
+		color: #ffffff;
+		margin-bottom: 1rem;
+		line-height: 1.3;
+	}
+	.post-description {
+		font-size: 1.1rem;
+		color: var(--text-secondary);
+		line-height: 1.5;
+		margin-bottom: 1.5rem;
+	}
+	.divider {
+		border: none;
+		border-top: 1px solid rgba(255, 255, 255, 0.08);
+	}
+
+	/* Markdown Content Styling */
+	.markdown-body {
+		color: var(--text-primary);
+		font-size: 1.05rem;
+		line-height: 1.8;
+	}
+	.markdown-body :global(h2) {
+		font-size: 1.5rem;
+		font-weight: 700;
+		margin: 2.5rem 0 1rem 0;
+		padding-bottom: 0.5rem;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+		color: #ffffff;
+	}
+	.markdown-body :global(h3) {
+		font-size: 1.25rem;
+		font-weight: 600;
+		margin: 1.8rem 0 0.8rem 0;
+		color: #ffffff;
+	}
+	.markdown-body :global(p) {
+		margin-bottom: 1.5rem;
+		color: #e5e7eb;
+	}
+	.markdown-body :global(ul), 
+	.markdown-body :global(ol) {
+		margin-bottom: 1.5rem;
+		padding-left: 1.5rem;
+		color: #e5e7eb;
+	}
+	.markdown-body :global(li) {
+		margin-bottom: 0.5rem;
+	}
+	.markdown-body :global(code) {
+		background: rgba(255, 255, 255, 0.06);
+		padding: 0.2rem 0.4rem;
+		border-radius: 4px;
+		font-size: 0.9em;
+		font-family: monospace;
+		color: var(--accent-light);
+	}
+	.markdown-body :global(pre) {
+		background: rgba(7, 9, 14, 0.8);
+		border: 1px solid rgba(255, 255, 255, 0.05);
+		padding: 1.25rem;
+		border-radius: 8px;
+		overflow-x: auto;
+		margin-bottom: 1.5rem;
+	}
+	.markdown-body :global(pre code) {
+		background: transparent;
+		padding: 0;
+		color: #e5e7eb;
+		font-size: 0.85em;
+	}
+	.markdown-body :global(blockquote) {
+		border-left: 4px solid var(--accent);
+		background: rgba(35, 55, 255, 0.03);
+		padding: 1rem 1.5rem;
+		margin: 0 0 1.5rem 0;
+		border-radius: 0 8px 8px 0;
+		font-style: italic;
+		color: #d1d5db;
+	}
+	.markdown-body :global(img) {
+		max-width: 100%;
+		border-radius: 8px;
+		margin: 1.5rem 0;
+		box-shadow: var(--shadow-glass);
+	}
+	.markdown-body :global(hr) {
+		border: none;
+		border-top: 1px solid rgba(255, 255, 255, 0.05);
+		margin: 2rem 0;
+	}
+
+	@media (max-width: 768px) {
+		.prose {
+			padding: 1.5rem;
+		}
+		.post-title {
+			font-size: 1.75rem;
+		}
+	}
+</style>

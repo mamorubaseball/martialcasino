@@ -1,0 +1,138 @@
+---
+import { SITE_TITLE } from '../consts';
+const pathname = Astro.url.pathname.replace(import.meta.env.BASE_URL, '');
+const isActive = (path: string) => {
+  if (path === '/') return pathname === '';
+  return pathname.startsWith(path.replace(/^\//, ''));
+};
+---
+
+<header class="header">
+	<nav class="nav">
+		<a href="/" class="logo-area">
+			<!-- Neon abstract logo -->
+			<svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M4 18C4 18 6 12 12 12C18 12 20 18 20 18" stroke="#2337ff" stroke-width="2.5" stroke-linecap="round"/>
+				<path d="M8 14C8 14 9.5 10 12 10C14.5 10 16 14 16 14" stroke="#00d9ff" stroke-width="2.5" stroke-linecap="round"/>
+				<circle cx="12" cy="5" r="2.5" fill="#2337ff"/>
+			</svg>
+			<span class="logo-text">{SITE_TITLE}</span>
+		</a>
+		
+		<div class="nav-links">
+			<a href="/" class={isActive('/') ? 'active' : ''}>トップ</a>
+			<a href="/stock/nvda" class={isActive('/stock') ? 'active' : ''}>銘柄一覧</a>
+			<a href="/ranking/ai" class={isActive('/ranking') ? 'active' : ''}>ランキング</a>
+			<a href="/#categories">カテゴリー</a>
+			<a href="/#videos">動画</a>
+			<a href="/about" class={isActive('/about') ? 'active' : ''}>ABOUT</a>
+		</div>
+
+		<div class="header-actions">
+			<button class="search-btn" aria-label="Search">
+				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-icon">
+					<circle cx="11" cy="11" r="8"></circle>
+					<line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+				</svg>
+			</button>
+		</div>
+	</nav>
+</header>
+
+<style>
+	.header {
+		position: sticky;
+		top: 0;
+		z-index: 100;
+		background: rgba(7, 9, 14, 0.7);
+		backdrop-filter: blur(16px);
+		-webkit-backdrop-filter: blur(16px);
+		border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+	}
+	.nav {
+		max-width: 1200px;
+		margin: 0 auto;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 0.8rem 1.5rem;
+	}
+	.logo-area {
+		display: flex;
+		align-items: center;
+		gap: 0.6rem;
+		text-decoration: none;
+	}
+	.logo-icon {
+		width: 28px;
+		height: 28px;
+		filter: drop-shadow(0 0 8px rgba(35, 55, 255, 0.5));
+	}
+	.logo-text {
+		font-family: var(--font-display);
+		font-size: 1.25rem;
+		font-weight: 800;
+		letter-spacing: -0.02em;
+		background: linear-gradient(135deg, #ffffff 60%, var(--accent-light) 100%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+	.nav-links {
+		display: flex;
+		align-items: center;
+		gap: 1.8rem;
+	}
+	.nav-links a {
+		font-family: var(--font-body);
+		font-size: 0.9rem;
+		font-weight: 500;
+		color: var(--text-secondary);
+		position: relative;
+		padding: 0.2rem 0;
+	}
+	.nav-links a:hover,
+	.nav-links a.active {
+		color: #ffffff;
+	}
+	.nav-links a.active::after {
+		content: '';
+		position: absolute;
+		bottom: -4px;
+		left: 0;
+		width: 100%;
+		height: 2px;
+		background: linear-gradient(90deg, var(--accent) 0%, var(--accent-light) 100%);
+		border-radius: 99px;
+		box-shadow: 0 0 8px var(--accent-glow);
+	}
+	.header-actions {
+		display: flex;
+		align-items: center;
+	}
+	.search-btn {
+		background: transparent;
+		border: none;
+		color: var(--text-secondary);
+		cursor: pointer;
+		padding: 0.4rem;
+		border-radius: 50%;
+		transition: all 0.2s ease;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.search-btn:hover {
+		color: #ffffff;
+		background: rgba(255, 255, 255, 0.05);
+	}
+	.search-icon {
+		width: 20px;
+		height: 20px;
+	}
+
+	@media (max-width: 768px) {
+		.nav-links {
+			display: none; /* In a real product we would add a hamburger, but keeping it simple/mockup-consistent for now */
+		}
+	}
+</style>

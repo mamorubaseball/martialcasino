@@ -1,21 +1,18 @@
 {
-  "name": "martialcasino",
-  "type": "module",
+  "name": "investment-platform",
   "version": "0.0.1",
+  "private": true,
+  "workspaces": [
+    "techmoney-web",
+    "kabumaru-web"
+  ],
   "engines": {
     "node": ">=22.12.0"
   },
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
-  "dependencies": {
-    "@astrojs/mdx": "^6.0.2",
-    "@astrojs/rss": "^4.0.18",
-    "@astrojs/sitemap": "^3.7.3",
-    "astro": "^6.4.4",
-    "sharp": "^0.34.3"
+    "dev:techmoney": "npm run dev --workspace=techmoney-web",
+    "dev:kabumaru": "npm run dev --workspace=kabumaru-web",
+    "build:techmoney": "npm run build --workspace=techmoney-web",
+    "build:kabumaru": "npm run build --workspace=kabumaru-web"
   }
 }

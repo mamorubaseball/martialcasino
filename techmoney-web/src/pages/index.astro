@@ -1,0 +1,541 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+import earthGlow from '../assets/earth_glow.png';
+
+const posts = (await getCollection('blog'))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 6);
+
+// Helper to determine badge type and text
+const getPostTag = (title: string) => {
+  if (title.includes('決算') || title.includes('IPO')) {
+    return { text: '決算分析', class: 'badge-positive' };
+  } else if (title.includes('半導体') || title.includes('宇宙') || title.includes('AI') || title.includes('ドローン')) {
+    return { text: '業界分析', class: 'badge-tech' };
+  } else {
+    return { text: '企業分析', class: 'badge-company' };
+  }
+};
+---
+
+<!doctype html>
+<html lang="ja">
+	<head>
+		<BaseHead title={`${SITE_TITLE} - 米国株・AI投資メディア`} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		
+		<!-- Hero Section -->
+		<section class="hero-container fade-in">
+			<div class="hero-content">
+				<div class="hero-text-area">
+					<h1 class="hero-title">
+						データで深く、<br/>
+						未来を先取る。<span class="highlight">米国株投資</span>の新しいカタチ。
+					</h1>
+					<p class="hero-description">
+						{SITE_TITLE}は、テクノロジーとデータを軸にした米国株分析メディアです。最新テクノロジーがもたらす投資機会を、質の高い企業分析と共をお届けします。
+					</p>
+					<div class="hero-actions">
+						<a href="https://www.youtube.com/@TechMoney-1billion" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+							<svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+								<path d="M8 5v14l11-7z"/>
+							</svg>
+							最新動画を視聴する
+						</a>
+						<a href="/stock/nvda" class="btn btn-outline">
+							<svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+								<circle cx="11" cy="11" r="8"></circle>
+								<line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+							</svg>
+							銘柄を探す
+						</a>
+					</div>
+				</div>
+				<div class="hero-visual-area">
+					<Image src={earthGlow} alt="Earth glowing atmosphere" class="hero-earth-img" />
+				</div>
+			</div>
+		</section>
+
+		<!-- Statistics Bar -->
+		<section class="stats-section fade-in">
+			<div class="stats-grid">
+				<div class="glass-card stat-card">
+					<div class="stat-icon-wrapper">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="stat-icon">
+							<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+							<polyline points="14 2 14 8 20 8"></polyline>
+							<line x1="16" y1="13" x2="8" y2="13"></line>
+							<line x1="16" y1="17" x2="8" y2="17"></line>
+							<polyline points="10 9 9 9 8 9"></polyline>
+						</svg>
+					</div>
+					<div class="stat-info">
+						<span class="stat-value">520+</span>
+						<span class="stat-label">本格的な銘柄分析記事</span>
+					</div>
+				</div>
+				<div class="glass-card stat-card">
+					<div class="stat-icon-wrapper">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="stat-icon">
+							<rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect>
+							<line x1="7" y1="2" x2="7" y2="22"></line>
+							<line x1="17" y1="2" x2="17" y2="22"></line>
+							<line x1="2" y1="12" x2="22" y2="12"></line>
+							<line x1="2" y1="7" x2="7" y2="7"></line>
+							<line x1="2" y1="17" x2="7" y2="17"></line>
+							<line x1="17" y1="17" x2="22" y2="17"></line>
+							<line x1="17" y1="7" x2="22" y2="7"></line>
+						</svg>
+					</div>
+					<div class="stat-info">
+						<span class="stat-value">320+</span>
+						<span class="stat-label">YouTube連携動画数</span>
+					</div>
+				</div>
+				<div class="glass-card stat-card">
+					<div class="stat-icon-wrapper">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="stat-icon">
+							<line x1="18" y1="20" x2="18" y2="10"></line>
+							<line x1="12" y1="20" x2="12" y2="4"></line>
+							<line x1="6" y1="20" x2="6" y2="14"></line>
+						</svg>
+					</div>
+					<div class="stat-info">
+						<span class="stat-value">180+</span>
+						<span class="stat-label">米国株のディープ分析</span>
+					</div>
+				</div>
+				<div class="glass-card stat-card">
+					<div class="stat-icon-wrapper">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="stat-icon">
+							<circle cx="12" cy="12" r="10"></circle>
+							<polyline points="12 6 12 12 16 14"></polyline>
+						</svg>
+					</div>
+					<div class="stat-info">
+						<span class="stat-value">毎日更新</span>
+						<span class="stat-label">最新情報をタイムリーにお届け</span>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Categories Section -->
+		<section id="categories" class="categories-section fade-in">
+			<div class="section-header">
+				<h2 class="section-title">注目のカテゴリー</h2>
+				<a href="/stock/nvda" class="view-all-link">すべてのカテゴリーを見る &gt;</a>
+			</div>
+			<div class="categories-grid">
+				<div class="glass-card category-card">
+					<div class="category-icon-wrapper cyan-glow">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="category-icon">
+							<rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+							<rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+							<line x1="6" y1="6" x2="6.01" y2="6"></line>
+							<line x1="6" y1="18" x2="6.01" y2="18"></line>
+						</svg>
+					</div>
+					<span class="category-name">AI・半導体</span>
+					<span class="category-count">95 銘柄</span>
+				</div>
+				<div class="glass-card category-card">
+					<div class="category-icon-wrapper blue-glow">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="category-icon">
+							<polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+							<polyline points="2 17 12 22 22 17"></polyline>
+							<polyline points="2 12 12 17 22 12"></polyline>
+						</svg>
+					</div>
+					<span class="category-name">テック企業</span>
+					<span class="category-count">78 銘柄</span>
+				</div>
+				<div class="glass-card category-card">
+					<div class="category-icon-wrapper cyan-glow">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="category-icon">
+							<path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
+						</svg>
+					</div>
+					<span class="category-name">クラウド</span>
+					<span class="category-count">42 銘柄</span>
+				</div>
+				<div class="glass-card category-card">
+					<div class="category-icon-wrapper purple-glow">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="category-icon">
+							<path d="M12 2L2 22h20L12 2z"></path>
+						</svg>
+					</div>
+					<span class="category-name">宇宙・防衛</span>
+					<span class="category-count">28 銘柄</span>
+				</div>
+				<div class="glass-card category-card">
+					<div class="category-icon-wrapper green-glow">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="category-icon">
+							<rect x="1" y="3" width="15" height="13" rx="2" ry="2"></rect>
+							<polygon points="16 8 20 8 23 11 23 14 16 14 16 8"></polygon>
+							<circle cx="5.5" cy="18.5" r="2.5"></circle>
+							<circle cx="18.5" cy="18.5" r="2.5"></circle>
+						</svg>
+					</div>
+					<span class="category-name">EV・自動運転</span>
+					<span class="category-count">35 銘柄</span>
+				</div>
+			</div>
+		</section>
+
+		<!-- Latest Articles Section -->
+		<section class="articles-section fade-in">
+			<div class="section-header">
+				<h2 class="section-title">最新の分析記事</h2>
+				<a href="/stock/nvda" class="view-all-link">すべての記事を見る &gt;</a>
+			</div>
+			<div class="articles-grid">
+				{posts.map((post) => {
+				  const tag = getPostTag(post.data.title);
+				  return (
+					<article class="glass-card article-card">
+						<a href={`/blog/${post.id}/`} class="article-link">
+							<div class="article-glow-border"></div>
+							<div class="article-meta">
+								<span class={`badge ${tag.class}`}>{tag.text}</span>
+								<time class="article-date">
+									{post.data.pubDate.toLocaleDateString('ja-JP', {
+										year: 'numeric',
+										month: '2-digit',
+										day: '2-digit',
+									})}
+								</time>
+							</div>
+							<h3 class="article-title">{post.data.title}</h3>
+							<p class="article-description">{post.data.description}</p>
+							<span class="read-more">記事を読む &rarr;</span>
+						</a>
+					</article>
+				  );
+				})}
+			</div>
+		</section>
+
+		<Footer />
+	</body>
+</html>
+
+<style>
+	/* Hero Section Styles */
+	.hero-container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 4rem 1.5rem 3rem 1.5rem;
+	}
+	.hero-content {
+		display: grid;
+		grid-template-columns: 1.2fr 0.8fr;
+		align-items: center;
+		gap: 3rem;
+	}
+	.hero-text-area {
+		display: flex;
+		flex-direction: column;
+	}
+	.hero-title {
+		font-size: 3.5rem;
+		font-weight: 800;
+		letter-spacing: -0.03em;
+		margin-bottom: 1.5rem;
+	}
+	.highlight {
+		background: linear-gradient(90deg, var(--accent-light) 0%, var(--accent) 100%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		filter: drop-shadow(0 0 10px rgba(0, 217, 255, 0.2));
+	}
+	.hero-description {
+		font-size: 1.15rem;
+		color: var(--text-secondary);
+		margin-bottom: 2.5rem;
+		max-width: 540px;
+	}
+	.hero-actions {
+		display: flex;
+		gap: 1.2rem;
+	}
+	.btn-icon {
+		margin-right: 0.5rem;
+	}
+	.hero-visual-area {
+		display: flex;
+		justify-content: center;
+		position: relative;
+	}
+	.hero-earth-img {
+		width: 100%;
+		max-width: 420px;
+		height: auto;
+		border-radius: 50%;
+		filter: drop-shadow(0 0 30px rgba(35, 55, 255, 0.4)) saturate(110%);
+		animation: pulseGlow 8s infinite alternate ease-in-out;
+	}
+
+	@keyframes pulseGlow {
+		0% { filter: drop-shadow(0 0 20px rgba(35, 55, 255, 0.3)) saturate(100%); }
+		100% { filter: drop-shadow(0 0 45px rgba(0, 217, 255, 0.5)) saturate(120%); }
+	}
+
+	/* Stats Bar Styles */
+	.stats-section {
+		max-width: 1200px;
+		margin: 0 auto 4rem auto;
+		padding: 0 1.5rem;
+	}
+	.stats-grid {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 1.5rem;
+	}
+	.stat-card {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		padding: 1.25rem 1.5rem;
+	}
+	.stat-icon-wrapper {
+		background: rgba(35, 55, 255, 0.1);
+		border: 1px solid rgba(35, 55, 255, 0.2);
+		border-radius: 8px;
+		width: 42px;
+		height: 42px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: var(--accent-light);
+	}
+	.stat-icon {
+		width: 20px;
+		height: 20px;
+	}
+	.stat-info {
+		display: flex;
+		flex-direction: column;
+	}
+	.stat-value {
+		font-family: var(--font-display);
+		font-size: 1.5rem;
+		font-weight: 700;
+	}
+	.stat-label {
+		font-size: 0.75rem;
+		color: var(--text-secondary);
+	}
+
+	/* Category Styles */
+	.categories-section {
+		max-width: 1200px;
+		margin: 0 auto 5rem auto;
+		padding: 0 1.5rem;
+	}
+	.section-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-end;
+		margin-bottom: 2rem;
+	}
+	.section-title {
+		font-size: 1.75rem;
+		font-weight: 700;
+		position: relative;
+		padding-left: 0.8rem;
+	}
+	.section-title::before {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 15%;
+		height: 70%;
+		width: 4px;
+		background: linear-gradient(to bottom, var(--accent-light), var(--accent));
+		border-radius: 2px;
+	}
+	.view-all-link {
+		font-size: 0.9rem;
+		color: var(--text-secondary);
+	}
+	.view-all-link:hover {
+		color: var(--accent-light);
+	}
+	.categories-grid {
+		display: grid;
+		grid-template-columns: repeat(5, 1fr);
+		gap: 1.25rem;
+	}
+	.category-card {
+		padding: 1.5rem;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		cursor: pointer;
+	}
+	.category-icon-wrapper {
+		width: 48px;
+		height: 48px;
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-bottom: 1rem;
+		background: rgba(255, 255, 255, 0.03);
+		border: 1px solid rgba(255, 255, 255, 0.05);
+	}
+	.category-icon {
+		width: 22px;
+		height: 22px;
+	}
+	.category-name {
+		font-size: 0.95rem;
+		font-weight: 600;
+		margin-bottom: 0.25rem;
+	}
+	.category-count {
+		font-size: 0.75rem;
+		color: var(--text-muted);
+	}
+
+	/* Color variations for category cards */
+	.blue-glow {
+		color: var(--accent);
+		border-color: rgba(35, 55, 255, 0.2);
+		background: rgba(35, 55, 255, 0.05);
+		filter: drop-shadow(0 0 10px rgba(35, 55, 255, 0.15));
+	}
+	.cyan-glow {
+		color: var(--accent-light);
+		border-color: rgba(0, 217, 255, 0.2);
+		background: rgba(0, 217, 255, 0.05);
+		filter: drop-shadow(0 0 10px rgba(0, 217, 255, 0.15));
+	}
+	.purple-glow {
+		color: #b137ff;
+		border-color: rgba(177, 55, 255, 0.2);
+		background: rgba(177, 55, 255, 0.05);
+		filter: drop-shadow(0 0 10px rgba(177, 55, 255, 0.15));
+	}
+	.green-glow {
+		color: var(--positive);
+		border-color: rgba(0, 255, 135, 0.2);
+		background: rgba(0, 255, 135, 0.05);
+		filter: drop-shadow(0 0 10px rgba(0, 255, 135, 0.15));
+	}
+
+	/* Articles Section Styles */
+	.articles-section {
+		max-width: 1200px;
+		margin: 0 auto 2rem auto;
+		padding: 0 1.5rem;
+	}
+	.articles-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 1.5rem;
+	}
+	.article-card {
+		position: relative;
+		overflow: hidden;
+		height: 100%;
+	}
+	.article-link {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		padding: 1.8rem;
+		text-decoration: none;
+	}
+	.article-glow-border {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 3px;
+		background: linear-gradient(90deg, var(--accent) 0%, var(--accent-light) 100%);
+		opacity: 0;
+		transition: opacity 0.3s ease;
+	}
+	.article-card:hover .article-glow-border {
+		opacity: 1;
+	}
+	.article-meta {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 1.25rem;
+	}
+	.badge-tech {
+		background: rgba(0, 217, 255, 0.1);
+		color: var(--accent-light);
+		border-color: rgba(0, 217, 255, 0.2);
+	}
+	.badge-company {
+		background: rgba(177, 55, 255, 0.1);
+		color: #c97dff;
+		border-color: rgba(177, 55, 255, 0.2);
+	}
+	.article-date {
+		font-size: 0.8rem;
+		color: var(--text-muted);
+	}
+	.article-title {
+		font-size: 1.25rem;
+		font-weight: 700;
+		margin-bottom: 0.75rem;
+		color: #ffffff;
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+		line-height: 1.4;
+	}
+	.article-description {
+		font-size: 0.9rem;
+		color: var(--text-secondary);
+		margin-bottom: 1.5rem;
+		display: -webkit-box;
+		-webkit-line-clamp: 3;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+		flex-grow: 1;
+	}
+	.read-more {
+		font-size: 0.85rem;
+		font-weight: 600;
+		color: var(--accent-light);
+		margin-top: auto;
+		transition: transform 0.2s ease;
+	}
+	.article-card:hover .read-more {
+		transform: translateX(4px);
+	}
+
+	/* Responsive tweaks */
+	@media (max-width: 1024px) {
+		.hero-title { font-size: 2.75rem; }
+		.stats-grid { grid-template-columns: repeat(2, 1fr); }
+		.categories-grid { grid-template-columns: repeat(3, 1fr); }
+		.articles-grid { grid-template-columns: repeat(2, 1fr); }
+	}
+
+	@media (max-width: 768px) {
+		.hero-content { grid-template-columns: 1fr; text-align: center; gap: 2rem; }
+		.hero-description { margin-left: auto; margin-right: auto; }
+		.hero-actions { justify-content: center; }
+		.categories-grid { grid-template-columns: repeat(2, 1fr); }
+		.articles-grid { grid-template-columns: 1fr; }
+		.hero-earth-img { max-width: 280px; }
+	}
+</style>

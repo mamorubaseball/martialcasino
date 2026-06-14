@@ -1,0 +1,554 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+import assetGrowth from '../assets/asset_growth.png';
+
+const posts = (await getCollection('blog'))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 6);
+
+// Helper to determine badge type and text
+const getPostTag = (title: string) => {
+  if (title.includes('決算')) {
+    return { text: '決算分析', class: 'badge-positive' };
+  } else if (title.includes('優待') || title.includes('配当')) {
+    return { text: '高配当・優待', class: 'badge-dividend' };
+  } else if (title.includes('NISA') || title.includes('初心者') || title.includes('資産')) {
+    return { text: '資産形成', class: 'badge-asset' };
+  } else {
+    return { text: '銘柄分析', class: 'badge-company' };
+  }
+};
+---
+
+<!doctype html>
+<html lang="ja">
+	<head>
+		<BaseHead title={`${SITE_TITLE} - 日本株・NISA・資産形成`} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		
+		<!-- Hero Section -->
+		<section class="hero-container fade-in">
+			<div class="hero-content">
+				<div class="hero-text-area">
+					<h1 class="hero-title">
+						賢く増やし、堅実に守る。<br/>
+						<span class="highlight">日本株と資産形成</span>を、<br/>丸っとわかりやすく。
+					</h1>
+					<p class="hero-description">
+						かぶまるは、個人投資家向けの日本株分析、新NISAの活用法、積立による堅実な資産形成を応援するメディアです。データと論理に基づいた分析を分かりやすくお届けします。
+					</p>
+					<div class="hero-actions">
+						<a href="#videos" class="btn btn-primary">
+							<svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+								<path d="M8 5v14l11-7z"/>
+							</svg>
+							最新動画を視聴する
+						</a>
+						<a href="/stock/5803" class="btn btn-outline">
+							<svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" width="18" height="18">
+								<circle cx="11" cy="11" r="8"></circle>
+								<line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+							</svg>
+							注目銘柄をチェック
+						</a>
+					</div>
+				</div>
+				<div class="hero-visual-area">
+					<Image src={assetGrowth} alt="Japanese asset growth illustration" class="hero-asset-img" />
+				</div>
+			</div>
+		</section>
+
+		<!-- Statistics Bar -->
+		<section class="stats-section fade-in">
+			<div class="stats-grid">
+				<div class="glass-card stat-card">
+					<div class="stat-icon-wrapper orange-bg">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" class="stat-icon">
+							<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+							<polyline points="14 2 14 8 20 8"></polyline>
+							<line x1="16" y1="13" x2="8" y2="13"></line>
+							<line x1="16" y1="17" x2="8" y2="17"></line>
+							<polyline points="10 9 9 9 8 9"></polyline>
+						</svg>
+					</div>
+					<div class="stat-info">
+						<span class="stat-value">480+ 本</span>
+						<span class="stat-label">本格的な日本株分析記事</span>
+					</div>
+				</div>
+				<div class="glass-card stat-card">
+					<div class="stat-icon-wrapper orange-bg">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" class="stat-icon">
+							<rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect>
+							<line x1="7" y1="2" x2="7" y2="22"></line>
+							<line x1="17" y1="2" x2="17" y2="22"></line>
+							<line x1="2" y1="12" x2="22" y2="12"></line>
+							<line x1="2" y1="7" x2="7" y2="7"></line>
+							<line x1="2" y1="17" x2="7" y2="17"></line>
+							<line x1="17" y1="17" x2="22" y2="17"></line>
+							<line x1="17" y1="7" x2="22" y2="7"></line>
+						</svg>
+					</div>
+					<div class="stat-info">
+						<span class="stat-value">250+ 本</span>
+						<span class="stat-label">YouTube連携動画数</span>
+					</div>
+				</div>
+				<div class="glass-card stat-card">
+					<div class="stat-icon-wrapper orange-bg">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" class="stat-icon">
+							<line x1="18" y1="20" x2="18" y2="10"></line>
+							<line x1="12" y1="20" x2="12" y2="4"></line>
+							<line x1="6" y1="20" x2="6" y2="14"></line>
+						</svg>
+					</div>
+					<div class="stat-info">
+						<span class="stat-value">150+ 社</span>
+						<span class="stat-label">日本株のディープ分析</span>
+					</div>
+				</div>
+				<div class="glass-card stat-card">
+					<div class="stat-icon-wrapper orange-bg">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" class="stat-icon">
+							<circle cx="12" cy="12" r="10"></circle>
+							<polyline points="12 6 12 12 16 14"></polyline>
+						</svg>
+					</div>
+					<div class="stat-info">
+						<span class="stat-value">毎日更新</span>
+						<span class="stat-label">最新トレンドを丸っとお届け</span>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Categories Section -->
+		<section id="categories" class="categories-section fade-in">
+			<div class="section-header">
+				<h2 class="section-title">注目のカテゴリー</h2>
+				<a href="/stock/5803" class="view-all-link">すべてのカテゴリーを見る &gt;</a>
+			</div>
+			<div class="categories-grid">
+				<div class="glass-card category-card">
+					<div class="category-icon-wrapper orange-theme">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" class="category-icon">
+							<circle cx="12" cy="12" r="10"></circle>
+							<line x1="12" y1="8" x2="12" y2="16"></line>
+							<line x1="8" y1="12" x2="16" y2="12"></line>
+						</svg>
+					</div>
+					<span class="category-name">高配当株</span>
+					<span class="category-count">80 銘柄</span>
+				</div>
+				<div class="glass-card category-card">
+					<div class="category-icon-wrapper red-theme">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" class="category-icon">
+							<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+						</svg>
+					</div>
+					<span class="category-name">新NISA</span>
+					<span class="category-count">50 銘柄</span>
+				</div>
+				<div class="glass-card category-card">
+					<div class="category-icon-wrapper orange-theme">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" class="category-icon">
+							<polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+							<polyline points="2 17 12 22 22 17"></polyline>
+							<polyline points="2 12 12 17 22 12"></polyline>
+						</svg>
+					</div>
+					<span class="category-name">日本株分析</span>
+					<span class="category-count">120 銘柄</span>
+				</div>
+				<div class="glass-card category-card">
+					<div class="category-icon-wrapper green-theme">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" class="category-icon">
+							<path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path>
+							<path d="M12 6v6l4 2"></path>
+						</svg>
+					</div>
+					<span class="category-name">資産形成</span>
+					<span class="category-count">30 記事</span>
+				</div>
+				<div class="glass-card category-card">
+					<div class="category-icon-wrapper blue-theme">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" class="category-icon">
+							<path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+							<path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+						</svg>
+					</div>
+					<span class="category-name">投資初心者</span>
+					<span class="category-count">45 記事</span>
+				</div>
+			</div>
+		</section>
+
+		<!-- Latest Articles Section -->
+		<section class="articles-section fade-in">
+			<div class="section-header">
+				<h2 class="section-title">最新の分析記事</h2>
+				<a href="/stock/5803" class="view-all-link">すべての記事を見る &gt;</a>
+			</div>
+			<div class="articles-grid">
+				{posts.map((post) => {
+				  const tag = getPostTag(post.data.title);
+				  return (
+					<article class="glass-card article-card">
+						<a href={`/blog/${post.id}/`} class="article-link">
+							<div class="article-top-line"></div>
+							<div class="article-meta">
+								<span class={`badge ${tag.class}`}>{tag.text}</span>
+								<time class="article-date">
+									{post.data.pubDate.toLocaleDateString('ja-JP', {
+										year: 'numeric',
+										month: '2-digit',
+										day: '2-digit',
+									})}
+								</time>
+							</div>
+							<h3 class="article-title">{post.data.title}</h3>
+							<p class="article-description">{post.data.description}</p>
+							<span class="read-more">記事を読む &rarr;</span>
+						</a>
+					</article>
+				  );
+				})}
+			</div>
+		</section>
+
+		<Footer />
+	</body>
+</html>
+
+<style>
+	/* Hero Section Styles */
+	.hero-container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 4.5rem 1.5rem 3rem 1.5rem;
+	}
+	.hero-content {
+		display: grid;
+		grid-template-columns: 1.25fr 0.75fr;
+		align-items: center;
+		gap: 3rem;
+	}
+	.hero-text-area {
+		display: flex;
+		flex-direction: column;
+	}
+	.hero-title {
+		font-size: 3.25rem;
+		font-weight: 800;
+		letter-spacing: -0.02em;
+		margin-bottom: 1.5rem;
+		line-height: 1.25;
+	}
+	.highlight {
+		color: var(--accent);
+		position: relative;
+	}
+	.highlight::after {
+		content: '';
+		position: absolute;
+		bottom: 4px;
+		left: 0;
+		width: 100%;
+		height: 8px;
+		background: rgba(255, 107, 0, 0.12);
+		z-index: -1;
+		border-radius: 4px;
+	}
+	.hero-description {
+		font-size: 1.1rem;
+		color: var(--text-secondary);
+		margin-bottom: 2.5rem;
+		max-width: 550px;
+		line-height: 1.65;
+	}
+	.hero-actions {
+		display: flex;
+		gap: 1.2rem;
+	}
+	.btn-icon {
+		margin-right: 0.5rem;
+	}
+	.hero-visual-area {
+		display: flex;
+		justify-content: center;
+		position: relative;
+	}
+	.hero-asset-img {
+		width: 100%;
+		max-width: 400px;
+		height: auto;
+		border-radius: 16px;
+		filter: drop-shadow(0 4px 25px rgba(0, 0, 0, 0.08));
+	}
+
+	/* Stats Bar Styles */
+	.stats-section {
+		max-width: 1200px;
+		margin: 0 auto 4.5rem auto;
+		padding: 0 1.5rem;
+	}
+	.stats-grid {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 1.5rem;
+	}
+	.stat-card {
+		display: flex;
+		align-items: center;
+		gap: 1.25rem;
+		padding: 1.4rem 1.5rem;
+	}
+	.stat-icon-wrapper {
+		border-radius: 12px;
+		width: 44px;
+		height: 44px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.stat-icon-wrapper.orange-bg {
+		background: rgba(255, 107, 0, 0.08);
+		border: 1px solid rgba(255, 107, 0, 0.15);
+		color: var(--accent);
+	}
+	.stat-icon {
+		width: 22px;
+		height: 22px;
+	}
+	.stat-info {
+		display: flex;
+		flex-direction: column;
+		gap: 0.1rem;
+	}
+	.stat-value {
+		font-family: var(--font-display);
+		font-size: 1.5rem;
+		font-weight: 700;
+		color: var(--text-primary);
+		line-height: 1.2;
+	}
+	.stat-label {
+		font-size: 0.75rem;
+		color: var(--text-secondary);
+	}
+
+	/* Category Styles */
+	.categories-section {
+		max-width: 1200px;
+		margin: 0 auto 5.5rem auto;
+		padding: 0 1.5rem;
+	}
+	.section-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-end;
+		margin-bottom: 2rem;
+	}
+	.section-title {
+		font-size: 1.75rem;
+		font-weight: 700;
+		position: relative;
+		padding-left: 0.9rem;
+	}
+	.section-title::before {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 15%;
+		height: 70%;
+		width: 4px;
+		background: linear-gradient(to bottom, var(--accent), #ff9500);
+		border-radius: 2px;
+	}
+	.view-all-link {
+		font-size: 0.9rem;
+		font-weight: 600;
+		color: var(--text-secondary);
+	}
+	.view-all-link:hover {
+		color: var(--accent);
+	}
+	.categories-grid {
+		display: grid;
+		grid-template-columns: repeat(5, 1fr);
+		gap: 1.25rem;
+	}
+	.category-card {
+		padding: 1.6rem;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		cursor: pointer;
+	}
+	.category-icon-wrapper {
+		width: 48px;
+		height: 48px;
+		border-radius: 12px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-bottom: 1rem;
+		border: 1px solid rgba(0, 0, 0, 0.05);
+	}
+	.category-icon {
+		width: 22px;
+		height: 22px;
+	}
+	.category-name {
+		font-size: 0.95rem;
+		font-weight: 700;
+		margin-bottom: 0.2rem;
+		color: var(--text-primary);
+	}
+	.category-count {
+		font-size: 0.75rem;
+		color: var(--text-secondary);
+	}
+
+	/* Color variations for category cards in light mode */
+	.orange-theme {
+		color: var(--accent);
+		background: rgba(255, 107, 0, 0.05);
+		border-color: rgba(255, 107, 0, 0.1);
+	}
+	.red-theme {
+		color: var(--positive);
+		background: rgba(239, 68, 68, 0.05);
+		border-color: rgba(239, 68, 68, 0.1);
+	}
+	.green-theme {
+		color: #10b981;
+		background: rgba(16, 185, 129, 0.05);
+		border-color: rgba(16, 185, 129, 0.1);
+	}
+	.blue-theme {
+		color: var(--negative);
+		background: rgba(37, 99, 235, 0.05);
+		border-color: rgba(37, 99, 235, 0.1);
+	}
+
+	/* Articles Section Styles */
+	.articles-section {
+		max-width: 1200px;
+		margin: 0 auto 2rem auto;
+		padding: 0 1.5rem;
+	}
+	.articles-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 1.5rem;
+	}
+	.article-card {
+		position: relative;
+		overflow: hidden;
+		height: 100%;
+	}
+	.article-link {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		padding: 1.8rem;
+		text-decoration: none;
+	}
+	.article-top-line {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 4px;
+		background: linear-gradient(90deg, var(--accent) 0%, #ff9500 100%);
+		opacity: 0;
+		transition: opacity 0.3s ease;
+	}
+	.article-card:hover .article-top-line {
+		opacity: 1;
+	}
+	.article-meta {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 1.2rem;
+	}
+	.badge-dividend {
+		background: rgba(255, 107, 0, 0.08);
+		color: var(--accent);
+		border-color: rgba(255, 107, 0, 0.15);
+	}
+	.badge-asset {
+		background: rgba(16, 185, 129, 0.08);
+		color: #10b981;
+		border-color: rgba(16, 185, 129, 0.15);
+	}
+	.badge-company {
+		background: rgba(37, 99, 235, 0.08);
+		color: var(--negative);
+		border-color: rgba(37, 99, 235, 0.15);
+	}
+	.article-date {
+		font-size: 0.8rem;
+		color: var(--text-secondary);
+	}
+	.article-title {
+		font-size: 1.2rem;
+		font-weight: 700;
+		margin-bottom: 0.8rem;
+		color: var(--text-primary);
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+		line-height: 1.45;
+	}
+	.article-description {
+		font-size: 0.88rem;
+		color: var(--text-secondary);
+		margin-bottom: 1.5rem;
+		display: -webkit-box;
+		-webkit-line-clamp: 3;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+		flex-grow: 1;
+		line-height: 1.6;
+	}
+	.read-more {
+		font-size: 0.85rem;
+		font-weight: 700;
+		color: var(--accent);
+		margin-top: auto;
+		transition: transform 0.2s ease;
+	}
+	.article-card:hover .read-more {
+		transform: translateX(4px);
+	}
+
+	/* Responsive tweaks */
+	@media (max-width: 1024px) {
+		.hero-title { font-size: 2.75rem; }
+		.stats-grid { grid-template-columns: repeat(2, 1fr); }
+		.categories-grid { grid-template-columns: repeat(3, 1fr); }
+		.articles-grid { grid-template-columns: repeat(2, 1fr); }
+	}
+
+	@media (max-width: 768px) {
+		.hero-content { grid-template-columns: 1fr; text-align: center; gap: 2rem; }
+		.hero-description { margin-left: auto; margin-right: auto; }
+		.hero-actions { justify-content: center; }
+		.categories-grid { grid-template-columns: repeat(2, 1fr); }
+		.articles-grid { grid-template-columns: 1fr; }
+		.hero-asset-img { max-width: 280px; }
+	}
+</style>

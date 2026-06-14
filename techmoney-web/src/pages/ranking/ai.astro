@@ -1,0 +1,438 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
+
+const rankingTitle = "AIが選ぶ注目銘柄ランキング";
+---
+
+<!doctype html>
+<html lang="ja">
+	<head>
+		<BaseHead title={`${rankingTitle} - ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		
+		<main class="ranking-main fade-in">
+			<!-- Breadcrumb -->
+			<div class="breadcrumb">
+				<a href="/">トップ</a> &gt; <span class="current">ランキング</span>
+			</div>
+
+			<div class="ranking-layout">
+				<!-- Sidebar -->
+				<aside class="ranking-sidebar">
+					<div class="glass-card sidebar-card">
+						<h2 class="sidebar-title">ランキング</h2>
+						<div class="sidebar-links">
+							<a href="/ranking/ai" class="sidebar-link active">AI注目銘柄ランキング</a>
+							<a href="#growth" class="sidebar-link">成長率ランキング</a>
+							<a href="#mcap" class="sidebar-link">時価総額ランキング</a>
+							<a href="#dividend" class="sidebar-link">配当利回りランキング</a>
+							<a href="#popular" class="sidebar-link">人気急上昇ランキング</a>
+							<a href="#drop" class="sidebar-link">下落リスクランキング</a>
+						</div>
+					</div>
+
+					<div class="glass-card sidebar-info-card">
+						<h3>ランキングの見方</h3>
+						<p>AIスコアは100点満点で評価され、毎日更新されます。</p>
+						<a href="#criteria" class="info-link">評価基準を見る &rarr;</a>
+					</div>
+				</aside>
+
+				<!-- Main Content Area -->
+				<section class="ranking-content">
+					<div class="glass-card content-card">
+						<h1 class="main-title">{rankingTitle} <span class="info-icon" title="評価方法について">ⓘ</span></h1>
+						<p class="main-desc">独自のAIモデルが、成長性・収益性・モメンタムなどを総合的に分析してスコアリング</p>
+
+						<div class="table-container">
+							<table class="ranking-table">
+								<thead>
+									<tr>
+										<th class="col-rank">順位</th>
+										<th class="col-stock">銘柄</th>
+										<th class="col-score">AIスコア</th>
+										<th class="col-change">前日比</th>
+										<th class="col-trend">トレンド</th>
+										<th class="col-point">注目ポイント</th>
+									</tr>
+								</thead>
+								<tbody>
+									<!-- Row 1: NVIDIA -->
+									<tr>
+										<td class="col-rank"><span class="rank-badge rank-1">1</span></td>
+										<td class="col-stock">
+											<a href="/stock/nvda" class="stock-info-link">
+												<div class="stock-meta">
+													<span class="stock-name">NVIDIA</span>
+													<span class="stock-ticker">NVDA</span>
+												</div>
+											</a>
+										</td>
+										<td class="col-score"><span class="score-val">92.5</span></td>
+										<td class="col-change"><span class="change-val positive">+2.3</span></td>
+										<td class="col-trend">
+											<svg class="trend-sparkline" viewBox="0 0 100 30">
+												<path d="M0 25 L20 20 L40 22 L60 12 L80 15 L100 5" fill="none" stroke="var(--positive)" stroke-width="2" stroke-linecap="round"/>
+											</svg>
+										</td>
+										<td class="col-point">AIの急速な拡大によりデータセンター事業が好調。</td>
+									</tr>
+
+									<!-- Row 2: Palantir -->
+									<tr>
+										<td class="col-rank"><span class="rank-badge rank-2">2</span></td>
+										<td class="col-stock">
+											<a href="/stock/nvda" class="stock-info-link">
+												<div class="stock-meta">
+													<span class="stock-name">Palantir</span>
+													<span class="stock-ticker">PLTR</span>
+												</div>
+											</a>
+										</td>
+										<td class="col-score"><span class="score-val">87.4</span></td>
+										<td class="col-change"><span class="change-val positive">+1.8</span></td>
+										<td class="col-trend">
+											<svg class="trend-sparkline" viewBox="0 0 100 30">
+												<path d="M0 28 L20 26 L40 15 L60 18 L80 10 L100 8" fill="none" stroke="var(--positive)" stroke-width="2" stroke-linecap="round"/>
+											</svg>
+										</td>
+										<td class="col-point">AIプラットフォーム「AIP」需要の急拡大が継続。</td>
+									</tr>
+
+									<!-- Row 3: Broadcom -->
+									<tr>
+										<td class="col-rank"><span class="rank-badge rank-3">3</span></td>
+										<td class="col-stock">
+											<a href="/stock/nvda" class="stock-info-link">
+												<div class="stock-meta">
+													<span class="stock-name">Broadcom</span>
+													<span class="stock-ticker">AVGO</span>
+												</div>
+											</a>
+										</td>
+										<td class="col-score"><span class="score-val">84.1</span></td>
+										<td class="col-change"><span class="change-val negative">-0.5</span></td>
+										<td class="col-trend">
+											<svg class="trend-sparkline" viewBox="0 0 100 30">
+												<path d="M0 8 L20 10 L40 18 L60 15 L80 22 L100 24" fill="none" stroke="var(--negative)" stroke-width="2" stroke-linecap="round"/>
+											</svg>
+										</td>
+										<td class="col-point">カスタムAIチップやネットワーク機器が高水準を維持。</td>
+									</tr>
+
+									<!-- Row 4: Tesla -->
+									<tr>
+										<td class="col-rank"><span class="rank-badge">4</span></td>
+										<td class="col-stock">
+											<a href="/stock/nvda" class="stock-info-link">
+												<div class="stock-meta">
+													<span class="stock-name">Tesla</span>
+													<span class="stock-ticker">TSLA</span>
+												</div>
+											</a>
+										</td>
+										<td class="col-score"><span class="score-val">81.6</span></td>
+										<td class="col-change"><span class="change-val positive">+0.7</span></td>
+										<td class="col-trend">
+											<svg class="trend-sparkline" viewBox="0 0 100 30">
+												<path d="M0 25 L20 22 L40 12 L60 20 L80 16 L100 12" fill="none" stroke="var(--positive)" stroke-width="2" stroke-linecap="round"/>
+											</svg>
+										</td>
+										<td class="col-point">FSD (自動運転ソフト) の進化と定置型蓄電池の拡大。</td>
+									</tr>
+
+									<!-- Row 5: Microsoft -->
+									<tr>
+										<td class="col-rank"><span class="rank-badge">5</span></td>
+										<td class="col-stock">
+											<a href="/stock/nvda" class="stock-info-link">
+												<div class="stock-meta">
+													<span class="stock-name">Microsoft</span>
+													<span class="stock-ticker">MSFT</span>
+												</div>
+											</a>
+										</td>
+										<td class="col-score"><span class="score-val">79.8</span></td>
+										<td class="col-change"><span class="change-val positive">+0.9</span></td>
+										<td class="col-trend">
+											<svg class="trend-sparkline" viewBox="0 0 100 30">
+												<path d="M0 20 L20 18 L40 22 L60 16 L80 12 L100 10" fill="none" stroke="var(--positive)" stroke-width="2" stroke-linecap="round"/>
+											</svg>
+										</td>
+										<td class="col-point">AzureクラウドにおけるAI寄与率が着実に増加。</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+						<div class="content-footer">
+							<a href="#more" class="more-link">ランキングをもっと見る &gt;</a>
+						</div>
+					</div>
+				</section>
+			</div>
+		</main>
+
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.ranking-main {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 2rem 1.5rem;
+	}
+	.breadcrumb {
+		font-size: 0.85rem;
+		color: var(--text-secondary);
+		margin-bottom: 2rem;
+	}
+	.breadcrumb a {
+		color: var(--text-secondary);
+	}
+	.breadcrumb a:hover {
+		color: var(--accent-light);
+	}
+	.breadcrumb .current {
+		color: var(--text-muted);
+	}
+	
+	.ranking-layout {
+		display: grid;
+		grid-template-columns: 280px 1fr;
+		gap: 2rem;
+		align-items: start;
+	}
+
+	/* Sidebar Styles */
+	.ranking-sidebar {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+	.sidebar-card {
+		padding: 1.5rem;
+	}
+	.sidebar-title {
+		font-size: 1.15rem;
+		font-weight: 700;
+		margin-bottom: 1.25rem;
+		padding-bottom: 0.75rem;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+	}
+	.sidebar-links {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+	.sidebar-link {
+		font-size: 0.9rem;
+		padding: 0.75rem 1rem;
+		border-radius: 8px;
+		color: var(--text-secondary);
+		transition: all 0.2s ease;
+	}
+	.sidebar-link:hover {
+		background: rgba(255, 255, 255, 0.03);
+		color: #ffffff;
+	}
+	.sidebar-link.active {
+		background: var(--accent);
+		color: #ffffff;
+		font-weight: 600;
+		box-shadow: 0 0 15px var(--accent-glow);
+	}
+	.sidebar-info-card {
+		padding: 1.5rem;
+	}
+	.sidebar-info-card h3 {
+		font-size: 0.95rem;
+		font-weight: 600;
+		margin-bottom: 0.75rem;
+	}
+	.sidebar-info-card p {
+		font-size: 0.8rem;
+		color: var(--text-secondary);
+		margin-bottom: 1.25rem;
+		line-height: 1.5;
+	}
+	.info-link {
+		font-size: 0.85rem;
+		font-weight: 600;
+		color: var(--accent-light);
+	}
+
+	/* Content Area Styles */
+	.ranking-content {
+		min-width: 0; /* Prevents overflow in flex/grid items */
+	}
+	.content-card {
+		padding: 2.2rem;
+	}
+	.main-title {
+		font-size: 1.8rem;
+		font-weight: 800;
+		margin-bottom: 0.5rem;
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+	}
+	.info-icon {
+		font-size: 1.1rem;
+		color: var(--text-muted);
+		cursor: help;
+	}
+	.main-desc {
+		font-size: 0.95rem;
+		color: var(--text-secondary);
+		margin-bottom: 2.5rem;
+	}
+
+	/* Table Styles */
+	.table-container {
+		overflow-x: auto;
+	}
+	.ranking-table {
+		width: 100%;
+		border-collapse: collapse;
+		text-align: left;
+		font-size: 0.95rem;
+	}
+	.ranking-table th, 
+	.ranking-table td {
+		padding: 1.2rem 1rem;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+		vertical-align: middle;
+	}
+	.ranking-table th {
+		font-weight: 600;
+		color: var(--text-secondary);
+		font-size: 0.85rem;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		padding-bottom: 1rem;
+	}
+	.col-rank { width: 8%; text-align: center; }
+	.col-stock { width: 22%; }
+	.col-score { width: 15%; text-align: center; }
+	.col-change { width: 12%; text-align: center; }
+	.col-trend { width: 15%; text-align: center; }
+	.col-point { width: 28%; }
+
+	/* Row Styling */
+	.rank-badge {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 24px;
+		height: 24px;
+		border-radius: 50%;
+		font-size: 0.8rem;
+		font-weight: 700;
+		background: rgba(255, 255, 255, 0.05);
+		color: var(--text-secondary);
+	}
+	.rank-1 {
+		background: linear-gradient(135deg, #ffd700 0%, #ff8c00 100%);
+		color: #000000;
+		box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+	}
+	.rank-2 {
+		background: linear-gradient(135deg, #c0c0c0 0%, #a9a9a9 100%);
+		color: #000000;
+	}
+	.rank-3 {
+		background: linear-gradient(135deg, #cd7f32 0%, #8b4513 100%);
+		color: #ffffff;
+	}
+
+	.stock-info-link {
+		text-decoration: none;
+		display: block;
+	}
+	.stock-meta {
+		display: flex;
+		flex-direction: column;
+	}
+	.stock-name {
+		font-weight: 600;
+		color: #ffffff;
+	}
+	.stock-ticker {
+		font-size: 0.75rem;
+		color: var(--text-secondary);
+		margin-top: 0.1rem;
+	}
+	.score-val {
+		font-family: var(--font-display);
+		font-size: 1.15rem;
+		font-weight: 700;
+		color: #ffffff;
+	}
+	.change-val {
+		font-family: var(--font-display);
+		font-weight: 600;
+	}
+	.change-val.positive {
+		color: var(--positive);
+	}
+	.change-val.negative {
+		color: var(--negative);
+	}
+	.trend-sparkline {
+		width: 70px;
+		height: 22px;
+		display: inline-block;
+		overflow: visible;
+	}
+	.col-point {
+		font-size: 0.85rem;
+		color: var(--text-secondary);
+		line-height: 1.4;
+	}
+
+	.content-footer {
+		margin-top: 2rem;
+		text-align: center;
+	}
+	.more-link {
+		font-size: 0.9rem;
+		color: var(--text-secondary);
+		font-weight: 500;
+	}
+	.more-link:hover {
+		color: var(--accent-light);
+	}
+
+	/* Responsive layout */
+	@media (max-width: 968px) {
+		.ranking-layout {
+			grid-template-columns: 1fr;
+		}
+		.ranking-sidebar {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 1.5rem;
+		}
+	}
+	@media (max-width: 640px) {
+		.ranking-sidebar {
+			grid-template-columns: 1fr;
+		}
+		.content-card {
+			padding: 1.25rem;
+		}
+		.ranking-table th, .ranking-table td {
+			padding: 0.8rem 0.5rem;
+		}
+		.col-trend, .col-point {
+			display: none; /* Hide non-essential columns on small screens */
+		}
+	}
+</style>

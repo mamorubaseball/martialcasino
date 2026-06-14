@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+:root {
+  /* Colors */
+  --bg-color: #07090e;
+  --bg-card: rgba(13, 17, 28, 0.65);
+  --bg-card-hover: rgba(20, 26, 42, 0.85);
+  --accent: #2337ff;
+  --accent-light: #00d9ff;
+  --accent-glow: rgba(35, 55, 255, 0.4);
+  --text-primary: #f3f4f6;
+  --text-secondary: #9ca3af;
+  --text-muted: #6b7280;
+  
+  --positive: #00ff87;
+  --positive-glow: rgba(0, 255, 135, 0.2);
+  --negative: #ff3b30;
+  --negative-glow: rgba(255, 59, 48, 0.2);
+
+  /* Fonts */
+  --font-display: 'Outfit', 'Inter', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  /* Shadows */
+  --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  --border-glass: 1px solid rgba(255, 255, 255, 0.05);
+  --border-active: 1px solid rgba(35, 55, 255, 0.5);
+}
+
+/* Base resets & styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-color);
+  background-image: 
+    radial-gradient(circle at 50% -20%, rgba(35, 55, 255, 0.15) 0%, transparent 60%),
+    radial-gradient(circle at 10% 40%, rgba(0, 217, 255, 0.04) 0%, transparent 40%),
+    radial-gradient(circle at 90% 70%, rgba(35, 55, 255, 0.04) 0%, transparent 40%);
+  background-attachment: fixed;
+  color: var(--text-primary);
+  min-height: 100vh;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+a {
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+a:hover {
+  color: var(--accent-light);
+}
+
+/* Glassmorphism card utilities */
+.glass-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px) saturate(120%);
+  -webkit-backdrop-filter: blur(16px) saturate(120%);
+  border: var(--border-glass);
+  border-radius: 12px;
+  box-shadow: var(--shadow-glass);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  background: var(--bg-card-hover);
+  border-color: rgba(35, 55, 255, 0.3);
+  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.45), 0 0 20px rgba(35, 55, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(7, 9, 14, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-glow);
+}
+
+/* Layout container */
+main {
+  width: 1200px;
+  max-width: calc(100% - 2rem);
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 500;
+  font-family: var(--font-display);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #ffffff;
+  box-shadow: 0 0 15px var(--accent-glow);
+}
+
+.btn-primary:hover {
+  background: #3a4eff;
+  box-shadow: 0 0 25px rgba(35, 55, 255, 0.6);
+  transform: scale(1.02);
+  color: #ffffff;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--text-primary);
+}
+
+.btn-outline:hover {
+  border-color: var(--accent-light);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 15px rgba(0, 217, 255, 0.1);
+  color: var(--text-primary);
+}
+
+/* Badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  color: var(--text-secondary);
+}
+
+.badge-positive {
+  background: rgba(0, 255, 135, 0.1);
+  color: var(--positive);
+  border-color: rgba(0, 255, 135, 0.2);
+}
+
+.badge-negative {
+  background: rgba(255, 59, 48, 0.1);
+  color: var(--negative);
+  border-color: rgba(255, 59, 48, 0.2);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
