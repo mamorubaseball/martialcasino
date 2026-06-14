@@ -10,10 +10,15 @@ const blog = defineCollection({
 		z.object({
 			title: z.string(),
 			description: z.string(),
+			category: z.string().optional(),
 			// Transform string to Date object
 			pubDate: z.coerce.date(),
 			updatedDate: z.coerce.date().optional(),
-			heroImage: z.optional(image()),
+			heroImage: z.optional(image()), // Thumbnail Image
+			ogImage: z.optional(image()), // SNS/OGP Image
+			status: z.enum(['published', 'private', 'draft']).optional().default('published'),
+			seoTitle: z.string().optional(),
+			seoDescription: z.string().optional(),
 			customLayout: z.boolean().optional(),
 		}),
 });

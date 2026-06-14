@@ -7,9 +7,11 @@ import { getCollection } from 'astro:content';
 import { Image } from 'astro:assets';
 import earthGlow from '../assets/earth_glow.png';
 
-const posts = (await getCollection('blog'))
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 6);
+const allPublishedPosts = (await getCollection('blog'))
+  .filter(post => post.data.status === 'published')
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const posts = allPublishedPosts.slice(0, 6);
 
 // Helper to determine badge type and text
 const getPostTag = (title: string) => {
@@ -21,6 +23,16 @@ const getPostTag = (title: string) => {
     return { text: '企業分析', class: 'badge-company' };
   }
 };
+
+const searchIndex = allPublishedPosts.map(post => ({
+  id: post.id,
+  title: post.data.title,
+  description: post.data.description,
+  pubDate: post.data.pubDate.toLocaleDateString('ja-JP', { year: 'numeric', month: '2-digit', day: '2-digit' }),
+  category: post.data.category || '',
+  tagText: getPostTag(post.data.title).text,
+  tagClass: getPostTag(post.data.title).class,
+}));
 ---
 
 <!doctype html>
@@ -36,8 +48,8 @@ const getPostTag = (title: string) => {
 			<div class="hero-content">
 				<div class="hero-text-area">
 					<h1 class="hero-title">
-						データで深く、<br/>
-						未来を先取る。<span class="highlight">米国株投資</span>の新しいカタチ。
+						データで深く、未来を先取る。<br/>
+						<span class="highlight">米国株投資</span>の新しいカタチ。
 					</h1>
 					<p class="hero-description">
 						{SITE_TITLE}は、テクノロジーとデータを軸にした米国株分析メディアです。最新テクノロジーがもたらす投資機会を、質の高い企業分析と共をお届けします。
@@ -49,13 +61,13 @@ const getPostTag = (title: string) => {
 							</svg>
 							最新動画を視聴する
 						</a>
-						<a href="/stock/nvda" class="btn btn-outline">
+						<button id="search-btn" class="btn btn-outline">
 							<svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
 								<circle cx="11" cy="11" r="8"></circle>
 								<line x1="21" y1="21" x2="16.65" y2="16.65"></line>
 							</svg>
-							銘柄を探す
-						</a>
+							記事を探す
+						</button>
 					</div>
 				</div>
 				<div class="hero-visual-area">
@@ -132,10 +144,10 @@ const getPostTag = (title: string) => {
 		<section id="categories" class="categories-section fade-in">
 			<div class="section-header">
 				<h2 class="section-title">注目のカテゴリー</h2>
-				<a href="/stock/nvda" class="view-all-link">すべてのカテゴリーを見る &gt;</a>
+				<a href="/blog/" class="view-all-link">すべてのカテゴリーを見る &gt;</a>
 			</div>
 			<div class="categories-grid">
-				<div class="glass-card category-card">
+				<a href="/blog/category/ai-semiconductor/" class="glass-card category-card">
 					<div class="category-icon-wrapper cyan-glow">
 						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="category-icon">
 							<rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
@@ -146,8 +158,8 @@ const getPostTag = (title: string) => {
 					</div>
 					<span class="category-name">AI・半導体</span>
 					<span class="category-count">95 銘柄</span>
-				</div>
-				<div class="glass-card category-card">
+				</a>
+				<a href="/blog/category/tech/" class="glass-card category-card">
 					<div class="category-icon-wrapper blue-glow">
 						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="category-icon">
 							<polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
@@ -157,8 +169,8 @@ const getPostTag = (title: string) => {
 					</div>
 					<span class="category-name">テック企業</span>
 					<span class="category-count">78 銘柄</span>
-				</div>
-				<div class="glass-card category-card">
+				</a>
+				<a href="/blog/category/cloud/" class="glass-card category-card">
 					<div class="category-icon-wrapper cyan-glow">
 						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="category-icon">
 							<path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
@@ -166,8 +178,8 @@ const getPostTag = (title: string) => {
 					</div>
 					<span class="category-name">クラウド</span>
 					<span class="category-count">42 銘柄</span>
-				</div>
-				<div class="glass-card category-card">
+				</a>
+				<a href="/blog/category/space-defense/" class="glass-card category-card">
 					<div class="category-icon-wrapper purple-glow">
 						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="category-icon">
 							<path d="M12 2L2 22h20L12 2z"></path>
@@ -175,8 +187,8 @@ const getPostTag = (title: string) => {
 					</div>
 					<span class="category-name">宇宙・防衛</span>
 					<span class="category-count">28 銘柄</span>
-				</div>
-				<div class="glass-card category-card">
+				</a>
+				<a href="/blog/category/ev-autonomous/" class="glass-card category-card">
 					<div class="category-icon-wrapper green-glow">
 						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="category-icon">
 							<rect x="1" y="3" width="15" height="13" rx="2" ry="2"></rect>
@@ -187,7 +199,7 @@ const getPostTag = (title: string) => {
 					</div>
 					<span class="category-name">EV・自動運転</span>
 					<span class="category-count">35 銘柄</span>
-				</div>
+				</a>
 			</div>
 		</section>
 
@@ -195,7 +207,7 @@ const getPostTag = (title: string) => {
 		<section class="articles-section fade-in">
 			<div class="section-header">
 				<h2 class="section-title">最新の分析記事</h2>
-				<a href="/stock/nvda" class="view-all-link">すべての記事を見る &gt;</a>
+				<a href="/blog/" class="view-all-link">すべての記事を見る &gt;</a>
 			</div>
 			<div class="articles-grid">
 				{posts.map((post) => {
@@ -225,6 +237,136 @@ const getPostTag = (title: string) => {
 		</section>
 
 		<Footer />
+
+		<!-- Search Modal -->
+		<div id="search-modal" class="search-modal-overlay">
+			<div class="search-modal-container glass-card">
+				<div class="search-modal-header">
+					<div class="search-input-wrapper">
+						<svg class="search-icon-inside" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+							<circle cx="11" cy="11" r="8"></circle>
+							<line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+						</svg>
+						<input type="text" id="search-input" placeholder="キーワードを入力して記事を検索..." autocomplete="off" />
+					</div>
+					<button id="close-search-btn" class="close-btn" aria-label="Close search">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24">
+							<line x1="18" y1="6" x2="6" y2="18"></line>
+							<line x1="6" y1="6" x2="18" y2="18"></line>
+						</svg>
+					</button>
+				</div>
+				<div class="search-modal-body">
+					<!-- Suggestions -->
+					<div id="search-suggestions" class="search-suggestions">
+						<span class="suggestion-label">おすすめキーワード:</span>
+						<div class="suggestion-tags">
+							<button class="suggestion-tag">AI</button>
+							<button class="suggestion-tag">半導体</button>
+							<button class="suggestion-tag">エヌビディア</button>
+							<button class="suggestion-tag">テスラ</button>
+							<button class="suggestion-tag">決算</button>
+							<button class="suggestion-tag">宇宙</button>
+						</div>
+					</div>
+					<!-- Results List -->
+					<div id="search-results" class="search-results-list">
+						<!-- Dynamically populated -->
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Client script for Search Modal -->
+		<script is:inline define:vars={{ searchIndex }}>
+			window.ARTICLE_SEARCH_INDEX = searchIndex;
+		</script>
+		<script>
+			const modal = document.getElementById('search-modal');
+			const searchBtn = document.getElementById('search-btn');
+			const closeBtn = document.getElementById('close-search-btn');
+			const searchInput = document.getElementById('search-input') as HTMLInputElement;
+			const searchResults = document.getElementById('search-results');
+			const suggestionTags = document.querySelectorAll('.suggestion-tag');
+
+			const posts = (window as any).ARTICLE_SEARCH_INDEX || [];
+
+			const openSearch = () => {
+				modal?.classList.add('active');
+				document.body.style.overflow = 'hidden';
+				setTimeout(() => searchInput?.focus(), 100);
+				renderResults('');
+			};
+
+			const closeSearch = () => {
+				modal?.classList.remove('active');
+				document.body.style.overflow = '';
+				if (searchInput) searchInput.value = '';
+			};
+
+			modal?.addEventListener('click', (e) => {
+				if (e.target === modal) {
+					closeSearch();
+				}
+			});
+
+			searchBtn?.addEventListener('click', openSearch);
+			closeBtn?.addEventListener('click', closeSearch);
+
+			document.addEventListener('keydown', (e) => {
+				if (e.key === 'Escape') {
+					closeSearch();
+				}
+				if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+					e.preventDefault();
+					openSearch();
+				}
+			});
+
+			const renderResults = (query: string) => {
+				if (!searchResults) return;
+				
+				const q = query.trim().toLowerCase();
+				
+				const filtered = posts.filter((post: any) => {
+					return (
+						post.title.toLowerCase().includes(q) ||
+						post.description.toLowerCase().includes(q) ||
+						post.category.toLowerCase().includes(q)
+					);
+				});
+
+				if (filtered.length === 0) {
+					searchResults.innerHTML = '<div class="no-results-msg">該当する記事が見つかりません。</div>';
+					return;
+				}
+
+				searchResults.innerHTML = filtered.map((post: any) => `
+					<a href="/blog/${post.id}/" class="search-result-item">
+						<div class="result-left">
+							<span class="badge ${post.tagClass} result-badge">${post.tagText}</span>
+							<span class="result-title">${post.title}</span>
+						</div>
+						<time class="result-date">${post.pubDate}</time>
+					</a>
+				`).join('');
+			};
+
+			searchInput?.addEventListener('input', (e) => {
+				const val = (e.target as HTMLInputElement).value;
+				renderResults(val);
+			});
+
+			suggestionTags.forEach(tag => {
+				tag.addEventListener('click', () => {
+					const val = tag.textContent || '';
+					if (searchInput) {
+						searchInput.value = val;
+						renderResults(val);
+					}
+				});
+			});
+		</script>
 	</body>
 </html>
 
@@ -382,6 +524,11 @@ const getPostTag = (title: string) => {
 		align-items: center;
 		text-align: center;
 		cursor: pointer;
+		text-decoration: none;
+		color: var(--text-primary);
+	}
+	.category-card:hover {
+		color: var(--text-primary);
 	}
 	.category-icon-wrapper {
 		width: 48px;
@@ -521,7 +668,6 @@ const getPostTag = (title: string) => {
 	.article-card:hover .read-more {
 		transform: translateX(4px);
 	}
-
 	/* Responsive tweaks */
 	@media (max-width: 1024px) {
 		.hero-title { font-size: 2.75rem; }
@@ -537,5 +683,201 @@ const getPostTag = (title: string) => {
 		.categories-grid { grid-template-columns: repeat(2, 1fr); }
 		.articles-grid { grid-template-columns: 1fr; }
 		.hero-earth-img { max-width: 280px; }
+	}
+</style>
+
+<style is:global>
+	/* Search Modal Styles (Global) */
+	.search-modal-overlay {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(4, 5, 8, 0.85);
+		backdrop-filter: blur(20px);
+		-webkit-backdrop-filter: blur(20px);
+		z-index: 1000;
+		display: flex;
+		align-items: flex-start;
+		justify-content: center;
+		padding: 10vh 2rem 2rem 2rem;
+		opacity: 0;
+		pointer-events: none;
+		transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+	}
+	.search-modal-overlay.active {
+		opacity: 1;
+		pointer-events: auto;
+	}
+	.search-modal-container {
+		width: 100%;
+		max-width: 640px;
+		background: rgba(13, 17, 28, 0.95) !important;
+		border: 1px solid rgba(255, 255, 255, 0.08) !important;
+		border-radius: 16px;
+		box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), 0 0 50px rgba(35, 55, 255, 0.1) !important;
+		display: flex;
+		flex-direction: column;
+		max-height: 70vh;
+		transform: translateY(-20px);
+		transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+		overflow: hidden;
+	}
+	.search-modal-overlay.active .search-modal-container {
+		transform: translateY(0);
+	}
+	.search-modal-header {
+		display: flex;
+		align-items: center;
+		padding: 1.25rem 1.5rem;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+		gap: 1rem;
+	}
+	.search-input-wrapper {
+		display: flex;
+		align-items: center;
+		flex-grow: 1;
+		position: relative;
+	}
+	.search-icon-inside {
+		position: absolute;
+		left: 1rem;
+		color: var(--accent-light);
+		opacity: 0.8;
+	}
+	#search-input {
+		width: 100%;
+		padding: 0.85rem 1rem 0.85rem 2.85rem;
+		font-size: 1.1rem;
+		font-family: var(--font-body);
+		background: rgba(255, 255, 255, 0.03);
+		border: 1px solid rgba(255, 255, 255, 0.08);
+		border-radius: 8px;
+		color: #ffffff;
+		outline: none;
+		transition: all 0.2s ease;
+	}
+	#search-input:focus {
+		border-color: var(--accent-light);
+		background: rgba(255, 255, 255, 0.05);
+		box-shadow: 0 0 15px rgba(0, 217, 255, 0.15);
+	}
+	.close-btn {
+		background: transparent;
+		border: none;
+		color: var(--text-secondary);
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 38px;
+		height: 38px;
+		border-radius: 8px;
+		border: 1px solid rgba(255, 255, 255, 0.06);
+		transition: all 0.2s ease;
+	}
+	.close-btn:hover {
+		color: #ffffff;
+		border-color: rgba(255, 255, 255, 0.2);
+		background: rgba(255, 255, 255, 0.05);
+	}
+	.search-modal-body {
+		padding: 1.25rem 1.5rem;
+		overflow-y: auto;
+		display: flex;
+		flex-direction: column;
+		gap: 1.25rem;
+	}
+	.search-suggestions {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+		padding-bottom: 1rem;
+	}
+	.suggestion-label {
+		font-size: 0.8rem;
+		color: var(--text-muted);
+		font-weight: 600;
+		white-space: nowrap;
+	}
+	.suggestion-tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.4rem;
+	}
+	.suggestion-tag {
+		background: rgba(255, 255, 255, 0.04);
+		border: 1px solid rgba(255, 255, 255, 0.06);
+		color: var(--text-secondary);
+		padding: 0.25rem 0.6rem;
+		border-radius: 4px;
+		font-size: 0.8rem;
+		cursor: pointer;
+		transition: all 0.2s ease;
+	}
+	.suggestion-tag:hover {
+		background: rgba(35, 55, 255, 0.2);
+		border-color: var(--accent);
+		color: #ffffff;
+	}
+	.search-results-list {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		max-height: 45vh;
+		overflow-y: auto;
+		padding-right: 0.25rem;
+	}
+	.search-result-item {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0.85rem 1rem;
+		border-radius: 8px;
+		background: rgba(255, 255, 255, 0.02);
+		border: 1px solid rgba(255, 255, 255, 0.03);
+		text-decoration: none;
+		transition: all 0.2s ease;
+		gap: 1rem;
+	}
+	.search-result-item:hover {
+		background: rgba(35, 55, 255, 0.1);
+		border-color: rgba(35, 55, 255, 0.3);
+		transform: translateX(2px);
+	}
+	.result-left {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		overflow: hidden;
+		flex-grow: 1;
+	}
+	.result-badge {
+		font-size: 0.7rem;
+		padding: 0.15rem 0.5rem;
+		white-space: nowrap;
+		flex-shrink: 0;
+	}
+	.result-title {
+		font-size: 0.95rem;
+		font-weight: 500;
+		color: #ffffff;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+	.result-date {
+		font-size: 0.8rem;
+		color: var(--text-muted);
+		white-space: nowrap;
+		flex-shrink: 0;
+	}
+	.no-results-msg {
+		text-align: center;
+		padding: 2.5rem;
+		color: var(--text-secondary);
+		font-size: 0.9rem;
 	}
 </style>

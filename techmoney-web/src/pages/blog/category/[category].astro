@@ -1,0 +1,288 @@
+---
+import { getCollection } from 'astro:content';
+import BaseHead from '../../../components/BaseHead.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import { SITE_TITLE } from '../../../consts';
+
+export async function getStaticPaths() {
+  return [
+    { params: { category: 'ai-semiconductor' }, props: { name: 'AI・半導体', count: '95' } },
+    { params: { category: 'tech' }, props: { name: 'テック企業', count: '78' } },
+    { params: { category: 'cloud' }, props: { name: 'クラウド', count: '42' } },
+    { params: { category: 'space-defense' }, props: { name: '宇宙・防衛', count: '28' } },
+    { params: { category: 'ev-autonomous' }, props: { name: 'EV・自動運転', count: '35' } },
+  ];
+}
+
+const { category } = Astro.params;
+const { name } = Astro.props;
+
+const allPosts = (await getCollection('blog')).filter(post => post.data.status === 'published');
+
+// Categorization helper matching title/content heuristics
+const filterPostsByCategory = (posts, cat) => {
+  return posts.filter(post => {
+    // Check frontmatter category field first
+    if (post.data.category === cat) return true;
+    if (post.data.category?.toLowerCase() === cat.toLowerCase()) return true;
+
+    const title = post.data.title ? post.data.title.toLowerCase() : '';
+    const desc = post.data.description ? post.data.description.toLowerCase() : '';
+    const id = post.id ? post.id.toLowerCase() : '';
+
+    if (cat === 'ai-semiconductor') {
+      return (
+        title.includes('ai') || title.includes('半導体') || title.includes('gpu') || title.includes('エヌビディア') || title.includes('nvidia') || title.includes('smci') || title.includes('セレブラス') || title.includes('メモリ') || title.includes('マーベル') || title.includes('冷却') ||
+        desc.includes('ai') || desc.includes('半導体') || desc.includes('gpu') || desc.includes('エヌビディア') || desc.includes('nvidia')
+      );
+    }
+    if (cat === 'tech') {
+      return (
+        title.includes('google') || title.includes('dell') || title.includes('sofi') || title.includes('openai') || title.includes('anthropic') || title.includes('アンソロピック') || title.includes('qcom') || title.includes('テック') ||
+        id.includes('google') || id.includes('dell') || id.includes('sofi') || id.includes('qcom')
+      );
+    }
+    if (cat === 'cloud') {
+      return title.includes('クラウド') || title.includes('ネットワーク') || desc.includes('クラウド') || desc.includes('ネットワーク');
+    }
+    if (cat === 'space-defense') {
+      return (
+        title.includes('宇宙') || title.includes('spacex') || title.includes('スペースx') || title.includes('ブルーオリジン') || title.includes('ヴァージン') || title.includes('rocket') || title.includes('防衛') ||
+        desc.includes('宇宙') || desc.includes('spacex') || desc.includes('スペースx')
+      );
+    }
+    if (cat === 'ev-autonomous') {
+      return (
+        title.includes('ev') || title.includes('自動運転') || title.includes('テスラ') || title.includes('tesla') || title.includes('ドローン') || title.includes('robot') ||
+        desc.includes('ev') || desc.includes('自動運転') || desc.includes('テスラ') || desc.includes('tesla')
+      );
+    }
+    return false;
+  });
+};
+
+const posts = filterPostsByCategory(allPosts, category).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+// Helper to determine badge type and text
+const getPostTag = (title: string) => {
+  if (title.includes('決算') || title.includes('IPO')) {
+    return { text: '決算分析', class: 'badge-positive' };
+  } else if (title.includes('半導体') || title.includes('宇宙') || title.includes('AI') || title.includes('ドローン')) {
+    return { text: '業界分析', class: 'badge-tech' };
+  } else {
+    return { text: '企業分析', class: 'badge-company' };
+  }
+};
+---
+
+<!doctype html>
+<html lang="ja">
+	<head>
+		<BaseHead title={`${name}の分析記事一覧 - ${SITE_TITLE}`} description={`${name}に関する銘柄・企業分析記事一覧`} />
+	</head>
+	<body>
+		<Header />
+		
+		<main class="fade-in">
+			<!-- Category Header -->
+			<div class="category-header">
+				<a href="/" class="back-link">&larr; ホームに戻る</a>
+				<h1 class="category-title">
+					<span class="highlight">{name}</span> の記事一覧
+				</h1>
+				<p class="category-description">
+					{name}に関する銘柄・企業分析記事 ({posts.length}件)
+				</p>
+			</div>
+
+			<!-- Articles Grid -->
+			<section class="articles-section">
+				{posts.length > 0 ? (
+					<div class="articles-grid">
+						{posts.map((post) => {
+							const tag = getPostTag(post.data.title);
+							return (
+								<article class="glass-card article-card">
+									<a href={`/blog/${post.id}/`} class="article-link">
+										<div class="article-glow-border"></div>
+										<div class="article-meta">
+											<span class={`badge ${tag.class}`}>{tag.text}</span>
+											<time class="article-date">
+												{post.data.pubDate.toLocaleDateString('ja-JP', {
+													year: 'numeric',
+													month: '2-digit',
+													day: '2-digit',
+												})}
+											</time>
+										</div>
+										<h3 class="article-title">{post.data.title}</h3>
+										<p class="article-description">{post.data.description}</p>
+										<span class="read-more">記事を読む &rarr;</span>
+									</a>
+								</article>
+							);
+						})}
+					</div>
+				) : (
+					<div class="no-posts-card glass-card">
+						<p>このカテゴリーに関連する記事は現在準備中です。</p>
+						<a href="/" class="btn btn-outline">ホームへ戻る</a>
+					</div>
+				)}
+			</section>
+		</main>
+
+		<Footer />
+	</body>
+</html>
+
+<style>
+	/* Category Header Styles */
+	.category-header {
+		max-width: 1200px;
+		margin: 2rem auto 3rem auto;
+		padding: 0 1.5rem;
+	}
+	.back-link {
+		display: inline-block;
+		font-size: 0.9rem;
+		color: var(--text-secondary);
+		margin-bottom: 1.5rem;
+		transition: color 0.2s ease;
+	}
+	.back-link:hover {
+		color: var(--accent-light);
+	}
+	.category-title {
+		font-size: 2.75rem;
+		font-weight: 800;
+		letter-spacing: -0.02em;
+		margin-bottom: 1rem;
+	}
+	.highlight {
+		background: linear-gradient(90deg, var(--accent-light) 0%, var(--accent) 100%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		filter: drop-shadow(0 0 10px rgba(0, 217, 255, 0.2));
+	}
+	.category-description {
+		font-size: 1.1rem;
+		color: var(--text-secondary);
+	}
+
+	/* Articles Grid Styles */
+	.articles-section {
+		max-width: 1200px;
+		margin: 0 auto 5rem auto;
+		padding: 0 1.5rem;
+	}
+	.articles-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 1.5rem;
+	}
+	.article-card {
+		position: relative;
+		overflow: hidden;
+		height: 100%;
+	}
+	.article-link {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		padding: 1.8rem;
+		text-decoration: none;
+	}
+	.article-glow-border {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 3px;
+		background: linear-gradient(90deg, var(--accent) 0%, var(--accent-light) 100%);
+		opacity: 0;
+		transition: opacity 0.3s ease;
+	}
+	.article-card:hover .article-glow-border {
+		opacity: 1;
+	}
+	.article-meta {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 1.25rem;
+	}
+	.badge-tech {
+		background: rgba(0, 217, 255, 0.1);
+		color: var(--accent-light);
+		border-color: rgba(0, 217, 255, 0.2);
+	}
+	.badge-company {
+		background: rgba(177, 55, 255, 0.1);
+		color: #c97dff;
+		border-color: rgba(177, 55, 255, 0.2);
+	}
+	.article-date {
+		font-size: 0.8rem;
+		color: var(--text-muted);
+	}
+	.article-title {
+		font-size: 1.25rem;
+		font-weight: 700;
+		margin-bottom: 0.75rem;
+		color: #ffffff;
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+		line-height: 1.4;
+	}
+	.article-description {
+		font-size: 0.9rem;
+		color: var(--text-secondary);
+		margin-bottom: 1.5rem;
+		display: -webkit-box;
+		-webkit-line-clamp: 3;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+		flex-grow: 1;
+	}
+	.read-more {
+		font-size: 0.85rem;
+		font-weight: 600;
+		color: var(--accent-light);
+		margin-top: auto;
+		transition: transform 0.2s ease;
+	}
+	.article-card:hover .read-more {
+		transform: translateX(4px);
+	}
+
+	/* No posts styling */
+	.no-posts-card {
+		padding: 4rem 2rem;
+		text-align: center;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1.5rem;
+	}
+	.no-posts-card p {
+		font-size: 1.1rem;
+		color: var(--text-secondary);
+	}
+
+	/* Responsive tweaks */
+	@media (max-width: 1024px) {
+		.category-title { font-size: 2.25rem; }
+		.articles-grid { grid-template-columns: repeat(2, 1fr); }
+	}
+
+	@media (max-width: 768px) {
+		.category-header { text-align: center; }
+		.articles-grid { grid-template-columns: 1fr; }
+	}
+</style>

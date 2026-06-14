@@ -1,0 +1,611 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { SITE_TITLE } from '../../consts';
+
+const articleTitle = "スーパー・マイクロ（SMCI）徹底解剖 —— 驚異の液冷シェア70%と、繰り返されるガバナンス地雷の真実";
+const articleDesc = "NVIDIAとの超強力な関係、直接液冷（DLC）での絶対的覇権、そして共同創業者逮捕に揺れる司法省（DOJ）リスク。割安放置されたAIサーバー大手の真価を問う。";
+---
+
+<!doctype html>
+<html lang="ja">
+	<head>
+		<BaseHead title={`${articleTitle} - ${SITE_TITLE}`} description={articleDesc} />
+		<link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;700&family=Outfit:wght@400;700;900&family=Noto+Sans+JP:wght@300;500;700;900&display=swap" rel="stylesheet">
+	</head>
+	<body>
+		<Header />
+		
+		<main class="blog-main fade-in">
+			<!-- Breadcrumb -->
+			<div class="breadcrumb">
+				<a href="/">トップ</a> &gt; <a href="/blog">ブログ</a> &gt; <span class="current">SMCI分析</span>
+			</div>
+
+			<!-- Warning Banner -->
+			<div class="warning-alert">
+				<span class="warning-tag">HIGH RISK WARNING</span>
+				<p>当銘柄は司法省（DOJ）による共同創業者起訴および輸出規制違反リスクを抱えており、極めて高いボラティリティが予想されます。</p>
+			</div>
+
+			<!-- Article Header -->
+			<header class="article-hero">
+				<div class="glow-bg"></div>
+				<div class="category-badge">DLC LEADER & GOVERNANCE CRISIS</div>
+				<h1 class="title-text">スーパー・マイクロ（SMCI）分析<br><span class="highlight-cyan">液冷覇権とガバナンス地雷</span></h1>
+				<p class="subtitle">PER23倍の驚異的割安さの裏に潜む、上場廃止・供給停止の「致命的リスク」をデータで暴く</p>
+				<div class="meta-row">
+					<span class="meta-item">公開日: 2026-06-09</span>
+					<span class="meta-item">読了時間: 約10分</span>
+					<span class="meta-item badge-cat">ai-semiconductor</span>
+				</div>
+			</header>
+
+			<!-- Metrics Dashboard -->
+			<div class="metrics-grid">
+				<div class="metric-card border-cyan">
+					<span class="label">DLC MARKET SHARE</span>
+					<span class="value val-cyan">70%</span>
+					<p class="desc">1000W超の次世代GPUに不可欠な直接液冷（Direct Liquid Cooling）で市場を圧倒。</p>
+				</div>
+				<div class="metric-card border-purple">
+					<span class="label">PEG RATIO (Undervalued?)</span>
+					<span class="value val-purple">0.52x</span>
+					<p class="desc">成長率を加味したPEG比は1.0倍を大幅に下回り、AIサーバー銘柄で最安クラス。</p>
+				</div>
+				<div class="metric-card border-red">
+					<span class="label">GROSS MARGIN LIMIT</span>
+					<span class="value val-red">11-12%</span>
+					<p class="desc">ハードウェア組み立て・販売業のため利幅が薄く、過酷な価格競争にさらされる。</p>
+				</div>
+				<div class="metric-card border-orange">
+					<span class="label">REVENUE (FY26 EST)</span>
+					<span class="value val-orange">約337億ドル</span>
+					<p class="desc">4年前（FY22 約37億ドル）から売上規模は約10倍に拡大予想という超速成長。</p>
+				</div>
+			</div>
+
+			<!-- Main Article Layout -->
+			<div class="article-content">
+				<aside class="toc-sidebar">
+					<div class="glass-card sidebar-toc">
+						<h3>目次</h3>
+						<ul>
+							<li><a href="#chapter1">1. SMCIのモジュール設計</a></li>
+							<li><a href="#chapter2">2. 液冷（DLC）とNVIDIA関係</a></li>
+							<li><a href="#chapter3">3. 利益率11%の限界</a></li>
+							<li><a href="#chapter4">4. 繰り返される会計不正疑惑</a></li>
+							<li><a href="#chapter5">5. 2026年 共同創業者逮捕の衝撃</a></li>
+							<li><a href="#chapter6">6. 投資シナリオと結論</a></li>
+						</ul>
+					</div>
+				</aside>
+
+				<section class="post-body">
+					<!-- Chapter 1 -->
+					<div class="content-section" id="chapter1">
+						<h2>1. レゴブロック式の「ビルディングブロック設計」が成長の源泉</h2>
+						<p>スーパー・マイクロ・コンピューター（SMCI）は、1993年にチャールズ・リャンによってシリコンバレーで創業されたサーバー設計企業です。DellやHPEなどの伝統的大手との最大の違いは、製品をレゴブロックのように組み立てる<strong>「ビルディングブロック・アーキテクチャ」</strong>にあります。</p>
+						<p>競合他社がマザーボードやシャーシを一体設計するのに対し、SMCIは規格化されたモジュールを組み合わせるため、NVIDIAが最新のGPUを発表してから<strong>最短6週間</strong>で対応サーバーを量産出荷できます（Dellは通常数ヶ月を要する）。この圧倒的な製品投入の速さ（ファースト・トゥ・マーケット）が、AIインフラの初期需要を丸呑みすることに成功しました。</p>
+					</div>
+
+					<!-- Chapter 2 -->
+					<div class="content-section" id="chapter2">
+						<h2>2. 直接液冷（DLC）での絶対的優位とNVIDIAとの密月</h2>
+						<p>最新世代のAIチップ（NVIDIA BlackwellやVera Rubinなど）は、熱設計電力が1基で1000Wを超えます。このため、空冷ファンで冷却することが限界に達しており、水（冷却液）を直接循環させて冷やす<strong>「直接液冷（Direct Liquid Cooling：DLC）」</strong>が必須の技術となりました。</p>
+						<p>SMCIはこの液冷技術を早期から量産化し、現在<strong>液冷サーバー市場で約70%の独占的シェア</strong>を握っています。NVIDIAの次世代アーキテクチャ開発においても、SMCIはリファレンスパートナーとして早期に仕様共有を受け、ラック製造を進めています。この強烈な先行優位性が、大手クラウドベンダーが他社サーバーへ乗り換えるのを難しくする「粘着性（スティッキネス）」を生み出しています。</p>
+					</div>
+
+					<!-- Chapter 3 -->
+					<div class="content-section" id="chapter3">
+						<h2>3. 売上10倍でも株価が爆発しない理由 —— 粗利率11%の「薄利多売」</h2>
+						<p>SMCIの売上高は、FY2022の約37億ドルから、FY2026には約337億ドル（約5兆円）と10倍近くになる見通しです。しかし、バリュエーション（PSR 0.88倍）は極めて低く抑えられています。その要因の一つが、<strong>利益率の低さ</strong>です。</p>
+						<p>SMCIは先端技術を扱っていますが、ビジネス構造は「仕入れたGPUや部品の組み立て・販売」です。粗利益率はわずか<strong>11%〜12%</strong>に留まります（競合のAristaは63%、NVIDIA自身は70%以上）。GPUなどの調達コストが高く、Dell等との価格競争もあるため、いくら売上が拡大しても手元に残る純利益の成長は限定的という構造的なアキレス腱を抱えています。</p>
+					</div>
+
+					<!-- Chapter 4 -->
+					<div class="content-section" id="chapter4">
+						<h2>4. 終わらないガバナンスの暗雲 —— 繰り返される会計操作疑惑</h2>
+						<p>SMCIを「割安」ではなく「危険」な銘柄たらしめているのが、長年にわたるガバナンス（企業統治）の欠如です。</p>
+						<div class="timeline-visual">
+							<div class="timeline-item border-yellow">
+								<span class="time-label">2020年</span>
+								<strong>SECによる会計不正認定・制裁</strong>
+								<p>「収益の早期二重計上」といった売上操作が認定され、1760万ドルの制裁金を支払って和解。</p>
+							</div>
+							<div class="timeline-item border-orange">
+								<span class="time-label">2024年8月</span>
+								<strong>ヒンデンバーグ・リサーチによる告発</strong>
+								<p>「2020年の制裁後、わずか3ヶ月で会計不正を再開した」とする告発レポートを発表。翌日、SMCIは年次報告書の提出延期を発表し、株価は急落。</p>
+							</div>
+							<div class="timeline-item border-red">
+								<span class="time-label">2024年10月</span>
+								<strong>大手監査法人EYの契約解除</strong>
+								<p>「経営陣の透明性と内部統制に重大な懸念があり、監査を継続できない」としてEYが突然辞任。上場廃止危機の引き金となる。</p>
+							</div>
+						</div>
+					</div>
+
+					<!-- Chapter 5 -->
+					<div class="content-section" id="chapter5">
+						<h2>5. 2026年3月：共同創業者逮捕 —— 米国司法省（DOJ）による壊滅的起訴</h2>
+						<p>2025年後半に新しい監査人を雇用し、上場維持に成功したことで、危機は去ったかに見えました。しかし、<strong>2026年3月19日、最大の地雷が爆発します。</strong></p>
+						<div class="console-box">
+							<div class="console-header">
+								<span class="red-indicator">● LIVE WARNING</span>
+								<span class="console-title">DOJ CHARGES ON EXPORT CONTROL VIOLATION</span>
+							</div>
+							<p>米国司法省（DOJ）は、SMCIの<strong>共同創業者ウォーリー・リャウ、台湾法人GM、仲介業者ら3名を「対中輸出規制違反」で逮捕・起訴</strong>しました。偽装書類やダミーサーバーを経由し、約25億ドルにのぼるNVIDIA GPU搭載サーバーを中国へ密輸した疑いです。</p>
+						</div>
+						<p>この起訴発表の翌日、株価は<strong>33.3%暴落</strong>。共同創業者が逮捕されたことは、単なる社員の逸脱ではなく、組織ぐるみの「コンプライアンス無視」の文化的体質を証明するものとなりました。</p>
+						<div class="risk-box">
+							<h4>会社存続に関わる2つの壊滅的リスク</h4>
+							<ul>
+								<li><strong>NVIDIAからのGPU供給停止</strong>：米政府の意向や評判リスクにより、NVIDIAがSMCIへのBlackwell供給ラインを遮断する可能性。</li>
+								<li><strong>政府・大手クラウドからの排除</strong>：密輸企業としてマークされることで、米政府関連調達や大手クラウドからの発注がゼロになる可能性。</li>
+							</ul>
+						</div>
+					</div>
+
+					<!-- Chapter 6 -->
+					<div class="content-section" id="chapter6">
+						<h2>6. 12〜18ヶ月の投資判断：2つの極端なシナリオ</h2>
+						<p>SMCI株は、ファンダメンタルズの良さとガバナンス地雷が同居した「超ハイリスク・ハイリターン」銘柄です。今後の株価は、以下の極端な2つのシナリオのどちらかに集束します。</p>
+						
+						<div class="scenario-grid">
+							<div class="scenario-card bull">
+								<span class="scenario-label">Bull Scenario (確率：30%)</span>
+								<div class="scenario-target">目標価格：$60 - $80</div>
+								<p class="desc">DOJによる追究が逮捕された個人に限定され、会社側は罰金のみで免責。NVIDIAのGPU供給が維持され、売上ガイダンス（337億ドル）を達成して利益率が改善した場合。踏み上げ（ショートスクイーズ）を伴う急騰へ。</p>
+							</div>
+							<div class="scenario-card bear">
+								<span class="scenario-label">Bear Scenario (確率：70%)</span>
+								<div class="scenario-target">目標価格：$10 - $15</div>
+								<p class="desc">米司法省による法執行が会社全体・CEOに波及。政府調達排除やNVIDIAからのGPU出荷停止が現実化し、顧客がDellや台湾OEMへ逃避した場合。売上は壊滅し、再度のNASDAQ上場廃止・破産手続きが現実味を帯びる。</p>
+							</div>
+						</div>
+
+						<div class="lessons-box">
+							<h4>投資家への教訓</h4>
+							<p>「どんなに技術が優れていて割安に見えても、経営陣が信頼できない会社に長期投資をしてはならない。」これがSMCIが市場に突きつける厳しいレッスンです。どうしても投資する場合は、ポートフォリオの1%未満の投機枠に留めるのが賢明です。</p>
+						</div>
+					</div>
+				</section>
+			</div>
+		</main>
+
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.blog-main {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 2rem 1.5rem;
+	}
+
+	.breadcrumb {
+		font-size: 0.85rem;
+		color: var(--text-secondary);
+		margin-bottom: 2rem;
+	}
+	.breadcrumb a {
+		color: var(--text-secondary);
+		text-decoration: none;
+	}
+	.breadcrumb a:hover {
+		color: var(--accent-light);
+	}
+
+	/* Warning Alert Banner */
+	.warning-alert {
+		background: rgba(255, 0, 85, 0.08);
+		border: 1px solid rgba(255, 0, 85, 0.25);
+		border-radius: 12px;
+		padding: 1rem 1.5rem;
+		margin-bottom: 2rem;
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+	}
+	.warning-tag {
+		background: #ff0055;
+		color: #ffffff;
+		font-family: var(--font-display);
+		font-size: 0.75rem;
+		font-weight: 800;
+		padding: 0.2rem 0.6rem;
+		border-radius: 4px;
+		letter-spacing: 0.05em;
+		flex-shrink: 0;
+	}
+	.warning-alert p {
+		margin: 0;
+		font-size: 0.85rem;
+		color: #ff9fb4;
+	}
+
+	/* Hero Section */
+	.article-hero {
+		position: relative;
+		text-align: center;
+		padding: 5rem 2rem;
+		background: rgba(10, 10, 20, 0.8);
+		border: 1px solid rgba(255, 255, 255, 0.05);
+		border-radius: 24px;
+		margin-bottom: 3rem;
+		overflow: hidden;
+	}
+	.glow-bg {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 600px;
+		height: 200px;
+		background: radial-gradient(circle, rgba(0, 242, 254, 0.08) 0%, transparent 70%);
+		filter: blur(50px);
+		z-index: -1;
+	}
+	.category-badge {
+		font-family: var(--font-display);
+		font-size: 0.85rem;
+		font-weight: 800;
+		color: #00f2fe;
+		letter-spacing: 0.1em;
+		margin-bottom: 1.5rem;
+	}
+	.title-text {
+		font-family: 'Outfit', 'Noto Sans JP', sans-serif;
+		font-size: 3rem;
+		font-weight: 900;
+		line-height: 1.25;
+		color: #ffffff;
+		margin-bottom: 1.5rem;
+	}
+	.highlight-cyan {
+		background: linear-gradient(90deg, #00f2fe 30%, #4facfe 100%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+	.subtitle {
+		font-size: 1.2rem;
+		color: var(--text-secondary);
+		max-width: 800px;
+		margin: 0 auto 2rem auto;
+		font-weight: 300;
+	}
+	.meta-row {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 1.5rem;
+		font-size: 0.9rem;
+		color: var(--text-muted);
+	}
+	.badge-cat {
+		background: rgba(255, 255, 255, 0.05);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		padding: 0.2rem 0.6rem;
+		border-radius: 4px;
+		color: #ffffff;
+	}
+
+	/* Metrics Dashboard */
+	.metrics-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+		gap: 1.5rem;
+		margin-bottom: 4rem;
+	}
+	.metric-card {
+		background: rgba(255, 255, 255, 0.02);
+		border: 1px solid rgba(255, 255, 255, 0.05);
+		border-radius: 16px;
+		padding: 1.8rem;
+		transition: all 0.3s ease;
+	}
+	.metric-card:hover {
+		transform: translateY(-3px);
+		box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+	}
+	.metric-card.border-cyan:hover { border-color: #00f2fe; }
+	.metric-card.border-purple:hover { border-color: #b06ab3; }
+	.metric-card.border-red:hover { border-color: #ff0055; }
+	.metric-card.border-orange:hover { border-color: #ffa500; }
+	
+	.metric-card .label {
+		display: block;
+		font-size: 0.75rem;
+		font-family: var(--font-display);
+		color: var(--text-muted);
+		margin-bottom: 0.5rem;
+		letter-spacing: 0.05em;
+	}
+	.metric-card .value {
+		display: block;
+		font-family: 'Outfit', sans-serif;
+		font-size: 2.2rem;
+		font-weight: 900;
+		margin-bottom: 0.5rem;
+	}
+	.val-cyan { color: #00f2fe; text-shadow: 0 0 15px rgba(0, 242, 254, 0.2); }
+	.val-purple { color: #b06ab3; text-shadow: 0 0 15px rgba(176, 106, 179, 0.2); }
+	.val-red { color: #ff0055; text-shadow: 0 0 15px rgba(255, 0, 85, 0.2); }
+	.val-orange { color: #ffa500; text-shadow: 0 0 15px rgba(255, 165, 0, 0.2); }
+	
+	.metric-card .desc {
+		font-size: 0.8rem;
+		color: var(--text-secondary);
+		line-height: 1.4;
+	}
+
+	/* Content Layout */
+	.article-content {
+		display: flex;
+		gap: 3rem;
+		align-items: flex-start;
+	}
+	.toc-sidebar {
+		width: 280px;
+		position: sticky;
+		top: 6rem;
+		flex-shrink: 0;
+	}
+	.sidebar-toc {
+		padding: 1.8rem;
+	}
+	.sidebar-toc h3 {
+		font-size: 1.1rem;
+		font-weight: 800;
+		margin-bottom: 1.2rem;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+		padding-bottom: 0.6rem;
+	}
+	.sidebar-toc ul {
+		list-style: none;
+		display: flex;
+		flex-direction: column;
+		gap: 0.8rem;
+	}
+	.sidebar-toc a {
+		font-size: 0.9rem;
+		color: var(--text-secondary);
+		text-decoration: none;
+		transition: color 0.2s ease;
+	}
+	.sidebar-toc a:hover {
+		color: #00f2fe;
+	}
+	
+	.post-body {
+		flex-grow: 1;
+		max-width: 800px;
+	}
+	
+	.content-section {
+		margin-bottom: 4rem;
+	}
+	.content-section h2 {
+		font-family: 'Outfit', 'Noto Sans JP', sans-serif;
+		font-size: 1.8rem;
+		font-weight: 800;
+		color: #ffffff;
+		margin-bottom: 1.8rem;
+		border-left: 4px solid #00f2fe;
+		padding-left: 1rem;
+		line-height: 1.3;
+	}
+	.content-section p {
+		font-size: 1.05rem;
+		color: var(--text-secondary);
+		line-height: 1.8;
+		margin-bottom: 1.5rem;
+	}
+	.content-section p strong {
+		color: #ffffff;
+	}
+
+	/* Timeline visual */
+	.timeline-visual {
+		border-left: 2px dashed rgba(255, 255, 255, 0.1);
+		margin: 2.5rem 0 2.5rem 1rem;
+		padding-left: 1.5rem;
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+	}
+	.timeline-item {
+		position: relative;
+	}
+	.timeline-item::before {
+		content: '';
+		position: absolute;
+		left: calc(-1.5rem - 6px);
+		top: 4px;
+		width: 10px;
+		height: 10px;
+		border-radius: 50%;
+		background: var(--bg-dark);
+		border: 2px solid var(--accent);
+	}
+	.timeline-item.border-yellow::before { border-color: #ffa500; }
+	.timeline-item.border-orange::before { border-color: #ff5200; }
+	.timeline-item.border-red::before { border-color: #ff0055; }
+	
+	.time-label {
+		display: inline-block;
+		font-family: var(--font-display);
+		font-size: 0.8rem;
+		font-weight: 800;
+		color: #ffffff;
+		padding: 0.1rem 0.5rem;
+		border-radius: 4px;
+		margin-bottom: 0.5rem;
+	}
+	.timeline-item.border-yellow .time-label { background: rgba(255, 165, 0, 0.15); color: #ffa500; border: 1px solid rgba(255, 165, 0, 0.3); }
+	.timeline-item.border-orange .time-label { background: rgba(255, 82, 0, 0.15); color: #ff5200; border: 1px solid rgba(255, 82, 0, 0.3); }
+	.timeline-item.border-red .time-label { background: rgba(255, 0, 85, 0.15); color: #ff0055; border: 1px solid rgba(255, 0, 85, 0.3); }
+	
+	.timeline-item strong {
+		display: block;
+		font-size: 1.1rem;
+		color: #ffffff;
+		margin-bottom: 0.3rem;
+	}
+	.timeline-item p {
+		font-size: 0.95rem;
+		margin-bottom: 0;
+	}
+
+	/* Console Box */
+	.console-box {
+		border: 1px solid rgba(255, 0, 85, 0.3);
+		background: rgba(255, 0, 85, 0.03);
+		border-radius: 12px;
+		padding: 1.5rem;
+		margin: 2rem 0;
+		font-family: 'Fira Mono', monospace;
+	}
+	.console-header {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		margin-bottom: 1rem;
+		border-bottom: 1px solid rgba(255, 0, 85, 0.15);
+		padding-bottom: 0.5rem;
+	}
+	.red-indicator {
+		color: #ff0055;
+		font-weight: bold;
+		font-size: 0.8rem;
+		animation: blink 1.5s infinite;
+	}
+	.console-title {
+		color: var(--text-muted);
+		font-size: 0.8rem;
+	}
+	.console-box p {
+		margin-bottom: 0;
+		font-size: 0.95rem;
+		color: #ffb8c7;
+		line-height: 1.6;
+	}
+
+	.risk-box {
+		background: rgba(255, 255, 255, 0.01);
+		border: 1px solid rgba(255, 255, 255, 0.05);
+		border-radius: 12px;
+		padding: 1.5rem;
+		margin: 2rem 0;
+	}
+	.risk-box h4 {
+		font-size: 1.05rem;
+		color: #ff0055;
+		margin-bottom: 0.8rem;
+		font-weight: 700;
+	}
+	.risk-box ul {
+		list-style-type: square;
+		padding-left: 1.2rem;
+		color: var(--text-secondary);
+		display: flex;
+		flex-direction: column;
+		gap: 0.6rem;
+		font-size: 0.95rem;
+	}
+
+	/* Scenarios */
+	.scenario-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+		gap: 1.5rem;
+		margin: 2rem 0;
+	}
+	.scenario-card {
+		background: rgba(0, 0, 0, 0.2);
+		border: 1px solid rgba(255, 255, 255, 0.03);
+		border-radius: 12px;
+		padding: 1.5rem;
+	}
+	.scenario-card.bull { border-color: rgba(0, 255, 135, 0.15); }
+	.scenario-card.bear { border-color: rgba(255, 0, 85, 0.15); }
+	
+	.scenario-label {
+		display: inline-block;
+		font-family: var(--font-display);
+		font-size: 0.75rem;
+		font-weight: 800;
+		padding: 0.2rem 0.5rem;
+		border-radius: 4px;
+		margin-bottom: 1rem;
+	}
+	.bull .scenario-label { background: rgba(0, 255, 135, 0.1); color: #00ff87; }
+	.bear .scenario-label { background: rgba(255, 0, 85, 0.1); color: #ff0055; }
+	
+	.scenario-target {
+		font-family: 'Outfit', sans-serif;
+		font-size: 1.8rem;
+		font-weight: 900;
+		margin-bottom: 0.8rem;
+	}
+	.bull .scenario-target { color: #00ff87; }
+	.bear .scenario-target { color: #ff0055; }
+	
+	.scenario-card .desc {
+		font-size: 0.85rem;
+		color: var(--text-secondary);
+		line-height: 1.5;
+	}
+
+	.lessons-box {
+		background: rgba(255, 255, 255, 0.02);
+		border: 1px solid rgba(255, 255, 255, 0.05);
+		border-radius: 12px;
+		padding: 1.8rem;
+	}
+	.lessons-box h4 {
+		font-size: 1.1rem;
+		color: #ffffff;
+		margin-bottom: 0.8rem;
+		font-weight: 700;
+	}
+	.lessons-box p {
+		font-size: 0.95rem;
+		margin-bottom: 0;
+		line-height: 1.6;
+	}
+
+	@keyframes blink {
+		0%, 100% { opacity: 1; }
+		50% { opacity: 0.3; }
+	}
+
+	@media (max-width: 992px) {
+		.article-content {
+			flex-direction: column;
+		}
+		.toc-sidebar {
+			display: none;
+		}
+	}
+	@media (max-width: 768px) {
+		.title-text {
+			font-size: 2.2rem;
+		}
+		.article-hero {
+			padding: 3rem 1rem;
+		}
+		.metrics-grid {
+			grid-template-columns: 1fr;
+		}
+		.timeline-visual {
+			margin-left: 0.2rem;
+		}
+		.scenario-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

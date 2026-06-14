@@ -1,0 +1,306 @@
+---
+// Generated from video_summary.html
+---
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AI業界の人材地殻変動！xAIの崩壊と大量離脱、そしてAndrej Karpathy氏やJohn Schulman氏ら超大物研究者が吸い込まれるように集結する「Anthropic」のドリームチーム体制を徹底解説します。">
+  <title>テスラ・xAI崩壊とAnthropicへの人材集中！AI業界の地殻変動と最注目企業 - TechMoney</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;800&family=Noto+Sans+JP:wght@300;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+        --bg-dark: #050510;
+        --bg-gradient: linear-gradient(180deg, #0a0a1a 0%, #050510 100%);
+        --primary: #00f2fe;        /* シアン */
+        --secondary: #4facfe;      /* ブルー */
+        --accent: #b06ab3;         /* パープル */
+        --text-main: #ffffff;
+        --text-muted: #a0a0b0;
+        --card-bg: rgba(255, 255, 255, 0.03);
+        --card-border: rgba(255, 255, 255, 0.08);
+        --risk-bg: rgba(255, 100, 100, 0.08);
+        --risk-border: #ff6464;
+    }
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background: var(--bg-dark);
+        background-image: var(--bg-gradient);
+        color: var(--text-main);
+        font-family: 'Inter', 'Noto Sans JP', sans-serif;
+        line-height: 1.7;
+        overflow-x: hidden;
+    }
+
+    .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+
+    header {
+        padding: 120px 0 80px;
+        text-align: center;
+        animation: fadeInUp 0.8s ease-out;
+    }
+
+    h1 {
+        font-size: 3rem;
+        font-weight: 900;
+        background: linear-gradient(90deg, var(--primary), var(--accent));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 20px;
+        line-height: 1.2;
+    }
+
+    .subtitle {
+        font-size: 1.2rem;
+        color: var(--text-muted);
+        font-weight: 300;
+    }
+
+    /* 目次 */
+    .toc {
+        background: var(--card-bg);
+        border: 1px solid var(--card-border);
+        border-radius: 16px;
+        padding: 25px;
+        margin-bottom: 60px;
+        backdrop-filter: blur(10px);
+        animation: fadeInUp 1s ease-out;
+    }
+
+    .toc h3 {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+        color: var(--primary);
+    }
+
+    .toc ul {
+        list-style: none;
+    }
+
+    .toc li {
+        margin-bottom: 10px;
+    }
+
+    .toc a {
+        color: var(--text-muted);
+        text-decoration: none;
+        transition: color 0.2s;
+    }
+
+    .toc a:hover {
+        color: var(--primary);
+    }
+
+    /* メインコンテンツ */
+    main {
+        animation: fadeInUp 1.2s ease-out;
+    }
+
+    section {
+        margin-bottom: 80px;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+        font-weight: 800;
+        border-left: 4px solid var(--primary);
+        padding-left: 15px;
+        margin-bottom: 30px;
+        color: var(--text-main);
+    }
+
+    .card {
+        background: var(--card-bg);
+        border: 1px solid var(--card-border);
+        border-radius: 16px;
+        padding: 35px;
+        backdrop-filter: blur(10px);
+        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+        border-color: rgba(0, 242, 254, 0.25);
+    }
+
+    p {
+        color: var(--text-muted);
+        margin-bottom: 20px;
+    }
+
+    p strong {
+        color: var(--text-main);
+    }
+
+    /* 特殊スタイル */
+    .ticker {
+        color: var(--primary);
+        font-weight: 700;
+        background: rgba(0, 242, 254, 0.1);
+        padding: 2px 6px;
+        border-radius: 4px;
+    }
+
+    .highlight {
+        color: var(--primary);
+        font-weight: 700;
+        font-size: 1.1em;
+    }
+
+    .risk-box {
+        background: var(--risk-bg);
+        border-left: 4px solid var(--risk-border);
+        padding: 20px;
+        border-radius: 0 12px 12px 0;
+        margin-top: 20px;
+    }
+
+    .risk-box h4 {
+        color: var(--risk-border);
+        margin-bottom: 8px;
+        font-weight: 700;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin-top: 20px;
+    }
+
+    .grid-item {
+        background: rgba(255, 255, 255, 0.01);
+        border: 1px solid var(--card-border);
+        border-radius: 8px;
+        padding: 15px;
+    }
+
+    /* フッター */
+    footer {
+        padding: 60px 0 40px;
+        text-align: center;
+        border-top: 1px solid var(--card-border);
+        color: var(--text-muted);
+        font-size: 0.9rem;
+    }
+
+    .disclaimer {
+        margin-bottom: 15px;
+        font-size: 0.8rem;
+    }
+
+    @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* レスポンシブ対応 */
+    @media (max-width: 768px) {
+        h1 { font-size: 2rem; }
+        h2 { font-size: 1.4rem; }
+        header { padding: 80px 0 50px; }
+        .container { padding: 0 1rem; }
+        .card { padding: 20px; }
+        .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>テスラ・xAI崩壊とAnthropicへの人材集中！<br>AI業界の地殻変動と最注目企業</h1>
+      <p class="subtitle">超大物研究者 Andrej Karpathy 氏らの移籍とAI業界勢力図の激変</p>
+    </header>
+
+    <nav class="toc">
+      <h3>目次</h3>
+      <ul>
+        <li><a href="#chapter-1">1. AIトップ人材争奪戦の全体像と背景</a></li>
+        <li><a href="#chapter-2">2. xAIの共同創業者11名全員離脱の真相</a></li>
+        <li><a href="#chapter-3">3. Anthropicに集結するドリームチームの全貌</a></li>
+        <li><a href="#chapter-4">4. 最注目企業ランキングと今後のAI競争展望</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <!-- 第1章 -->
+      <section id="chapter-1">
+        <h2>1. AIトップ人材争奪戦の全体像と背景</h2>
+        <div class="card">
+          <p>現在のAI業界では、超優秀な研究者や幹部をめぐって前代未聞の<strong>「人材争奪戦」</strong>が勃発しています。トップレベルの研究者には、企業から<strong>年俸1億円を超える巨額の報酬パッケージ</strong>が提示されています。</p>
+          <p>AIの最先端（フロンティア）モデルを実用に耐えるレベルで開発・事前学習できる研究者は、世界中でわずか<strong>数百人</strong>しかいないと言われています。このため、OpenAI、Anthropic、Meta、Google DeepMind、xAIのCEO自らが直接リクルートに乗り出しており、引き抜き合戦が常態化しています。この争奪戦の中心地として浮上しているのが <span class="highlight">Anthropic</span> です。</p>
+        </div>
+      </section>
+
+      <!-- 第2章 -->
+      <section id="chapter-2">
+        <h2>2. xAIの共同創業者11名全員離脱の真相</h2>
+        <div class="card">
+          <p>イーロン・マスク氏率いる <span class="ticker">xAI</span> は、2026年2月にスペースXによって評価額2,500億ドル（約38兆円）で買収されましたが、その直後から<strong>深刻な組織崩壊</strong>が発生しました。わずか数ヶ月の間に、<strong>共同創業者11名全員が離脱</strong>するという異例の事態に発展しています。</p>
+          <p>背景には、スペースXとの合併後、開発ペースやマイルストーンを極端に重視するスペースXのエンジニアリング文化と、研究志向の強かったxAI創業メンバーの文化が激しく衝突したことがあります。マスク氏自身も後にX上で「xAIは最初から正しく構築されていなかったので、根本から作り直している」と述べており、組織再編の代償として初期メンバー全員を失うこととなりました。</p>
+          <div class="risk-box">
+            <h4>xAIの競争力低下リスク</h4>
+            <p>共同創業者全員の離脱に伴い、主任エンジニアのIgor Babuschkin氏ら80名以上の重要研究者・技術者も一斉に退職したため、xAIの開発力およびAI業界でのプレゼンスは急速に低下しています。</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 第3章 -->
+      <section id="chapter-3">
+        <h2>3. Anthropicに集結するドリームチームの全貌</h2>
+        <div class="card">
+          <p>xAIやテスラから離脱した超優秀な頭脳の多くが、今や <span class="highlight">Anthropic</span> へと流れ込んでいます。これにより、同社はAI業界のドリームチームを形成しつつあります。</p>
+          <div class="grid">
+            <div class="grid-item">
+              <strong>Andrej Karpathy 氏</strong>
+              <p>元テスラAI部門長、OpenAI共同創業者。AI教育スタートアップEureka Labsを経て、2026年5月にAnthropicへ電撃入社。Claudeの基礎となる「事前学習」研究チームをゼロから立ち上げるリーダーに就任。</p>
+            </div>
+            <div class="grid-item">
+              <strong>John Schulman 氏</strong>
+              <p>OpenAI共同創業者であり、ChatGPT of OpenAIの基盤技術である強化学習手法「PPO」の第一人者。現在はAnthropicのThinking Machines Lab主任科学者を兼務。</p>
+            </div>
+          </div>
+          <p style="margin-top:20px;">さらに、元テスラでxAI共同創業者の一人だった<strong>Ross Nordeen 氏</strong>も2026年5月にAnthropicへ移籍。CEOのDario Amodei氏（元OpenAI研究責任者）自身をはじめとするOpenAI出身メンバーに加え、テスラ・xAI陣営のトップタレントまでもがAnthropicに大集結しています。</p>
+        </div>
+      </section>
+
+      <!-- 第4章 -->
+      <section id="chapter-4">
+        <h2>4. 最注目企業ランキングと今後のAI競争展望</h2>
+        <div class="card">
+          <p>今回の巨大な人材シフトを踏まえた、現在のAI業界の最注目企業ランキングは以下の通りです。</p>
+          <div class="grid">
+            <div class="grid-item">
+              <strong>1位：Anthropic (評価額: 約1,830億ドル)</strong>
+              <p>Karpathy氏らドリームチームの結成に加え、スペースX・xAIの巨大データセンター（Colossus: 22万基以上のGPU）を借りて事前学習に使用する契約を結んでおり、計算リソースでも圧倒的優位に立っています。</p>
+            </div>
+            <div class="grid-item">
+              <strong>2位：Safe Superintelligence [SSI] (評価額: 約320億ドル)</strong>
+              <p>OpenAI元主任科学者のIlya Sutskever氏が設立。「安全な超知能開発」に特化し、製品ローンチ前にもかかわらず4兆円以上の評価を受けています。</p>
+            </div>
+          </div>
+          <p style="margin-top:20px;"><strong>3位には、元OpenAI CTOのMira Murati氏が立ち上げた「Thinking Machines Lab」（評価額約200億ドル）</strong>がランクインしていますが、内部の混乱もささやかれており注視が必要です。対照的に、かつて覇権を争っていたxAIは、ドリームチームに対抗するリソースとタレントを失い、大きく後退を余儀なくされています。</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p class="disclaimer">【ご注意・免責事項】当ページは投資および市場分析の情報提供のみを目的としており、特定の金融商品の売買を推奨するものではありません。投資判断は自己責任で行ってください。</p>
+      <p class="copyright">© TechMoney</p>
+    </footer>
+  </div>
+</body>
+</html>

@@ -251,7 +251,7 @@ const stocksDb = {
 const stock = stocksDb[ticker as keyof typeof stocksDb] || stocksDb.nvda;
 
 // Fetch blog articles matching the ticker or name
-const allPosts = await getCollection('blog');
+const allPosts = (await getCollection('blog')).filter(post => post.data.status === 'published');
 const relatedPosts = allPosts.filter(post => 
   post.data.title.toLowerCase().includes(stock.name.toLowerCase()) ||
   post.body?.toLowerCase().includes(stock.name.toLowerCase())
