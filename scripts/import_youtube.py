@@ -188,25 +188,36 @@ def import_all():
                         if desc_match:
                             description = desc_match.group(1).strip()
                         
-                        # 記事本文の作成 (HTMLの全内容をそのまま出力)
-                        content_body = html_content
+                        # ページ用ディレクトリの決定
+                        blog_pages_dir = blog_content_dir.replace("src/content/blog", "src/pages/blog")
+                        os.makedirs(blog_pages_dir, exist_ok=True)
                         
-                        # ファイル名の決定（安全な英語/日本語名）
+                        # Astroファイル名の決定と書き出し
+                        out_astro_filename = f"{clean_filename(base_name)}.astro"
+                        out_astro_path = os.path.join(blog_pages_dir, out_astro_filename)
+                        
+                        astro_page_content = f"""---
+// Generated from video_summary.html
+---
+{html_content}
+"""
+                        with open(out_astro_path, "w", encoding="utf-8") as f:
+                            f.write(astro_page_content)
+                        
+                        # コレクション用プレースホルダーMarkdownファイル名の決定と書き出し
                         out_filename = f"{clean_filename(base_name)}.md"
                         out_path = os.path.join(blog_content_dir, out_filename)
                         
-                        blog_post = f"""---
+                        blog_post_placeholder = f"""---
 title: "{title}"
 description: "{description}"
 pubDate: {pub_date}
-customLayout: true
 ---
-
-{content_body}
 """
                         with open(out_path, "w", encoding="utf-8") as f:
-                            f.write(blog_post)
-                        print(f"Successfully imported HTML summary: {item} -> {out_filename}")
+                            f.write(blog_post_placeholder)
+                        
+                        print(f"Successfully imported HTML summary: {item} -> {out_astro_filename} and {out_filename}")
                         import_count += 1
                         continue
                     except Exception as e:
