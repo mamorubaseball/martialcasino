@@ -1,0 +1,865 @@
+---
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import BaseHead from '../../components/BaseHead.astro';
+import { SITE_TITLE } from '../../consts';
+
+// Generated from video_summary.html
+---
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <BaseHead title="【テスラ決算】5つの指標で読み解く今後の見解 - {SITE_TITLE}" description="テスラ決算の徹底解説動画の要約記事です。" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <style is:global>
+
+    :root {
+      --bg-dark: #050510;
+      --bg-gradient: linear-gradient(180deg, #0a0a1a 0%, #050510 100%);
+      --primary: #00f2fe;
+      --secondary: #4facfe;
+      --accent: #b06ab3;
+      --text-main: #ffffff;
+      --text-muted: #a0a0b0;
+      --card-bg: rgba(255, 255, 255, 0.03);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --bubble-host-bg: rgba(35, 55, 255, 0.15);
+      --bubble-host-border: rgba(35, 55, 255, 0.3);
+      --bubble-guest-bg: rgba(255, 255, 255, 0.03);
+      --bubble-guest-border: rgba(255, 255, 255, 0.06);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg-gradient);
+      min-height: 100vh;
+      color: var(--text-muted);
+      font-family: 'Inter', 'Noto Sans JP', sans-serif;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1.5rem 4rem 1.5rem;
+    }
+
+    header {
+      padding: 80px 0 40px;
+      text-align: center;
+    }
+
+    .tag-line {
+      display: inline-block;
+      background: linear-gradient(135deg, rgba(0,242,254,0.15), rgba(176,106,179,0.15));
+      border: 1px solid rgba(0,242,254,0.3);
+      border-radius: 50px;
+      padding: 6px 20px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--text-main);
+      line-height: 1.3;
+      margin-bottom: 20px;
+    }
+
+    .subtitle {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      margin-top: 12px;
+    }
+
+    .meta-info {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .lead-section {
+      margin-bottom: 40px;
+    }
+
+    .lead-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .lead-card p {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--text-main);
+    }
+
+    .chat-section {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin: 30px 0;
+    }
+
+    .chat-message {
+      display: flex;
+      gap: 16px;
+      max-width: 85%;
+      align-items: flex-start;
+      margin-bottom: 4px;
+    }
+
+    .host-message {
+      align-self: flex-start;
+    }
+
+    .guest-message {
+      align-self: flex-end;
+      flex-direction: row-reverse;
+    }
+
+    .avatar-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      min-width: 64px;
+    }
+
+    .chat-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--primary);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      background: #0d111c;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+    }
+
+    .guest-avatar {
+      border-color: var(--secondary);
+      background: #1e293b;
+    }
+
+    .avatar-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .message-bubble {
+      padding: 14px 18px;
+      border-radius: 16px;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      border: 1px solid var(--bubble-guest-border);
+      background: var(--bubble-guest-bg);
+      color: var(--text-main);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    }
+
+    .host-message .message-bubble {
+      background: var(--bubble-host-bg);
+      border-color: var(--bubble-host-border);
+      border-top-left-radius: 4px;
+    }
+
+    .guest-message .message-bubble {
+      background: var(--bubble-guest-bg);
+      border-color: var(--bubble-guest-border);
+      border-top-right-radius: 4px;
+    }
+
+    section {
+      margin-bottom: 50px;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--text-main);
+      border-left: 4px solid var(--primary);
+      padding-left: 16px;
+      margin: 40px 0 20px 0;
+      line-height: 1.35;
+    }
+
+    footer {
+      border-top: 1px solid var(--card-border);
+      padding: 40px 0 20px;
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    .disclaimer {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 20px;
+      max-width: 700px;
+      margin: 0 auto 20px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      text-align: left;
+    }
+
+    .copyright {
+      font-size: 0.8rem;
+      color: rgba(160,160,176,0.4);
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 1.8rem; }
+      h2 { font-size: 1.3rem; }
+      header { padding: 50px 0 30px; }
+      .chat-message { max-width: 95%; }
+    }
+  
+
+    /* Unified Layout Styles */
+    .blog-main {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem 1.5rem;
+    }
+    .breadcrumb {
+        font-size: 0.85rem;
+        color: var(--text-secondary, #cbd5e1);
+        margin-bottom: 2rem;
+    }
+    .breadcrumb a {
+        color: var(--text-secondary, #cbd5e1);
+        text-decoration: none;
+    }
+    .breadcrumb a:hover {
+        color: var(--color-accent, #10B981);
+    }
+    .breadcrumb .separator {
+        margin: 0 0.5rem;
+        color: var(--text-muted, #64748b);
+    }
+    .article-content {
+        display: flex;
+        gap: 3rem;
+        align-items: flex-start;
+        margin-top: 2rem;
+    }
+    .toc-sidebar {
+        width: 280px;
+        position: sticky;
+        top: 6rem;
+        flex-shrink: 0;
+    }
+    .sidebar-toc {
+        background: rgba(28, 37, 65, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 8px;
+        padding: 1.8rem;
+        backdrop-filter: blur(10px);
+    }
+    .sidebar-toc h3 {
+        font-size: 1.1rem;
+        font-weight: 800;
+        margin-bottom: 1.2rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        padding-bottom: 0.6rem;
+        color: var(--text-primary, #f1f5f9);
+    }
+    .sidebar-toc ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        margin-left: 0;
+        padding-left: 0;
+    }
+    .sidebar-toc a {
+        font-size: 0.9rem;
+        color: var(--text-secondary, #cbd5e1);
+        text-decoration: none;
+        transition: color 0.2s ease;
+    }
+    .sidebar-toc a:hover {
+        color: var(--color-accent, #10B981);
+    }
+    .post-body {
+        flex-grow: 1;
+        max-width: calc(100% - 310px);
+    }
+    .anchor-target {
+        position: relative;
+        top: -100px;
+        visibility: hidden;
+        display: block;
+    }
+    .video-container {
+        position: relative;
+        width: 100%;
+        padding-top: 56.25%;
+        margin-bottom: 2rem;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid var(--border-color, rgba(16, 185, 129, 0.15));
+        box-shadow: 0 0 20px rgba(16, 185, 129, 0.1);
+    }
+    .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+    @media (max-width: 992px) {
+        .article-content {
+            flex-direction: column;
+        }
+        .toc-sidebar {
+            display: none;
+        }
+        .post-body {
+            max-width: 100%;
+        }
+    }
+  </style>
+</head>
+<body>
+  <Header />
+  
+  <main class="blog-main">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="/">← ホームに戻る</a>
+        <span class="separator">|</span>
+        <a href="/">トップ</a> &gt; <a href="/blog">ブログ</a> &gt; <span class="current">【テスラ決算】5つの指標で読み解く今後の見解</span>
+      </div>
+    </div>
+    
+    <div class="container">
+
+  <div class="video-container">
+    <iframe src="https://www.youtube.com/embed/RdzD141ogzo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+  
+    <header>
+      <div class="tag-line">📊 投資銘柄・企業分析</div>
+      <h1>テスラ決算</h1>
+      <p class="subtitle">テスラ決算の徹底解説動画の要約記事です。</p>
+      <div class="meta-info">
+        <span>📅 2026年04月26日</span>
+        <span>✍️ TechMoney</span>
+      </div>
+    </header>
+
+    <main>
+            <p style="margin-bottom: 1.5rem;">テスラ2026年Q1決算：表面上の数字と自動車粗利益率の真実</p>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">五つの指標を携えて、私たちはテスラの決算を待ち続けた。予想を上回るEPS、十六パーセントの増収——表面上は申し分のない数字だ。だが、在庫の山、膨れ上がるキャップエックス、そして経営陣がついに口にした「フリーキャッシュフローはマイナスになる」という言葉……。本当の勝者は強気派か、弱気派か.前回の動画で予告した五つの羅針盤を使って、今日こそその答えを出す。</p>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">皆さん、こんにちは。テックマネーです。本日は、テスラの二〇二六年第一四半期決算を、前回の動画でお約束した五つの主要指標に沿って徹底的に採点します。結論から言えば、五つのうち三つが「合格」、一つが「条件付き合格」、一つが「要注意」という結果でした。それぞれの理由を、順番に解説していきましょう。</p>
+      <div class="chat-section">
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">テックマネーさん、こんにちは！決算発表前は本当にドキドキしていました。EPSはアナリスト予想の〇・三七ドルを上回る〇・四一ドルで、売上高も二百二十二億ドルと予想を超えていましたよね。一見するとすごくよかったんじゃないですか？</p>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">ええ、表面上の数字はポジティブサプライズでした。しかし、今日の私たちの仕事は、見出しの数字に踊らされることなく、本質を見極めることです。では、一つ目の指標から見ていきましょう。</p>
+      <div class="chat-section">
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">一つ目は、排出権クレジットを除いた自動車事業の粗利益率でしたね。前回の動画では十七パーセントを下回ったら危険信号と言っていました。結果はどうだったんでしょう？</p>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">結果から言うと、これは「合格」です。クレジットを除いた自動車粗利益率は十九・二パーセントでした。前の四半期の十七・九パーセント、一年前の十二・五パーセントから、大きく改善しています。これはテスラが価格を犠牲にして車を無理に売る戦略から脱しつつあることを示す、非常にポジティブなシグナルです。</p>
+      <div class="chat-section">
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">十九・二パーセントはかなり高いですね！在庫が五万台以上積み上がっていたのに、なぜ改善できたんですか？</p>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">ここが重要な「しかし」です。CNBCやElectrekなどの詳しい分析によれば、この改善には「一回限りの特殊要因」が含まれています。具体的には、関税に関連した一時的な払い戻しと、自動車保証費用の会計上の修正です。テスラ自身も決算資料でこれを「ワン・タイム・ベネフィット」と記載していました。つまり、十九・二パーセントという数字は素晴らしいのですが、一時的な押し上げ要因を取り除いた「真の実力値」は、もう少し低い可能性がある。来四半期に、この水準が維持できるかどうかを見極める必要があります。</p>
+      <div class="chat-section">
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">一回限りの要因が含まれているなら、手放しには喜べませんね……。</p>
+      <p style="margin-bottom: 1.5rem;">巨額の未来投資：エネルギー事業の回復と250億ドルの設備投資計画</p>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">二つ目の指標に移りましょう。前回の動画では、エネルギー貯蔵導入量が前の四半期から三十八パーセント減少した理由について、経営陣が「一時的なタイミングのズレ」と説明すれば安心だが、「広範な需要の鈍化」と言えば危険信号だと解説しました。</p>
+      <div class="chat-section">
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">経営陣はなんと言っていたんですか？</p>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">これも「合格」です。経営陣は、今四半期の落ち込みは「大型プロジェクトの引き渡しタイミングのずれによるもの」と明言し、さらに二〇二六年通年のエネルギー導入量は二〇二五年を上回るという見通しを改めて示しました。加えて、グローブ・アンド・メールの報道によれば、経営陣は「強いバックログを維持している」と強調しています。これは私たちが求めていた「一時的要因」という回答そのものです。</p>
+      <div class="chat-section">
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">じゃあ、エネルギー事業の成長ストーリーは崩れていない、ということですね。</p>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">少なくとも今の段階ではそういえます。ただし、次の四半期にエネルギー導入量が反転回復するかどうかが、この説明の信頼性を証明することになります。次四半期の数字が出るまでは、油断禁物です。</p>
+      <div class="chat-section">
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">三つ目は、二百億ドル以上の設備投資ガイダンスを維持するかどうかでしたよね。これはどうなりましたか？</p>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">これは「超合格」と呼ぶべき結果です——ただし、市場はその直後に株価を下げました。CFOのバイバブ・タネジャ氏は決算説明会で、二〇二六年の設備投資は二百億ドルではなく、二百五十億ドルを超えると発表したのです。</p>
+      <div class="chat-section">
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">二百五十億ドル！？前回の予告から五十億ドルも増えているんですか？</p>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">そうです。前回の動画で私が提示した基準は「二百億ドル以上を維持するか」でしたが、実際には二百五十億ドル超という、想定をはるかに上回る投資計画が発表されました。この資金は、六つの工場、AIインフラ、テラファブと呼ばれる半導体工場、およびオプティマスロボットの生産ラインに充てられます。</p>
+      <div class="chat-section">
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">でも、株価は最初上がった後に下がったとのことでしたよね？それはなぜですか？</p>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">投資家が恐れたのは「出血量の多さ」です。これほどの設備投資は、二〇二六年のフリーキャッシュフローがマイナスになることを意味します。イーロン・マスク氏本人が説明会でそう認めました。これは「未来への大きな賭け」です。テスラがAIインフラ企業へ変貌するという長期シナリオを信じる投資家には間違いなく強気材料ですが、短期的な収益を重視する投資家には重荷に映りました。</p>
+      <p style="margin-bottom: 1.5rem;">自動運転の現在地：FSD加入者の急増とロボタクシーの不透明な実態</p>
+      <div class="chat-section">
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">四つ目の指標、FSDのサブスクリプション加入者数はどうでしたか？</p>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">これも「合格」です。テスラは今回、FSD（スーパーバイズド）の加入者が世界全体で百二十八万人に達したと発表しました。前年比では五十一パーセントの増加です。</p>
+      <div class="chat-section">
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">五十一パーセント増とは！それは二桁どころか、大幅な成長ですね。</p>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">ええ。そして重要なのは、今四半期はFSDの買い切りオプションを廃止し、月額九十九ドルのサブスクリプション一本に移行した最初の本格的な四半期でした。つまり、今後はFSD加入者一人ひとりが毎月継続的に収入をもたらすビジネスモデルへの転換が着実に進んでいます。ただし、Electrekは一点重要な注意を指摘しています。百二十八万人という数字には、過去にFSDを一括購入したユーザーも含まれているため、純粋な「月額サブスクリプション加入者」の正確な数は不明です。経営陣はこの点についての詳細開示を避けました。</p>
+      <div class="chat-section">
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">その点は少し不透明ですね……。ただ、全体的には成長しているということで。</p>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">そして最後、五つ目の指標です。今回の決算で、ロボタクシーの具体的な台数や乗車回数といった運用データが初めて公開されるかどうか、に注目していました。</p>
+      <div class="chat-section">
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">これはどうでしたか？</p>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">これが今回最も「要注意」な結果です。テスラは四月十八日にダラスとヒューストンでの無人ロボタクシーサービス開始という大きなニュースを打ち出しました。そして、累積の有料乗車マイル数が前の四半期比でほぼ倍増したとも述べています。</p>
+      <div class="chat-section">
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">それはすごいじゃないですか！</p>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">問題は、その「倍増」の実数が依然として開示されていない点です。前の四半期のQ4二〇二五年の決算では「七十万回の有料ライド」という数字が出ましたが、その注釈には「安全ドライバーが同乗しており、完全自律走行ではない」と明記されていました。今回、無人走行に限定した台数や乗車回数は依然として秘密のままです。現時点でオースティンの無人車両は常に四台から十二台程度と推測されており、実態と期待の乖離が埋まっていない。これは前回の動画で「開示の見送りが続けば警告サイン」と指摘した通りの結果です。</p>
+      <div class="chat-section">
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">ただ、マスク氏は「これまで事故も怪我もゼロ」とも言っていましたよね？安全面は問題ないということでしょうか。</p>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">安全記録はポジティブです。またマスク氏は、FSD V15を二〇二六年末から二〇二七年初頭にリリースする予定で、それに合わせて規模を拡大する方針を示しています。さらにキャリフォルニア州での規制承認手続きも継続中で、今年後半にマイアミ、ラスベガス、フェニックスへの展開も計画されています。しかし現時点で規模は依然として極めて小さく、マスク氏自身が「ロボタクシーの収益が本格化するのは二〇二七年」と認めています。私たちが求めていた「透明性のある具体的なデータ開示」という基準は、まだ達成されていません。</p>
+      <p style="margin-bottom: 1.5rem;">最終採点と今後の展望：AIインフラ企業への変貌は本物か？</p>
+      <div class="chat-section">
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">では、五つの指標を合計するとどういう評価になりますか？</p>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">整理しましょう。</p>
+      <p style="margin-bottom: 1.5rem;">一つ目・自動車粗利益率（クレジット除外）：合格。十九・二パーセントと過去最高水準。ただし一時的要因を含む。</p>
+      <p style="margin-bottom: 1.5rem;">二つ目・エネルギー貯蔵の説明：合格。「プロジェクトタイミングのズレ」という一時的な説明と、年間見通しの維持。</p>
+      <p style="margin-bottom: 1.5rem;">三つ目・設備投資ガイダンス：合格かつ超過達成。二百億ドルの維持どころか二百五十億ドル超へ上積み。ただしフリーキャッシュフローがマイナスになるリスクも伴う。</p>
+      <p style="margin-bottom: 1.5rem;">四つ目・FSD加入者増加率：合格。前年比五十一パーセント増で百二十八万人。ただし純粋なサブスクリプション数の透明性には課題あり。</p>
+      <p style="margin-bottom: 1.5rem;">五つ目・ロボタクシーの運用データ開示：要注意。ダラス・ヒューストン展開は前進だが、具体的な台数や純粋な無人走行データの開示はなし。</p>
+      <div class="chat-section">
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">つまり五つのうち四つが合格、一つが要注意、ということですね！</p>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">前回の動画でお伝えした通り、三つ以上が順調であれば「AIインフラ企業への変貌シナリオは崩れていない」という基準を満たしています。その意味では、今回の決算はテスラの長期投資ストーリーを支持する内容でした。</p>
+      <p style="margin-bottom: 1.5rem;">ただし、私が今後最も注視するのは二点です。一点目は、一時的要因が剥落する第二四半期において、十九・二パーセントの自動車利益率が維持できるかどうか。二点目は、二百五十億ドルという巨大投資がロボタクシーとオプティマスの具体的な収益化スケジュールに結びついているかどうかです。</p>
+      <div class="chat-section">
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">長期のシナリオは崩れていないけれど、次の四半期の検証が引き続き重要なんですね。</p>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">まさにその通りです。投資とは一枚の決算書ではなく、複数の四半期にわたる検証の積み重ねです。今日お伝えした五つの羅針盤を使って、皆さん自身で次の四半期も冷静に評価してください。それでは今回はここまでとさせていただきます。</p>
+      <p style="margin-bottom: 1.5rem;">最後になりますが、投資はあくまで自己責任でお願いします。チャンネル登録と高評価もよろしくお願いします！</p>
+    </main>
+
+    <footer>
+      <div class="disclaimer">
+        <p>⚠️ <strong>免責事項</strong></p>
+        <p>本記事は情報提供を目的としたものであり、特定の銘柄への投資を推奨するものではありません。株式投資にはリスクが伴います。投資はご自身の判断と責任でお願いいたします。</p>
+      </div>
+      <p class="copyright">© TechMoney｜2026年</p>
+    </footer>
+  </div>
+    </div>
+  </div>
+  </main>
+
+  <Footer />
+</body>
+</html>

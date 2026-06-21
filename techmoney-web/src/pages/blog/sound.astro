@@ -1,0 +1,1065 @@
+---
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import BaseHead from '../../components/BaseHead.astro';
+import { SITE_TITLE } from '../../consts';
+
+// Generated from video_summary.html
+---
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <BaseHead title="sound - {SITE_TITLE}" description="soundの徹底解説動画の要約記事です。" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <style is:global>
+
+    :root {
+      --bg-dark: #050510;
+      --bg-gradient: linear-gradient(180deg, #0a0a1a 0%, #050510 100%);
+      --primary: #00f2fe;
+      --secondary: #4facfe;
+      --accent: #b06ab3;
+      --text-main: #ffffff;
+      --text-muted: #a0a0b0;
+      --card-bg: rgba(255, 255, 255, 0.03);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --bubble-host-bg: rgba(35, 55, 255, 0.15);
+      --bubble-host-border: rgba(35, 55, 255, 0.3);
+      --bubble-guest-bg: rgba(255, 255, 255, 0.03);
+      --bubble-guest-border: rgba(255, 255, 255, 0.06);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg-gradient);
+      min-height: 100vh;
+      color: var(--text-muted);
+      font-family: 'Inter', 'Noto Sans JP', sans-serif;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1.5rem 4rem 1.5rem;
+    }
+
+    header {
+      padding: 80px 0 40px;
+      text-align: center;
+    }
+
+    .tag-line {
+      display: inline-block;
+      background: linear-gradient(135deg, rgba(0,242,254,0.15), rgba(176,106,179,0.15));
+      border: 1px solid rgba(0,242,254,0.3);
+      border-radius: 50px;
+      padding: 6px 20px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--text-main);
+      line-height: 1.3;
+      margin-bottom: 20px;
+    }
+
+    .subtitle {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      margin-top: 12px;
+    }
+
+    .meta-info {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .lead-section {
+      margin-bottom: 40px;
+    }
+
+    .lead-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .lead-card p {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--text-main);
+    }
+
+    .chat-section {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin: 30px 0;
+    }
+
+    .chat-message {
+      display: flex;
+      gap: 16px;
+      max-width: 85%;
+      align-items: flex-start;
+      margin-bottom: 4px;
+    }
+
+    .host-message {
+      align-self: flex-start;
+    }
+
+    .guest-message {
+      align-self: flex-end;
+      flex-direction: row-reverse;
+    }
+
+    .avatar-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      min-width: 64px;
+    }
+
+    .chat-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--primary);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      background: #0d111c;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+    }
+
+    .guest-avatar {
+      border-color: var(--secondary);
+      background: #1e293b;
+    }
+
+    .avatar-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .message-bubble {
+      padding: 14px 18px;
+      border-radius: 16px;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      border: 1px solid var(--bubble-guest-border);
+      background: var(--bubble-guest-bg);
+      color: var(--text-main);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    }
+
+    .host-message .message-bubble {
+      background: var(--bubble-host-bg);
+      border-color: var(--bubble-host-border);
+      border-top-left-radius: 4px;
+    }
+
+    .guest-message .message-bubble {
+      background: var(--bubble-guest-bg);
+      border-color: var(--bubble-guest-border);
+      border-top-right-radius: 4px;
+    }
+
+    section {
+      margin-bottom: 50px;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--text-main);
+      border-left: 4px solid var(--primary);
+      padding-left: 16px;
+      margin: 40px 0 20px 0;
+      line-height: 1.35;
+    }
+
+    footer {
+      border-top: 1px solid var(--card-border);
+      padding: 40px 0 20px;
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    .disclaimer {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 20px;
+      max-width: 700px;
+      margin: 0 auto 20px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      text-align: left;
+    }
+
+    .copyright {
+      font-size: 0.8rem;
+      color: rgba(160,160,176,0.4);
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 1.8rem; }
+      h2 { font-size: 1.3rem; }
+      header { padding: 50px 0 30px; }
+      .chat-message { max-width: 95%; }
+    }
+  
+
+    /* Unified Layout Styles */
+    .blog-main {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem 1.5rem;
+    }
+    .breadcrumb {
+        font-size: 0.85rem;
+        color: var(--text-secondary, #cbd5e1);
+        margin-bottom: 2rem;
+    }
+    .breadcrumb a {
+        color: var(--text-secondary, #cbd5e1);
+        text-decoration: none;
+    }
+    .breadcrumb a:hover {
+        color: var(--color-accent, #10B981);
+    }
+    .breadcrumb .separator {
+        margin: 0 0.5rem;
+        color: var(--text-muted, #64748b);
+    }
+    .article-content {
+        display: flex;
+        gap: 3rem;
+        align-items: flex-start;
+        margin-top: 2rem;
+    }
+    .toc-sidebar {
+        width: 280px;
+        position: sticky;
+        top: 6rem;
+        flex-shrink: 0;
+    }
+    .sidebar-toc {
+        background: rgba(28, 37, 65, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 8px;
+        padding: 1.8rem;
+        backdrop-filter: blur(10px);
+    }
+    .sidebar-toc h3 {
+        font-size: 1.1rem;
+        font-weight: 800;
+        margin-bottom: 1.2rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        padding-bottom: 0.6rem;
+        color: var(--text-primary, #f1f5f9);
+    }
+    .sidebar-toc ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        margin-left: 0;
+        padding-left: 0;
+    }
+    .sidebar-toc a {
+        font-size: 0.9rem;
+        color: var(--text-secondary, #cbd5e1);
+        text-decoration: none;
+        transition: color 0.2s ease;
+    }
+    .sidebar-toc a:hover {
+        color: var(--color-accent, #10B981);
+    }
+    .post-body {
+        flex-grow: 1;
+        max-width: calc(100% - 310px);
+    }
+    .anchor-target {
+        position: relative;
+        top: -100px;
+        visibility: hidden;
+        display: block;
+    }
+    .video-container {
+        position: relative;
+        width: 100%;
+        padding-top: 56.25%;
+        margin-bottom: 2rem;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid var(--border-color, rgba(16, 185, 129, 0.15));
+        box-shadow: 0 0 20px rgba(16, 185, 129, 0.1);
+    }
+    .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+    @media (max-width: 992px) {
+        .article-content {
+            flex-direction: column;
+        }
+        .toc-sidebar {
+            display: none;
+        }
+        .post-body {
+            max-width: 100%;
+        }
+    }
+  </style>
+</head>
+<body>
+  <Header />
+  
+  <main class="blog-main">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="/">← ホームに戻る</a>
+        <span class="separator">|</span>
+        <a href="/">トップ</a> &gt; <a href="/blog">ブログ</a> &gt; <span class="current">sound</span>
+      </div>
+    </div>
+    
+    <div class="container">
+    <header>
+      <div class="tag-line">📊 投資銘柄・企業分析</div>
+      <h1>sound</h1>
+      <p class="subtitle">soundの徹底解説動画の要約記事です。</p>
+      <div class="meta-info">
+        <span>📅 2026年05月02日</span>
+        <span>✍️ TechMoney</span>
+      </div>
+    </header>
+
+    <main>
+            <p style="margin-bottom: 1.5rem;">「SaaSの死」に関係なく爆上がり？注目の10倍株「サウンドハウンドAI」とは</p>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            最近、アンソロピック社の生成AIの進化などにより「SaaSの死」が叫ばれ、多くのSaaS銘柄の株価が軒並み下落していますよね。しかし実は、その脅威とは全く関係がないのに、市場の連れ安で株価が下がっている絶好の銘柄があるんです。それが今回紹介する、テンバガー（10倍株）候補の『サウンドハウンドAI』です。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            テックマネーさん、今日もよろしくお願いします！えっ、「SaaSの死」ってよくニュースで聞きますけど、それと関係ないのに株価が下がってるんですか？それならすごくお買い得に見えますね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            そうなんです。「全体のパニックで優良銘柄が売られている時」こそが最大のチャンスです。「優良なAI銘柄を仕込みたいけれど、どれを買えばいいか悩んでいる」という方に向けて、この動画の結論を先にお伝えしましょう。サウンドハウンドAIは、中長期的なAIポートフォリオにおいて今まさに仕込むべき「買い」の銘柄です。今日は、なぜこの会社が「SaaSの死」とは無関係なのか、そしてこの会社のCEOの凄さから圧倒的な技術の強みまで、現役エンジニアである僕が徹底解説していきます。ちなみに、時間がない方や気になるところだけ知りたい方は、概要欄のタイムスタンプから飛んでくださいね。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            サウンドハウンドAIって、なんだか音楽を聞かせるアプリみたいな名前ですけど、そんなにすごい企業なんですか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            ええ、実はその「音楽アプリ」という認識自体が、彼らが仕掛けた壮大な戦略の一部だったんですよ。今日はその驚くべき歴史から、他社を圧倒する独自技術、そして最新の株価分析まで、じっくりと深掘りして解説していきますね。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            壮大な戦略……！
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            まずは、この企業を率いる最高経営責任者、キーヴァン・モハジャー氏について知る必要があります。もし「技術を深く理解しているエンジニアが社長である企業は信用できる」と感じているなら、彼の経歴と哲学には確実に惚れ込むはずです。彼はスタンフォード大学で電気工学の博士号を取得した、根っからのトップエンジニアなんです。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            スタンフォードの博士号！ものすごいエリートですね。でも、ずっと研究してきたエンジニアの方が社長さんって、経営とかビジネスの面は大丈夫なんですか？
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">20年前からの予言。大ヒット音楽アプリに隠された「壮大な囮作戦」</p>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            素晴らしい着眼点ですね。確かに経営手腕は常に問われますが、自ら技術の根幹を誰よりも理解しているからこそ描ける、揺るぎないビジョンがあるんです。彼は二〇〇〇年代初頭, つまり今から二〇年以上も前に、「二〇年後には人間とAIが自然に会話する世界が必ず来る」と確信していました。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            二〇〇〇年代初頭って、まだスマートフォンすらなかった時代ですよね？みんなパカパカの携帯電話を使っていた頃に、AIと会話する未来を予測していたなんて、まるで予言者みたいです！
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            ええ。そして彼は、他社のオープンソースや既存の技術のシステムを借りて手っ取り早くビジネスを始めるのではなく、音声AIの基礎技術を完全にゼロから自社で構築するという、狂気とも言える決断を下しました。物理学の第一原理に基づいて、既存の部品を使わずにゼロからロケットや電気自動車を作った、あのイーロン・マスクの思考に非常に近いアプローチです。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            ゼロから作るって……すごくお金も時間もかかりそうだし、周りからは反対されなかったんですか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            もちろん、非常に困難な道のりでした。二〇〇五年にスタンフォードの寮の部屋で仲間と起業したものの、当時の技術力と資金力では、スタートレックに出てくるような「なんでも話せるAI」を作るのは不可能でした。そこで彼らがどうしたかというと、ひとまず「音声認識」の限られた分野である「音楽」にフォーカスする決断を下したんです。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            あっ、それが「サウンドハウンド」という音楽アプリなんですね！私もカフェで流れている曲を知りたくて、鼻歌で検索するアプリを使ったことがあります！
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            まさにそれです。二〇〇九年以降にリリースされたそのアプリは、累計で数億回以上もダウンロードされる世界的な大ヒットとなりました。強力なライバルがいる中で、彼らは「鼻歌からメロディを直接理解する」という独自のアルゴリズムで差別化を図ったんです。でも、ここからが一番面白いところですよ。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            えっ、まだ何か秘密があるんですか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            彼らににとって、この大ヒットした音楽アプリは、「真の目的」を達成するための手段に過ぎませんでした。最強の汎用音声AIを作るための資金調達と、世界中のユーザーから膨大な生の音声データを収集するための、いわば壮大な「トロイの木馬」だったんです。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            ええっ！？あの世界的なアプリが、ただのデータ集めのための囮だったってことですか？そんな計画をずっと隠していたなんて、なんだか鳥肌が立ちました……！
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            驚きますよね。彼らはその大ヒットアプリで稼いだ多額の資金と、集めた生データを、なんと一〇年もの間、すべて研究開発に注ぎ込みました。世間が彼らを「単なる音楽アプリの会社」だと思っている裏で、独自の音声認識エンジンをゼロからひたすら構築し続けたんです。そして二〇一五年に、音声AIプラットフォームを発表し、ここで初めて彼らの真の姿が「AI企業」であることが世間に明かされました。
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">巨大テックを凌駕する独自技術。遅延ゼロを実現する「スピーチ・トゥ・ミーニング」</p>
+      <div class="chat-section">
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            一〇年間も世間を欺いて……いや、隠れて開発を続けていたなんて、執念がすごすぎます。そこまでして作った技術って、一体どれほどすごいものなんですか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            ここからが企業の競争優位性の核心部分です。サウンドハウンドが持つ最大の武器は、「スピーチ・トゥ・ミーニング」と呼ばれる独自の特許技術です。これが、既存の巨大テック企業のAIと決定的に違うアーキテクチャなんです。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            スピーチ・トゥ・ミーニング……？直訳すると「言葉から意味へ」みたいな感じですかね。どう違うんでしょうか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            素晴らしい直訳ですね。従来の音声AI、例えば昔のシリやアレクサは、二段階の直列処理を行っていました。まず、人間が話した音声を文字に起こし、その後でそのテキストの意味を解析するという順番です。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            なるほど。言葉を聞き取って、文字にしてから意味を考えるんですね。私たちが外国語を聞き取って、頭の中で翻訳する時みたいですけど、これのどこが問題なんですか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            この構造上、ユーザーが最後まで話し終わらないと、意味の解析が始められないんです。そのため、どうしても一・〇秒から三・〇秒以上のタイムラグが発生してしまいます。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            あ、わかります！「明日の天気は？」って聞いた後に、ちょっと「んー」って間があくあの感じですよね。急いでいる時は少しイラッとすることもあります。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            そうなんです。しかし、サウンドハウンドの「スピーチ・トゥ・ミーニング」は、音声をテキスト化するのと同時に、意味を並列で理解してしまいます。つまり、ユーザーが話している最中に、システムはすでに意味を理解し始めているんです。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            えっ、話しながら意味を理解してるんですか？人間みたいで本当に賢いですね！
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            結果として、ユーザーが話し終わった瞬間に、実質的に遅延ゼロ、時間にして約一五〇から三〇〇ミリ秒という圧倒的なスピードでレスポンスを開始できます。さらに、人間特有の言い淀みや、「あ、やっぱり今のなしで」といった複雑な訂正にも、リアルタイムに文脈を修正しながら対応できるんです。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            遅延ゼロ！それに、途中で言い直しても平気なんですね。ドライブスルーとかで「ハンバーガーと、あ、やっぱりチーズバーガーにして、ポテトはMで……いや、やっぱりLサイズで！」みたいな面倒な注文でも、ちゃんと聞き取ってくれるってことですか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            まさにその通りです。ドライブスルーや飲食店の注文受付には完璧な技術ですよね。だからこそ彼らは、二〇二二年の上場後に攻めのフェーズに入り、レストラン向け音声AI企業や、カスタマーサービスAIの企業を次々と買収しました。これによって、単なる音声認識から、注文受付や顧客対応といった実社会のタスクを自動で完遂する「自律型AIエージェント」へと劇的な進化を遂げているんです。
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">なぜGAFAに負けないのか？「ホワイトラベル」と「エッジ技術」の最強の盾</p>
+      <div class="chat-section">
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            でもテックマネーさん、最近アンソロピックのクロードとかチャットGPTとか、すごく早く自然に返事してくれますよね？冒頭で言っていた「SaaSの死」って、そういう超賢いAIが既存のSaaSの仕事を全部奪っちゃうって話だと思うんですけど、サウンドハウンドもその汎用AIに食われちゃうんじゃないですか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            非常に鋭い指摘ですね。まさにそれが、アンソロピック社の発表によって市場に走った「SaaSの死」という激震の正体です。AIがソフトウェアを自動で操作できるようになれば、単なる便利ツールとしてのSaaS企業は生き残れません。しかし、サウンドハウンドがその死と『無関係』である決定的な理由が、「エッジとクラウドの統合アーキテクチャ」という物理的な強みを持っているからです。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            エッジとクラウド……ですか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            はい。クロードやチャットGPTのような巨大な汎用AIは、すべてクラウドサーバーというネットの向こう側で処理を行っています。彼らは画面の中のソフトウェア操作では最強ですが、通信環境が少しでも悪化すると、瞬時にフリーズしたり、ラグが発生したりします。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            あー、スマホの電波が悪いと、動画が止まっちゃうのと同じですね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            そうです。しかしサウンドハウンドは、端末側で処理する「エッジ」と、「クラウド」での処理を瞬時に切り替え、統合する技術を持っています。例えば、車を運転中に地下駐車場やトンネルに入って電波が途切れた時でも、ローカル環境でほぼ遅延ゼロのまま、安定して稼働し続けることができるんです。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            トンネルに入っても使えるのは安心ですね！車の中で使うなら、絶対に途切れない方がいいです！
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            さらに、大企業に選ばれるもう一つの強力な理由が「ホワイトラベル戦略」です。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            ホワイトラベル？また難しそうな言葉が出てきました……。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            要するに、「裏方」や「黒子」に徹する戦略のことです。メルセデス・ベンツやヒョンデなどの大手自動車メーカー、あるいは巨大なレストランチェーンは、自社製品の中にグーグルアシスタントやアレクサを入れることを極端に嫌がります。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            え？グーグルとかが入っていた方が、便利でみんな喜びそうなのに、どうして嫌がるんですか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            それは、企業にとって最も貴重な「顧客のデータ」と「ブランドの接点」を、巨大テック企業に奪われてしまうからです。ユーザーが「オーケー、グーグル」と話しかけるたびに、自社の車ではなくグーグルのサービスを使っている感覚になってしまいますからね。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            なるほど！車を作っている会社からすれば、自分たちのお客さんをグーグルに取られちゃうみたいで嫌なんですね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            その通りです。そこでサウンドハウンドは、「僕たちのエンジンを裏側で使って、あなたたち独自のブランド名で音声アシスタントを作りませんか？」と提案するわけです。顧客データも企業側が保有できます。つまり、サウンドハウンドは単なるSaaSのようなソフトウェアではなく、自動車やレストランという「物理的な現場（エッジ）」に深く入り込んだインフラ（土台）なんです。クラウド上の汎用AIがいくら進化して「SaaSの死」をもたらしても、この物理的なハードウェアとの接点と、企業ごとのカスタマイズ領域は絶対に奪えません。だからこそ、彼らは「SaaSの死」とは無関係に成長し続けることができるんです。
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">最新の株価分析と今後のリスク。サウンドハウンドAIは今「買い」なのか？</p>
+      <div class="chat-section">
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            なるほど！画面の中のAIが進化しても、車やお店といった現実世界との繋ぎ目はサウンドハウンドがしっかり握っているから、SaaSの死なんて関係ないんですね！それなら、株価もずっと右肩上がりなんですよね？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            それが、実は二〇二二年に鳴り物入りで上場して以降、株価は大きく下落し、乱高下を経験してきたんです。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            ええ！？あんなにすごい会社なのに、どうして下がっちゃったんですか？なにか業績の「かほうしゅうせい」でもあったんですか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            業績の「かほうしゅうせい」というよりは、複数の要因が重なった結果ですね。まず、上場直後の二〇二二年や二〇二三年は、マクロ環境として歴史的な利上げ局面でした。金利が上昇すると、まだ利益が出ていない成長株全体が徹底的に売り叩かれる傾向にあります。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            なるほど……会社の技術がどうこうじゃなくて、市場全体の波に飲み込まれちゃったんですね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            加えて、彼らは他社のシステムを借りず、自社で基盤モデルをゼロから構築しているため、莫大な研究開発費、つまりR&D投資を行っています。その額は年間で約七〇〇〇万から八〇〇〇万ドル、日本円にして約一〇〇億から一二〇億円にも上ります。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            一〇〇億円以上！？そんなにお金を使っているんですか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            ええ。これは彼らの年間の売上高とほぼ同等か、それ以上の規模です。巨大テックには全体規模では敵いませんが、車載や飲食店という特定の領域において、これほどの密度で資金を集中投下している企業はありません。しかし、ウォール街の投資家たちからは「いつになったらフリーキャッシュフローがプラスになるんだ？」という、財務面での厳しい視線が向けられていました。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            売上と同じくらい研究にお金を使っていたら、そりゃあ赤字になっちゃいますよね。ちょっと不安になってきました……。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            ですが、その株価低迷は、企業の根本的な価値が崩壊したわけではなく、圧倒的な技術基盤を作るための先行投資、いわゆる「成長痛」によるものが大きかったんです。実際、二〇二六年現在の状況を見ると、アナリストたちの評価は「緩やかな買い」から「強い買い」へと傾きつつあります。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            おお！業績が良くなって、「じょうほうしゅうせい」とかが出ているんですか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            そうですね。二〇二六年通期の売上高は、二億二五〇〇万ドルから二億六〇〇〇万ドル規模へと拡大する見通しが示されており、ビジネスの実態がようやく株価に追いつき始めています。現在株価は七・五〇ドルから一〇・五〇ドルのゾーンで推移していますが、多くの機関投資家が強気の目標株価を掲げています。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            目標株価って、具体的にどれくらいなんですか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            保守的な見方でも九・〇〇ドル、ベースラインで一四・〇〇ドル、そして強気のシナリオでは二〇・〇〇ドルという予想も出ています。僕個人としては、自動車やレストランチェーンへの強力な導入実績と、買収による事業基盤の拡大を評価し、向こう一年から一年半で一五・〇〇ドル、つまり現在価格から約五〇パーセントから八〇パーセントの上昇余地があると考えています。もし黒字化の道筋がさらに明確になれば、二〇ドル台への回帰も十分に視野に入りますよ。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            五〇パーセントも上がるかもしれないんですね！それなら、今すぐ全力で買いたくなっちゃいました！
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            少し落ち着いてください。もちろん、投資にはリスクも伴います。バラ色の未来だけを信じるのは危険です。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            あっ、そうですよね。どんなリスクに注意すればいいんですか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            最大の脅威は、やはりオープンAIやグーグル、アマゾンといった大巨人たちの逆襲です。彼らも音声生成AIに天文学的な資金を投じています。「ホワイトラベル」と「エッジとクラウドの統合」という独自の砦があるとはいえ、巨大資本による基盤モデルの進化スピードは常に脅威となります。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            確かに、グーグルとかが本気を出して、車向けの完璧な仕組みを作ってきたら怖いですね……。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            また、モハジャーCEOは最高の技術者ですが、研究開発に売上の大半を突っ込むという方針上、今後もウォール街が期待する短期的な財務目標をクリアできず、コストコントロールが甘くなるリスクは常に注視しておく必要があります。さらに現状では、特定の巨大な自動車メーカーやレストランチェーンからの売上比率が比較的高いという、顧客集中のリスクもあります。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            なるほど。技術がすごいからといって安心せず、経営の数字やライバルの動向もちゃんと見ておかないといけないんですね。すごく勉強になります！
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            では、最後に結論をまとめましょう。様々なリスクファクターは存在しますが、僕個人の判断としては、サウンドハウンドAIは力強く「買い」だと推奨します。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            おっ！テックマネーさんの結論は「買い」なんですね！
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            ええ。彼らはただの「音声認識の会社」ではありません。近い将来、私たちが車に乗り、レストランで注文し、家電を操作し、カスタマーセンターに電話をかけるとき、その裏側で人間の代わりに完璧に対応してくれる「自律型AIエージェント」のインフラになろうとしています。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            なんだか、私たちの未来の生活の土台になるような存在なんですね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            一〇年間、誰にも見向きもされずに暗い部屋で基礎技術を磨き続けたエンジニアたちが、今、世界の巨大企業を相手に革命を起こしています。イーロン・マスクがテスラで自動車産業のルールを変えたように、キーヴァン・モハジャーはサウンドハウンドで「機械との対話」のルールを変えようとしているんです。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            そう言われると、胸が熱くなってすごく応援したくなります！私も少しずつ、彼らの創る未来に投資してみようかなって思いました！
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            短期的な株価の波はあるでしょうが、中長期的なAIポートフォリオにおいて、大きな成長を期待できる「大化け枠」として、今のうちに少しずつ仕込んでおくべき非常に魅力的な企業だと思います。ただし、最終的な投資判断は、必ずご自身で情報を精査してから行ってください。投資はあくまで自己責任でお願いしますね。
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="disclaimer">
+        <p>⚠️ <strong>免責事項</strong></p>
+        <p>本記事は情報提供を目的としたものであり、特定の銘柄への投資を推奨するものではありません。株式投資にはリスクが伴います。投資はご自身の判断と責任でお願いいたします。</p>
+      </div>
+      <p class="copyright">© TechMoney｜2026年</p>
+    </footer>
+  </div>
+    </div>
+  </div>
+  </main>
+
+  <Footer />
+</body>
+</html>

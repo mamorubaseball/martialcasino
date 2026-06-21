@@ -1,0 +1,810 @@
+---
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import BaseHead from '../../components/BaseHead.astro';
+import { SITE_TITLE } from '../../consts';
+
+// Generated from video_summary.html
+---
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <BaseHead title="google決算 - {SITE_TITLE}" description="google決算の徹底解説動画の要約記事です。" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <style is:global>
+
+    :root {
+      --bg-dark: #050510;
+      --bg-gradient: linear-gradient(180deg, #0a0a1a 0%, #050510 100%);
+      --primary: #00f2fe;
+      --secondary: #4facfe;
+      --accent: #b06ab3;
+      --text-main: #ffffff;
+      --text-muted: #a0a0b0;
+      --card-bg: rgba(255, 255, 255, 0.03);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --bubble-host-bg: rgba(35, 55, 255, 0.15);
+      --bubble-host-border: rgba(35, 55, 255, 0.3);
+      --bubble-guest-bg: rgba(255, 255, 255, 0.03);
+      --bubble-guest-border: rgba(255, 255, 255, 0.06);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg-gradient);
+      min-height: 100vh;
+      color: var(--text-muted);
+      font-family: 'Inter', 'Noto Sans JP', sans-serif;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1.5rem 4rem 1.5rem;
+    }
+
+    header {
+      padding: 80px 0 40px;
+      text-align: center;
+    }
+
+    .tag-line {
+      display: inline-block;
+      background: linear-gradient(135deg, rgba(0,242,254,0.15), rgba(176,106,179,0.15));
+      border: 1px solid rgba(0,242,254,0.3);
+      border-radius: 50px;
+      padding: 6px 20px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--text-main);
+      line-height: 1.3;
+      margin-bottom: 20px;
+    }
+
+    .subtitle {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      margin-top: 12px;
+    }
+
+    .meta-info {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .lead-section {
+      margin-bottom: 40px;
+    }
+
+    .lead-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .lead-card p {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--text-main);
+    }
+
+    .chat-section {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin: 30px 0;
+    }
+
+    .chat-message {
+      display: flex;
+      gap: 16px;
+      max-width: 85%;
+      align-items: flex-start;
+      margin-bottom: 4px;
+    }
+
+    .host-message {
+      align-self: flex-start;
+    }
+
+    .guest-message {
+      align-self: flex-end;
+      flex-direction: row-reverse;
+    }
+
+    .avatar-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      min-width: 64px;
+    }
+
+    .chat-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--primary);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      background: #0d111c;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+    }
+
+    .guest-avatar {
+      border-color: var(--secondary);
+      background: #1e293b;
+    }
+
+    .avatar-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .message-bubble {
+      padding: 14px 18px;
+      border-radius: 16px;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      border: 1px solid var(--bubble-guest-border);
+      background: var(--bubble-guest-bg);
+      color: var(--text-main);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    }
+
+    .host-message .message-bubble {
+      background: var(--bubble-host-bg);
+      border-color: var(--bubble-host-border);
+      border-top-left-radius: 4px;
+    }
+
+    .guest-message .message-bubble {
+      background: var(--bubble-guest-bg);
+      border-color: var(--bubble-guest-border);
+      border-top-right-radius: 4px;
+    }
+
+    section {
+      margin-bottom: 50px;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--text-main);
+      border-left: 4px solid var(--primary);
+      padding-left: 16px;
+      margin: 40px 0 20px 0;
+      line-height: 1.35;
+    }
+
+    footer {
+      border-top: 1px solid var(--card-border);
+      padding: 40px 0 20px;
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    .disclaimer {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 20px;
+      max-width: 700px;
+      margin: 0 auto 20px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      text-align: left;
+    }
+
+    .copyright {
+      font-size: 0.8rem;
+      color: rgba(160,160,176,0.4);
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 1.8rem; }
+      h2 { font-size: 1.3rem; }
+      header { padding: 50px 0 30px; }
+      .chat-message { max-width: 95%; }
+    }
+  
+
+    /* Unified Layout Styles */
+    .blog-main {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem 1.5rem;
+    }
+    .breadcrumb {
+        font-size: 0.85rem;
+        color: var(--text-secondary, #cbd5e1);
+        margin-bottom: 2rem;
+    }
+    .breadcrumb a {
+        color: var(--text-secondary, #cbd5e1);
+        text-decoration: none;
+    }
+    .breadcrumb a:hover {
+        color: var(--color-accent, #10B981);
+    }
+    .breadcrumb .separator {
+        margin: 0 0.5rem;
+        color: var(--text-muted, #64748b);
+    }
+    .article-content {
+        display: flex;
+        gap: 3rem;
+        align-items: flex-start;
+        margin-top: 2rem;
+    }
+    .toc-sidebar {
+        width: 280px;
+        position: sticky;
+        top: 6rem;
+        flex-shrink: 0;
+    }
+    .sidebar-toc {
+        background: rgba(28, 37, 65, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 8px;
+        padding: 1.8rem;
+        backdrop-filter: blur(10px);
+    }
+    .sidebar-toc h3 {
+        font-size: 1.1rem;
+        font-weight: 800;
+        margin-bottom: 1.2rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        padding-bottom: 0.6rem;
+        color: var(--text-primary, #f1f5f9);
+    }
+    .sidebar-toc ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        margin-left: 0;
+        padding-left: 0;
+    }
+    .sidebar-toc a {
+        font-size: 0.9rem;
+        color: var(--text-secondary, #cbd5e1);
+        text-decoration: none;
+        transition: color 0.2s ease;
+    }
+    .sidebar-toc a:hover {
+        color: var(--color-accent, #10B981);
+    }
+    .post-body {
+        flex-grow: 1;
+        max-width: calc(100% - 310px);
+    }
+    .anchor-target {
+        position: relative;
+        top: -100px;
+        visibility: hidden;
+        display: block;
+    }
+    .video-container {
+        position: relative;
+        width: 100%;
+        padding-top: 56.25%;
+        margin-bottom: 2rem;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid var(--border-color, rgba(16, 185, 129, 0.15));
+        box-shadow: 0 0 20px rgba(16, 185, 129, 0.1);
+    }
+    .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+    @media (max-width: 992px) {
+        .article-content {
+            flex-direction: column;
+        }
+        .toc-sidebar {
+            display: none;
+        }
+        .post-body {
+            max-width: 100%;
+        }
+    }
+  </style>
+</head>
+<body>
+  <Header />
+  
+  <main class="blog-main">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="/">← ホームに戻る</a>
+        <span class="separator">|</span>
+        <a href="/">トップ</a> &gt; <a href="/blog">ブログ</a> &gt; <span class="current">google決算</span>
+      </div>
+    </div>
+    
+    <div class="container">
+    <header>
+      <div class="tag-line">📊 投資銘柄・企業分析</div>
+      <h1>google決算</h1>
+      <p class="subtitle">google決算の徹底解説動画の要約記事です。</p>
+      <div class="meta-info">
+        <span>📅 2026年05月01日</span>
+        <span>✍️ TechMoney</span>
+      </div>
+    </header>
+
+    <main>
+            <p style="margin-bottom: 1.5rem;">アルファベット決算速報：驚異の二桁成長と利益の裏側</p>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            Googleホルダーの皆さん、おめでとうございます！！Googleの決算発表があり、株価がプラス9パーセントと急騰しましたね！この動画を見ると、二〇二六年一月から三月期のGoogle、つまりアルファベットの決算が具体的に何がすごかったのか、数字の意味まで含めて全部わかります。「ニュースは見たけど詳細はよくわからない」という方に、特に見てほしい内容です。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            テックマネーさん、今日もよろしくお願いします！株価の上がりっぷり、本当に凄かったですよね！具体的に何がそんなに評価されたんですか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            それはもう、率直に言うと「全部良かった」という感じです。今日はその中身を一つひとつ紐解いていきますね。今回の決算、本当に素晴らしい内容でした。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            わあ、そんなに！？どのくらいすごいんですか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            まず売上から見ていきましょう。今四半期のアルファベット全体の売上高は一千九百九十億ドル、日本円にすると約二十八兆円規模です。前の年の同じ時期と比べて二割二分の増収ですよ。それも十一四半期連続での二桁成長。これ、つまり三年近くずっと一〇パーセント以上伸ばし続けているということです。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            三年近く…！毎回二桁成長って、普通じゃないですよね？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            普通じゃないですね。しかも市場予想、つまりウォール街のプロたちが事前に予測していた数字は一千七十一億ドルだったんですが、実際は一千九十九億ドルで大幅に上回ってきた。EPSという一株あたり利益も、予想が二ドル六二セントに対して実際は五ドル一一セントです。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            え、ちょっと待ってください。予想の二倍近く稼いだってことですか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            そうなんですよ。ただここは少し補足が必要で、今回のEPSにはアンソロピックなどへの未実現の株式利益、約三兆七千億円相当の評価益が含まれているんです。ですので純粋な事業利益で見ると、本来の実力はもう少し低い数字になります。とはいえ、それを差し引いてもウォール街予測を大きく超えてきた。
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">成長率60%超え！AI需要で爆発するGoogleクラウド</p>
+      <div class="chat-section">
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            なるほど、数字のカラクリがあるんですね。反映事業自体も強いってことですよね？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            そうです、事業自体がすごく強い。では次に、今回の決算で最大の注目ポイント、Googleクラウドの話をしましょう。クラウドの売上が二百億ドルを突破して二百三億ドル。前年同期は百二十二億ドルだったので、なんと六割三分増です。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            六割三分…！一年で六割以上も伸びるって, どういうことなんですか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            一言で言うとAI需要の爆発です。企業が自分たちのビジネスにAIを取り込もうとするとき、クラウドインフラが必要になる。その受け皿としてGoogleクラウドが選ばれているんですよ。Geminiというグーグルの生成AIモデルの企業向けプランの有料ユーザーが、一四半期だけで四割も増えたというデータもあります。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            GeminiってChatGPTみたいなものですよね。それの企業版が売れているということですか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            まさにそうです。さらにもっとインパクトの大きい数字があって、クラウドの受注残高、つまり「これから売上として計上される予約済みの契約額」が四千六百億ドルを超えたんです。一年前の時点では二千四百億ドル規模でしたから、ほぼ二倍に膨らんでいる計算です。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            四千六百億ドル…数字が大きすぎてピンとこないですけど、とにかく将来の売上が確約されているということですよね？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            そのとおりです。受注残高は「見えている未来の収入」なので、投資家目線では非常に重要な指標なんですよ。しかもクラウドの営業利益率が今回三二・九パーセントまで改善しました。一年前は九・四パーセントだったので、利益率が三倍以上に跳ね上がったことになります。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            利益率まで上がってるなんて…もう完璧じゃないですか！
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">広告事業の現状とAIへの巨額投資戦略</p>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            クラウドに関してはほぼ完璧と言っていいですね。それからGoogleの本業である広告事業も見ておきましょう。広告収入全体で七百七十二億ドル、前年比で約一割六分増です。検索広告が六百四億ドルで約一割九分増、これはAI検索が既存の広告モデルと共存できているという証拠です。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            AIが入ってきたら広告が減るって聞いたことがあったんですが、そうはならなかったんですね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            少なくとも今のところはそうですね。Googleは検索クエリの約二割しか広告を出せていなかったんですが、AIによって商業的な意図を持つ検索をより正確に読み取れるようになったと説明しています。つまりAIが広告収入を増やす方向に動いているということです。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            へえ、AIって競合相手かと思ってたら、むしろ武器になっているんですね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            まさにその視点が大切です。ただ一点、唯一のマイナス材料として「Googleネットワーク」という部門があります。ここはサードパーティのウェブサイトに広告を出すビジネスなんですが、売上が六十九億七千万ドルと前年から四パーセント減少しました。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            そこだけ下がったのはどうしてですか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            AIの普及で検索をしてもGoogleの画面内で答えが出てしまい、外部サイトへの流入が減ってきているんです。月間二十億人以上がAI概要機能を使っているというデータが出ていて、その分だけ外部サイトの広告収益が圧迫されています。Googleが自社でAIを強化するほど、外部パブリッシャーへの影響が出るという構造的な問題ですね。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            自分が強くなることで他のサイトが弱くなる…なんか複雑ですね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            インターネット全体の構造変化という点では確かに複雑です。次にYouTubeも見ておきましょう。YouTube広告収入は九十八億八千万ドル。予想の九十九億七千万ドルをわずかに下回りましたが、これだけ全体が好調な中でのミスですから市場はほとんど気にしていません。ユーザー数は引き続き増加傾向で、サブスクリプションのYouTube Musicやプレミアムも好調です。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            百億ドル近くを稼ぐだけでも十分すごいですよね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            本当にそうですね。では次に少し先を見る話をしましょう。Googleは今年、AIインフラへの投資として一千七百五十億ドルから一千八百五十億ドルの設備投資を計画しています。昨年の約九百億ドルから約二倍のペースです。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            えっ、そんなに使うんですか！？それって赤字にならないですか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            そこが今回の決算が投資家に評価されたポイントの一つです。巨額投資をしながらも、今四半期の営業利益率は三十六・一パーセントと前年より二ポイント改善しているんです。つまり「使いながらも稼ぎ方が上手くなっている」ということです。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            それはすごいですね…！未来に向けて投資しながら、今も儲かっているということですよね。
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">「打倒エヌビディア」？Googleの未来と投資リスク</p>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            そうです。しかもGoogleはカスタムAIチップ「TPU」を今後、自社だけでなく外部企業にも販売する計画を発表しました。これが実現すれば、AIチップ市場でNVIDIAに対抗できる事業ができるということで、市場では「新たな収益源の誕生」として注目されています。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            チップまで売り始めるんですか！Google、もはやどこに向かっているんでしょう…？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            本当にその感想、的な射ていますよ。Googleはもはや検索会社でもなく、広告会社でもなく、AIのインフラそのものを提供するプラットフォーム企業に変わりつつあるんです。クラウド事業の売上がアルファベット全体の約一割八分を占めるまでになりました。一年前は一割四分程度でしたから、確実にシフトが進んでいます。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            テックマネーさん、今回の決算を全部見てきて、総合的にはどう評価しますか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            正直に言えば、近年見た中で最も印象的な決算の一つです。売上・利益・利益率・クラウド成長・受注残高、ほぼ全項目でウォール街の予想を上回った。特にクラウドの六割三分増という数字は、AmazonのAWSやMicrosoftのAzureと比較しても非常に強い成長で、Googleがクラウド競争でも本格的に存在感を示してきたと言えます。懸念点としては前述のネットワーク広告の構造的な減少と、一千七百五十億ドルを超える設備投資が今後の利益をどう圧迫するかという点は引き続き注視が必要です。ただ今回の決算は、その不安を一時的に吹き飛ばすほどの力強さがありました。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            わかりやすかったです！株価はどう動いたんですか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            決算発表後、アルファベットの株価は九パーセントも急騰しました。過去六ヶ月を見ても約三割上昇していて、Amazon、Microsoftといった他のビッグテックを上回るパフォーマンスです。市場が今回の決算をいかに高く評価しているかが数字に表れていますね。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            三割…！Googleホルダーの方はニコニコですね。私もちょっと欲しくなってきました。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            その気持ちはわかりますよ。ただここで必ず伝えておきたいことがあります。今回の決算がどれだけ素晴らしくても、株価は過去の実績だけで動くわけではありません。設備投資の回収リスク、AI規制の動向、独占禁止法関連の訴訟リスク、さらには競合するOpenAIやMicrosoftの動きなど、これから起こりうるリスクは常に意識しておく必要があります。投資というのはあくまで自己責任で行うものですので、しっかりと情報を集めて判断してくださいね。そして最後に、個人的な見解を少しだけお話しさせてください。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            おっ、テックマネーさんの本音ですね！
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            はい。今回の決算やTPUの外部販売計画などを踏まえると、個人的には将来的に『エヌビディアを追い越すのはGoogleだ』と思っています。AIインフラのすべてを自社で完結できる強みは、他にはない圧倒的な武器になりますからね。皆さんはどう思いますか？「いや、やっぱりエヌビディアが一強だ」「Googleが覇権を握る」など、ぜひコメント欄で皆さんのご意見を聞かせてください！
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            はい！皆さんのコメント、お待ちしてます！今日もとても勉強になりました. テックマネーさん、ありがとうございました！
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            こちらこそありがとうございます。次回もお楽しみに！チャンネル登録と高評価もよろしくお願いします！
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="disclaimer">
+        <p>⚠️ <strong>免責事項</strong></p>
+        <p>本記事は情報提供を目的としたものであり、特定の銘柄への投資を推奨するものではありません。株式投資にはリスクが伴います。投資はご自身の判断と責任でお願いいたします。</p>
+      </div>
+      <p class="copyright">© TechMoney｜2026年</p>
+    </footer>
+  </div>
+    </div>
+  </div>
+  </main>
+
+  <Footer />
+</body>
+</html>

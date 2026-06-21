@@ -1,0 +1,1033 @@
+---
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import BaseHead from '../../components/BaseHead.astro';
+import { SITE_TITLE } from '../../consts';
+
+// Generated from video_summary.html
+---
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <BaseHead title="【緊急】ブルーオリジン大爆発で宇宙株1.3兆円消失！ASTS急落の裏に潜む「本当の危機」と今後の投資戦略 - {SITE_TITLE}" description="ブルーオリジンの徹底解説動画の要約記事です。" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <style is:global>
+
+    :root {
+      --bg-dark: #050510;
+      --bg-gradient: linear-gradient(180deg, #0a0a1a 0%, #050510 100%);
+      --primary: #00f2fe;
+      --secondary: #4facfe;
+      --accent: #b06ab3;
+      --text-main: #ffffff;
+      --text-muted: #a0a0b0;
+      --card-bg: rgba(255, 255, 255, 0.03);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --bubble-host-bg: rgba(35, 55, 255, 0.15);
+      --bubble-host-border: rgba(35, 55, 255, 0.3);
+      --bubble-guest-bg: rgba(255, 255, 255, 0.03);
+      --bubble-guest-border: rgba(255, 255, 255, 0.06);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg-gradient);
+      min-height: 100vh;
+      color: var(--text-muted);
+      font-family: 'Inter', 'Noto Sans JP', sans-serif;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1.5rem 4rem 1.5rem;
+    }
+
+    header {
+      padding: 80px 0 40px;
+      text-align: center;
+    }
+
+    .tag-line {
+      display: inline-block;
+      background: linear-gradient(135deg, rgba(0,242,254,0.15), rgba(176,106,179,0.15));
+      border: 1px solid rgba(0,242,254,0.3);
+      border-radius: 50px;
+      padding: 6px 20px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--text-main);
+      line-height: 1.3;
+      margin-bottom: 20px;
+    }
+
+    .subtitle {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      margin-top: 12px;
+    }
+
+    .meta-info {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .lead-section {
+      margin-bottom: 40px;
+    }
+
+    .lead-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .lead-card p {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--text-main);
+    }
+
+    .chat-section {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin: 30px 0;
+    }
+
+    .chat-message {
+      display: flex;
+      gap: 16px;
+      max-width: 85%;
+      align-items: flex-start;
+      margin-bottom: 4px;
+    }
+
+    .host-message {
+      align-self: flex-start;
+    }
+
+    .guest-message {
+      align-self: flex-end;
+      flex-direction: row-reverse;
+    }
+
+    .avatar-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      min-width: 64px;
+    }
+
+    .chat-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--primary);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      background: #0d111c;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+    }
+
+    .guest-avatar {
+      border-color: var(--secondary);
+      background: #1e293b;
+    }
+
+    .avatar-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .message-bubble {
+      padding: 14px 18px;
+      border-radius: 16px;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      border: 1px solid var(--bubble-guest-border);
+      background: var(--bubble-guest-bg);
+      color: var(--text-main);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    }
+
+    .host-message .message-bubble {
+      background: var(--bubble-host-bg);
+      border-color: var(--bubble-host-border);
+      border-top-left-radius: 4px;
+    }
+
+    .guest-message .message-bubble {
+      background: var(--bubble-guest-bg);
+      border-color: var(--bubble-guest-border);
+      border-top-right-radius: 4px;
+    }
+
+    section {
+      margin-bottom: 50px;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--text-main);
+      border-left: 4px solid var(--primary);
+      padding-left: 16px;
+      margin: 40px 0 20px 0;
+      line-height: 1.35;
+    }
+
+    footer {
+      border-top: 1px solid var(--card-border);
+      padding: 40px 0 20px;
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    .disclaimer {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 20px;
+      max-width: 700px;
+      margin: 0 auto 20px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      text-align: left;
+    }
+
+    .copyright {
+      font-size: 0.8rem;
+      color: rgba(160,160,176,0.4);
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 1.8rem; }
+      h2 { font-size: 1.3rem; }
+      header { padding: 50px 0 30px; }
+      .chat-message { max-width: 95%; }
+    }
+  
+
+    /* Unified Layout Styles */
+    .blog-main {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem 1.5rem;
+    }
+    .breadcrumb {
+        font-size: 0.85rem;
+        color: var(--text-secondary, #cbd5e1);
+        margin-bottom: 2rem;
+    }
+    .breadcrumb a {
+        color: var(--text-secondary, #cbd5e1);
+        text-decoration: none;
+    }
+    .breadcrumb a:hover {
+        color: var(--color-accent, #10B981);
+    }
+    .breadcrumb .separator {
+        margin: 0 0.5rem;
+        color: var(--text-muted, #64748b);
+    }
+    .article-content {
+        display: flex;
+        gap: 3rem;
+        align-items: flex-start;
+        margin-top: 2rem;
+    }
+    .toc-sidebar {
+        width: 280px;
+        position: sticky;
+        top: 6rem;
+        flex-shrink: 0;
+    }
+    .sidebar-toc {
+        background: rgba(28, 37, 65, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 8px;
+        padding: 1.8rem;
+        backdrop-filter: blur(10px);
+    }
+    .sidebar-toc h3 {
+        font-size: 1.1rem;
+        font-weight: 800;
+        margin-bottom: 1.2rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        padding-bottom: 0.6rem;
+        color: var(--text-primary, #f1f5f9);
+    }
+    .sidebar-toc ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        margin-left: 0;
+        padding-left: 0;
+    }
+    .sidebar-toc a {
+        font-size: 0.9rem;
+        color: var(--text-secondary, #cbd5e1);
+        text-decoration: none;
+        transition: color 0.2s ease;
+    }
+    .sidebar-toc a:hover {
+        color: var(--color-accent, #10B981);
+    }
+    .post-body {
+        flex-grow: 1;
+        max-width: calc(100% - 310px);
+    }
+    .anchor-target {
+        position: relative;
+        top: -100px;
+        visibility: hidden;
+        display: block;
+    }
+    .video-container {
+        position: relative;
+        width: 100%;
+        padding-top: 56.25%;
+        margin-bottom: 2rem;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid var(--border-color, rgba(16, 185, 129, 0.15));
+        box-shadow: 0 0 20px rgba(16, 185, 129, 0.1);
+    }
+    .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+    @media (max-width: 992px) {
+        .article-content {
+            flex-direction: column;
+        }
+        .toc-sidebar {
+            display: none;
+        }
+        .post-body {
+            max-width: 100%;
+        }
+    }
+  </style>
+</head>
+<body>
+  <Header />
+  
+  <main class="blog-main">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="/">← ホームに戻る</a>
+        <span class="separator">|</span>
+        <a href="/">トップ</a> &gt; <a href="/blog">ブログ</a> &gt; <span class="current">【緊急】ブルーオリジン大爆発で宇宙株1.3兆円消失！ASTS急落の裏に潜む「本当の危機」と今後の投資戦略</span>
+      </div>
+    </div>
+    
+    <div class="container">
+
+  <div class="video-container">
+    <iframe src="https://www.youtube.com/embed/VNEJEpxacO4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+  
+    <header>
+      <div class="tag-line">📊 投資銘柄・企業分析</div>
+      <h1>ブルーオリジン</h1>
+      <p class="subtitle">ブルーオリジンの徹底解説動画の要約記事です。</p>
+      <div class="meta-info">
+        <span>📅 2026年05月31日</span>
+        <span>✍️ TechMoney</span>
+      </div>
+    </header>
+
+    <main>
+            <p style="margin-bottom: 1.5rem;">1.3兆円の衝撃！宇宙関連株暴落の真相</p>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            「ロケットが爆発したら、自分の株も爆発する」——これ、冗談じゃなくて、実際に起きた話なんです。二〇二六年五月二九日の深夜、アメリカのフロリダ州ケープカナベラルで、ブルーオリジンの大型ロケット「ニューグレン」が地上試験中に大爆発。翌朝、宇宙関連株全体の時価総額から約八〇億ドル、日本円にして約一・三兆円が吹き飛びました。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            えっ、一・三兆円ですか？それって日本のどこかの国家予算並みじゃないですか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            そうなんです。それだけの規模で市場が動いた。特にASTスペースモバイル（ティッカー：ASTS）は一日で一八・五パーセント急落しました。「これ、売るべきなのか？」「それとも絶好の買い場なのか？」——ASTSホルダーの方、今まさにこれで悩んでいませんよね？
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            私も気になります。どうすればいいんでしょう？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            この動画の結論から先にお伝えすると、「今回の急落は過去の急落と比べてもかなり深刻な部類に入ります。ただし、長期では可能性を維持している銘柄でもある。」——というのが僕の見立てです。個人的には、まず一度利確して、落ち着いた水準で再エントリーする戦略が合理的だと考えています。その理由を、データと共にじっくり解説していきますね。時間がない方や気になるところだけ知りたい方は、概要欄のタイムスタンプから飛んでくださいね。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            ありがとうございます、助かります！
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            今回の動画は以下の流れで解説します。一つ目、「ブルーオリジンの爆発、何が起きたのか？」。二つ目、「宇宙関連銘柄への影響」。三つ目、「ASTスペースモバイルは売るべきか？——過去の急落と今回を比較分析」。四つ目、「NASAとアナリストの評価」。五つ目、「まとめと投資判断」。では早速、本編に入りましょう。
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">第一章：ブルーオリジンの爆発——何が起きたのか？</p>
+      <h2>第一章</h2>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            「ブルーオリジンの爆発——何が起きたのか？」
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            ロケットが爆発って、映画みたいな話ですね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            まさに映画のような光景だったようです。二〇二六年五月二八日の深夜、ケープカナベラルの第三六発射施設。ブルーオリジンの大型ロケット「ニューグレン」が、地上燃焼試験を行っていたんです。エンジン七基を同時点火する「ホットファイアテスト」という、打ち上げ前の重要な確認作業ですね。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            じゃあ、まだロケットを飛ばす前だったんですね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            そうです。飛ばす前の試験中に、巨大な火球が発生して爆発してしまった。重要なのは、このニューグレンの射点——第三六発射施設というんですが——ここはブルーオリジンが持っている唯一のニューグレン専用射点なんです。つまり、これが壊れたということは、ブルーオリジンのニューグレンはしばらく飛べない、ということを意味します。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            予備の射点はないんですか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            ないんです。それが今回の最大の問題です。創業者のジェフ・ベゾス氏はソーシャルメディアで「非常に厳しい日だが、再建が必要なものは再建し、飛行を再開する」とコメントしました。ただし、「根本原因を知るには時期尚早」とも述べていて、復旧の見通しは全く立っていない状況です。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            ブルーオリジンって、去年か一昨年もトラブルがあったんじゃないですか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            鋭いですね。実は今回は、たった二ヶ月で二度目の大きな後退なんです。二〇二六年四月にも、ニューグレンの三号機が上段失敗を起こして、ASTスペースモバイルのブルーバード七号衛星が予定軌道に届かず、使用不能になるという事故がありました。米連邦航空局（FAA）が五月二二日にようやく調査結果を受理し、再開への道が開いたばかりだった。その矢先に今回の爆発です。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            ショックですね……。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            二ヶ月で二連続の重大事故. これは投資家として、ブルーオリジンという打ち上げパートナーの信頼性に疑問を持つには十分すぎる出来事でした。
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">第二章：宇宙関連銘柄への影響と市場の過熱</p>
+      <h2>第二章</h2>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            「宇宙関連銘柄への影響」
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            他の宇宙株も売られたんですよね？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            大きく売られました。宇宙関連ETFの「プロキュア・スペースETF（ティッカー：UFO）」は、年初来最大の下落を記録する見通しです。個別株では、ロケット・ラボが九・三パーセント安、インテュイティブ・マシンズとレッドワイヤーはそれぞれ約一四パーセント下落。プラネット・ラボが一三パーセント安、ボイジャー・テクノロジーズも五パーセント超の下落でした。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            なんで ASTスペースモバイルだけ一八パーセントも下がったんですか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            それには理由があります。ASTスペースモバイルは、ブルーオリジンと打ち上げ契約を複数回結んでいる直接的な「被害当事者」だからです。次世代「ブロック2」ブルーバード衛星を軌道に乗めるためにニューグレンを使う予定でした。今回爆発したロケットにASTの衛星は搭載されていませんでしたが、今後の打ち上げスケジュールが根本から揺らいでしまったわけです。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            アマゾンとかも関係あるって読みましたが？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            そうなんです。アマゾンは「プロジェクト・カイパー」という、スターリンク対抗の衛星インターネットサービスのために、ニューグレンを使う予定でした。アマゾンは米連邦通信委員会（FCC）から二〇二九年までに三千基以上の衛星を軌道に乗せることを義務付けられています。今回の爆発で、その達成もかなり難しくなりました。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            すごい影響範囲ですね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            さらに、今回の売りには「宇宙バブル冷却」という側面もあります。実はこの時期、スペースXのIPO期待で宇宙関連株全体が過熱していました。UFO ETFは過去六ヶ月で一〇〇パーセント以上上昇していた。スペースXは六月中旬のナスダック上場を目指しており、当初の評価額は二兆ドルと言われていました。しかし今回の爆発と同じ日、ブルームバーグがスペースXのIPO目標評価額が一・八兆ドルに引き下げられたと報じた。この二重のネガティブサプライズが、宇宙セクター全体に大きな売り圧力をかけたんです。
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">第三章：ASTSは売るべきか？——過去の急落と徹底比較分析</p>
+      <h2>第三章</h2>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            「ASTスペースモバイルは売るべきか？——過去の急落と今回を徹底比較」
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            ここが一番気になるところです！
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            では、ASTスペースモバイルが過去に大きく急落した出来事を整理してみましょう。この銘柄、実はなかなかの「急落の常連」なんです。まず二〇二四年、資金調達のための増資が複数回行われ、株式の希薄化が進みました。過去一年間で発行済株式数が約二四パーセント増加していて、既存株主の価値が薄まる形で下落が繰り返されました。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            希薄化って怖いですね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            次に、二〇二五年一〇月ごろ。アップルがiOSのアップデートでTモバイルのスターリンク経由のSMSサービスに対応したという報道で急落しました。これはASTのビジネスモデル——つまり、スマートフォンに衛星から直接通信する——という概念が、スペースXに先を越されるかもしれないという懸念が広がったためです。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            競争が激しいんですね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            そして二〇二六年四月、一つ目のブルーオリジン事故。ニューグレンの上段失敗でブルーバード七号が失われた出来事ですね。さらに二〇二六年五月に入ってからも、第一四半期決算が市場予想を大幅に下回り、市場外取引で約一〇パーセント下落しました。純損失が一億九一〇〇万ドルに拡大し、アナリスト予想の約二倍以上という大幅な下振れでした。そして今回、五月二九日の一八・五パーセント急落です。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            いろんな急落があったんですね。今回はその中でどのくらい深刻ですか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            過去の急落を分析すると、大きく三つのパターンがあります。一つ目は「一時的な感情的売り」。競合ニュースや利益確定など、ビジネスの本質とは無関係な売り。これは比較的短期で回復してきました。二番目は「財務・希薄化リスク」。これは中長期で株価の重しになりやすい。そして三つ目が「事業の根幹を揺るがすリスク」——つまり、衛星を打ち上げられないというリスクです。今回はこの三つ目に該当します。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            それって一番深刻なやつじゃないですか。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            そうです。ASTスペースモバイルというビジネスは、衛星を宇宙に打ち上げることが「絶対条件」なんです。ベライゾンやAT&Tと一〇億ドル規模の商業契約がある。でも、衛星が軌道にいなければ、その契約から一円も生まれない。ドイツ銀行のアナリスト、ブライアン・クラフト氏は今回の事象を「壊滅的な爆発」と表現し、投資判断を「買い」から「ホールド」に引き下げました。目標株価も一一七ドルから一〇六ドルに引き下げています。衛星展開スケジュールが約六ヶ月遅れると予想しています。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            六ヶ月って長いですよね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            長いです。ただし、明るい材料もあります。先ほど掲示板情報でも触れましたが、ASTはスペースXのファルコン9ロケットでの打ち上げも予約していて、すでに一〇回以上のファルコン9打ち上げが契約済みという情報もあります。三機の新型ブルーバード衛星を搭載する次のミッションは、第三九Aまたは第四〇発射施設からの打ち上げが依然として予定されています。つまり、ニューグレン「だけ」に依存しているわけではない、という見方もできるんです。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            じゃあ大丈夫なんでしょうか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            ロス・キャピタルは「買い」評価と一〇八ドルの目標株価を維持しました。面白い視点として、ブルーオリジンの遅延でアマゾンのプロジェクト・カイパーも遅延するわけですから、ASTにとって最大の競合になりうる存在が一時的に弱体化するという逆説的な明るい材料も指摘しています。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            へぇ、そういう見方もあるんですね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            ただ、率直に言います。今回の急落前まで、ASTSは年初来五一パーセント上昇していました。つまり、かなり期待先行で株価が上がっていた。それが現実に引き戻された、というのが今回の本質だと思います。個人的な戦略としては、まず一度利確して、市場が落ち着いた段階——具体的にはブルーオリジンの調査結果が出て、スペースXのIPOが完了して、宇宙セクターの熱狂が一服した後——で再エントリーするのが合理的ではないかと考えています。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            冷静な判断が大切なんですね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            感情で動かないことが投資の基本ですからね。
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">第四章：NASAの動向とキャッシュバーンの深刻な問題</p>
+      <h2>第四章</h2>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            「NASAとアナリストの評価」
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            NASAも関係あるんですか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            関係があります。ブルーオリジンはNASAの有人月面着陸「アルテミス計画」向け月着陸船の納入契約を保有しています。来年予定の有人着陸ですね。さらにNASAは、今回の爆発の少し前に、ブルーオリジンに恒久的月面基地の契約まで付与したばかりでした。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            タイミングが悪すぎますね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            NASAのジャレッド・アイザックマン長官は「徹底調査に協力する」と述べ、「宇宙飛行は容赦がなく、新型大型打ち上げ能力の開発は極めて困難だ」とコメントしました。つまり、NASAはブルーオリジンを見捨てるわけではないものの、事態の深刻さは十分に認識しているということです。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            アナリストは全体的にどういう評価なんですか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            今回の急落前まで、多くのアナリストがASTSに強気でした。ベライゾン、AT&Tといった大手通信会社との商業契約、三千八百件以上の特許、そして「スマホに宇宙から直接電波を届ける」という革新的なビジネスモデルへの期待が高かった。ドイツ銀行はダウングレードしましたが、ロス・キャピタルは買い継続です。見方が割れている状況は、それだけ不確実性が高いということでもあります。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            難しい銘柄ですね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            一言で言えば「夢は大きいが、リスクも大きい」銘柄です。フリーキャッシュフローの黒字化は二〇二八年まで見込まれていない。今この瞬間も、衛星を作るためのお金を使い続けています。手元資金は約三五億ドルあるものの、二〇二六年だけで約一六億ドルを消費すると予測されています。つまり、時間との戦いでもある。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            打ち上げが遅れるほど、資金が先に尽きるリスクがあるんですね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            まさにその通りです。だからこそ、今回の打ち上げ遅延は単なる「スケジュールの問題」ではなく、「キャッシュバーン（資金燃焼）の問題」でもある。深刻さの理由がそこにもあります。
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">第五章：まとめ——投資家として今取るべき投資判断</p>
+      <h2>第五章</h2>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            「まとめ——今回の急落をどう見るか？」
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            改めて整理してもらえますか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            今回のポイントを整理します。まず事実として、ブルーオリジンのニューグレンが地上試験中に爆発し、唯一の射点が壊滅的な損傷を受けた。ASTスペースモバイルはこの爆発で、商用コンステレーション展開計画が少なくとも六ヶ月遅延するリスクを抱えました。宇宙関連株全体で約八〇億ドルの時価総額が消えました。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            それで、売りですか、買いですか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            今回の急落は、過去の急落と比べても「事業の根幹を揺るがすレベル」にある、と僕は判断しています。年初来五一パーセントも上昇していた株が、現実の課題——二ヶ月連続のロケット失敗、決算の大幅ミス——で適正水準に引き戻されつつあると見ています。個人的な戦略は、「まず利確して、落ち着いたら再度入り直す」です。具体的には、スペースXのIPOが完了し、市場の熱が冷め、ブルーオリジンの調査と復旧見通しが明確になってから。ASTスペースモバイルの長期的なビジネス可能性を否定しているわけじゃないんです。ただ、今は「過剰期待」が剥がれる過程にある。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            冷静に考えると、そうですよね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            あと一点、注目すべきはスペースXのIPOです。スペースXがIPO文書でASTスペースモバイルを「競合」と明記したことは、逆説的にASTの技術力の高さを証明してもいます。ただ、スペースXという圧倒的なプレイヤーが上場市場に出てくることで、資金が一気にそちらに流れる可能性もある。宇宙セクター全体の構造が、スペースXIPO後に大きく変わるかもしれません。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            宇宙投資って、本当に奥が深いんですね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            ロマンとリスクが同居している、それが宇宙関連株の魅力でもあり怖さでもある。今回の動画のポイントをまとめると——ブルーオリジン爆発はASTスペースモバイルにとって一時的ではなく構造的なリスク。短期では利確して様子を見る。長期では、衛星展開の進捗と資金状況を継続ウォッチ。以上です。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            ありがとうございます、テックマネーさん。スッキリしました！
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            お役に立てたなら嬉しいです。最後にお伝えしたいのは、この動画の内容はあくまで情報提供と、僕個人の考えの共有です。今回のような急落局面では、感情が揺さぶられやすい。でも投資は最終的に、ご自身の判断と責任で行っていただくものです。この動画が、その判断の一助になれれば十分です。投資はあくまで自己責任で、どうかよろしくお願いしますね。
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="disclaimer">
+        <p>⚠️ <strong>免責事項</strong></p>
+        <p>本記事は情報提供を目的としたものであり、特定の銘柄への投資を推奨するものではありません。株式投資にはリスクが伴います。投資はご自身の判断と責任でお願いいたします。</p>
+      </div>
+      <p class="copyright">© TechMoney｜2026年</p>
+    </footer>
+  </div>
+    </div>
+  </div>
+  </main>
+
+  <Footer />
+</body>
+</html>

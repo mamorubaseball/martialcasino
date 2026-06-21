@@ -1,0 +1,604 @@
+---
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import BaseHead from '../../components/BaseHead.astro';
+import { SITE_TITLE } from '../../consts';
+
+// Generated from video_summary.html
+---
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <BaseHead title="今が仕込みどき!? 誰も注目しない今こそ買う米国ドローン株3選【AVAV・KTOS・RCAT】 - {SITE_TITLE}" description="" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <style is:global>
+
+        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap');
+
+        :root {
+            --bg-color: #121212;
+            --surface-color: #1e1e1e;
+            --primary-color: #03dac6;
+            --secondary-color: #bb86fc;
+            --text-color: #e0e0e0;
+            --text-muted-color: #a0a0a0;
+            --border-color: #333;
+            --positive-color: #4caf50;
+            --negative-color: #f44336;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            font-family: 'Lato', 'Noto Sans JP', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .report-header {
+            text-align: center;
+            padding: 40px 20px;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 40px;
+        }
+
+        .report-header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .report-header .ticker {
+            font-size: 1.8rem;
+            color: var(--secondary-color);
+            background-color: rgba(187, 134, 252, 0.1);
+            padding: 5px 15px;
+            border-radius: 8px;
+            display: inline-block;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .report-header p {
+            font-size: 1.2rem;
+            color: var(--text-muted-color);
+            margin-top: 15px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+        
+        .card {
+            background-color: var(--surface-color);
+            border-radius: 12px;
+            padding: 25px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+
+        .card p {
+            color: var(--text-muted-color);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+
+        .data-point {
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+        }
+
+        .data-point .label {
+            color: var(--text-muted-color);
+            display: block;
+            font-size: 0.85rem;
+            margin-bottom: 2px;
+        }
+
+        .data-point .value {
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+
+        .highlight-data {
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .positive { color: var(--positive-color); }
+        .negative { color: var(--negative-color); }
+        .neutral { color: var(--secondary-color); }
+
+        .summary-card {
+            background: linear-gradient(135deg, #2a2a2e, #1a1a1e);
+            border-left: 5px solid var(--primary-color);
+        }
+        
+        .summary-card .value {
+            font-size: 2rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: rgba(3, 218, 198, 0.1);
+            color: var(--primary-color);
+            font-size: 1.1rem;
+        }
+
+        td .growth-rate {
+            display: block;
+            font-size: 0.9rem;
+            color: var(--positive-color);
+            font-weight: bold;
+        }
+
+        .customer-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        .customer-list li {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 10px 15px;
+            margin-bottom: 8px;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+        .customer-list .category {
+            font-weight: normal;
+            color: var(--text-muted-color);
+            margin-right: 10px;
+        }
+
+        blockquote {
+            border-left: 4px solid var(--secondary-color);
+            padding: 15px 20px;
+            margin: 20px 0;
+            background-color: rgba(187, 134, 252, 0.05);
+            color: var(--text-color);
+            font-style: italic;
+        }
+
+        .disclaimer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            background-color: var(--surface-color);
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: var(--text-muted-color);
+        }
+
+        @media (max-width: 768px) {
+            .report-header h1 {
+                font-size: 2.2rem;
+            }
+            .report-header .ticker {
+                font-size: 1.5rem;
+            }
+            h2 {
+                font-size: 1.8rem;
+            }
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    
+
+    /* Unified Layout Styles */
+    .blog-main {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem 1.5rem;
+    }
+    .breadcrumb {
+        font-size: 0.85rem;
+        color: var(--text-secondary, #cbd5e1);
+        margin-bottom: 2rem;
+    }
+    .breadcrumb a {
+        color: var(--text-secondary, #cbd5e1);
+        text-decoration: none;
+    }
+    .breadcrumb a:hover {
+        color: var(--color-accent, #10B981);
+    }
+    .breadcrumb .separator {
+        margin: 0 0.5rem;
+        color: var(--text-muted, #64748b);
+    }
+    .article-content {
+        display: flex;
+        gap: 3rem;
+        align-items: flex-start;
+        margin-top: 2rem;
+    }
+    .toc-sidebar {
+        width: 280px;
+        position: sticky;
+        top: 6rem;
+        flex-shrink: 0;
+    }
+    .sidebar-toc {
+        background: rgba(28, 37, 65, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 8px;
+        padding: 1.8rem;
+        backdrop-filter: blur(10px);
+    }
+    .sidebar-toc h3 {
+        font-size: 1.1rem;
+        font-weight: 800;
+        margin-bottom: 1.2rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        padding-bottom: 0.6rem;
+        color: var(--text-primary, #f1f5f9);
+    }
+    .sidebar-toc ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        margin-left: 0;
+        padding-left: 0;
+    }
+    .sidebar-toc a {
+        font-size: 0.9rem;
+        color: var(--text-secondary, #cbd5e1);
+        text-decoration: none;
+        transition: color 0.2s ease;
+    }
+    .sidebar-toc a:hover {
+        color: var(--color-accent, #10B981);
+    }
+    .post-body {
+        flex-grow: 1;
+        max-width: calc(100% - 310px);
+    }
+    .anchor-target {
+        position: relative;
+        top: -100px;
+        visibility: hidden;
+        display: block;
+    }
+    .video-container {
+        position: relative;
+        width: 100%;
+        padding-top: 56.25%;
+        margin-bottom: 2rem;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid var(--border-color, rgba(16, 185, 129, 0.15));
+        box-shadow: 0 0 20px rgba(16, 185, 129, 0.1);
+    }
+    .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+    @media (max-width: 992px) {
+        .article-content {
+            flex-direction: column;
+        }
+        .toc-sidebar {
+            display: none;
+        }
+        .post-body {
+            max-width: 100%;
+        }
+    }
+  </style>
+</head>
+<body>
+  <Header />
+  
+  <main class="blog-main">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="/">← ホームに戻る</a>
+        <span class="separator">|</span>
+        <a href="/">トップ</a> &gt; <a href="/blog">ブログ</a> &gt; <span class="current">今が仕込みどき!? 誰も注目しない今こそ買う米国ドローン株3選【AVAV・KTOS・RCAT】</span>
+      </div>
+    </div>
+    
+    <div class="container">
+
+  <div class="video-container">
+    <iframe src="https://www.youtube.com/embed/NjAG8XTX2JY" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+  
+        <header class="report-header">
+            <h1>アンフェノール 企業分析レポート</h1>
+            <span class="ticker">NYSE: APH</span>
+            <p>AI革命の隠れた勝者、「繋ぎ役の帝王」の現在と未来を徹底解剖</p>
+        </header>
+
+        <main>
+            <!-- Section: 投資判断サマリー -->
+            <section class="section">
+                <h2>投資判断サマリー</h2>
+                <div class="grid-container">
+                    <div class="card summary-card">
+                        <h3>テックマネーの結論</h3>
+                        <div class="data-point">
+                            <span class="label">総合評価</span>
+                            <span class="value positive">BUY (中長期保有推奨)</span>
+                        </div>
+                        <p>AIチップを動かすために絶対不可欠な物理インフラを、代替困難な精度で供給できる唯一に近い存在。</p>
+                    </div>
+                    <div class="card">
+                        <h3>アナリストコンセンサス</h3>
+                        <div class="data-point">
+                            <span class="label">18人のアナリスト評価</span>
+                            <span class="value"><span class="positive">15人 BUY</span> / <span class="neutral">3人 HOLD</span> / <span class="negative">0人 SELL</span></span>
+                        </div>
+                        <p>ウォール街は満場一致に近い強気な見方を示しており、下方リスクは限定的と評価されています。</p>
+                    </div>
+                    <div class="card">
+                        <h3>目標：1兆ドル企業へ</h3>
+                        <div class="data-point">
+                            <span class="label">現在の時価総額</span>
+                            <span class="value">約1,900億ドル (約29兆円)</span>
+                        </div>
+                        <p>強気シナリオでは<span class="highlight-data">2030年〜2032年</span>、基本シナリオでも<span class="highlight-data">2032年〜2035年</span>に1兆ドル到達の現実的な道筋が見えています。</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 1: 企業概要 -->
+            <section class="section">
+                <h2>1. 企業概要：アンフェノールとは</h2>
+                <div class="grid-container">
+                    <div class="card">
+                        <h3>「繋ぎ役の帝王」</h3>
+                        <p>身の回りのあらゆる電子機器の「つなぎ目」を担うコネクターの世界的リーダー。単なる規格品ではなく、技術的参入障壁が極めて高い高性能製品に強みを持ちます。</p>
+                        <div class="data-point">
+                            <span class="label">超高速コネクター性能</span>
+                            <span class="value highlight-data">毎秒1.8テラバイト</span>
+                        </div>
+                        <p>これは4K映画を1秒間に数百本伝送できる速度で、NVIDIAのGPUクラスターに採用されています。</p>
+                    </div>
+                    <div class="card">
+                        <h3>企業プロフィール</h3>
+                        <div class="data-point"><span class="label">創業</span><span class="value">1932年</span></div>
+                        <div class="data-point"><span class="label">本社</span><span class="value">米国コネチカット州</span></div>
+                        <div class="data-point"><span class="label">グローバル拠点</span><span class="value">約40ヵ国, 300拠点以上</span></div>
+                        <div class="data-point"><span class="label">従業員数</span><span class="value">約15万人</span></div>
+                    </div>
+                    <div class="card">
+                        <h3>3つの主要セグメント</h3>
+                        <p>多角化された事業ポートフォリオにより、様々な市場環境で安定した成長を実現しています。</p>
+                        <ul>
+                            <li><strong>コミュニケーションズ・ソリューションズ:</strong> AIデータセンター、高速通信</li>
+                            <li><strong>ハーシュ・エンバイロンメント・ソリューションズ:</strong> 軍用、宇宙、航空、医療</li>
+                            <li><strong>インターコネクト＆センサー・システムズ:</strong> 自動車(EV)、産業用センサー</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2: 決算分析 -->
+            <section class="section">
+                <h2>2. 決算分析：驚異的な成長性</h2>
+                <div class="card">
+                    <h3>業績ハイライト</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>項目</th>
+                                <th>2023年実績</th>
+                                <th>2024年予測</th>
+                                <th>2025年予測</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>売上高</td>
+                                <td>1兆2,554億円</td>
+                                <td>1兆5,222億円</td>
+                                <td><strong>2兆394億円</strong><span class="growth-rate">YoY +57%</span></td>
+                            </tr>
+                            <tr>
+                                <td>営業利益</td>
+                                <td>-</td>
+                                <td>3,156億円</td>
+                                <td><strong>5,868億円</strong><span class="growth-rate">YoY +86%</span></td>
+                            </tr>
+                            <tr>
+                                <td>営業利益率</td>
+                                <td>-</td>
+                                <td>20.7%</td>
+                                <td><strong>25.4%</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p style="margin-top: 15px;">売上の伸びを利益の伸びが上回っており、スケールメリットが強力に効いていることを示しています。</p>
+                </div>
+                <div class="grid-container" style="margin-top: 25px;">
+                    <div class="card">
+                        <h3>2026年 Q1 実績 (前年同期比)</h3>
+                        <div class="data-point"><span class="label">売上</span><span class="value positive">+58% (76億ドル)</span></div>
+                        <div class="data-point"><span class="label">受注額</span><span class="value positive">+78% (94億ドル)</span></div>
+                        <p>受注が売上を大幅に上回る<span class="highlight-data">ブック・トゥ・ビル・レシオ 1.24倍</span>を記録。今後の力強い成長を示す先行指標です。</p>
+                    </div>
+                    <div class="card">
+                        <h3>アナリスト予想を凌駕</h3>
+                        <div class="data-point"><span class="label">2026年 Q1 調整後EPS</span><span class="value">1.06ドル</span></div>
+                        <p>アナリスト予想の0.95ドルを<span class="highlight-data positive">11.6%超過</span>。これで<span class="highlight-data">4四半期連続</span>で予想を上回っています。</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: 4つの成長ドライバー -->
+            <section class="section">
+                <h2>3. なぜ成長するのか？4つの構造的ドライバー</h2>
+                <div class="grid-container">
+                    <div class="card">
+                        <h3>① AIデータセンターの爆発的拡大</h3>
+                        <p>GPUクラスターの規模拡大に伴い、コネクター需要は指数関数的に増加。このトレンドはまだ序盤です。</p>
+                        <div class="data-point">
+                            <span class="label">ITデータコム部門の成長 (2025年Q3)</span>
+                            <span class="value positive">+96% (前年比)</span>
+                        </div>
+                        <div class="data-point">
+                            <span class="label">世界データセンター市場予測 (2030年)</span>
+                            <span class="value">約6,520億ドル</span>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3>② NVIDIAとの設計参照パートナー地位</h3>
+                        <p>NVIDIAのGPU間高速接続規格<span class="highlight-data">「NVLink Fusion」</span>に設計段階から組み込まれており、競合が参入困難な独占的地位を確立しています。</p>
+                        <blockquote>"アンフェノールを使うか選ぶのではなく、どこから調達するかしか選べない" - デザイン・イン戦略</blockquote>
+                    </div>
+                    <div class="card">
+                        <h3>③ CommScope買収による二刀流戦略</h3>
+                        <p><span class="highlight-data">105億ドル</span>でのCommScope社CCS事業買収により、銅ケーブルと光ファイバーの両方で世界トップクラスに。どちらの技術が主流になっても勝利する盤石の体制を構築しました。</p>
+                        <div class="data-point">
+                            <span class="label">買収による追加売上</span>
+                            <span class="value positive">年間 約41億ドル</span>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3>④ 90年かけて築いた分権型企業文化</h3>
+                        <p>約140人のゼネラルマネージャーが迅速な意思決定を行うことで、大企業でありながらベンチャーの俊敏性を維持。これが最も模倣困難な競争優位性です。</p>
+                        <div class="data-point">
+                            <span class="label">2025年 調整後営業利益率</span>
+                            <span class="value highlight-data">27.5% (過去最高)</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Section 4: 主要顧客 -->
+            <section class="section">
+                <h2>4. 主要顧客：世界のトップ企業が名を連ねる</h2>
+                <div class="card">
+                    <p>アンフェノールの顧客リストは、グローバル経済の縮図そのものです。</p>
+                    <ul class="customer-list">
+                        <li><span class="category">AI半導体:</span><strong>NVIDIA</strong> (Blackwell, Rubinアーキテクチャ)</li>
+                        <li><span class="category">ハイパースケーラー:</span><strong>Google, Amazon, Meta, Microsoft</strong></li>
+                        <li><span class="category">防衛・宇宙:</span><strong>米国国防総省</strong> (75年以上の供給実績)</li>
+                        <li><span class="category">自動車:</span>主要OEM (EV向けハーネス・センサー)</li>
+                        <li><span class="category">通信:</span>大手通信会社 (5G基地局向け)</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Section 5: シナリオ分析とリスク -->
+            <section class="section">
+                <h2>5. 1兆ドル企業への道と潜在リスク</h2>
+                <div class="grid-container">
+                    <div class="card">
+                        <h3>3つの成長シナリオ</h3>
+                        <p><strong>強気シナリオ (年率+25%):</strong><br>
+                        2030-2032年に1兆ドル到達。Evercore ISIはEPS $8の可能性を指摘。</p>
+                        <p><strong>基本シナリオ (年率+18-20%):</strong><br>
+                        2032-2035年に1兆ドル到達。AI投資の継続が前提。</p>
+                        <p><strong>弱気シナリオ (年率+10%):</strong><br>
+                        2030年で時価総額2,500億ドル程度。AI投資の失速が要因。</p>
+                    </div>
+                    <div class="card">
+                        <h3>考慮すべき4つのリスク</h3>
+                        <ol>
+                            <li><strong>AI投資の失速:</strong> ハイパースケーラーの設備投資削減が直撃する可能性。</li>
+                            <li><strong>CommScope統合リスク:</strong> 1.6兆円規模の大型買収に伴うコスト管理と文化統合の課題。</li>
+                            <li><strong>中国事業リスク:</strong> 2026年Q1に約130億円の税引当を計上した実績あり。</li>
+                            <li><strong>高バリュエーション:</strong> 現在の<span class="highlight-data">PER 44倍台</span>は、成長鈍化時に株価急落の要因となり得る。</li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 7: 最終投資判断 -->
+            <section class="section">
+                <h2>6. 最終投資判断：投資スタンス別</h2>
+                <div class="grid-container">
+                    <div class="card">
+                        <h3>短期 (〜3ヶ月)</h3>
+                        <h3 class="neutral">慎重</h3>
+                        <p>PER44倍台は割高感があり、短期的な調整の可能性も。次の決算発表(<span class="highlight-data">7月22日予定</span>)の結果を確認してからのエントリーも賢明です。</p>
+                    </div>
+                    <div class="card">
+                        <h3>中期 (1〜2年)</h3>
+                        <h3 class="positive">積極的買い</h3>
+                        <p>CommScope統合効果とAI投資の継続が業績を押し上げる局面。アナリストの目標株価<span class="highlight-data">$182〜$184</span>は十分に射程圏内と考えられます。</p>
+                    </div>
+                    <div class="card">
+                        <h3>長期 (3〜5年)</h3>
+                        <h3 class="positive">コア保有を強く推奨</h3>
+                        <p>AI革命が続く限り、その中核インフラを支えるアンフェノールは直接的な受益者であり続けます。1兆ドル企業への成長ポテンシャルを秘めています。</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="disclaimer">
+                本レポートは情報提供を目的としており、特定の金融商品の購入・売却を推奨するものではありません。すべての投資判断は、ご自身の責任において行ってください。
+            </div>
+        </footer>
+    </div>
+    </div>
+  </div>
+  </main>
+
+  <Footer />
+</body>
+</html>

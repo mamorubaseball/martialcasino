@@ -1,0 +1,1233 @@
+---
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import BaseHead from '../../components/BaseHead.astro';
+import { SITE_TITLE } from '../../consts';
+
+// Generated from video_summary.html
+---
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <BaseHead title="トランプ大統領のお墨付き！？32%急騰した「DELL」は今買うべき最強のAI銘柄なのか徹底解説 - {SITE_TITLE}" description="trunmpの徹底解説動画の要約記事です。" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <style is:global>
+
+    :root {
+      --bg-dark: #050510;
+      --bg-gradient: linear-gradient(180deg, #0a0a1a 0%, #050510 100%);
+      --primary: #00f2fe;
+      --secondary: #4facfe;
+      --accent: #b06ab3;
+      --text-main: #ffffff;
+      --text-muted: #a0a0b0;
+      --card-bg: rgba(255, 255, 255, 0.03);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --bubble-host-bg: rgba(35, 55, 255, 0.15);
+      --bubble-host-border: rgba(35, 55, 255, 0.3);
+      --bubble-guest-bg: rgba(255, 255, 255, 0.03);
+      --bubble-guest-border: rgba(255, 255, 255, 0.06);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg-gradient);
+      min-height: 100vh;
+      color: var(--text-muted);
+      font-family: 'Inter', 'Noto Sans JP', sans-serif;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1.5rem 4rem 1.5rem;
+    }
+
+    header {
+      padding: 80px 0 40px;
+      text-align: center;
+    }
+
+    .tag-line {
+      display: inline-block;
+      background: linear-gradient(135deg, rgba(0,242,254,0.15), rgba(176,106,179,0.15));
+      border: 1px solid rgba(0,242,254,0.3);
+      border-radius: 50px;
+      padding: 6px 20px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--text-main);
+      line-height: 1.3;
+      margin-bottom: 20px;
+    }
+
+    .subtitle {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      margin-top: 12px;
+    }
+
+    .meta-info {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .lead-section {
+      margin-bottom: 40px;
+    }
+
+    .lead-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .lead-card p {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--text-main);
+    }
+
+    .chat-section {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin: 30px 0;
+    }
+
+    .chat-message {
+      display: flex;
+      gap: 16px;
+      max-width: 85%;
+      align-items: flex-start;
+      margin-bottom: 4px;
+    }
+
+    .host-message {
+      align-self: flex-start;
+    }
+
+    .guest-message {
+      align-self: flex-end;
+      flex-direction: row-reverse;
+    }
+
+    .avatar-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      min-width: 64px;
+    }
+
+    .chat-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--primary);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      background: #0d111c;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+    }
+
+    .guest-avatar {
+      border-color: var(--secondary);
+      background: #1e293b;
+    }
+
+    .avatar-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .message-bubble {
+      padding: 14px 18px;
+      border-radius: 16px;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      border: 1px solid var(--bubble-guest-border);
+      background: var(--bubble-guest-bg);
+      color: var(--text-main);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    }
+
+    .host-message .message-bubble {
+      background: var(--bubble-host-bg);
+      border-color: var(--bubble-host-border);
+      border-top-left-radius: 4px;
+    }
+
+    .guest-message .message-bubble {
+      background: var(--bubble-guest-bg);
+      border-color: var(--bubble-guest-border);
+      border-top-right-radius: 4px;
+    }
+
+    section {
+      margin-bottom: 50px;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--text-main);
+      border-left: 4px solid var(--primary);
+      padding-left: 16px;
+      margin: 40px 0 20px 0;
+      line-height: 1.35;
+    }
+
+    footer {
+      border-top: 1px solid var(--card-border);
+      padding: 40px 0 20px;
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    .disclaimer {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 20px;
+      max-width: 700px;
+      margin: 0 auto 20px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      text-align: left;
+    }
+
+    .copyright {
+      font-size: 0.8rem;
+      color: rgba(160,160,176,0.4);
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 1.8rem; }
+      h2 { font-size: 1.3rem; }
+      header { padding: 50px 0 30px; }
+      .chat-message { max-width: 95%; }
+    }
+  
+
+    /* Unified Layout Styles */
+    .blog-main {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem 1.5rem;
+    }
+    .breadcrumb {
+        font-size: 0.85rem;
+        color: var(--text-secondary, #cbd5e1);
+        margin-bottom: 2rem;
+    }
+    .breadcrumb a {
+        color: var(--text-secondary, #cbd5e1);
+        text-decoration: none;
+    }
+    .breadcrumb a:hover {
+        color: var(--color-accent, #10B981);
+    }
+    .breadcrumb .separator {
+        margin: 0 0.5rem;
+        color: var(--text-muted, #64748b);
+    }
+    .article-content {
+        display: flex;
+        gap: 3rem;
+        align-items: flex-start;
+        margin-top: 2rem;
+    }
+    .toc-sidebar {
+        width: 280px;
+        position: sticky;
+        top: 6rem;
+        flex-shrink: 0;
+    }
+    .sidebar-toc {
+        background: rgba(28, 37, 65, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 8px;
+        padding: 1.8rem;
+        backdrop-filter: blur(10px);
+    }
+    .sidebar-toc h3 {
+        font-size: 1.1rem;
+        font-weight: 800;
+        margin-bottom: 1.2rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        padding-bottom: 0.6rem;
+        color: var(--text-primary, #f1f5f9);
+    }
+    .sidebar-toc ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        margin-left: 0;
+        padding-left: 0;
+    }
+    .sidebar-toc a {
+        font-size: 0.9rem;
+        color: var(--text-secondary, #cbd5e1);
+        text-decoration: none;
+        transition: color 0.2s ease;
+    }
+    .sidebar-toc a:hover {
+        color: var(--color-accent, #10B981);
+    }
+    .post-body {
+        flex-grow: 1;
+        max-width: calc(100% - 310px);
+    }
+    .anchor-target {
+        position: relative;
+        top: -100px;
+        visibility: hidden;
+        display: block;
+    }
+    .video-container {
+        position: relative;
+        width: 100%;
+        padding-top: 56.25%;
+        margin-bottom: 2rem;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid var(--border-color, rgba(16, 185, 129, 0.15));
+        box-shadow: 0 0 20px rgba(16, 185, 129, 0.1);
+    }
+    .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+    @media (max-width: 992px) {
+        .article-content {
+            flex-direction: column;
+        }
+        .toc-sidebar {
+            display: none;
+        }
+        .post-body {
+            max-width: 100%;
+        }
+    }
+  </style>
+</head>
+<body>
+  <Header />
+  
+  <main class="blog-main">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="/">← ホームに戻る</a>
+        <span class="separator">|</span>
+        <a href="/">トップ</a> &gt; <a href="/blog">ブログ</a> &gt; <span class="current">トランプ大統領のお墨付き！？32%急騰した「DELL」は今買うべき最強のAI銘柄なのか徹底解説</span>
+      </div>
+    </div>
+    
+    <div class="container">
+
+  <div class="video-container">
+    <iframe src="https://www.youtube.com/embed/glAYllWfAmw" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+  
+    <header>
+      <div class="tag-line">📊 投資銘柄・企業分析</div>
+      <h1>trunmp</h1>
+      <p class="subtitle">trunmpの徹底解説動画の要約記事です。</p>
+      <div class="meta-info">
+        <span>📅 2026年05月31日</span>
+        <span>✍️ TechMoney</span>
+      </div>
+    </header>
+
+    <main>
+            <p style="margin-bottom: 1.5rem;">【台本】トランプ銘柄が軒並み上昇！？トランプ銘柄を一挙紹介</p>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            突然ですが、「大統領が買った株を後追いするだけで利益が出る」——そんな投資法、あると思いますか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            二〇二六年五月十四日、米政府倫理局（OGE）に提出されたトランプ大統領の倫理開示書類が公開されました。それによると、トランプ大統領は二〇二六年一月から三月の三か月間だけで実に三千六百件以上の株式売買を行い、その総額は最大七億五千万ドル——日本円にして約一千億円以上に達していたんです。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            いちおくえん！？大統領って株をそんなにやっているんですか！？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            そして、さらに驚くべきことがあります。その開示によって明らかになった銘柄——AMD、インテル、デル、NVDA、ブロードコム、マーベルテクノロジー、サンディスクなど——その後ことごとく急騰しているんです。なかには年初来で一〇〇パーセントを超える上昇を見せている銘柄が続出しています。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            それって……偶然じゃないですよね？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            今回の動画ではその全貌を解説します。「どの銘柄をトランプが持っているのか」「いつ購入が判明したのか」「その後どのくらい上がったのか」を一銘柄ずつ丁寧に見ていきます。「どこに投資すればいいかわからない」という方にこそ観ていただきたい内容です。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            絶対に最後まで見ます！
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            時間がない方や気になるところだけ知りたい方は、概要欄のタイムスタンプから飛んでくださいね。今回の動画は以下の流れで解説します。まず「トランプ保有銘柄の全体像」、次に「一番話題のDELL——トランプが買って、褒めて、国防省が大型契約」、そして「半導体グループ——」、続けて「ストレージ・ハードウェアグループ——、「通信・宇宙・エネルギーグループ——、「ソフト・サービスグループ——」、そして最後に「上昇率ランキングトップ三銘柄と今後の投資家がやるべきこと」です。盛りだくさんですが、いきましょう！
+          </div>
+        </div>
+      </div>
+      <h2>第一章</h2>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            「トランプ保有銘柄の全体像」
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            まず大前提として、今回なぜこれだけの銘柄が一気に明らかになったのかを整理します。米国では大統領を含む政府高官は、自身の金融取引を「OGEフォーム二七八T」という開示書類で定期報告する義務があります。二〇二六年五月十四日に公開されたこの書類に、二〇二六年一月から三月の約三千六百件もの取引が記載されていました。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            三千六百件って、ほぼ毎日何十件も取引していた計算ですね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            その通りです。ただしトランプ側は「取引はすべてサードパーティの金融機関が独立して管理しており、トランプ本人や家族が個々の投資判断に関与することはない」と声明を出しています。倫理上の問題指摘は各所でありますが、法律上は大統領の株式保有・取引は禁止されていません。今回は「大統領の口座に保有されていた」という事実と、その後の株価の動きを客観的にお伝えします。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            なるほど、公式な開示書類に基づいた情報なんですね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            そうです。そして特筆すべきは、開示書類によると一〇〇パーセント以上の含み益が確認された銘柄が複数あることです。AMD、インテル、イリジウム・コミュニケーションズ、ブルームエナジー、インテュイティブ・マシーンズ、マーベルテクノロジー、ペンギン・ソリューションズ、サンディスク、シーゲイト、ビシェイ・インターテクノロジーなどの銘柄です。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            これだけの銘柄が一〇〇パーセント以上の利益を出しているんですか！？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            はい。では一銘柄ずつ詳しく見ていきましょう。
+          </div>
+        </div>
+      </div>
+      <h2>第二章</h2>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            「DELL ／ デル・テクノロジーズ——最も注目された"三段ロケット"」
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            今回のトランプ銘柄の中で最も話題を呼んだのがDELL、デル・テクノロジーズです。この銘柄では「①買い→②大統領のお墨付き→③政府が巨額契約」という三段ロケットが連続して炸裂しました。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            三段ロケット！？それはすごい表現ですね。どういうことですか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            まず第一段は「購入」です。開示書類によると、トランプの口座は二〇二六年二月十日に一〇〇万から五〇〇万ドル規模のDELL株を購入しています。当時の株価は約一二六ドルでした。その後も三月に追加購入が複数回行われています。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            二月十日に一二六ドルで買っていたんですね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            第二段は「大統領の公開発言」です。二〇二六年五月八日、ホワイトハウスでの母の日のイベントで、トランプ大統領はマイケル・デル夫妻の名前を出しながらこう発言しました。「デルはすごい仕事をしている。デルのコンピューターを買いに行ってほしい（go out and buy a Dell）」。その日の株価は一日だけで一二パーセント上昇し、史上最高値の二六三・九九ドルを記録しました。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            ホワイトハウスの発言ひとつで一二パーセントも！
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            そして第三段は「国防省の九七億ドル契約」です。トランプの発言からわずか三週間後の五月二十七日、米国防総省はデルに九七億ドル——約一兆四千億円の大型契約を発表しました。この発表後、株価はさらに上昇しています。今や二〇二六年初来で一〇〇パーセントを超える上昇となっています。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            買って→褒めて→政府が契約……これはさすがに倫理的に問題視されそうですね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            実際、倫理監視団体から強い懸念が示されています。なお、マイケル・デル夫妻は昨年十二月に「トランプ口座（Trump Accounts）」という連邦政府の子ども向け投資口座プログラムに六二億五千万ドルを拠出しており、トランプ政権と非常に近い関係にあることは事実です。
+          </div>
+        </div>
+      </div>
+      <h2>第三章</h2>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            「半導体グループ——NVDAから始まる"AIサプライチェーン総買い"」
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            次は開示書類で最も金額が大きかったグループ、半導体株です。トランプの口座は二〇二六年第一四半期に、AI産業のサプライチェーンを構成する半導体企業を軒並み一〇〇万から五〇〇万ドル規模で購入していました。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            どんな銘柄があったんですか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            まず筆頭はNVDA、エヌビディアです。二〇二六年二月十日に一〇〇万から五〇〇万ドル規模の購入が確認されています。その一週間後、トランプ政権はNVIDIAがAIチップを中国にも販売できるよう規制を緩和すると発表しました。提供されたデータを見ると、年初来パフォーマンスはプラス一三・二二パーセントとなっています。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            買いの一週間後に中国向け規制緩和の発表！？これはタイミングが気になります。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            次はAVGO、ブロードコムです。同じく第一四半期に一〇〇万から五〇〇万ドル規模で購入。AIデータセンター向けカスタムチップの世界最大手で、直近のAI半導体収益は一年前比で一〇六パーセント増と圧倒的な成長を見せています。年初来ではプラス二九・三六パーセントと堅調です。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            ブロードコムもAI半導体で伸びているんですね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            続いてAMD、アドバンスト・マイクロ・デバイシズです。二〇二六年一月六日に五万から十万ドルの購入を皮切りに、第一四半期合計で少なくとも七四万ドル以上を購入しています。注目すべきは購入直後の一月十三日、商務省がAMDのAIチップの中国向け販売を許可したことです。年初来では実にプラス一四一パーセント近い上昇を記録しています。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            AMDは一四〇パーセント以上ですか！それは相当な上昇ですね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            MRVLことマーベル・テクノロジーも開示書類に含まれており、二〇二五年から二〇二六年第一四半期に購入が確認されています。AI向けカスタムシリコンとデータセンター向けネットワーク製品が強みで、年初来でプラス一四一・五三パーセントという驚異的な上昇です。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            マーベルも一四〇パーセント超えですか！
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            TXNことテキサス・インストゥルメンツも第一四半期に一〇〇万から五〇〇万ドル規模で購入されました。AIや産業機器向けアナログ半導体に強く、年初来でプラス七八・二五パーセントです。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            テキサス・インストゥルメンツも七割以上上がっているんですね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            そしてINTC、インテルです。二〇二六年三月二日以降、複数回にわたって購入が行われています。さらに米国政府自身が二〇二五年八月にインテル株の九・九パーセント——八九億ドル分を取得しており、二〇二六年五月十八日時点でその含み益が五百億ドルを超えたとホワイトハウスが発表しています。そして四月三十日にはトランプがTruth Socialに「インテルの株価は上がり続けている。インテルよ、すごい仕事だ」と投稿し、時間外で三パーセント急騰しています。年初来ではプラス二一〇パーセント前後という凄まじい数字です。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            政府が株主で、大統領がSNSで褒める……これは強力すぎますね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            最後にVSH、ビシェイ・インターテクノロジーです。受動部品・半導体コンポーネントメーカーで、開示書類に含まれており年初来ではプラス二六一パーセントという驚異的な数字を記録しています。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            二六一パーセント！？これは今日紹介した中でも飛び抜けていますね。
+          </div>
+        </div>
+      </div>
+      <h2>第四章</h2>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            「ストレージ・ハードウェアグループ——SNDKの奇跡と、PENGの急成長」
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            次はストレージやハードウェア関連の銘柄です。このグループは年初来パフォーマンスが特に目を引きます。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            どの銘柄ですか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            まずSNDK、サンディスクです。二〇二五年二月二十四日、ウェスタン・デジタルから分離独立してナスダックに上場した企業です。開示書類にはSNDKの購入も記録されており、NAND型フラッシュメモリを製造するデータセンター向けストレージの雄です。二〇二六年三月には一日で一一・六パーセント急騰し、過去一年でプラス約九二一パーセントという驚異的な数字を叩き出しています。年初来でもプラス六一四パーセントです。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            六一四パーセント！？それは今まで聞いた中で一番大きいですよ！
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            NANDメモリの価格が急回復し、AIデータセンター向けの需要が爆発的に伸びたことが背景にあります。第二四半期の売上は前四半期比三一パーセント増の三〇億ドル、データセンター部門だけで六四パーセント増という業績も後押ししました。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            業績の裏付けもあるんですね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            STX、シーゲイト・テクノロジーも開示書類に記載されており、HDDストレージの老舗企業として知られています。年初来プラス二二〇パーセントと非常に好調です。同じくストレージ関連として恩恵を受けており、SNDK同様にデータセンター需要の波に乗っています。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            ストレージ関連って今こんなに強いんですね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            PENGことペンギン・ソリューションズも開示書類に含まれており、AI向けのコンピューティングソリューションを提供しています。年初来でプラス一八五パーセントという高い上昇率です。AIサーバーの受注が急増しており、まさにAI需要の直撃を受けて株価が急伸した銘柄です。
+          </div>
+        </div>
+      </div>
+      <h2>第五章</h2>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            「通信・宇宙・エネルギーグループ——IRDM・LUNR・BE」
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            続いては少し異色のグループ、通信・宇宙・エネルギー関連です。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            この辺りはトランプとどんな関係があるんですか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            まずIRDM、イリジウム・コミュニケーションズです。低軌道衛星を使ったグローバル通信サービスを提供する企業で、開示書類に購入が記録されています。トランプ政権の宇宙・国防政策との親和性が高く、年初来でプラス一九九・七四パーセントと約二倍になっています。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            衛星通信もトランプ銘柄なんですね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            LUNR、インテュイティブ・マシーンズは月面着陸船の開発・宇宙サービス企業で、開示書類に記載されています。NASA向けのCLPS（月面商業補給サービス）の有力請負業者であり、トランプ政権の「月に戻る」宇宙政策の恩恵を直撃で受けています。年初来でプラス一七〇・〇六パーセントという急成長です。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            月面ビジネスが本格的に動き出しているんですね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            BE、ブルームエナジーはデータセンター向けの固体酸化物型燃料電池（SOFCエネルギーシステム）を提供している企業です。AIデータセンターの急増による電力需要爆発の直撃を受けており、OracleとのAIデータセンター向け電源契約も締結しています。開示書類に記録があり、年初来でプラス二二八パーセントと急騰しています。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            データセンターの電力需要がこんな会社まで押し上げるんですね。
+          </div>
+        </div>
+      </div>
+      <h2>第六章</h2>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            「その他の主要銘柄——DDOG・JBL・OGN・AAPL・AMZN・GOOGL」
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            残りの銘柄も順番に見ていきましょう。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            まだあるんですか！？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            DDOG、データドッグはクラウドインフラ監視のソフトウェア企業です。開示書類に含まれており、AIシフトに伴う企業のクラウド活用増加で需要が急拡大。年初来でプラス八一・八九パーセントという高い上昇率です。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            クラウド監視ソフトもAIの恩恵を受けているんですね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            JBL、ジェイビル・サーキットは電子機器の受託製造（EMS）大手です。開示書類に含まれており、AIサーバーのサプライチェーンを支えるメーカーとして恩恵を受けています。年初来でプラス五九・九七パーセントです。OGN、オルガノンは医薬品メーカーで、開示書類への記録はありますが他の銘柄に比べて政策との関連性は薄い銘柄です。年初来でプラス八六・七九パーセントと大きく上昇しています。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            製薬会社もあるんですね。少し意外でした。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            AAPLことアップルは、トランプ大統領が二〇二六年第一四半期に一〇〇万から五〇〇万ドル規模で購入したことが開示書類で明らかになっています。また過去の年次開示でも保有が確認されています。トランプはアップルのティム・クックCEOと二〇二五年の東京ビジネスサミットで会談しており、政権との関係も良好です。年初来でプラス一五パーセントと安定的に推移しています。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            アップルはさすがに安定感がありますね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            AMAZNことアマゾンも過去開示で継続保有が確認されており、第一四半期にも一〇〇万から五〇〇万ドル規模の買い増しが行われています。年初来プラス一七・二五パーセントと安定推移です。同じくGOOGLことアルファベットも第一四半期に追加購入が確認されています。年初来プラス二一・六〇パーセントです。これらMagnificent Seven（マグニフィセント・セブン）銘柄は、トランプ大統領が三〇〇億円相当以上の取引を行ったと報じられた主力銘柄群です。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            結局、トランプさんの口座は超有名な大型株から宇宙・エネルギーまで幅広く持っているんですね。
+          </div>
+        </div>
+      </div>
+      <h2>第七章</h2>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            「上昇率ランキング トップ三銘柄と今後投資家がやるべきこと」
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            さて、いよいよ皆さんが最も気になる「結局どれが一番上がったのか」ランキングです。今回は開示書類に含まれていた銘柄に限定して、年初来の上昇率ランキングをお伝えします。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            ドキドキします！第三位から教えてください！
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            第三位はBE、ブルームエナジー、年初来プラス二二八パーセントです。AIデータセンター向け電源というニッチかつ超成長する市場で独自のポジションを持っており、Oracleとのパートナーシップが大きな追い風になっています。トランプ政権のAIインフラへの強力な後押しが、この株を押し上げた一因と見られています。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            二二八パーセント！それだけでもすごいですが、上に二つあるんですか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            第二位はSTX、シーゲイト・テクノロジー、年初来プラス二二〇パーセントです。と言ってもBEとほぼ同水準ですね。HDDという古典的なストレージ技術が、AIデータセンターの急増で再び脚光を浴びました。投資家たちが見落としがちだった「AI時代のデータ保存需要」という切り口で急騰した銘柄です。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            えっ、HDDって今でもそんなに需要があるんですか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            あるんです。大量のAI学習データを安く大量に保存するにはHDDが依然として最適解で、需要が爆発的に伸びています。そして第一位はSNDK、サンディスク、年初来プラス六一四パーセントです。二〇二五年二月に独立上場したばかりの銘柄でありながら、NAND型フラッシュメモリのデータセンター向け需要急増と業績急回復が重なり、過去一年で約九二一パーセントという非常識な上昇を見せました。トランプの口座でも購入が確認されている注目銘柄です。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            六一四パーセントって……もし年初に一〇〇万円投資していたら七〇〇万円以上になっていたってことですよね！？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            計算上はそうなります。ただし、これはすでに起きた過去の話であり、今から同じリターンが保証されるわけでは全くありません。ここからが最も大切な話です。今後、投資家がやるべきことは何か、ズバリお伝えします。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            聞かせてください！
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            ズバリ「トランプをフォローする」ことです。トランプ大統領はTruth SocialやX（旧ツイッター）でほぼ毎日発信しています。今回の事例で明らかになったように、大統領が特定の企業や銘柄に言及すると、その後に株価が大きく動くケースが繰り返し起きています。インテル、デル、マイクロンと続いた「大統領の口のき方」のパターンが見えてきたとき、先んじることができるかどうかが投資家にとっての分岐点になります。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            なるほど、トランプさんの発言が株の情報源になるんですね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            そしてこの動画を観てくださっている皆さんへ——トランプ関連の重要発言があった際には、僕のXでも速報的に呼びかけます。見逃したくない方は概要欄から僕のXをフォローしておいてください。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            わかりました、フォローします！
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            最後に大切なことをお伝えして終わります。今回紹介した銘柄はいずれも過去三か月から半年での上昇率であり、今後も同じリターンが得られる保証は一切ありません。一〇〇パーセント以上の上昇の後には大きな調整も起こり得ます。また、トランプ大統領の発言と取引の連動は倫理的問題として各所で指摘されており、政治的リスクや規制リスクも常にはらんでいます。分散投資を心がけ、自分が納得できる根拠を持った上で判断してください。投資はあくまで自己責任でお願いしますね。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            はい、しっかり自分で考えて判断します！今日も本当に勉強になりました、テックマネーさん！
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">【文字数：約6,300文字】</p>
+    </main>
+
+    <footer>
+      <div class="disclaimer">
+        <p>⚠️ <strong>免責事項</strong></p>
+        <p>本記事は情報提供を目的としたものであり、特定の銘柄への投資を推奨するものではありません。株式投資にはリスクが伴います。投資はご自身の判断と責任でお願いいたします。</p>
+      </div>
+      <p class="copyright">© TechMoney｜2026年</p>
+    </footer>
+  </div>
+    </div>
+  </div>
+  </main>
+
+  <Footer />
+</body>
+</html>

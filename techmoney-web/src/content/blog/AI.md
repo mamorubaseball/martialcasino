@@ -1,6 +1,6 @@
 ---
-title: "テスラ・xAI崩壊とAnthropicへの人材集中！"
-description: "超大物研究者 Andrej Karpathy 氏らの移籍とAI業界勢力図の激変を徹底解説。"
+title: "【AI推論チップでエヌビディアを超える!?】衝撃的なIPOを遂げた、セレブラスシステムズについて徹底解説"
+description: "AIの徹底解説動画の要約記事です。"
 pubDate: 2026-05-23
 category: "ai-semiconductor"
 status: "published"

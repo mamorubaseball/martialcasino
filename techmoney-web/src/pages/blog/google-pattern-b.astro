@@ -1,0 +1,608 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { SITE_TITLE } from '../../consts';
+
+const articleTitle = "ガレージの検索エンジンから、時価総額500兆円企業へ —— Googleの歴史とAI新星バイオグラフィー (Pattern B)";
+const articleDesc = "Google（Alphabet）がたどった栄光と挫折、そして2026年現在のAI主導の爆発的成長まで、その技術とビジネスの本質を徹底解剖。";
+---
+
+<!doctype html>
+<html lang="ja">
+	<head>
+		<BaseHead title={`${articleTitle} - ${SITE_TITLE}`} description={articleDesc} />
+		<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&family=Noto+Sans+JP:wght@300;500;700;900&display=swap" rel="stylesheet">
+	</head>
+	<body>
+		<Header />
+		
+		<main class="blog-main fade-in">
+			<!-- Breadcrumb -->
+			<div class="breadcrumb">
+				<a href="/">トップ</a> &gt; <a href="/blog">ブログ</a> &gt; <span class="current">Googleの軌跡 (Pattern B: レポート形式)</span>
+			</div>
+
+			<!-- Format Toggle -->
+			<div class="format-toggle-container">
+				<span class="toggle-label">表示形式の比較:</span>
+				<a href="/blog/google-pattern-a" class="toggle-btn">対話形式 (Pattern A)</a>
+				<a href="/blog/google-pattern-b" class="toggle-btn active">レポート形式 (Pattern B)</a>
+			</div>
+
+			<!-- Article Header -->
+			<header class="article-hero">
+				<div class="glow-bg"></div>
+				<div class="category-badge">HISTORY & TECH LEADERSHIP (REPORT MODE)</div>
+				<h1 class="title-text">ガレージの検索エンジンから<br><span class="highlight-g">時価総額500兆円企業</span>へ</h1>
+				<p class="subtitle">100万ドルの売却拒絶から、DeepMindによるノーベル賞、そして2026年AI時代の覇権へ</p>
+				<div class="meta-row">
+					<span class="meta-item">公開日: 2026-06-04</span>
+					<span class="meta-item">読了時間: 約12分</span>
+					<span class="meta-item badge-cat">ai-semiconductor</span>
+				</div>
+			</header>
+
+			<!-- Metrics Dashboard -->
+			<div class="metrics-grid">
+				<div class="metric-card border-blue">
+					<span class="label">MARKET CAP (2026)</span>
+					<span class="value val-blue">約480兆円</span>
+					<p class="desc">エヌビディアと並ぶ、世界最大の公開企業へと回帰する軌道に乗る。</p>
+				</div>
+				<div class="metric-card border-red">
+					<span class="label">CLOUD GROWTH (1Q)</span>
+					<span class="value val-red">+63%</span>
+					<p class="desc">企業向けAI需要の爆発により、Google Cloud売上高は年200億ドルを突破。</p>
+				</div>
+				<div class="metric-card border-yellow">
+					<span class="label">AI TOKEN SCALE</span>
+					<span class="value val-yellow">300倍増</span>
+					<p class="desc">2年間で月間アクティブAIトークン処理が3200兆トークンへ爆発的進化。</p>
+				</div>
+				<div class="metric-card border-green">
+					<span class="label">CapEx (2026 Plan)</span>
+					<span class="value val-green">約28兆円</span>
+					<p class="desc">第8世代TPUチップ、冷却インフラ、巨大データセンターへの超巨額先行投資。</p>
+				</div>
+			</div>
+
+			<!-- Main Article Layout -->
+			<div class="article-content">
+				<aside class="toc-sidebar">
+					<div class="glass-card sidebar-toc">
+						<h3>目次</h3>
+						<ul>
+							<li><a href="#chapter1">1. 天才の対立とBackRub</a></li>
+							<li><a href="#chapter2">2. タイポから生まれたGoogle</a></li>
+							<li><a href="#chapter3">3. 歴史的な買収拒絶ミス</a></li>
+							<li><a href="#chapter4">4. 広告モデルの発明と訴訟</a></li>
+							<li><a href="#chapter5">5. 20%ルールと創造の文化</a></li>
+							<li><a href="#chapter6">6. DeepMindとノーベル賞</a></li>
+							<li><a href="#chapter7">7. 2026年現在のAI成長戦略</a></li>
+							<li><a href="#chapter8">8. 4つの歴史的教訓</a></li>
+						</ul>
+					</div>
+				</aside>
+
+				<section class="post-body">
+					<!-- Chapter 1 -->
+					<div class="content-section" id="chapter1">
+						<h2>1. 二人の天才の最悪な出会いと「BackRub」の誕生</h2>
+						<p>1995年、スタンフォード大学のキャンパスで、<strong>ラリー・ペイジ</strong>と<strong>セルゲイ・ブリン</strong>は出会いました。ラリーの見学案内役をブリンが務めたのがきっかけですが、最初の二人は、ほぼ全ての話題で激しく対立したと言います。</p>
+						<p>しかし、「膨大なウェブデータから本当に価値のある情報を抽出する」という共通の問いに対し、二人は強力なタッグを結成します。当時の検索エンジンは「キーワードの出現回数」だけで並べるチープなものでした。そこでラリー・ペイジは、学術論文の<strong>「引用数が多い論文ほど重要」</strong>という概念をウェブに応用するアルゴリズムを数学的に構築しました。これがGoogleの心臓である<strong>「PageRank」</strong>です。このリンク構造を巡回調査する最初のプロジェクトは、被リンクを意味する<strong>「BackRub（バックラブ）」</strong>と呼ばれました。</p>
+					</div>
+
+					<!-- Chapter 2 -->
+					<div class="content-section" id="chapter2">
+						<h2>2. スペルミスが生んだ「Google」とレゴサーバー</h2>
+						<p>BackRubがスタンフォードの学内サーバーをダウンさせるほど人気を得たため、二人は1997年に新しい名前をブレインストーミングします。そこで巨大な数を示す数学用語<strong>「Googol（グーゴル：1の後に0が100個続く値）」</strong>が提案されました。</p>
+						<p>ドメインが空いているかを検索する際、同僚がスペルミスで<strong>「google.com」</strong>と入力。ラリー・ペイジはこの響きを気に入り、その場でドメインを登録しました。歴史的ブランドは、たった一つのタイポから誕生したのです。</p>
+						<div class="insight-box">
+							<h4>【豆知識】レゴブロックで作られた初代サーバー</h4>
+							<p>初代社員クレイグ・シルバースタインらは、高価なハードを買う資金がなかったため、市販 of 安価なPCパーツを組み合わせ、レゴブロック（Mega Bricks）で筐体を自作してファンを取り付けました。「安価な汎用ハードをソフトウェアの力で並列連携する」というこの哲学が、現在のGoogleの巨大クラウドインフラの基礎となっています。</p>
+						</div>
+					</div>
+
+					<!-- Chapter 3 -->
+					<div class="content-section" id="chapter3">
+						<h2>3. 歴史的な買収拒絶ミス —— YahooとExciteの誤算</h2>
+						<p>創業初期のGoogleは技術にこだわりすぎて、ビジネスモデルを持たず、資金難に陥っていました。そこで創業者二人は、検索システムをポータルサイト大手へ売却しようと試みます。</p>
+						<div class="timeline-visual">
+							<div class="timeline-item">
+								<span class="time-label">1998年</span>
+								<strong>Yahoo!へ「100万ドル（約1.5億円）」で売却提案</strong>
+								<p>Yahooは「検索はポータルの便利機能の一つにすぎない」と一蹴し拒絶。</p>
+							</div>
+							<div class="timeline-item">
+								<span class="time-label">1999年</span>
+								<strong>Exciteへ「75万ドル（約1.1億円）」で売却提案</strong>
+								<p>ExciteのCEOは「検索が優秀すぎるとユーザーが目的のサイトにすぐ去ってしまい、ポータル内の滞在時間が短くなる」と拒絶。</p>
+							</div>
+							<div class="timeline-item">
+								<span class="time-label">2002年</span>
+								<strong>Yahoo!が「30億ドル」での買収を試みるも決裂</strong>
+								<p>Googleの広告売上が急増し、焦ったYahooが30億ドルを提示するも、Googleは50億ドルを要求し決裂。</p>
+							</div>
+						</div>
+						<p>数年後、Googleへの買収を拒否したExciteは倒産。Yahooは遅れて広告企業Overtureを買収するも追いつけず、最終的にGoogleがかつて要求した50億ドルに近い価格（45億ドル）で自身が買収されることになりました。</p>
+					</div>
+
+					<!-- Chapter 4 -->
+					<div class="content-section" id="chapter4">
+						<h2>4. 検索広告「AdWords」の発明と特許代理戦争</h2>
+						<p>ユーザーが検索したキーワードに連動して広告を出すクリック課金型（PPC）のビジネスモデルは、実はOverture（旧GoTo.com）が開発した特許技術でした。Googleが2002年に同様のクリック課金型「AdWords」をリリースしたため、Overtureから特許侵害で提訴されます。OvertureをYahooが買収したことで、この戦いは「Google vs Yahoo」の全面戦争となりました。</p>
+						<p>上場直前の2004年に和解し、GoogleはYahooに数億ドル相当の自社株式を渡すことで永続的ライセンスを獲得しました。GoogleがYahooを打ち破れた決定打は<strong>「品質スコア」</strong>の概念です。Overtureが単純に入札金額順で広告を並べたのに対し、Googleは「検索意図との関連性」や「クリック率」を加味したアルゴリズムで表示順を決定したため、ユーザーにも広告主にも優しいエコシステムが機能しました。</p>
+					</div>
+
+					<!-- Chapter 5 -->
+					<div class="content-section" id="chapter5">
+						<h2>5. 「20%ルール」と「Don't be evil」のイノベーション</h2>
+						<p>Googleの驚異的な多角化サービス（Gmail、YouTube、Chrome等）は、ある特徴的な組織文化によって生まれました。それが、勤務時間の2割を自分の興味あるサイドプロジェクトに使って良いという<strong>「20%ルール」</strong>です。</p>
+						<div class="features-grid">
+							<div class="feat-card">
+								<h5>Gmail</h5>
+								<p>2001年にエンジニアのブックハイトが開始。当時の常識の500倍である1GBのストレージを無料提供し業界を破壊。</p>
+							</div>
+							<div class="feat-card">
+								<h5>AdSense</h5>
+								<p>個人サイトのコンテンツを解析し、自動で最適な広告を表示する仕組み。検索外での巨大な収益源に。</p>
+							</div>
+							<div class="feat-card">
+								<h5>Google News</h5>
+								<p>9.11テロ後に「もっと多様なニュースに迅速にアクセスしたい」という個人の情熱から開発。</p>
+							</div>
+						</div>
+						<p>また、有名な行動規範<strong>「Don't be evil（邪悪になるな）」</strong>は、「検索結果を金銭で操作しない」という誓いであり、世界中のユーザーから絶対的な信頼を獲得する強力なブランド力となりました。</p>
+					</div>
+
+					<!-- Chapter 6 -->
+					<div class="content-section" id="chapter6">
+						<h2>6. DeepMind買収とAI科学イノベーションによるノーベル賞</h2>
+						<p>2015年に持株会社「Alphabet」へと再編し、稼ぎ頭の広告部門と自動運転「Waymo」などの「Other Bets」を分離しました。この中でも最大の英断が、2014年の<strong>DeepMind</strong>の買収（約600億円）です。</p>
+						<p>天才デミス・ハサビス率いるDeepMindは、囲碁AIの<strong>AlphaGo</strong>で世界王者を撃破。さらに、50年間解けなかった生物学の謎であるタンパク質の立体構造を予測するAI<strong>「AlphaFold」</strong>を開発しました。この功績により、DeepMindは2024年に<strong>ノーベル化学賞</strong>を受賞。一民間企業がノーベル賞を獲得する歴史的快挙を成し遂げました。</p>
+					</div>
+
+					<!-- Chapter 7 -->
+					<div class="content-section" id="chapter7">
+						<h2>7. 2026年：AI主導の爆発的成長と「Antigravity」</h2>
+						<p>「生成AIやChatGPTによってGoogle検索が破壊されるのではないか」という市場の懸念は杞憂に終わりました。スンダー・ピチャイCEO率いるGoogleは、自社の巨大サービス（ユーザー数10億人以上が13製品）にAIモデル「Gemini」を深く統合。</p>
+						<p>独自のAI半導体<strong>TPU（Tensor Processing Unit）第8世代</strong>をフル配備し、AI処理コストを過去1年で約8割も削減するハード・ソフト垂直統合を成功させました。また、AIエージェントの開発プラットフォーム<strong>「Antigravity（アンチグラビティ）」</strong>には世界中から数百万人の開発者が集まり、ユーザーの代わりに自動でウェブ操作を行う「物理AI/自律エージェント」が実用化されています。</p>
+					</div>
+
+					<!-- Chapter 8 -->
+					<div class="content-section" id="chapter8">
+						<h2>8. 私たちがGoogleの歴史から学ぶべき4つの教訓</h2>
+						<div class="lessons-box">
+							<ul>
+								<li>
+									<strong>1. 品質への徹底的なこだわり</strong>
+									<p>「優秀すぎて売れない」と言われようが、検索品質の絶対的な差を追い求めた結果、時代の常識が追いついた。</p>
+								</li>
+								<li>
+									<strong>2. 既存のビジネスモデルの罠からの脱却</strong>
+									<p>「サイトに長居させる」ポータル全盛期に、「最速で別のサイトへ去らせる」検索特化を貫いた不合理が勝利を生んだ。</p>
+								</li>
+								<li>
+									<strong>3. 内発的動機づけ（20%ルール）</strong>
+									<p>最高のエンジニアに自由と裁量を与えることが、命令からは絶対に生まれないメガヒットサービスを生む。</p>
+								</li>
+								<li>
+									<strong>4. 長期的なムーンショット投資</strong>
+									<p>DeepMind（AI科学）、Waymo（自動運転）など、数十年にわたり赤字を許容して投資した領域が2026年に無二の参入障壁となった。</p>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+			</div>
+		</main>
+
+		<Footer />
+	</body>
+</html>
+
+<style>
+	:root {
+		--g-blue: #4285F4;
+		--g-red: #EA4335;
+		--g-yellow: #FBBC05;
+		--g-green: #34A853;
+		
+		--g-blue-neon: #3a80f7;
+		--g-red-neon: #ff5242;
+		--g-yellow-neon: #ffd214;
+		--g-green-neon: #00e676;
+	}
+
+	.blog-main {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 2rem 1.5rem;
+	}
+
+	.breadcrumb {
+		font-size: 0.85rem;
+		color: var(--text-secondary);
+		margin-bottom: 2rem;
+	}
+	.breadcrumb a {
+		color: var(--text-secondary);
+		text-decoration: none;
+	}
+	.breadcrumb a:hover {
+		color: var(--accent-light);
+	}
+
+	/* Format Toggle */
+	.format-toggle-container {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		margin-bottom: 2rem;
+		padding: 0.8rem 1.2rem;
+		background: rgba(255, 255, 255, 0.02);
+		border: 1px solid rgba(255, 255, 255, 0.05);
+		border-radius: 8px;
+	}
+	.toggle-label {
+		font-size: 0.85rem;
+		color: var(--text-muted);
+	}
+	.toggle-btn {
+		font-size: 0.85rem;
+		color: var(--text-secondary);
+		text-decoration: none;
+		padding: 0.4rem 1rem;
+		border-radius: 6px;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		transition: all 0.2s ease;
+	}
+	.toggle-btn:hover {
+		color: #ffffff;
+		background: rgba(255, 255, 255, 0.05);
+	}
+	.toggle-btn.active {
+		background: var(--g-blue-neon);
+		border-color: var(--g-blue-neon);
+		color: #ffffff;
+	}
+
+	/* Hero Section */
+	.article-hero {
+		position: relative;
+		text-align: center;
+		padding: 5rem 2rem;
+		background: rgba(10, 10, 25, 0.8);
+		border: 1px solid rgba(255, 255, 255, 0.05);
+		border-radius: 24px;
+		margin-bottom: 3rem;
+		overflow: hidden;
+	}
+	.glow-bg {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 600px;
+		height: 200px;
+		background: radial-gradient(circle, rgba(66, 133, 244, 0.1) 0%, transparent 70%);
+		filter: blur(50px);
+		z-index: -1;
+	}
+	.category-badge {
+		font-family: var(--font-display);
+		font-size: 0.85rem;
+		font-weight: 800;
+		color: var(--g-blue-neon);
+		letter-spacing: 0.1em;
+		margin-bottom: 1.5rem;
+	}
+	.title-text {
+		font-family: 'Outfit', 'Noto Sans JP', sans-serif;
+		font-size: 3rem;
+		font-weight: 900;
+		line-height: 1.25;
+		color: #ffffff;
+		margin-bottom: 1.5rem;
+	}
+	.highlight-g {
+		background: linear-gradient(90deg, var(--g-blue-neon), var(--g-red-neon), var(--g-yellow-neon), var(--g-green-neon));
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+	.subtitle {
+		font-size: 1.2rem;
+		color: var(--text-secondary);
+		max-width: 800px;
+		margin: 0 auto 2rem auto;
+		font-weight: 300;
+	}
+	.meta-row {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 1.5rem;
+		font-size: 0.9rem;
+		color: var(--text-muted);
+	}
+	.badge-cat {
+		background: rgba(255, 255, 255, 0.05);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		padding: 0.2rem 0.6rem;
+		border-radius: 4px;
+		color: #ffffff;
+	}
+
+	/* Metrics Dashboard */
+	.metrics-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+		gap: 1.5rem;
+		margin-bottom: 4rem;
+	}
+	.metric-card {
+		background: rgba(255, 255, 255, 0.02);
+		border: 1px solid rgba(255, 255, 255, 0.05);
+		border-radius: 16px;
+		padding: 1.8rem;
+		transition: all 0.3s ease;
+	}
+	.metric-card:hover {
+		transform: translateY(-3px);
+		box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+	}
+	.metric-card.border-blue:hover { border-color: var(--g-blue-neon); }
+	.metric-card.border-red:hover { border-color: var(--g-red-neon); }
+	.metric-card.border-yellow:hover { border-color: var(--g-yellow-neon); }
+	.metric-card.border-green:hover { border-color: var(--g-green-neon); }
+	
+	.metric-card .label {
+		display: block;
+		font-size: 0.75rem;
+		font-family: var(--font-display);
+		color: var(--text-muted);
+		margin-bottom: 0.5rem;
+		letter-spacing: 0.05em;
+	}
+	.metric-card .value {
+		display: block;
+		font-family: 'Outfit', sans-serif;
+		font-size: 2.2rem;
+		font-weight: 900;
+		margin-bottom: 0.5rem;
+	}
+	.val-blue { color: var(--g-blue-neon); text-shadow: 0 0 15px rgba(66, 133, 244, 0.2); }
+	.val-red { color: var(--g-red-neon); text-shadow: 0 0 15px rgba(234, 67, 53, 0.2); }
+	.val-yellow { color: var(--g-yellow-neon); text-shadow: 0 0 15px rgba(251, 188, 5, 0.2); }
+	.val-green { color: var(--g-green-neon); text-shadow: 0 0 15px rgba(52, 168, 83, 0.2); }
+	
+	.metric-card .desc {
+		font-size: 0.8rem;
+		color: var(--text-secondary);
+		line-height: 1.4;
+	}
+
+	/* Content Layout */
+	.article-content {
+		display: flex;
+		gap: 3rem;
+		align-items: flex-start;
+	}
+	.toc-sidebar {
+		width: 280px;
+		position: sticky;
+		top: 6rem;
+		flex-shrink: 0;
+	}
+	.sidebar-toc {
+		padding: 1.8rem;
+	}
+	.sidebar-toc h3 {
+		font-size: 1.1rem;
+		font-weight: 800;
+		margin-bottom: 1.2rem;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+		padding-bottom: 0.6rem;
+		color: var(--text-primary);
+	}
+	.sidebar-toc ul {
+		list-style: none;
+		display: flex;
+		flex-direction: column;
+		gap: 0.8rem;
+		margin-left: 0;
+		padding-left: 0;
+	}
+	.sidebar-toc a {
+		font-size: 0.9rem;
+		color: var(--text-secondary);
+		text-decoration: none;
+		transition: color 0.2s ease;
+	}
+	.sidebar-toc a:hover {
+		color: var(--g-blue-neon);
+	}
+	.post-body {
+		flex-grow: 1;
+		max-width: calc(100% - 310px);
+	}
+	
+	.content-section {
+		margin-bottom: 4rem;
+	}
+	.content-section h2 {
+		font-family: 'Outfit', 'Noto Sans JP', sans-serif;
+		font-size: 1.8rem;
+		font-weight: 800;
+		color: #ffffff;
+		margin-bottom: 1.8rem;
+		border-left: 4px solid var(--g-blue-neon);
+		padding-left: 1rem;
+		line-height: 1.3;
+	}
+	.content-section p {
+		font-size: 1.05rem;
+		color: var(--text-secondary);
+		line-height: 1.8;
+		margin-bottom: 1.5rem;
+	}
+	.content-section p strong {
+		color: #ffffff;
+	}
+
+	/* Custom Highlight Elements */
+	.insight-box {
+		background: rgba(66, 133, 244, 0.03);
+		border-left: 4px solid var(--g-blue-neon);
+		border-radius: 0 12px 12px 0;
+		padding: 1.5rem;
+		margin: 2rem 0;
+	}
+	.insight-box h4 {
+		font-size: 1.05rem;
+		color: var(--g-blue-neon);
+		margin-bottom: 0.5rem;
+		font-weight: 700;
+	}
+	.insight-box p {
+		margin-bottom: 0;
+		font-size: 0.95rem;
+	}
+
+	/* Timeline visual */
+	.timeline-visual {
+		border-left: 2px dashed rgba(255, 255, 255, 0.1);
+		margin: 2.5rem 0 2.5rem 1rem;
+		padding-left: 1.5rem;
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+	}
+	.timeline-item {
+		position: relative;
+	}
+	.timeline-item::before {
+		content: '';
+		position: absolute;
+		left: calc(-1.5rem - 6px);
+		top: 4px;
+		width: 10px;
+		height: 10px;
+		border-radius: 50%;
+		background: var(--bg-dark);
+		border: 2px solid var(--g-red-neon);
+	}
+	.timeline-item:nth-child(2)::before { border-color: var(--g-yellow-neon); }
+	.timeline-item:nth-child(3)::before { border-color: var(--g-blue-neon); }
+	
+	.time-label {
+		display: inline-block;
+		font-family: var(--font-display);
+		font-size: 0.8rem;
+		font-weight: 800;
+		color: var(--g-red-neon);
+		background: rgba(234, 67, 53, 0.08);
+		border: 1px solid rgba(234, 67, 53, 0.2);
+		padding: 0.1rem 0.5rem;
+		border-radius: 4px;
+		margin-bottom: 0.5rem;
+	}
+	.timeline-item:nth-child(2) .time-label {
+		color: var(--g-yellow-neon);
+		background: rgba(251, 188, 5, 0.08);
+		border-color: rgba(251, 188, 5, 0.2);
+	}
+	.timeline-item:nth-child(3) .time-label {
+		color: var(--g-blue-neon);
+		background: rgba(66, 133, 244, 0.08);
+		border-color: rgba(66, 133, 244, 0.2);
+	}
+	.timeline-item strong {
+		display: block;
+		font-size: 1.1rem;
+		color: #ffffff;
+		margin-bottom: 0.3rem;
+	}
+	.timeline-item p {
+		font-size: 0.95rem;
+		margin-bottom: 0;
+	}
+
+	/* Feature cards */
+	.features-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+		gap: 1.5rem;
+		margin: 2rem 0;
+	}
+	.feat-card {
+		background: rgba(255, 255, 255, 0.01);
+		border: 1px solid rgba(255, 255, 255, 0.04);
+		border-radius: 12px;
+		padding: 1.5rem;
+	}
+	.feat-card h5 {
+		font-size: 1.1rem;
+		color: #ffffff;
+		margin-bottom: 0.5rem;
+		font-weight: 700;
+	}
+	.feat-card p {
+		font-size: 0.9rem;
+		margin-bottom: 0;
+		line-height: 1.6;
+	}
+
+	.lessons-box {
+		background: rgba(255, 255, 255, 0.02);
+		border: 1px solid rgba(255, 255, 255, 0.05);
+		border-radius: 16px;
+		padding: 2rem;
+	}
+	.lessons-box ul {
+		list-style: none;
+		display: flex;
+		flex-direction: column;
+		gap: 1.8rem;
+		padding-left: 0;
+		margin: 0;
+	}
+	.lessons-box strong {
+		display: block;
+		font-size: 1.15rem;
+		color: var(--g-green-neon);
+		margin-bottom: 0.4rem;
+	}
+	.lessons-box p {
+		font-size: 0.95rem;
+		margin-bottom: 0;
+		line-height: 1.6;
+	}
+
+	@media (max-width: 992px) {
+		.article-content {
+			flex-direction: column;
+		}
+		.toc-sidebar {
+			display: none;
+		}
+		.post-body {
+			max-width: 100%;
+		}
+	}
+	@media (max-width: 768px) {
+		.title-text {
+			font-size: 2.2rem;
+		}
+		.article-hero {
+			padding: 3rem 1rem;
+		}
+		.metrics-grid {
+			grid-template-columns: 1fr;
+		}
+		.timeline-visual {
+			margin-left: 0.2rem;
+		}
+	}
+</style>

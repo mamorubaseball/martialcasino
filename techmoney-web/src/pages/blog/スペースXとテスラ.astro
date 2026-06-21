@@ -1,0 +1,652 @@
+---
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import BaseHead from '../../components/BaseHead.astro';
+import { SITE_TITLE } from '../../consts';
+
+// Generated from video_summary.html
+---
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <BaseHead title="【テスラ株】SpaceXと電撃合併！？ロボタクシー本格始動で株価はどうなる？【最新シナリオ】 - {SITE_TITLE}" description="スペースXとテスラの徹底解説動画の要約記事です。" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <style is:global>
+
+    :root {
+      --bg-dark: #050510;
+      --bg-gradient: linear-gradient(180deg, #0a0a1a 0%, #050510 100%);
+      --primary: #00f2fe;
+      --secondary: #4facfe;
+      --accent: #b06ab3;
+      --text-main: #ffffff;
+      --text-muted: #a0a0b0;
+      --card-bg: rgba(255, 255, 255, 0.03);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --bubble-host-bg: rgba(35, 55, 255, 0.15);
+      --bubble-host-border: rgba(35, 55, 255, 0.3);
+      --bubble-guest-bg: rgba(255, 255, 255, 0.03);
+      --bubble-guest-border: rgba(255, 255, 255, 0.06);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg-gradient);
+      min-height: 100vh;
+      color: var(--text-muted);
+      font-family: 'Inter', 'Noto Sans JP', sans-serif;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1.5rem 4rem 1.5rem;
+    }
+
+    header {
+      padding: 80px 0 40px;
+      text-align: center;
+    }
+
+    .tag-line {
+      display: inline-block;
+      background: linear-gradient(135deg, rgba(0,242,254,0.15), rgba(176,106,179,0.15));
+      border: 1px solid rgba(0,242,254,0.3);
+      border-radius: 50px;
+      padding: 6px 20px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--text-main);
+      line-height: 1.3;
+      margin-bottom: 20px;
+    }
+
+    .subtitle {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      margin-top: 12px;
+    }
+
+    .meta-info {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .lead-section {
+      margin-bottom: 40px;
+    }
+
+    .lead-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .lead-card p {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--text-main);
+    }
+
+    .chat-section {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin: 30px 0;
+    }
+
+    .chat-message {
+      display: flex;
+      gap: 16px;
+      max-width: 85%;
+      align-items: flex-start;
+      margin-bottom: 4px;
+    }
+
+    .host-message {
+      align-self: flex-start;
+    }
+
+    .guest-message {
+      align-self: flex-end;
+      flex-direction: row-reverse;
+    }
+
+    .avatar-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      min-width: 64px;
+    }
+
+    .chat-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--primary);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      background: #0d111c;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+    }
+
+    .guest-avatar {
+      border-color: var(--secondary);
+      background: #1e293b;
+    }
+
+    .avatar-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .message-bubble {
+      padding: 14px 18px;
+      border-radius: 16px;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      border: 1px solid var(--bubble-guest-border);
+      background: var(--bubble-guest-bg);
+      color: var(--text-main);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    }
+
+    .host-message .message-bubble {
+      background: var(--bubble-host-bg);
+      border-color: var(--bubble-host-border);
+      border-top-left-radius: 4px;
+    }
+
+    .guest-message .message-bubble {
+      background: var(--bubble-guest-bg);
+      border-color: var(--bubble-guest-border);
+      border-top-right-radius: 4px;
+    }
+
+    section {
+      margin-bottom: 50px;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--text-main);
+      border-left: 4px solid var(--primary);
+      padding-left: 16px;
+      margin: 40px 0 20px 0;
+      line-height: 1.35;
+    }
+
+    footer {
+      border-top: 1px solid var(--card-border);
+      padding: 40px 0 20px;
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    .disclaimer {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 20px;
+      max-width: 700px;
+      margin: 0 auto 20px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      text-align: left;
+    }
+
+    .copyright {
+      font-size: 0.8rem;
+      color: rgba(160,160,176,0.4);
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 1.8rem; }
+      h2 { font-size: 1.3rem; }
+      header { padding: 50px 0 30px; }
+      .chat-message { max-width: 95%; }
+    }
+  
+
+    /* Unified Layout Styles */
+    .blog-main {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem 1.5rem;
+    }
+    .breadcrumb {
+        font-size: 0.85rem;
+        color: var(--text-secondary, #cbd5e1);
+        margin-bottom: 2rem;
+    }
+    .breadcrumb a {
+        color: var(--text-secondary, #cbd5e1);
+        text-decoration: none;
+    }
+    .breadcrumb a:hover {
+        color: var(--color-accent, #10B981);
+    }
+    .breadcrumb .separator {
+        margin: 0 0.5rem;
+        color: var(--text-muted, #64748b);
+    }
+    .article-content {
+        display: flex;
+        gap: 3rem;
+        align-items: flex-start;
+        margin-top: 2rem;
+    }
+    .toc-sidebar {
+        width: 280px;
+        position: sticky;
+        top: 6rem;
+        flex-shrink: 0;
+    }
+    .sidebar-toc {
+        background: rgba(28, 37, 65, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 8px;
+        padding: 1.8rem;
+        backdrop-filter: blur(10px);
+    }
+    .sidebar-toc h3 {
+        font-size: 1.1rem;
+        font-weight: 800;
+        margin-bottom: 1.2rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        padding-bottom: 0.6rem;
+        color: var(--text-primary, #f1f5f9);
+    }
+    .sidebar-toc ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        margin-left: 0;
+        padding-left: 0;
+    }
+    .sidebar-toc a {
+        font-size: 0.9rem;
+        color: var(--text-secondary, #cbd5e1);
+        text-decoration: none;
+        transition: color 0.2s ease;
+    }
+    .sidebar-toc a:hover {
+        color: var(--color-accent, #10B981);
+    }
+    .post-body {
+        flex-grow: 1;
+        max-width: calc(100% - 310px);
+    }
+    .anchor-target {
+        position: relative;
+        top: -100px;
+        visibility: hidden;
+        display: block;
+    }
+    .video-container {
+        position: relative;
+        width: 100%;
+        padding-top: 56.25%;
+        margin-bottom: 2rem;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid var(--border-color, rgba(16, 185, 129, 0.15));
+        box-shadow: 0 0 20px rgba(16, 185, 129, 0.1);
+    }
+    .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+    @media (max-width: 992px) {
+        .article-content {
+            flex-direction: column;
+        }
+        .toc-sidebar {
+            display: none;
+        }
+        .post-body {
+            max-width: 100%;
+        }
+    }
+  </style>
+</head>
+<body>
+  <Header />
+  
+  <main class="blog-main">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="/">← ホームに戻る</a>
+        <span class="separator">|</span>
+        <a href="/">トップ</a> &gt; <a href="/blog">ブログ</a> &gt; <span class="current">【テスラ株】SpaceXと電撃合併！？ロボタクシー本格始動で株価はどうなる？【最新シナリオ】</span>
+      </div>
+    </div>
+    
+    <div class="container">
+
+  <div class="video-container">
+    <iframe src="https://www.youtube.com/embed/O61AOiLbcrs" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+  
+    <header>
+      <div class="tag-line">📊 投資銘柄・企業分析</div>
+      <h1>スペースXとテスラ</h1>
+      <p class="subtitle">スペースXとテスラの徹底解説動画の要約記事です。</p>
+      <div class="meta-info">
+        <span>📅 2026年05月27日</span>
+        <span>✍️ TechMoney</span>
+      </div>
+    </header>
+
+    <main>
+            <p style="margin-bottom: 1.5rem;">導入：テスラとSpaceXの合併報道とIPOの全貌</p>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            皆さん、テスラとSpaceXの合併がニュースでささやかれていますね。今回は、この報道によるテスラ株への影響と、上場予定のSpaceXへの影響についてまとめました。結論から先にお伝えすると、現時点のテスラ株への投資判断は「条件付き中立〜やや慎重」です。テスラのビジョンは本物ですが、その夢がすでに株価へかなり先取りされてしまっている状態だからです。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            いきなり結論ですね！ニュースが多すぎて何が本当に大事なのか整理できていなかったので助かります。でも、もう株価に織り込まれているってどういうことなんですか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            そこを今日しっかり解説します。この動画では「SpaceX合併は本当に実現するのか」「ロボタクシーはいつ収益になるのか」の二つを軸に、テスラとSpaceXの今後を徹底分析していきます。時間がない方や気になるところだけ知りたい方は、概要欄のタイムスタンプから飛んでくださいね。第一章「SpaceX IPOと合併思惑の深層」、第二章「ロボタクシーとOptimusという本命シナリオ」、第三章「株価シナリオと総合投資判断」の順で進めます。
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">---</p>
+      <h2>第一章</h2>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            「SpaceX IPOと合併思惑の深層」です。アメリカの経済専門チャンネルCNBCなどが報じて大きな話題になりましたが、まず大前提として、現時点で公式な合併発表は一切ありません。あくまで「マスク氏が社内で議論している」「思考実験として検討している」というレベルです。ただ、無視していい話では全くありません。この合併思惑が出てきた背景には、2026年6月頃にNasdaqへ上場予定のSpaceXの巨大IPOがあるからです。xAIとの合併後の企業評価額は約1兆2500億ドル、日本円にして約190兆円規模になる見込みです。
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">合併のハードルとテスラ株主が直面するリスク</p>
+      <div class="chat-section">
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            190兆円！スケールが大きすぎてイメージできないですが、合併の話は本当に進むんでしょうか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            Wedbushの著名アナリスト、Dan Ives氏は「2027年中に合併する確率は8割以上」と強気ですが、予測市場のKalshiでは「2027年5月までに合併」の確率をわずか33%と見ており、市場は冷静です。実際、合併には非常に高いハードルがいくつもあります。「どちらが親会社になるか」「株式交換の比率をどうするか」、そして最大のネックがSpaceX의 財務内容です。SpaceXの直近の売上高は約46億9000万ドルですが、純損失は約42億8000万ドルの大赤字なんです。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            SpaceXって赤字なんですか！？それは意外です。テスラの株主からすると不安になりそうですね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            おっしゃる通りです。ロケット開発やAIインフラへの先行投資が膨大で、今は稼げていません。テスラがこのSpaceXを高い評価額で吸収合併すれば、テスラの既存株主の持ち分が薄まる「希薄化リスク」が生じます。さらに、SpaceXのIPO自体が、テスラ株から投資資金を引き抜く効果を持ちます。「テスラより直接SpaceXを買いたい」という投資家が増えれば、テスラ株の需要が下がってしまいます。つまりテスラとSpaceXが投資家を取り合う状況になるわけです。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            じゃあ合併報道で飛びつき買いするのは危ないってことですね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            その通りです。短期的には投機買いで株価が上がる場面もありましたが、合併条件がテスラ株主にとって不利なら売られる可能性が高く、いわゆる「噂で買って事実で売る」展開が想定されます。合併は長期ビジョンとしてあり得ても、年内の実現確率は10〜15%程度と見るのが現実的です。SpaceXはマスク氏が議決権の85%を握っていますが、テスラ側は一般株主の承認が必要で、そこが最大のハードルになります。
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">ロボタクシーとOptimus：ビジョンと現実のギャップ</p>
+      <p style="margin-bottom: 1.5rem;">---</p>
+      <h2>第二章</h2>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            「ロボタクシーとOptimusという本命シナリオ」です。合併思惑は「噂レベル」ですが、こちらは実際に動き始めている話です。まず「Cybercab」、いわゆるロボタクシーですが、2026年4月にGiga Texas工場での量産が正式に開始されました。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            ついに始まったんですね！これでテスラの売上も一気に上がるんですか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            いえ、マスク氏本人も「新しい製品の製造は最初は必ず緩やかなS字カーブで始まる」と釘を刺しており、実質的な売上への貢献は「少なくとも2027年以降」と明言しています。一方で展開の速さには驚かされます。Austinでスタートし、年内にはPhoenixやMiamiなど7都市への展開も発表されており、年末までに米国の4分の1から半分の地域をカバーする計画です。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            すごいスピードですね。でも自動運転って安全性はどうなんでしょうか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            そこが最大の問題です。現在の監視付きロボタクシーフリートは5万7000マイルに1回の事故率です。人間ドライバーは22万9000マイルに1回なので、まだ人間の約4倍の頻度で事故が起きている計算になります。マスク氏も「監視なしの完全自律FSD」の実現は2026年第4四半期という見通しを示していますが、テスラは過去に自動運転の予測を何度も外してきた歴史があるため、半年〜1年のずれが生じる可能性を考えておく必要があります。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            まだ完璧ではないんですね。ライバル企業と比べるとどうですか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            競合と比較したときのテスラの強みは際立っています。調査会社NewStreet Researchによれば、テスラの資本効率はWaymoの7倍と言われています。Waymoが専用車両を一から作っているのに対し、テスラは既存の何百万台もの車両をそのままロボタクシーに転用できるため、他社には真似できないコスト優位性があります。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            人型ロボットの「Optimus」の方も気になります。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            Optimusは現在工場内での実用化が進んでいますが、搭載予定のAI5チップの量産が2027年中頃にずれ込む見通しで、本格的な能力発揮はもう少し先になります。ARK InvestのキャシーウッドCEOは「2029年にはテスラの企業価値の88%がロボタクシーから生まれる」と予測しています。EVメーカーからAI・ロボティクス企業への変身、さらにSpaceXとの合併が実現すれば、AI＋宇宙＋通信＋自動運転＋ロボットという垂直統合の「マスク帝国」が完成する。これが投資家の想像力を掻き立てているわけですが、「ビジョン」と「現実」のギャップを冷静に評価する必要があります。
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">株価予測と投資戦略：3つのシナリオ</p>
+      <p style="margin-bottom: 1.5rem;">---</p>
+      <h2>第三章</h2>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            「株価シナリオと総合投資判断」です。いよいよ核心に入ります。現在のテスラ株は約420〜445ドル前後で、時価総額は約160兆円です。PER（株価収益率）は150〜180倍という超割高な水準で、市場はテスラに対して「将来の巨大な成長」をすでに7〜10年分以上先取りして織り込んでいます。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            もう「夢代」が株価にたっぷり入っている状態なんですね。具体的には今後どんな動きになりそうですか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            3つのシナリオが考えられます。まず強気シナリオ。Cybercabの量産が予定通り進み、無監視FSDが承認され、SpaceX合併の公式発表が重なるなど好材料が揃えば、1年後の目標株価は600〜700ドルに達する可能性があります。ただ、これが全部揃う確率は高くありません。次に基本シナリオです。ロボタクシーはゆっくり拡大するが本格収益化は2027年以降、合併は「検討中」のままで、1年後は350〜450ドルのレンジ内で推移するケースです。ほぼ現状維持ですね。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            最後に弱気シナリオはどんなケースですか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            FSDで重大事故が起きて規制が強化される、SpaceX IPOで投資資金が流出する、設備投資の急増に収益が追いつかず市場が失望するなどのネガティブ要因が重なった場合です。この場合、1年後に250〜350ドルまで下がるケースで、今の水準から20〜40%の下落リスクがあります。だからこそ、今すぐ全力で買うほど割安ではないという「条件付き中立〜やや慎重」の評価になります。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            では、テスラ株を買うならどう立ち回るのが正解でしょうか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            もし投資するなら、一括で大きく買うのではなく、毎月少しずつ買う分割買い（ドルコスト平均法）をおすすめします。また、SpaceX合併が公式発表された直後は一時的な熱狂で株価が急騰する可能性が高いので、そのタイミングでの全力買いは危険です。大切なのは、テスラの「夢」と「現実」の両方をしっかり見た上で、ご自身のリスク許容度に合った判断をすることです。今日の分析はあくまで参考とし、最終的な投資判断は自己責任でお願いします。皆さんの資産が長期的に守られることを心から願っています！
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="disclaimer">
+        <p>⚠️ <strong>免責事項</strong></p>
+        <p>本記事は情報提供を目的としたものであり、特定の銘柄への投資を推奨するものではありません。株式投資にはリスクが伴います。投資はご自身の判断と責任でお願いいたします。</p>
+      </div>
+      <p class="copyright">© TechMoney｜2026年</p>
+    </footer>
+  </div>
+    </div>
+  </div>
+  </main>
+
+  <Footer />
+</body>
+</html>

@@ -19,9 +19,9 @@
 * **詳細**: [phase1.md](file:///Users/mamoru/AntigravityCompany/投資メディア事業/investment-platform/AI-DLC/phase1.md)
 
 ### ⚪ フェーズ 2: TechMoney のSEO・インフラ・実運用最適化
-* **目的**: TechMoney の公開に向けたSEO対策（メタタグ、サイトマップ、構造化データ）、レスポンシブ微調整、ホスティング環境（VercelやCloudflare Pagesなど）へのデプロイ準備、ポートフォリオ自動更新ワークフローとの接続。
+* **目的**: TechMoney の公開に向けたSEO対策（メタタグ、サイトマップ、構造化データ）、レスポンシブ微調整、ホスティング環境（VercelやCloudflare Pagesなど）へのデプロイ準備、ポートフォリオ自動更新ワークフローとの接続、および **moomoo証券アフィリエイト連携（広告バナー・銘柄チャート挿入）**。
 * **ステータス**: 未着手
-* **詳細**: [phase2.md](file:///Users/mamoru/AntigravityCompany/投資メディア事業/investment-platform/AI-DLC/phase2.md)
+* **詳細**: [phase2.md](file:///Users/mamoru/AntigravityCompany/投資メディア事業/martialcasino/AI-DLC/phase2.md)
 
 ### ⚪ フェーズ 3: TechMoney のデータ連携・AI対話機能と初回リリース
 * **目的**: 各銘柄詳細ページや分析記事へのインタラクティブなチャート追加、Gemini APIを利用した「データと会話する」対話型コンポーネントの埋め込み、およびTechMoneyの初回リリース。

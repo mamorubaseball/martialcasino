@@ -1,306 +1,768 @@
 ---
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import BaseHead from '../../components/BaseHead.astro';
+import { SITE_TITLE } from '../../consts';
+
 // Generated from video_summary.html
 ---
 <!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="AI業界の人材地殻変動！xAIの崩壊と大量離脱、そしてAndrej Karpathy氏やJohn Schulman氏ら超大物研究者が吸い込まれるように集結する「Anthropic」のドリームチーム体制を徹底解説します。">
-  <title>テスラ・xAI崩壊とAnthropicへの人材集中！AI業界の地殻変動と最注目企業 - TechMoney</title>
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;800&family=Noto+Sans+JP:wght@300;500;700;900&display=swap" rel="stylesheet">
-  <style>
+  <BaseHead title="【AI推論チップでエヌビディアを超える!?】衝撃的なIPOを遂げた、セレブラスシステムズについて徹底解説 - {SITE_TITLE}" description="AIの徹底解説動画の要約記事です。" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <style is:global>
+
     :root {
-        --bg-dark: #050510;
-        --bg-gradient: linear-gradient(180deg, #0a0a1a 0%, #050510 100%);
-        --primary: #00f2fe;        /* シアン */
-        --secondary: #4facfe;      /* ブルー */
-        --accent: #b06ab3;         /* パープル */
-        --text-main: #ffffff;
-        --text-muted: #a0a0b0;
-        --card-bg: rgba(255, 255, 255, 0.03);
-        --card-border: rgba(255, 255, 255, 0.08);
-        --risk-bg: rgba(255, 100, 100, 0.08);
-        --risk-border: #ff6464;
+      --bg-dark: #050510;
+      --bg-gradient: linear-gradient(180deg, #0a0a1a 0%, #050510 100%);
+      --primary: #00f2fe;
+      --secondary: #4facfe;
+      --accent: #b06ab3;
+      --text-main: #ffffff;
+      --text-muted: #a0a0b0;
+      --card-bg: rgba(255, 255, 255, 0.03);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --bubble-host-bg: rgba(35, 55, 255, 0.15);
+      --bubble-host-border: rgba(35, 55, 255, 0.3);
+      --bubble-guest-bg: rgba(255, 255, 255, 0.03);
+      --bubble-guest-border: rgba(255, 255, 255, 0.06);
     }
 
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
-        background: var(--bg-dark);
-        background-image: var(--bg-gradient);
-        color: var(--text-main);
-        font-family: 'Inter', 'Noto Sans JP', sans-serif;
-        line-height: 1.7;
-        overflow-x: hidden;
+      background: var(--bg-gradient);
+      min-height: 100vh;
+      color: var(--text-muted);
+      font-family: 'Inter', 'Noto Sans JP', sans-serif;
+      font-size: 1rem;
+      line-height: 1.7;
     }
 
     .container {
-        max-width: 1100px;
-        margin: 0 auto;
-        padding: 0 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1.5rem 4rem 1.5rem;
     }
 
     header {
-        padding: 120px 0 80px;
-        text-align: center;
-        animation: fadeInUp 0.8s ease-out;
+      padding: 80px 0 40px;
+      text-align: center;
+    }
+
+    .tag-line {
+      display: inline-block;
+      background: linear-gradient(135deg, rgba(0,242,254,0.15), rgba(176,106,179,0.15));
+      border: 1px solid rgba(0,242,254,0.3);
+      border-radius: 50px;
+      padding: 6px 20px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
     }
 
     h1 {
-        font-size: 3rem;
-        font-weight: 900;
-        background: linear-gradient(90deg, var(--primary), var(--accent));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        margin-bottom: 20px;
-        line-height: 1.2;
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--text-main);
+      line-height: 1.3;
+      margin-bottom: 20px;
     }
 
     .subtitle {
-        font-size: 1.2rem;
-        color: var(--text-muted);
-        font-weight: 300;
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      margin-top: 12px;
     }
 
-    /* 目次 */
-    .toc {
-        background: var(--card-bg);
-        border: 1px solid var(--card-border);
-        border-radius: 16px;
-        padding: 25px;
-        margin-bottom: 60px;
-        backdrop-filter: blur(10px);
-        animation: fadeInUp 1s ease-out;
+    .meta-info {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
     }
 
-    .toc h3 {
-        font-size: 1.3rem;
-        margin-bottom: 15px;
-        color: var(--primary);
+    .lead-section {
+      margin-bottom: 40px;
     }
 
-    .toc ul {
-        list-style: none;
+    .lead-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 24px;
+      text-align: center;
     }
 
-    .toc li {
-        margin-bottom: 10px;
+    .lead-card p {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--text-main);
     }
 
-    .toc a {
-        color: var(--text-muted);
-        text-decoration: none;
-        transition: color 0.2s;
+    .chat-section {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin: 30px 0;
     }
 
-    .toc a:hover {
-        color: var(--primary);
+    .chat-message {
+      display: flex;
+      gap: 16px;
+      max-width: 85%;
+      align-items: flex-start;
+      margin-bottom: 4px;
     }
 
-    /* メインコンテンツ */
-    main {
-        animation: fadeInUp 1.2s ease-out;
+    .host-message {
+      align-self: flex-start;
+    }
+
+    .guest-message {
+      align-self: flex-end;
+      flex-direction: row-reverse;
+    }
+
+    .avatar-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      min-width: 64px;
+    }
+
+    .chat-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--primary);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      background: #0d111c;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+    }
+
+    .guest-avatar {
+      border-color: var(--secondary);
+      background: #1e293b;
+    }
+
+    .avatar-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .message-bubble {
+      padding: 14px 18px;
+      border-radius: 16px;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      border: 1px solid var(--bubble-guest-border);
+      background: var(--bubble-guest-bg);
+      color: var(--text-main);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    }
+
+    .host-message .message-bubble {
+      background: var(--bubble-host-bg);
+      border-color: var(--bubble-host-border);
+      border-top-left-radius: 4px;
+    }
+
+    .guest-message .message-bubble {
+      background: var(--bubble-guest-bg);
+      border-color: var(--bubble-guest-border);
+      border-top-right-radius: 4px;
     }
 
     section {
-        margin-bottom: 80px;
+      margin-bottom: 50px;
     }
 
     h2 {
-        font-size: 1.8rem;
-        font-weight: 800;
-        border-left: 4px solid var(--primary);
-        padding-left: 15px;
-        margin-bottom: 30px;
-        color: var(--text-main);
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--text-main);
+      border-left: 4px solid var(--primary);
+      padding-left: 16px;
+      margin: 40px 0 20px 0;
+      line-height: 1.35;
     }
 
-    .card {
-        background: var(--card-bg);
-        border: 1px solid var(--card-border);
-        border-radius: 16px;
-        padding: 35px;
-        backdrop-filter: blur(10px);
-        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-    }
-
-    .card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
-        border-color: rgba(0, 242, 254, 0.25);
-    }
-
-    p {
-        color: var(--text-muted);
-        margin-bottom: 20px;
-    }
-
-    p strong {
-        color: var(--text-main);
-    }
-
-    /* 特殊スタイル */
-    .ticker {
-        color: var(--primary);
-        font-weight: 700;
-        background: rgba(0, 242, 254, 0.1);
-        padding: 2px 6px;
-        border-radius: 4px;
-    }
-
-    .highlight {
-        color: var(--primary);
-        font-weight: 700;
-        font-size: 1.1em;
-    }
-
-    .risk-box {
-        background: var(--risk-bg);
-        border-left: 4px solid var(--risk-border);
-        padding: 20px;
-        border-radius: 0 12px 12px 0;
-        margin-top: 20px;
-    }
-
-    .risk-box h4 {
-        color: var(--risk-border);
-        margin-bottom: 8px;
-        font-weight: 700;
-    }
-
-    .grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 20px;
-        margin-top: 20px;
-    }
-
-    .grid-item {
-        background: rgba(255, 255, 255, 0.01);
-        border: 1px solid var(--card-border);
-        border-radius: 8px;
-        padding: 15px;
-    }
-
-    /* フッター */
     footer {
-        padding: 60px 0 40px;
-        text-align: center;
-        border-top: 1px solid var(--card-border);
-        color: var(--text-muted);
-        font-size: 0.9rem;
+      border-top: 1px solid var(--card-border);
+      padding: 40px 0 20px;
+      text-align: center;
+      margin-top: 60px;
     }
 
     .disclaimer {
-        margin-bottom: 15px;
-        font-size: 0.8rem;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 20px;
+      max-width: 700px;
+      margin: 0 auto 20px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      text-align: left;
     }
 
-    @keyframes fadeInUp {
-        from { opacity: 0; transform: translateY(30px); }
-        to { opacity: 1; transform: translateY(0); }
+    .copyright {
+      font-size: 0.8rem;
+      color: rgba(160,160,176,0.4);
     }
 
-    /* レスポンシブ対応 */
     @media (max-width: 768px) {
-        h1 { font-size: 2rem; }
-        h2 { font-size: 1.4rem; }
-        header { padding: 80px 0 50px; }
-        .container { padding: 0 1rem; }
-        .card { padding: 20px; }
-        .grid { grid-template-columns: 1fr; }
+      h1 { font-size: 1.8rem; }
+      h2 { font-size: 1.3rem; }
+      header { padding: 50px 0 30px; }
+      .chat-message { max-width: 95%; }
+    }
+  
+
+    /* Unified Layout Styles */
+    .blog-main {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem 1.5rem;
+    }
+    .breadcrumb {
+        font-size: 0.85rem;
+        color: var(--text-secondary, #cbd5e1);
+        margin-bottom: 2rem;
+    }
+    .breadcrumb a {
+        color: var(--text-secondary, #cbd5e1);
+        text-decoration: none;
+    }
+    .breadcrumb a:hover {
+        color: var(--color-accent, #10B981);
+    }
+    .breadcrumb .separator {
+        margin: 0 0.5rem;
+        color: var(--text-muted, #64748b);
+    }
+    .article-content {
+        display: flex;
+        gap: 3rem;
+        align-items: flex-start;
+        margin-top: 2rem;
+    }
+    .toc-sidebar {
+        width: 280px;
+        position: sticky;
+        top: 6rem;
+        flex-shrink: 0;
+    }
+    .sidebar-toc {
+        background: rgba(28, 37, 65, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 8px;
+        padding: 1.8rem;
+        backdrop-filter: blur(10px);
+    }
+    .sidebar-toc h3 {
+        font-size: 1.1rem;
+        font-weight: 800;
+        margin-bottom: 1.2rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        padding-bottom: 0.6rem;
+        color: var(--text-primary, #f1f5f9);
+    }
+    .sidebar-toc ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        margin-left: 0;
+        padding-left: 0;
+    }
+    .sidebar-toc a {
+        font-size: 0.9rem;
+        color: var(--text-secondary, #cbd5e1);
+        text-decoration: none;
+        transition: color 0.2s ease;
+    }
+    .sidebar-toc a:hover {
+        color: var(--color-accent, #10B981);
+    }
+    .post-body {
+        flex-grow: 1;
+        max-width: calc(100% - 310px);
+    }
+    .anchor-target {
+        position: relative;
+        top: -100px;
+        visibility: hidden;
+        display: block;
+    }
+    .video-container {
+        position: relative;
+        width: 100%;
+        padding-top: 56.25%;
+        margin-bottom: 2rem;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid var(--border-color, rgba(16, 185, 129, 0.15));
+        box-shadow: 0 0 20px rgba(16, 185, 129, 0.1);
+    }
+    .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+    @media (max-width: 992px) {
+        .article-content {
+            flex-direction: column;
+        }
+        .toc-sidebar {
+            display: none;
+        }
+        .post-body {
+            max-width: 100%;
+        }
     }
   </style>
 </head>
 <body>
-  <div class="container">
+  <Header />
+  
+  <main class="blog-main">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="/">← ホームに戻る</a>
+        <span class="separator">|</span>
+        <a href="/">トップ</a> &gt; <a href="/blog">ブログ</a> &gt; <span class="current">【AI推論チップでエヌビディアを超える!?】衝撃的なIPOを遂げた、セレブラスシステムズについて徹底解説</span>
+      </div>
+    </div>
+    
+    <div class="container">
+
+  <div class="video-container">
+    <iframe src="https://www.youtube.com/embed/ywTKTZVQ_fc" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+  
     <header>
-      <h1>テスラ・xAI崩壊とAnthropicへの人材集中！<br>AI業界の地殻変動と最注目企業</h1>
-      <p class="subtitle">超大物研究者 Andrej Karpathy 氏らの移籍とAI業界勢力図の激変</p>
+      <div class="tag-line">📊 投資銘柄・企業分析</div>
+      <h1>AI</h1>
+      <p class="subtitle">AIの徹底解説動画の要約記事です。</p>
+      <div class="meta-info">
+        <span>📅 2026年05月23日</span>
+        <span>✍️ TechMoney</span>
+      </div>
     </header>
 
-    <nav class="toc">
-      <h3>目次</h3>
-      <ul>
-        <li><a href="#chapter-1">1. AIトップ人材争奪戦の全体像と背景</a></li>
-        <li><a href="#chapter-2">2. xAIの共同創業者11名全員離脱の真相</a></li>
-        <li><a href="#chapter-3">3. Anthropicに集結するドリームチームの全貌</a></li>
-        <li><a href="#chapter-4">4. 最注目企業ランキングと今後のAI競争展望</a></li>
-      </ul>
-    </nav>
-
     <main>
-      <!-- 第1章 -->
-      <section id="chapter-1">
-        <h2>1. AIトップ人材争奪戦の全体像と背景</h2>
-        <div class="card">
-          <p>現在のAI業界では、超優秀な研究者や幹部をめぐって前代未聞の<strong>「人材争奪戦」</strong>が勃発しています。トップレベルの研究者には、企業から<strong>年俸1億円を超える巨額の報酬パッケージ</strong>が提示されています。</p>
-          <p>AIの最先端（フロンティア）モデルを実用に耐えるレベルで開発・事前学習できる研究者は、世界中でわずか<strong>数百人</strong>しかいないと言われています。このため、OpenAI、Anthropic、Meta、Google DeepMind、xAIのCEO自らが直接リクルートに乗り出しており、引き抜き合戦が常態化しています。この争奪戦の中心地として浮上しているのが <span class="highlight">Anthropic</span> です。</p>
-        </div>
-      </section>
-
-      <!-- 第2章 -->
-      <section id="chapter-2">
-        <h2>2. xAIの共同創業者11名全員離脱の真相</h2>
-        <div class="card">
-          <p>イーロン・マスク氏率いる <span class="ticker">xAI</span> は、2026年2月にスペースXによって評価額2,500億ドル（約38兆円）で買収されましたが、その直後から<strong>深刻な組織崩壊</strong>が発生しました。わずか数ヶ月の間に、<strong>共同創業者11名全員が離脱</strong>するという異例の事態に発展しています。</p>
-          <p>背景には、スペースXとの合併後、開発ペースやマイルストーンを極端に重視するスペースXのエンジニアリング文化と、研究志向の強かったxAI創業メンバーの文化が激しく衝突したことがあります。マスク氏自身も後にX上で「xAIは最初から正しく構築されていなかったので、根本から作り直している」と述べており、組織再編の代償として初期メンバー全員を失うこととなりました。</p>
-          <div class="risk-box">
-            <h4>xAIの競争力低下リスク</h4>
-            <p>共同創業者全員の離脱に伴い、主任エンジニアのIgor Babuschkin氏ら80名以上の重要研究者・技術者も一斉に退職したため、xAIの開発力およびAI業界でのプレゼンスは急速に低下しています。</p>
+            <p style="margin-bottom: 1.5rem;">イントロ：AI業界で起きている歴史的な人材移動</p>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            アバンタイトル、テスラ・xAI崩壊とAnthropicへの人材集中 sleeper。AIの世界で、今まさに歴史的な人材移動が起きているのをご存じですか？
           </div>
         </div>
-      </section>
-
-      <!-- 第3章 -->
-      <section id="chapter-3">
-        <h2>3. Anthropicに集結するドリームチームの全貌</h2>
-        <div class="card">
-          <p>xAIやテスラから離脱した超優秀な頭脳の多くが、今や <span class="highlight">Anthropic</span> へと流れ込んでいます。これにより、同社はAI業界のドリームチームを形成しつつあります。</p>
-          <div class="grid">
-            <div class="grid-item">
-              <strong>Andrej Karpathy 氏</strong>
-              <p>元テスラAI部門長、OpenAI共同創業者。AI教育スタートアップEureka Labsを経て、2026年5月にAnthropicへ電撃入社。Claudeの基礎となる「事前学習」研究チームをゼロから立ち上げるリーダーに就任。</p>
-            </div>
-            <div class="grid-item">
-              <strong>John Schulman 氏</strong>
-              <p>OpenAI共同創業者であり、ChatGPT of OpenAIの基盤技術である強化学習手法「PPO」の第一人者。現在はAnthropicのThinking Machines Lab主任科学者を兼務。</p>
-            </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
           </div>
-          <p style="margin-top:20px;">さらに、元テスラでxAI共同創業者の一人だった<strong>Ross Nordeen 氏</strong>も2026年5月にAnthropicへ移籍。CEOのDario Amodei氏（元OpenAI研究責任者）自身をはじめとするOpenAI出身メンバーに加え、テスラ・xAI陣営のトップタレントまでもがAnthropicに大集結しています。</p>
-        </div>
-      </section>
-
-      <!-- 第4章 -->
-      <section id="chapter-4">
-        <h2>4. 最注目企業ランキングと今後のAI競争展望</h2>
-        <div class="card">
-          <p>今回の巨大な人材シフトを踏まえた、現在のAI業界の最注目企業ランキングは以下の通りです。</p>
-          <div class="grid">
-            <div class="grid-item">
-              <strong>1位：Anthropic (評価額: 約1,830億ドル)</strong>
-              <p>Karpathy氏らドリームチームの結成に加え、スペースX・xAIの巨大データセンター（Colossus: 22万基以上のGPU）を借りて事前学習に使用する契約を結んでおり、計算リソースでも圧倒的優位に立っています。</p>
-            </div>
-            <div class="grid-item">
-              <strong>2位：Safe Superintelligence [SSI] (評価額: 約320億ドル)</strong>
-              <p>OpenAI元主任科学者のIlya Sutskever氏が設立。「安全な超知能開発」に特化し、製品ローンチ前にもかかわらず4兆円以上の評価を受けています。</p>
-            </div>
+          <div class="message-bubble">
+            えっ、それってどういうことですか、テックマネーさん？
           </div>
-          <p style="margin-top:20px;"><strong>3位には、元OpenAI CTOのMira Murati氏が立ち上げた「Thinking Machines Lab」（評価額約200億ドル）</strong>がランクインしていますが、内部の混乱もささやかれており注視が必要です。対照的に、かつて覇権を争っていたxAIは、ドリームチームに対抗するリソースとタレントを失い、大きく後退を余儀なくされています。</p>
         </div>
-      </section>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            テスラのAI部門を率いた人物、xAIの共同創業者、さらにはOpenAIの重鎮まで——軒並みAnthropicという一つの会社に吸い込まれるように移籍しているんです。もしかしたら、これってAI覇権の地殻変動を意味しているかもしれません。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            すごい…！それって投資や業界に影響しそうですよね？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            AIの人材流動が気になっているけど、どの会社が本当に強くなっているのか分からない、そう感じている方も多いと思います。この動画の結論を先にお伝えすると——現時点で最もタレントが集まり、勢いのある企業はAnthropicです。そして、驚くことにマスク氏が築いたAI帝国xAIは、全共同創業者が離脱するという前代未聞の崩壊を迎えました。その人材がどこへ流れたか、今日は徹底的に解説します。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            それは見ておかないといけないですね！
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            時間がない方や気になるところだけ知りたい方は、概要欄のタイムスタンプから飛んでくださいね。今回の動画は以下の流れで解説します。一つ目、AI人材移動の全体像と背景。二つ目、テスラ・xAIから流出した主要人物の行き先。三つ目、Anthropicに集結した精鋭たちの経歴。四つ目、最注目企業ランキングと今後の展望。それでは始めましょう！
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">第一章：AI人材争奪戦の全体像と背景</p>
+      <h2>第一章</h2>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            AI人材移動の全体像と背景。まず大きな絵から見ていきましょう。今のAI業界は、優秀な研究者や幹部をめぐって空前絶後の争奪戦が繰り広げられています。報酬の規模感から話すと、トップレベルの研究者には一億円を超える報酬パッケージが飛び交っているとも言われています。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            えっ、一億円以上ですか？！
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            そうなんです。OpenAI、Anthropic、Meta、Google DeepMind、xAI——これら企業のCEO自らがリクルートに乗り出して、トップ人材の引き抜きを仕掛けているというのが二〇二五年から二〇二六年の状況です。なぜそんなに争奪戦が激しいかというと、AIのフロンティアを動かせる研究者というのは、世界に数百人しかいないとも言われている極めて稀少な存在なんですね。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            そんなに少ないんですね。それが各社で取り合いになっているんですか。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            まさにそうです。そしてこの争奪戦の中で、特に劇的な動きが三つ起きました。一つ目はAnthropicへの人材集中、二つ目はxAIの崩壊と大量離脱、三つ目は元テスラ・元xAI人材がAnthropicに流れ込んでいるという流れです。この三つをこれから順番に見ていきます。
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">第二章：テスラ・xAI崩壊と主要人物の流出</p>
+      <h2>第二章</h2>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            テスラ・xAIから流出した主要人物の行き先。まず、テスラとxAIからの流出について見ていきましょう。二〇二六年二月、スペースXがxAIを評価額二千五百億ドルで買収するという史上最大規模の合併が成立しました。この直後から、xAI内部で連鎖的な離脱が始まります。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            二千五百億ドルって……日本円でいくらくらいですか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            おおよそ三十八兆円規模です。それだけの巨額買収にもかかわらず、マスク氏は後にXのポストで「xAIは最初から正しく作られていなかったので、根本から作り直している」と異例の発言をしました。買収直後に自分の会社を「失敗作だった」と認めるって、なかなか普通じゃないですよね。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            たしかに……それって相当深刻ですね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            そして離脱の規模がすさまじい。二〇二六年二月十日にTony Wu氏が退社を発表し、翌日には共同創業者のJimmy Ba氏も退社。そこから雪崩のように離脱が続き、三月末にはxAIの共同創業者十一名全員が会社を去りました。主任エンジニアのIgor Babuschkin氏を含む八十名以上の研究者・エンジニアも一緒に去っています。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            十一名全員って……それって会社が空っぽになるくらいじゃないですか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            本当にそれに近い状態です。原因としては、スペースXとの合併後にマイルストーン重視のエンジニアリング文化が押しつけられ、研究志向の強かったxAIの文化と激しく衝突したと報じられています。そして重要なのはここからです——その離脱者たちの一部が、Anthropicに流れているんです。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            やっぱりAnthropicなんですね！
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            その通りです。特に注目すべき人物がRoss Nordeen氏です。彼はもともとテスラの出身で、xAIの共同創業者にもなった人物ですが、二〇二六年五月にAnthropicへの入社を発表しています。元テスラからxAI、そしてAnthropicへという、まさにAI業界の人材移動を象徴するようなキャリアパスです。そしてテスラ本体でも、IT・AIインフラのVPを十三年務めたベテランのRaj Jegannathan氏が、二〇二六年初頭に退社するなど、いわゆる「マスク疲れ」と呼ばれる離脱が続いています。
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">第三章：Anthropicに集結したAI界のドリームチーム</p>
+      <h2>第三章</h2>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            Anthropicに集結した精鋭たちの経歴。では、Anthropicに今どんな人材が集まっているのかを見ていきましょう。まず最新かつ最大の話題が、Andrej Karpathy氏の入社です。二〇二六年五月に発表されたこのニュースは、AI業界で大きな衝撃を持って受け止められました。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            Andrej Karpathyさんってどんな方ですか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            一言で言えば、現代のAI業界で最も影響力のある研究者の一人です。経歴を追っていくと、まずOpenAIの共同創業メンバーとして参加し、その後二〇一七年にマスク氏に引き抜かれてテスラへ移りました。テスラではAI部門長として自動運転のAutopilotの開発を率い、二〇二二年に退社. その後Eureka Labsという教育系AIスタートアップを自ら設立し、二〇二六年についにAnthropicへ入社しました。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            OpenAI、テスラ、そしてAnthropicと……すごい経歴ですね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            彼がAnthropicに入社してやることが、Claudeというモデルの事前学習の研究チームをゼロから立ち上げることです。事前学習というのはAIが基礎知識を獲得する最も根幹の工程で、そこのリーダーに世界トップクラスの研究者を据えるというのは、Anthropicの本気度を示しています。続いて、OpenAIの共同創業者であるJohn Schulman氏です。強化学習の分野で革新的な手法PPOを開発した第一人者で、二〇二四年にAnthropicへ移籍後、現在はThinking Machines Labの主任科学者を兼務しています。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            Anthropic経由で別のスタートアップにも関わっているんですか。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            はい、それがこの業界の面白いところで、人材が会社をまたいで複数のプロジェクトに関わるケースも多い。そしてAnthropicのトップを見ると、CEO自体がDario Amodei氏です。彼もOpenAIの研究責任者出身で、二〇二一年に妹のDaniela Amodeiさんら七人の元OpenAI社員とともにAnthropicを創業しました。つまりAnthropicは最初からOpenAIから飛び出した精鋭集団として生まれた会社なんです。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            そこにテスラやxAIの人材まで加わってきているんですね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            まさに。今のAnthropicは、OpenAI出身・テスラ出身・xAI出身の研究者が一堂に集まる、AI業界のドリームチームのような状態になってきています。そして財務面でも評価額は一千八百三十億ドル、日本円で約二十七兆円規模にまで成長しています。
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">第四章：最注目企業ランキングと今後の展望</p>
+      <h2>第四章</h2>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            最注目企業ランキングと今後の展望。では最後に、今回の人材移動の全体を踏まえて、最注目企業をランキングでまとめます。第一位は、言わずもがなAnthropicです。Karpathy氏、Schulman氏、Nordeen氏らxAI出身者、Dario Amodei氏……人材の厚みが段違いです。加えて、スペースX・xAIのColossus一データセンター——二十二万基以上のGPUを持つ巨大施設——をまるごとAnthropicが使用する契約を結んでいて、計算リソースも確保しています。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            えっ、マスクさんの施設をAnthropicが使うんですか？それは面白い関係ですね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            本当に皮肉な話で、マスク氏はAnthropicのことをかつて「邪悪だ」と批判していたのに、今や施設を貸す大家さんになってしまっています。第二位は、Safe Superintelligence、略してSSIです。OpenAIの共同創業者で元主任科学者のIlya Sutskever氏が二〇二四年に設立したスタートアップで、製品はまだ何も出していないにもかかわらず評価額は約三百二十億ドル、つまり約四兆七千億円にのぼります。「安全な超知能の開発」一本に絞った研究機関で、Sutskever氏のブランドと理念が投資家の期待を集めています。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            製品なしで四兆円超えですか……AIへの期待がいかに大きいか伝わってきますね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            第三位はThinking Machines Labです。元OpenAI CTOのMira Murati氏が二〇二五年二月に創業。ChatGPTやDALL-Eを作ったリーダーが、OpenAI出身のSchulman氏やZoph氏らを集めてゼロから作ったスタートアップで、約二百億ドル、二兆九千億円規模のシードラウンドを調達しています。ただし二〇二六年初頭には内部の混乱も報じられていて、今後の安定性は注視が必要です。そして一方で、かつて強大だったxAIはどうなったかというと——全共同創業者が離脱し、マスク氏自身が「根本から作り直している」と認める状況です。競争相手のAnthropicに自分のデータセンターを貸す形になっており、AI競争における存在感は大きく低下しています。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            xAIって二〇二三年には注目されてたのに、こんな急展開になるとは……。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            AI業界の変化のスピードはそれくらい速い。では今回のまとめをします。一つ目、元テスラAI部門長のAndrej KarpathyがAnthropicに入社。二つ目、元テスラで元xAI共同創業者のRoss NordeenもAnthropicへ移籍。三つ目、xAIの共同創業者十一名全員が離脱という前代未聞の崩壊。四つ目、最もタレントが集まる企業はAnthropicで、評価額・計算リソース・人材の三拍子が揃いつつある。五つ目、Safe SuperintelligenceとThinking Machines Labも要注目の新興勢力。この流れは単なる人事ニュースではなく、誰が次世代AIの覇権を握るかという問いへの答えが、静かに形になってきている瞬間です。AIに関わる企業や技術の動向は、今後のビジネスや投資判断にも大きく影響してきますので、ぜひ引き続き注目しておいてください。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            とても勉強になりました！ありがとうございます。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            最後に一言だけ。今日お話しした企業の動向や評価額はあくまで参考情報です。投資や事業判断はご自身でしっかり調査・検討のうえ、自己責任でお願いしますね。また次の動画でお会いしましょう！
+          </div>
+        </div>
+      </div>
     </main>
 
     <footer>
-      <p class="disclaimer">【ご注意・免責事項】当ページは投資および市場分析の情報提供のみを目的としており、特定の金融商品の売買を推奨するものではありません。投資判断は自己責任で行ってください。</p>
-      <p class="copyright">© TechMoney</p>
+      <div class="disclaimer">
+        <p>⚠️ <strong>免責事項</strong></p>
+        <p>本記事は情報提供を目的としたものであり、特定の銘柄への投資を推奨するものではありません。株式投資にはリスクが伴います。投資はご自身の判断と責任でお願いいたします。</p>
+      </div>
+      <p class="copyright">© TechMoney｜2026年</p>
     </footer>
   </div>
+    </div>
+  </div>
+  </main>
+
+  <Footer />
 </body>
 </html>

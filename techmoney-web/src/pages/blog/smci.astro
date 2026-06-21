@@ -1,611 +1,1180 @@
 ---
-import BaseHead from '../../components/BaseHead.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import BaseHead from '../../components/BaseHead.astro';
 import { SITE_TITLE } from '../../consts';
 
-const articleTitle = "スーパー・マイクロ（SMCI）徹底解剖 —— 驚異の液冷シェア70%と、繰り返されるガバナンス地雷の真実";
-const articleDesc = "NVIDIAとの超強力な関係、直接液冷（DLC）での絶対的覇権、そして共同創業者逮捕に揺れる司法省（DOJ）リスク。割安放置されたAIサーバー大手の真価を問う。";
+// Generated from video_summary.html
 ---
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
-	<head>
-		<BaseHead title={`${articleTitle} - ${SITE_TITLE}`} description={articleDesc} />
-		<link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;700&family=Outfit:wght@400;700;900&family=Noto+Sans+JP:wght@300;500;700;900&display=swap" rel="stylesheet">
-	</head>
-	<body>
-		<Header />
-		
-		<main class="blog-main fade-in">
-			<!-- Breadcrumb -->
-			<div class="breadcrumb">
-				<a href="/">トップ</a> &gt; <a href="/blog">ブログ</a> &gt; <span class="current">SMCI分析</span>
-			</div>
+<head>
+  <meta charset="UTF-8">
+  <BaseHead title="【SMCI徹底分析】割安AIサーバー株の正体｜PSR0.88倍の裏に潜む'3つの地雷' - {SITE_TITLE}" description="smciの徹底解説動画の要約記事です。" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <style is:global>
 
-			<!-- Warning Banner -->
-			<div class="warning-alert">
-				<span class="warning-tag">HIGH RISK WARNING</span>
-				<p>当銘柄は司法省（DOJ）による共同創業者起訴および輸出規制違反リスクを抱えており、極めて高いボラティリティが予想されます。</p>
-			</div>
+    :root {
+      --bg-dark: #050510;
+      --bg-gradient: linear-gradient(180deg, #0a0a1a 0%, #050510 100%);
+      --primary: #00f2fe;
+      --secondary: #4facfe;
+      --accent: #b06ab3;
+      --text-main: #ffffff;
+      --text-muted: #a0a0b0;
+      --card-bg: rgba(255, 255, 255, 0.03);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --bubble-host-bg: rgba(35, 55, 255, 0.15);
+      --bubble-host-border: rgba(35, 55, 255, 0.3);
+      --bubble-guest-bg: rgba(255, 255, 255, 0.03);
+      --bubble-guest-border: rgba(255, 255, 255, 0.06);
+    }
 
-			<!-- Article Header -->
-			<header class="article-hero">
-				<div class="glow-bg"></div>
-				<div class="category-badge">DLC LEADER & GOVERNANCE CRISIS</div>
-				<h1 class="title-text">スーパー・マイクロ（SMCI）分析<br><span class="highlight-cyan">液冷覇権とガバナンス地雷</span></h1>
-				<p class="subtitle">PER23倍の驚異的割安さの裏に潜む、上場廃止・供給停止の「致命的リスク」をデータで暴く</p>
-				<div class="meta-row">
-					<span class="meta-item">公開日: 2026-06-09</span>
-					<span class="meta-item">読了時間: 約10分</span>
-					<span class="meta-item badge-cat">ai-semiconductor</span>
-				</div>
-			</header>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-			<!-- Metrics Dashboard -->
-			<div class="metrics-grid">
-				<div class="metric-card border-cyan">
-					<span class="label">DLC MARKET SHARE</span>
-					<span class="value val-cyan">70%</span>
-					<p class="desc">1000W超の次世代GPUに不可欠な直接液冷（Direct Liquid Cooling）で市場を圧倒。</p>
-				</div>
-				<div class="metric-card border-purple">
-					<span class="label">PEG RATIO (Undervalued?)</span>
-					<span class="value val-purple">0.52x</span>
-					<p class="desc">成長率を加味したPEG比は1.0倍を大幅に下回り、AIサーバー銘柄で最安クラス。</p>
-				</div>
-				<div class="metric-card border-red">
-					<span class="label">GROSS MARGIN LIMIT</span>
-					<span class="value val-red">11-12%</span>
-					<p class="desc">ハードウェア組み立て・販売業のため利幅が薄く、過酷な価格競争にさらされる。</p>
-				</div>
-				<div class="metric-card border-orange">
-					<span class="label">REVENUE (FY26 EST)</span>
-					<span class="value val-orange">約337億ドル</span>
-					<p class="desc">4年前（FY22 約37億ドル）から売上規模は約10倍に拡大予想という超速成長。</p>
-				</div>
-			</div>
+    html {
+      scroll-behavior: smooth;
+    }
 
-			<!-- Main Article Layout -->
-			<div class="article-content">
-				<aside class="toc-sidebar">
-					<div class="glass-card sidebar-toc">
-						<h3>目次</h3>
-						<ul>
-							<li><a href="#chapter1">1. SMCIのモジュール設計</a></li>
-							<li><a href="#chapter2">2. 液冷（DLC）とNVIDIA関係</a></li>
-							<li><a href="#chapter3">3. 利益率11%の限界</a></li>
-							<li><a href="#chapter4">4. 繰り返される会計不正疑惑</a></li>
-							<li><a href="#chapter5">5. 2026年 共同創業者逮捕の衝撃</a></li>
-							<li><a href="#chapter6">6. 投資シナリオと結論</a></li>
-						</ul>
-					</div>
-				</aside>
+    body {
+      background: var(--bg-gradient);
+      min-height: 100vh;
+      color: var(--text-muted);
+      font-family: 'Inter', 'Noto Sans JP', sans-serif;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
 
-				<section class="post-body">
-					<!-- Chapter 1 -->
-					<div class="content-section" id="chapter1">
-						<h2>1. レゴブロック式の「ビルディングブロック設計」が成長の源泉</h2>
-						<p>スーパー・マイクロ・コンピューター（SMCI）は、1993年にチャールズ・リャンによってシリコンバレーで創業されたサーバー設計企業です。DellやHPEなどの伝統的大手との最大の違いは、製品をレゴブロックのように組み立てる<strong>「ビルディングブロック・アーキテクチャ」</strong>にあります。</p>
-						<p>競合他社がマザーボードやシャーシを一体設計するのに対し、SMCIは規格化されたモジュールを組み合わせるため、NVIDIAが最新のGPUを発表してから<strong>最短6週間</strong>で対応サーバーを量産出荷できます（Dellは通常数ヶ月を要する）。この圧倒的な製品投入の速さ（ファースト・トゥ・マーケット）が、AIインフラの初期需要を丸呑みすることに成功しました。</p>
-					</div>
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1.5rem 4rem 1.5rem;
+    }
 
-					<!-- Chapter 2 -->
-					<div class="content-section" id="chapter2">
-						<h2>2. 直接液冷（DLC）での絶対的優位とNVIDIAとの密月</h2>
-						<p>最新世代のAIチップ（NVIDIA BlackwellやVera Rubinなど）は、熱設計電力が1基で1000Wを超えます。このため、空冷ファンで冷却することが限界に達しており、水（冷却液）を直接循環させて冷やす<strong>「直接液冷（Direct Liquid Cooling：DLC）」</strong>が必須の技術となりました。</p>
-						<p>SMCIはこの液冷技術を早期から量産化し、現在<strong>液冷サーバー市場で約70%の独占的シェア</strong>を握っています。NVIDIAの次世代アーキテクチャ開発においても、SMCIはリファレンスパートナーとして早期に仕様共有を受け、ラック製造を進めています。この強烈な先行優位性が、大手クラウドベンダーが他社サーバーへ乗り換えるのを難しくする「粘着性（スティッキネス）」を生み出しています。</p>
-					</div>
+    header {
+      padding: 80px 0 40px;
+      text-align: center;
+    }
 
-					<!-- Chapter 3 -->
-					<div class="content-section" id="chapter3">
-						<h2>3. 売上10倍でも株価が爆発しない理由 —— 粗利率11%の「薄利多売」</h2>
-						<p>SMCIの売上高は、FY2022の約37億ドルから、FY2026には約337億ドル（約5兆円）と10倍近くになる見通しです。しかし、バリュエーション（PSR 0.88倍）は極めて低く抑えられています。その要因の一つが、<strong>利益率の低さ</strong>です。</p>
-						<p>SMCIは先端技術を扱っていますが、ビジネス構造は「仕入れたGPUや部品の組み立て・販売」です。粗利益率はわずか<strong>11%〜12%</strong>に留まります（競合のAristaは63%、NVIDIA自身は70%以上）。GPUなどの調達コストが高く、Dell等との価格競争もあるため、いくら売上が拡大しても手元に残る純利益の成長は限定的という構造的なアキレス腱を抱えています。</p>
-					</div>
+    .tag-line {
+      display: inline-block;
+      background: linear-gradient(135deg, rgba(0,242,254,0.15), rgba(176,106,179,0.15));
+      border: 1px solid rgba(0,242,254,0.3);
+      border-radius: 50px;
+      padding: 6px 20px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
 
-					<!-- Chapter 4 -->
-					<div class="content-section" id="chapter4">
-						<h2>4. 終わらないガバナンスの暗雲 —— 繰り返される会計操作疑惑</h2>
-						<p>SMCIを「割安」ではなく「危険」な銘柄たらしめているのが、長年にわたるガバナンス（企業統治）の欠如です。</p>
-						<div class="timeline-visual">
-							<div class="timeline-item border-yellow">
-								<span class="time-label">2020年</span>
-								<strong>SECによる会計不正認定・制裁</strong>
-								<p>「収益の早期二重計上」といった売上操作が認定され、1760万ドルの制裁金を支払って和解。</p>
-							</div>
-							<div class="timeline-item border-orange">
-								<span class="time-label">2024年8月</span>
-								<strong>ヒンデンバーグ・リサーチによる告発</strong>
-								<p>「2020年の制裁後、わずか3ヶ月で会計不正を再開した」とする告発レポートを発表。翌日、SMCIは年次報告書の提出延期を発表し、株価は急落。</p>
-							</div>
-							<div class="timeline-item border-red">
-								<span class="time-label">2024年10月</span>
-								<strong>大手監査法人EYの契約解除</strong>
-								<p>「経営陣の透明性と内部統制に重大な懸念があり、監査を継続できない」としてEYが突然辞任。上場廃止危機の引き金となる。</p>
-							</div>
-						</div>
-					</div>
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--text-main);
+      line-height: 1.3;
+      margin-bottom: 20px;
+    }
 
-					<!-- Chapter 5 -->
-					<div class="content-section" id="chapter5">
-						<h2>5. 2026年3月：共同創業者逮捕 —— 米国司法省（DOJ）による壊滅的起訴</h2>
-						<p>2025年後半に新しい監査人を雇用し、上場維持に成功したことで、危機は去ったかに見えました。しかし、<strong>2026年3月19日、最大の地雷が爆発します。</strong></p>
-						<div class="console-box">
-							<div class="console-header">
-								<span class="red-indicator">● LIVE WARNING</span>
-								<span class="console-title">DOJ CHARGES ON EXPORT CONTROL VIOLATION</span>
-							</div>
-							<p>米国司法省（DOJ）は、SMCIの<strong>共同創業者ウォーリー・リャウ、台湾法人GM、仲介業者ら3名を「対中輸出規制違反」で逮捕・起訴</strong>しました。偽装書類やダミーサーバーを経由し、約25億ドルにのぼるNVIDIA GPU搭載サーバーを中国へ密輸した疑いです。</p>
-						</div>
-						<p>この起訴発表の翌日、株価は<strong>33.3%暴落</strong>。共同創業者が逮捕されたことは、単なる社員の逸脱ではなく、組織ぐるみの「コンプライアンス無視」の文化的体質を証明するものとなりました。</p>
-						<div class="risk-box">
-							<h4>会社存続に関わる2つの壊滅的リスク</h4>
-							<ul>
-								<li><strong>NVIDIAからのGPU供給停止</strong>：米政府の意向や評判リスクにより、NVIDIAがSMCIへのBlackwell供給ラインを遮断する可能性。</li>
-								<li><strong>政府・大手クラウドからの排除</strong>：密輸企業としてマークされることで、米政府関連調達や大手クラウドからの発注がゼロになる可能性。</li>
-							</ul>
-						</div>
-					</div>
+    .subtitle {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      margin-top: 12px;
+    }
 
-					<!-- Chapter 6 -->
-					<div class="content-section" id="chapter6">
-						<h2>6. 12〜18ヶ月の投資判断：2つの極端なシナリオ</h2>
-						<p>SMCI株は、ファンダメンタルズの良さとガバナンス地雷が同居した「超ハイリスク・ハイリターン」銘柄です。今後の株価は、以下の極端な2つのシナリオのどちらかに集束します。</p>
-						
-						<div class="scenario-grid">
-							<div class="scenario-card bull">
-								<span class="scenario-label">Bull Scenario (確率：30%)</span>
-								<div class="scenario-target">目標価格：$60 - $80</div>
-								<p class="desc">DOJによる追究が逮捕された個人に限定され、会社側は罰金のみで免責。NVIDIAのGPU供給が維持され、売上ガイダンス（337億ドル）を達成して利益率が改善した場合。踏み上げ（ショートスクイーズ）を伴う急騰へ。</p>
-							</div>
-							<div class="scenario-card bear">
-								<span class="scenario-label">Bear Scenario (確率：70%)</span>
-								<div class="scenario-target">目標価格：$10 - $15</div>
-								<p class="desc">米司法省による法執行が会社全体・CEOに波及。政府調達排除やNVIDIAからのGPU出荷停止が現実化し、顧客がDellや台湾OEMへ逃避した場合。売上は壊滅し、再度のNASDAQ上場廃止・破産手続きが現実味を帯びる。</p>
-							</div>
-						</div>
+    .meta-info {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
 
-						<div class="lessons-box">
-							<h4>投資家への教訓</h4>
-							<p>「どんなに技術が優れていて割安に見えても、経営陣が信頼できない会社に長期投資をしてはならない。」これがSMCIが市場に突きつける厳しいレッスンです。どうしても投資する場合は、ポートフォリオの1%未満の投機枠に留めるのが賢明です。</p>
-						</div>
-					</div>
-				</section>
-			</div>
-		</main>
+    .lead-section {
+      margin-bottom: 40px;
+    }
 
-		<Footer />
-	</body>
+    .lead-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .lead-card p {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--text-main);
+    }
+
+    .chat-section {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin: 30px 0;
+    }
+
+    .chat-message {
+      display: flex;
+      gap: 16px;
+      max-width: 85%;
+      align-items: flex-start;
+      margin-bottom: 4px;
+    }
+
+    .host-message {
+      align-self: flex-start;
+    }
+
+    .guest-message {
+      align-self: flex-end;
+      flex-direction: row-reverse;
+    }
+
+    .avatar-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      min-width: 64px;
+    }
+
+    .chat-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--primary);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      background: #0d111c;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+    }
+
+    .guest-avatar {
+      border-color: var(--secondary);
+      background: #1e293b;
+    }
+
+    .avatar-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .message-bubble {
+      padding: 14px 18px;
+      border-radius: 16px;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      border: 1px solid var(--bubble-guest-border);
+      background: var(--bubble-guest-bg);
+      color: var(--text-main);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    }
+
+    .host-message .message-bubble {
+      background: var(--bubble-host-bg);
+      border-color: var(--bubble-host-border);
+      border-top-left-radius: 4px;
+    }
+
+    .guest-message .message-bubble {
+      background: var(--bubble-guest-bg);
+      border-color: var(--bubble-guest-border);
+      border-top-right-radius: 4px;
+    }
+
+    section {
+      margin-bottom: 50px;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--text-main);
+      border-left: 4px solid var(--primary);
+      padding-left: 16px;
+      margin: 40px 0 20px 0;
+      line-height: 1.35;
+    }
+
+    footer {
+      border-top: 1px solid var(--card-border);
+      padding: 40px 0 20px;
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    .disclaimer {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 20px;
+      max-width: 700px;
+      margin: 0 auto 20px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      text-align: left;
+    }
+
+    .copyright {
+      font-size: 0.8rem;
+      color: rgba(160,160,176,0.4);
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 1.8rem; }
+      h2 { font-size: 1.3rem; }
+      header { padding: 50px 0 30px; }
+      .chat-message { max-width: 95%; }
+    }
+  
+
+    /* Unified Layout Styles */
+    .blog-main {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem 1.5rem;
+    }
+    .breadcrumb {
+        font-size: 0.85rem;
+        color: var(--text-secondary, #cbd5e1);
+        margin-bottom: 2rem;
+    }
+    .breadcrumb a {
+        color: var(--text-secondary, #cbd5e1);
+        text-decoration: none;
+    }
+    .breadcrumb a:hover {
+        color: var(--color-accent, #10B981);
+    }
+    .breadcrumb .separator {
+        margin: 0 0.5rem;
+        color: var(--text-muted, #64748b);
+    }
+    .article-content {
+        display: flex;
+        gap: 3rem;
+        align-items: flex-start;
+        margin-top: 2rem;
+    }
+    .toc-sidebar {
+        width: 280px;
+        position: sticky;
+        top: 6rem;
+        flex-shrink: 0;
+    }
+    .sidebar-toc {
+        background: rgba(28, 37, 65, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 8px;
+        padding: 1.8rem;
+        backdrop-filter: blur(10px);
+    }
+    .sidebar-toc h3 {
+        font-size: 1.1rem;
+        font-weight: 800;
+        margin-bottom: 1.2rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        padding-bottom: 0.6rem;
+        color: var(--text-primary, #f1f5f9);
+    }
+    .sidebar-toc ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        margin-left: 0;
+        padding-left: 0;
+    }
+    .sidebar-toc a {
+        font-size: 0.9rem;
+        color: var(--text-secondary, #cbd5e1);
+        text-decoration: none;
+        transition: color 0.2s ease;
+    }
+    .sidebar-toc a:hover {
+        color: var(--color-accent, #10B981);
+    }
+    .post-body {
+        flex-grow: 1;
+        max-width: calc(100% - 310px);
+    }
+    .anchor-target {
+        position: relative;
+        top: -100px;
+        visibility: hidden;
+        display: block;
+    }
+    .video-container {
+        position: relative;
+        width: 100%;
+        padding-top: 56.25%;
+        margin-bottom: 2rem;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid var(--border-color, rgba(16, 185, 129, 0.15));
+        box-shadow: 0 0 20px rgba(16, 185, 129, 0.1);
+    }
+    .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+    @media (max-width: 992px) {
+        .article-content {
+            flex-direction: column;
+        }
+        .toc-sidebar {
+            display: none;
+        }
+        .post-body {
+            max-width: 100%;
+        }
+    }
+  </style>
+</head>
+<body>
+  <Header />
+  
+  <main class="blog-main">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="/">← ホームに戻る</a>
+        <span class="separator">|</span>
+        <a href="/">トップ</a> &gt; <a href="/blog">ブログ</a> &gt; <span class="current">【SMCI徹底分析】割安AIサーバー株の正体｜PSR0.88倍の裏に潜む'3つの地雷'</span>
+      </div>
+    </div>
+    
+    <div class="container">
+
+  <div class="video-container">
+    <iframe src="https://www.youtube.com/embed/qgx-Rs1Zux4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+  
+    <header>
+      <div class="tag-line">📊 投資銘柄・企業分析</div>
+      <h1>smci</h1>
+      <p class="subtitle">smciの徹底解説動画の要約記事です。</p>
+      <div class="meta-info">
+        <span>📅 2026年06月09日</span>
+        <span>✍️ TechMoney</span>
+      </div>
+    </header>
+
+    <main>
+            <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            AIバブルの恩恵を受けながら、ガバナンス問題で割安放置されている銘柄があるとしたら、それはチャンスでしょうか、それとも罠でしょうか。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            えっ、どういうことですか、テックマネーさん？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            今日取り上げるのは、スーパー・マイクロ・コンピューター、ティッカーシンボルはSMCIです。PSRは〇・八八倍、PERは二十三倍台という数字だけ見ると、AIサーバー関連銘柄の中ではかなり割安に見えます。でも、この株にはとんでもない「地雷」が埋まっているんですね。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            地雷、ですか…それは怖いですね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            そうなんです。この動画では、SMCIの技術的な強み、一〇倍株になれるかどうかの検証、アナリスト評価、そして絶対に知っておくべきガバナンスリスクの四本柱で徹底解説します。結論を先にお伝えすると、「ポテンシャルは本物、でもリスクも本物」というのが今日の結論です。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            割安なのに買えない理由があるんですね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            そうです。なぜそうなのかを、今日はデータで丁寧に説明していきます。時間がない方や気になるところだけ知りたい方は、概要欄のタイムスタンプから飛んでくださいね。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            わかりました！
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            今回の動画は以下の流れで解説します。第一章、SMCIとはどんな会社か。第二章、独自技術とNVIDIAとの関係。第三章、一〇倍株になれる要素はあるか。第四章、アナリストはどう見ているか。第五章、絶対に知るべきガバナンスリスク。第六章、まとめと投資判断。以上の六章構成でお届けします。
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">【第一章】SMCIとはどんな会社か</p>
+      <h2>第一章</h2>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            SMCIとはどんな会社か。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            スーパー・マイクロ・コンピューター、名前は聞いたことあるんですが、エヌビディアやデルとはどう違うんですか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            いい質問ですね。SMCIはサーバーとデータセンター向けハードウェアを設計・製造する会社で、一九九三年にチャールズ・リャン（Charles Liang）という人物がシリコンバレーで創業しました。簡単に言うと、エヌビディアがGPUを作り、そのGPUを搭載した「箱（サーバー）」を作るのがSMCIです。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            じゃあ、デルとかHPEとも似てますよね？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            そうなんですが、決定的な違いがあります。SMCIの最大の特徴は「ビルディングブロック・アーキテクチャ」と呼ばれるモジュール設計です。デルやHPEは大型サーバーを一体で作りますが、SMCIはレゴブロックのようにパーツを組み合わせる設計なので、エヌビディアが新しいGPUを出したとき、最短六週間で対応サーバーを量産できるんです。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            六週間！それはすごく速いですね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            デルは数ヶ月かかります。この「ファースト・トゥ・マーケット」の優位性が、SMCIをAIサーバーブームの最前線に押し上げた最大の要因です。売上高の推移を見ると、FY二〇二二年が約三十七億ドルだったのが、FY二〇二四年には約百四十九億ドルに急拡大、さらにFY二〇二六年は三百三十七億ドル以上が予想されています。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            四年弱で一〇倍近く売上が増えてるんですね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            AIサーバー需要のど真ん中にいる会社だからこそです。時価総額は現在約二百七十〜二百九十億ドル、日本円で約四兆円前後ですね。PSRが〇・八八倍というのは、売上高とほぼ同じ時価総額しかついていないという意味で、この成長率にしては驚くほど低い評価です。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            えっ、これだけの超成長企業なのに、なんでそんなに低い評価（割安放置）なんですか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            その理由である「薄利多売のビジネス構造」と、会社を揺るがす「ガバナンスの巨大な地雷」については、この後の章でデータと一緒にじっくり説明していきますね。
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">【第二章】独自技術とNVIDIAとの関係</p>
+      <h2>第二章</h2>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            独自技術とNVIDIAとの関係。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            さっきのDLC技術というのが気になりました。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            そこが今一番重要なポイントです。DLC、つまりDirect Liquid Coolingは、日本語では直接液冷と呼ばれる技術です。エヌビディアのBlackwellやVera Rubinといった最新世代のGPUは、チップ一つあたりの熱設計電力が一〇〇〇ワットを超えます。従来の空冷ファンでは、もはや冷やしきれないんです。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            えっ、一〇〇〇ワットって家庭用のドライヤーより強力ですよね？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            そうです。しかも一台のサーバーラックに何十個もGPUを積むので、一ラックあたりの熱量は一二〇キロワット以上になります。そこでSMCIが早期から開発・量産化したのが、冷却水を直接チップに当てる液冷技術です。これによってDLC市場で現在約七〇パーセントのシェアを握っています。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            七〇パーセントって、ほぼ独占じゃないですか！
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            そうなんです。デルもHPEも追いかけていますが、SMCIは二〇二六年一月にエヌビディアのVera Rubin NVL七二向けのラックスケールソリューションをいち早く発表するなど、常に一歩先にいます。さらに重要なのが、エヌビディアとの戦略的パートナーシップです。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            どんな関係なんですか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            エヌビディアが新しいGPUアーキテクチャを開発する際、SMCIはそのリファレンスパートナーとして早期に仕様を共有されます。だからこそ、発表と同時に対応製品を出せる。このサイクルが固まると、ハイパースケーラー（大手クラウド企業）はSMCIのラックで一度設計を組んだら、次世代もSMCIに発注するという「スティッキネス（顧客粘着性）」が生まれるんです。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            なるほど、一度使ったら乗り換えにくいんですね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            はい。製造拠点は米国・台湾・マレーシアの三拠点で、月産六〇〇〇ラック体制、うち三〇〇〇ラックがDLC対応です。地政学リスクの観点からも、米国製造比率の高さは強みになっています。
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">【第三章】一〇倍株になれる要素はあるか</p>
+      <h2>第三章</h2>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            一〇倍株になれる要素はあるか。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            ここが一番気になります！今の時価総額から一〇倍ということは…
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            現在の時価総額が約二百八十億ドルなので、一〇倍達成には二八〇〇億ドルが必要です。日本円で約四十兆円。これはどれくらいのサイズかというと、現在のデル・テクノロジーズの時価総額がおよそ七百〜八百億ドル規模ですから、それの三倍以上です。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            うーん、さすがに遠い話ですね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            現実的には二〜三倍株、時価総額六〇〇〜九〇〇億ドルを目指す銘柄として見た方がいいでしょう。ただ、それでも現在の株価から大幅な上昇余地があります。市場環境で言うと、AIサーバー市場は二〇二四年の一二四〇億ドルから、二〇三〇年には八五四〇億ドルへと約三十九パーセントの年平均成長率で拡大すると予測されています。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            二〇三〇年まで毎年四割近く成長するんですか！
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            それだけAIインフラへの投資が爆発的に増えているということです。ハイパースケーラーの設備投資はすでに年間五千億ドル規模に達していると言われます。SMCIはその最前線にいる。バリュエーション面でもPEGレシオが〇・五二倍、これは一・〇倍を下回ると割安と見なされる指標ですが、かなりの低評価です。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            じゃあ買いじゃないですか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            ここで立ち止まってほしいんです。一〇倍株の条件として重要なのが「高い粗利益率」と「ガバナンスの健全性」です。SMCIの粗利益率は現在一一〜一二パーセント。競合のArista Networksが六十三パーセント、Palo Alto Networksが七十五パーセントと比べると、圧倒的に低い。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            それはなぜですか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            SMCIは基本的に「ハードウェアの組み立て・販売業」なので、利幅が薄い構造です。サーバーに使うGPU・マザーボード・メモリなどのコストが高く、かつ価格競争も激しい。エヌビディアが純粋なチップ会社で七〇パーセント以上の粗利益率を誇るのとは根本的に違います。この構造が変わらない限り、PSRの高い評価はなかなかつきにくい。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            つまり、売上はすごく大きくなっても、利益はそこまで増えないということですか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            そういうことです。経営陣は粗利益率一四パーセントを目標に掲げていますが、価格競争が続く中でそこまで回復できるかどうかが一つの分かれ目になります。
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">【第四章】アナリストはどう見ているか</p>
+      <h2>第四章</h2>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            アナリストはどう見ているか。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            ウォール街のプロはどんな評価をしているんですか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            一八名のアナリストのコンセンサスは「ホールド（中立）」です。平均目標株価は約三十七〜四十ドルで、二〇二六年六月初旬の株価に対してほぼ横ばいか若干下値を見込む水準です。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            強気でも弱気でもなく、どっちつかずなんですね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            そこが面白いところで、アナリストコミュニティは「割安なのはわかっている、でも買えない理由がある」という状況なんです。強気派のNeedhamやArgusは、「SMCI株はまるでコイルドスプリング（圧縮されたバネ）のようなもので、ガバナンス問題が解消されれば一気に弾ける」と言っています。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            コイルドスプリング、なるほど。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            Simply Wall Stの理論株価モデルでは約五十一ドルが適正価格という試算もあります。ショートレシオ、つまり空売り比率が発行済株式の約十三・五パーセントと高いのも特徴的です。弱気派がこれだけ多いということは、逆に好材料が出たときの「ショートスクイーズ（踏み上げ）」で急騰する可能性もある。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            ショートスクイーズって、空売りしてる人が慌てて買い戻して株価が上がることですよね？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            そうです。ただし、空売りが多い理由がある、というのも忘れてはいけません。FY二〇二六年の売上高ガイダンスとして経営陣は「少なくとも三百三十七億ドル」を示していて、一部アナリストは三百九十億ドルを超えると予測しています。この数字が実現するかどうかが、株価の方向性を決める最大の変数です。
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">【第五章】絶対に知るべきガバナンスリスク</p>
+      <h2>第五章</h2>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            絶対に知るべきガバナンスリスク。これが今日最も重要な章です。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            なんだか怖い内容になりそうですね…。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            率直に言います。SMCIは過去に会計不正を起こし、SECに制裁を受けた会社です。そしてその後も、問題が繰り返されてきた疑惑があります。まず時系列を整理しましょう。二〇二〇年、SECが収益認識の操作という会計不正を認定し、SMCIは約一千七百六十万ドルの和解金を支払い、NASDAQの上場適格性審査を受けました。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            一度制裁を受けたんですね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            そして二〇二四年八月、著名な空売り会社ヒンデンバーグ・リサーチが「会計操作・制裁回避・輸出規制違反」を指摘するショートレポートを発表。翌日、SMCIが年次報告書の提出遅延を発表し、株価が一日で二十一パーセント下落しました。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            また会計問題が出てきたんですか…。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            さらに、二〇二四年十月には監査法人EYが「経営陣の透明性・内部統制に重大な懸念がある」として、監査契約を突然解除しました。監査法人が自ら撤退するというのは、企業会計において非常に重いシグナルです。NASDAQから上場廃止警告も届きました。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            上場廃止寸前だったんですか！
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            最終的には二〇二五年二月に遅延報告書を提出してNASDAQの上場を維持しましたが、話はそれで終わりませんでした。そして二〇二六年三月十九日、最も大きな事件が起きます。DOJ、米国司法省が起訴状を公開しました。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            司法省が動いたんですね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            SMCIの共同創業者であるウォーリー・リャウ、台湾法人のGMスティーブン・チャン、仲介業者ウィリー・サンの三名が逮捕・起訴されました。約二十五億ドル相当のAIサーバーを、エヌビディア製GPUごと不正に中国へ輸出したという疑いです。偽造書類と「ダミーサーバー」を使って輸出規制をすり抜けていたとされています。この報道の翌日、株価は三十三・三パーセント暴落しました。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            共同創業者が逮捕、というのはかなり衝撃的ですね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            ここで一番大切な視点をお伝えします。これは単なる「個人の逸脱」ではなく、「会社の文化的な問題」である可能性が高いんです。ヒンデンバーグの調査では、二〇二〇年のSEC和解からわずか三ヶ月後に不正を再開したという元従業員の証言が複数あります。CEO本人は今回の起訴状には含まれていませんが、集団訴訟では「SEC提出書類を管理する権限を持つ個人被告」として名指しされています。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            なんで同じことを繰り返してしまうんでしょう？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            良い質問です。元幹部の証言では「SMCIの企業文化は、私が入社した五年前から変わっていない」というものがあります。売上目標を達成するプレッシャーが強く、営業マンが「仮需要予測」に基づいてディストリビューターへ無理やり出荷し、後から理由をつけてキャンセルするという慣行があったとされます。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            つまり、会社全体の問題だということですね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            一方で、会社は改革も進めています。監査委員会の独立性を強化し、最高コンプライアンス責任者（CCO）を新設、内部監査部門を三〇〇パーセント拡充しています。しかし、これらの改革が本当に効いているかどうかは、まだ実証されていません。投資判断においては、この「文化的リスク」を最大のリスクとして認識する必要があります。
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">【第六章】まとめと投資判断</p>
+      <h2>第六章</h2>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            まとめと投資判断。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            ここまで聞いてきて、SMCIって本当に複雑な銘柄ですね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            そうなんです。整理しましょう。プラス材料から言うと、PSR〇・八八倍、PEG〇・五二倍、フォワードPER十五〜十七倍という数字は、この成長率に対して明らかに異常なほど割安です。AIサーバー市場は二〇三〇年に向けて年率約三十九パーセントで成長、SMCIはDLC市場の七〇パーセントシェアとNVIDIAとの強固なパートナーシップを武器に、その最前線にいますからね。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            これだけの超成長企業が、なぜここまで割安で放置されているんでしょう？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            理由は大きく二つあります。一つ目が「ビジネスモデルの限界」です。SMCIは高成長ですが、中身はGPUや部品を仕入れて組み立てるハードウェア製造業なので、粗利益率が一一〜一二パーセントと極めて低いんです。売上が数十倍になっても利益は劇的には増えにくく、Dellや台湾ODMとの激しい価格競争もあるため、AristaやPalo Altoのような高いマルチプル（評価倍率）がつきません。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            なるほど、薄利多売の構造だからなんですね。では、二つ目は？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            二つ目であり、最大の原因が「繰り返される深刻なガバナンスリスク」です。二〇二〇年の会計不正での制裁後、わずか三ヶ月で不正を再開した常習性、そして二〇二四年には監査法人EYが辞任して上場廃止寸前まで追い込まれました。極めつけは二〇二六年三月、共同創業者が対中輸出規制違反で逮捕・起鎖された事件です。これによって、NVIDIAからのGPU供給停止や米政府調達からの排除という、会社の息の根が止まるレベルの法的制裁リスクが現実味を帯びています。機関投資家からすれば、「数字は魅力的だが、経営陣とコンプライアンスが信頼できず、怖くて買えない」からこそ割安で放置されているんです。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            割安の裏には、会社の存続に関わる巨大な地雷が隠れている、ということですね。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            強気シナリオと弱気シナリオに分けるとどうなりますか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            強気シナリオは、DOJの問題が創業者個人の問題に限定され、FY二〇二六年の売上高が三百七十億ドルを超えて、粗利益率も回復トレンドに入るケースです。この場合、株価は現在の二〜三倍、時価総額六〇〇〜九〇〇億ドルが視野に入ります。弱気シナリオは、法的制裁がCEOや会社全体に拡大し、顧客がリスク回避でデルやODMに乗り換えるケースです。この場合は株価が半値以下になるリスクもあります。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            同じ銘柄なのに、全然違う未来があるんですね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            だからこそ、SMCIは「ハイリスク・ハイリターン」の銘柄として慎重に扱う必要があります。もし投資するなら、ポートフォリオ全体の中でごく一部の比率に抑えること、そして訴訟・決算の動向を常に追い続けることが不可欠です。「割安だから」という理由だけで買うのは危険です。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            ガバナンスリスクを無視して買うのはダメということですね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            そういうことです。Supermicroの液冷技術とNVIDIAとのパートナーシップは本物です。しかし、その会社を経営する人たちへの信頼が、今まさに試されています。投資家にとって本当に怖いのは、株価の下落より「信頼できない会社に長期で資金を預けること」かもしれません。最後に必ず申し上げますが、投資はあくまで自己責任でお願いしますね。今日お伝えした内容はあくまで情報提供であり、特定の銘柄への投資を勧めるものではありません。ご自身でよく調べて、判断してください。
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="disclaimer">
+        <p>⚠️ <strong>免責事項</strong></p>
+        <p>本記事は情報提供を目的としたものであり、特定の銘柄への投資を推奨するものではありません。株式投資にはリスクが伴います。投資はご自身の判断と責任でお願いいたします。</p>
+      </div>
+      <p class="copyright">© TechMoney｜2026年</p>
+    </footer>
+  </div>
+    </div>
+  </div>
+  </main>
+
+  <Footer />
+</body>
 </html>
-
-<style>
-	.blog-main {
-		max-width: 1200px;
-		margin: 0 auto;
-		padding: 2rem 1.5rem;
-	}
-
-	.breadcrumb {
-		font-size: 0.85rem;
-		color: var(--text-secondary);
-		margin-bottom: 2rem;
-	}
-	.breadcrumb a {
-		color: var(--text-secondary);
-		text-decoration: none;
-	}
-	.breadcrumb a:hover {
-		color: var(--accent-light);
-	}
-
-	/* Warning Alert Banner */
-	.warning-alert {
-		background: rgba(255, 0, 85, 0.08);
-		border: 1px solid rgba(255, 0, 85, 0.25);
-		border-radius: 12px;
-		padding: 1rem 1.5rem;
-		margin-bottom: 2rem;
-		display: flex;
-		align-items: center;
-		gap: 1rem;
-	}
-	.warning-tag {
-		background: #ff0055;
-		color: #ffffff;
-		font-family: var(--font-display);
-		font-size: 0.75rem;
-		font-weight: 800;
-		padding: 0.2rem 0.6rem;
-		border-radius: 4px;
-		letter-spacing: 0.05em;
-		flex-shrink: 0;
-	}
-	.warning-alert p {
-		margin: 0;
-		font-size: 0.85rem;
-		color: #ff9fb4;
-	}
-
-	/* Hero Section */
-	.article-hero {
-		position: relative;
-		text-align: center;
-		padding: 5rem 2rem;
-		background: rgba(10, 10, 20, 0.8);
-		border: 1px solid rgba(255, 255, 255, 0.05);
-		border-radius: 24px;
-		margin-bottom: 3rem;
-		overflow: hidden;
-	}
-	.glow-bg {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		width: 600px;
-		height: 200px;
-		background: radial-gradient(circle, rgba(0, 242, 254, 0.08) 0%, transparent 70%);
-		filter: blur(50px);
-		z-index: -1;
-	}
-	.category-badge {
-		font-family: var(--font-display);
-		font-size: 0.85rem;
-		font-weight: 800;
-		color: #00f2fe;
-		letter-spacing: 0.1em;
-		margin-bottom: 1.5rem;
-	}
-	.title-text {
-		font-family: 'Outfit', 'Noto Sans JP', sans-serif;
-		font-size: 3rem;
-		font-weight: 900;
-		line-height: 1.25;
-		color: #ffffff;
-		margin-bottom: 1.5rem;
-	}
-	.highlight-cyan {
-		background: linear-gradient(90deg, #00f2fe 30%, #4facfe 100%);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-	}
-	.subtitle {
-		font-size: 1.2rem;
-		color: var(--text-secondary);
-		max-width: 800px;
-		margin: 0 auto 2rem auto;
-		font-weight: 300;
-	}
-	.meta-row {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		gap: 1.5rem;
-		font-size: 0.9rem;
-		color: var(--text-muted);
-	}
-	.badge-cat {
-		background: rgba(255, 255, 255, 0.05);
-		border: 1px solid rgba(255, 255, 255, 0.1);
-		padding: 0.2rem 0.6rem;
-		border-radius: 4px;
-		color: #ffffff;
-	}
-
-	/* Metrics Dashboard */
-	.metrics-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-		gap: 1.5rem;
-		margin-bottom: 4rem;
-	}
-	.metric-card {
-		background: rgba(255, 255, 255, 0.02);
-		border: 1px solid rgba(255, 255, 255, 0.05);
-		border-radius: 16px;
-		padding: 1.8rem;
-		transition: all 0.3s ease;
-	}
-	.metric-card:hover {
-		transform: translateY(-3px);
-		box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-	}
-	.metric-card.border-cyan:hover { border-color: #00f2fe; }
-	.metric-card.border-purple:hover { border-color: #b06ab3; }
-	.metric-card.border-red:hover { border-color: #ff0055; }
-	.metric-card.border-orange:hover { border-color: #ffa500; }
-	
-	.metric-card .label {
-		display: block;
-		font-size: 0.75rem;
-		font-family: var(--font-display);
-		color: var(--text-muted);
-		margin-bottom: 0.5rem;
-		letter-spacing: 0.05em;
-	}
-	.metric-card .value {
-		display: block;
-		font-family: 'Outfit', sans-serif;
-		font-size: 2.2rem;
-		font-weight: 900;
-		margin-bottom: 0.5rem;
-	}
-	.val-cyan { color: #00f2fe; text-shadow: 0 0 15px rgba(0, 242, 254, 0.2); }
-	.val-purple { color: #b06ab3; text-shadow: 0 0 15px rgba(176, 106, 179, 0.2); }
-	.val-red { color: #ff0055; text-shadow: 0 0 15px rgba(255, 0, 85, 0.2); }
-	.val-orange { color: #ffa500; text-shadow: 0 0 15px rgba(255, 165, 0, 0.2); }
-	
-	.metric-card .desc {
-		font-size: 0.8rem;
-		color: var(--text-secondary);
-		line-height: 1.4;
-	}
-
-	/* Content Layout */
-	.article-content {
-		display: flex;
-		gap: 3rem;
-		align-items: flex-start;
-	}
-	.toc-sidebar {
-		width: 280px;
-		position: sticky;
-		top: 6rem;
-		flex-shrink: 0;
-	}
-	.sidebar-toc {
-		padding: 1.8rem;
-	}
-	.sidebar-toc h3 {
-		font-size: 1.1rem;
-		font-weight: 800;
-		margin-bottom: 1.2rem;
-		border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-		padding-bottom: 0.6rem;
-	}
-	.sidebar-toc ul {
-		list-style: none;
-		display: flex;
-		flex-direction: column;
-		gap: 0.8rem;
-	}
-	.sidebar-toc a {
-		font-size: 0.9rem;
-		color: var(--text-secondary);
-		text-decoration: none;
-		transition: color 0.2s ease;
-	}
-	.sidebar-toc a:hover {
-		color: #00f2fe;
-	}
-	
-	.post-body {
-		flex-grow: 1;
-		max-width: 800px;
-	}
-	
-	.content-section {
-		margin-bottom: 4rem;
-	}
-	.content-section h2 {
-		font-family: 'Outfit', 'Noto Sans JP', sans-serif;
-		font-size: 1.8rem;
-		font-weight: 800;
-		color: #ffffff;
-		margin-bottom: 1.8rem;
-		border-left: 4px solid #00f2fe;
-		padding-left: 1rem;
-		line-height: 1.3;
-	}
-	.content-section p {
-		font-size: 1.05rem;
-		color: var(--text-secondary);
-		line-height: 1.8;
-		margin-bottom: 1.5rem;
-	}
-	.content-section p strong {
-		color: #ffffff;
-	}
-
-	/* Timeline visual */
-	.timeline-visual {
-		border-left: 2px dashed rgba(255, 255, 255, 0.1);
-		margin: 2.5rem 0 2.5rem 1rem;
-		padding-left: 1.5rem;
-		display: flex;
-		flex-direction: column;
-		gap: 2rem;
-	}
-	.timeline-item {
-		position: relative;
-	}
-	.timeline-item::before {
-		content: '';
-		position: absolute;
-		left: calc(-1.5rem - 6px);
-		top: 4px;
-		width: 10px;
-		height: 10px;
-		border-radius: 50%;
-		background: var(--bg-dark);
-		border: 2px solid var(--accent);
-	}
-	.timeline-item.border-yellow::before { border-color: #ffa500; }
-	.timeline-item.border-orange::before { border-color: #ff5200; }
-	.timeline-item.border-red::before { border-color: #ff0055; }
-	
-	.time-label {
-		display: inline-block;
-		font-family: var(--font-display);
-		font-size: 0.8rem;
-		font-weight: 800;
-		color: #ffffff;
-		padding: 0.1rem 0.5rem;
-		border-radius: 4px;
-		margin-bottom: 0.5rem;
-	}
-	.timeline-item.border-yellow .time-label { background: rgba(255, 165, 0, 0.15); color: #ffa500; border: 1px solid rgba(255, 165, 0, 0.3); }
-	.timeline-item.border-orange .time-label { background: rgba(255, 82, 0, 0.15); color: #ff5200; border: 1px solid rgba(255, 82, 0, 0.3); }
-	.timeline-item.border-red .time-label { background: rgba(255, 0, 85, 0.15); color: #ff0055; border: 1px solid rgba(255, 0, 85, 0.3); }
-	
-	.timeline-item strong {
-		display: block;
-		font-size: 1.1rem;
-		color: #ffffff;
-		margin-bottom: 0.3rem;
-	}
-	.timeline-item p {
-		font-size: 0.95rem;
-		margin-bottom: 0;
-	}
-
-	/* Console Box */
-	.console-box {
-		border: 1px solid rgba(255, 0, 85, 0.3);
-		background: rgba(255, 0, 85, 0.03);
-		border-radius: 12px;
-		padding: 1.5rem;
-		margin: 2rem 0;
-		font-family: 'Fira Mono', monospace;
-	}
-	.console-header {
-		display: flex;
-		align-items: center;
-		gap: 0.5rem;
-		margin-bottom: 1rem;
-		border-bottom: 1px solid rgba(255, 0, 85, 0.15);
-		padding-bottom: 0.5rem;
-	}
-	.red-indicator {
-		color: #ff0055;
-		font-weight: bold;
-		font-size: 0.8rem;
-		animation: blink 1.5s infinite;
-	}
-	.console-title {
-		color: var(--text-muted);
-		font-size: 0.8rem;
-	}
-	.console-box p {
-		margin-bottom: 0;
-		font-size: 0.95rem;
-		color: #ffb8c7;
-		line-height: 1.6;
-	}
-
-	.risk-box {
-		background: rgba(255, 255, 255, 0.01);
-		border: 1px solid rgba(255, 255, 255, 0.05);
-		border-radius: 12px;
-		padding: 1.5rem;
-		margin: 2rem 0;
-	}
-	.risk-box h4 {
-		font-size: 1.05rem;
-		color: #ff0055;
-		margin-bottom: 0.8rem;
-		font-weight: 700;
-	}
-	.risk-box ul {
-		list-style-type: square;
-		padding-left: 1.2rem;
-		color: var(--text-secondary);
-		display: flex;
-		flex-direction: column;
-		gap: 0.6rem;
-		font-size: 0.95rem;
-	}
-
-	/* Scenarios */
-	.scenario-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-		gap: 1.5rem;
-		margin: 2rem 0;
-	}
-	.scenario-card {
-		background: rgba(0, 0, 0, 0.2);
-		border: 1px solid rgba(255, 255, 255, 0.03);
-		border-radius: 12px;
-		padding: 1.5rem;
-	}
-	.scenario-card.bull { border-color: rgba(0, 255, 135, 0.15); }
-	.scenario-card.bear { border-color: rgba(255, 0, 85, 0.15); }
-	
-	.scenario-label {
-		display: inline-block;
-		font-family: var(--font-display);
-		font-size: 0.75rem;
-		font-weight: 800;
-		padding: 0.2rem 0.5rem;
-		border-radius: 4px;
-		margin-bottom: 1rem;
-	}
-	.bull .scenario-label { background: rgba(0, 255, 135, 0.1); color: #00ff87; }
-	.bear .scenario-label { background: rgba(255, 0, 85, 0.1); color: #ff0055; }
-	
-	.scenario-target {
-		font-family: 'Outfit', sans-serif;
-		font-size: 1.8rem;
-		font-weight: 900;
-		margin-bottom: 0.8rem;
-	}
-	.bull .scenario-target { color: #00ff87; }
-	.bear .scenario-target { color: #ff0055; }
-	
-	.scenario-card .desc {
-		font-size: 0.85rem;
-		color: var(--text-secondary);
-		line-height: 1.5;
-	}
-
-	.lessons-box {
-		background: rgba(255, 255, 255, 0.02);
-		border: 1px solid rgba(255, 255, 255, 0.05);
-		border-radius: 12px;
-		padding: 1.8rem;
-	}
-	.lessons-box h4 {
-		font-size: 1.1rem;
-		color: #ffffff;
-		margin-bottom: 0.8rem;
-		font-weight: 700;
-	}
-	.lessons-box p {
-		font-size: 0.95rem;
-		margin-bottom: 0;
-		line-height: 1.6;
-	}
-
-	@keyframes blink {
-		0%, 100% { opacity: 1; }
-		50% { opacity: 0.3; }
-	}
-
-	@media (max-width: 992px) {
-		.article-content {
-			flex-direction: column;
-		}
-		.toc-sidebar {
-			display: none;
-		}
-	}
-	@media (max-width: 768px) {
-		.title-text {
-			font-size: 2.2rem;
-		}
-		.article-hero {
-			padding: 3rem 1rem;
-		}
-		.metrics-grid {
-			grid-template-columns: 1fr;
-		}
-		.timeline-visual {
-			margin-left: 0.2rem;
-		}
-		.scenario-grid {
-			grid-template-columns: 1fr;
-		}
-	}
-</style>

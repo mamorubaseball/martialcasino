@@ -1,559 +1,1912 @@
 ---
-import BaseHead from '../../components/BaseHead.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import BaseHead from '../../components/BaseHead.astro';
 import { SITE_TITLE } from '../../consts';
 
-const articleTitle = "ガレージの検索エンジンから、時価総額500兆円企業へ —— Googleの歴史とAI新星バイオグラフィー";
-const articleDesc = "Google（Alphabet）がたどった栄光と挫折、そして2026年現在のAI主導の爆発的成長まで、その技術とビジネスの本質を徹底解剖。";
+// Generated from video_summary.html
 ---
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
-	<head>
-		<BaseHead title={`${articleTitle} - ${SITE_TITLE}`} description={articleDesc} />
-		<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&family=Noto+Sans+JP:wght@300;500;700;900&display=swap" rel="stylesheet">
-	</head>
-	<body>
-		<Header />
-		
-		<main class="blog-main fade-in">
-			<!-- Breadcrumb -->
-			<div class="breadcrumb">
-				<a href="/">トップ</a> &gt; <a href="/blog">ブログ</a> &gt; <span class="current">Googleの軌跡</span>
-			</div>
+<head>
+  <meta charset="UTF-8">
+  <BaseHead title="google - {SITE_TITLE}" description="googleの徹底解説動画の要約記事です。" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <style is:global>
 
-			<!-- Article Header -->
-			<header class="article-hero">
-				<div class="glow-bg"></div>
-				<div class="category-badge">HISTORY & TECH LEADERSHIP</div>
-				<h1 class="title-text">ガレージの検索エンジンから<br><span class="highlight-g">時価総額500兆円企業</span>へ</h1>
-				<p class="subtitle">100万ドルの売却拒絶から、DeepMindによるノーベル賞、そして2026年AI時代の覇権へ</p>
-				<div class="meta-row">
-					<span class="meta-item">公開日: 2026-06-04</span>
-					<span class="meta-item">読了時間: 約12分</span>
-					<span class="meta-item badge-cat">ai-semiconductor</span>
-				</div>
-			</header>
+    :root {
+      --bg-dark: #050510;
+      --bg-gradient: linear-gradient(180deg, #0a0a1a 0%, #050510 100%);
+      --primary: #00f2fe;
+      --secondary: #4facfe;
+      --accent: #b06ab3;
+      --text-main: #ffffff;
+      --text-muted: #a0a0b0;
+      --card-bg: rgba(255, 255, 255, 0.03);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --bubble-host-bg: rgba(35, 55, 255, 0.15);
+      --bubble-host-border: rgba(35, 55, 255, 0.3);
+      --bubble-guest-bg: rgba(255, 255, 255, 0.03);
+      --bubble-guest-border: rgba(255, 255, 255, 0.06);
+    }
 
-			<!-- Metrics Dashboard -->
-			<div class="metrics-grid">
-				<div class="metric-card border-blue">
-					<span class="label">MARKET CAP (2026)</span>
-					<span class="value val-blue">約480兆円</span>
-					<p class="desc">エヌビディアと並ぶ、世界最大の公開企業へと回帰する軌道に乗る。</p>
-				</div>
-				<div class="metric-card border-red">
-					<span class="label">CLOUD GROWTH (1Q)</span>
-					<span class="value val-red">+63%</span>
-					<p class="desc">企業向けAI需要の爆発により、Google Cloud売上高は年200億ドルを突破。</p>
-				</div>
-				<div class="metric-card border-yellow">
-					<span class="label">AI TOKEN SCALE</span>
-					<span class="value val-yellow">300倍増</span>
-					<p class="desc">2年間で月間アクティブAIトークン処理が3200兆トークンへ爆発的進化。</p>
-				</div>
-				<div class="metric-card border-green">
-					<span class="label">CapEx (2026 Plan)</span>
-					<span class="value val-green">約28兆円</span>
-					<p class="desc">第8世代TPUチップ、冷却インフラ、巨大データセンターへの超巨額先行投資。</p>
-				</div>
-			</div>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-			<!-- Main Article Layout -->
-			<div class="article-content">
-				<aside class="toc-sidebar">
-					<div class="glass-card sidebar-toc">
-						<h3>目次</h3>
-						<ul>
-							<li><a href="#chapter1">1. 天才の対立とBackRub</a></li>
-							<li><a href="#chapter2">2. タイポから生まれたGoogle</a></li>
-							<li><a href="#chapter3">3. 歴史的な買収拒絶ミス</a></li>
-							<li><a href="#chapter4">4. 広告モデルの発明と訴訟</a></li>
-							<li><a href="#chapter5">5. 20%ルールと創造の文化</a></li>
-							<li><a href="#chapter6">6. DeepMindとノーベル賞</a></li>
-							<li><a href="#chapter7">7. 2026年現在のAI成長戦略</a></li>
-							<li><a href="#chapter8">8. 4つの歴史的教訓</a></li>
-						</ul>
-					</div>
-				</aside>
+    html {
+      scroll-behavior: smooth;
+    }
 
-				<section class="post-body">
-					<!-- Chapter 1 -->
-					<div class="content-section" id="chapter1">
-						<h2>1. 二人の天才の最悪な出会いと「BackRub」の誕生</h2>
-						<p>1995年、スタンフォード大学のキャンパスで、<strong>ラリー・ペイジ</strong>と<strong>セルゲイ・ブリン</strong>は出会いました。ラリーの見学案内役をブリンが務めたのがきっかけですが、最初の二人は、ほぼ全ての話題で激しく対立したと言います。</p>
-						<p>しかし、「膨大なウェブデータから本当に価値のある情報を抽出する」という共通の問いに対し、二人は強力なタッグを結成します。当時の検索エンジンは「キーワードの出現回数」だけで並べるチープなものでした。そこでラリー・ペイジは、学術論文の<strong>「引用数が多い論文ほど重要」</strong>という概念をウェブに応用するアルゴリズムを数学的に構築しました。これがGoogleの心臓である<strong>「PageRank」</strong>です。このリンク構造を巡回調査する最初のプロジェクトは、被リンクを意味する<strong>「BackRub（バックラブ）」</strong>と呼ばれました。</p>
-					</div>
+    body {
+      background: var(--bg-gradient);
+      min-height: 100vh;
+      color: var(--text-muted);
+      font-family: 'Inter', 'Noto Sans JP', sans-serif;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
 
-					<!-- Chapter 2 -->
-					<div class="content-section" id="chapter2">
-						<h2>2. スペルミスが生んだ「Google」とレゴサーバー</h2>
-						<p>BackRubがスタンフォードの学内サーバーをダウンさせるほど人気を得たため、二人は1997年に新しい名前をブレインストーミングします。そこで巨大な数を示す数学用語<strong>「Googol（グーゴル：1の後に0が100個続く値）」</strong>が提案されました。</p>
-						<p>ドメインが空いているかを検索する際、同僚がスペルミスで<strong>「google.com」</strong>と入力。ラリー・ペイジはこの響きを気に入り、その場でドメインを登録しました。歴史的ブランドは、たった一つのタイポから誕生したのです。</p>
-						<div class="insight-box">
-							<h4>【豆知識】レゴブロックで作られた初代サーバー</h4>
-							<p>初代社員クレイグ・シルバースタインらは、高価なハードを買う資金がなかったため、市販の安価なPCパーツを組み合わせ、レゴブロック（Mega Bricks）で筐体を自作してファンを取り付けました。「安価な汎用ハードをソフトウェアの力で並列連携する」というこの哲学が、現在のGoogleの巨大クラウドインフラの基礎となっています。</p>
-						</div>
-					</div>
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1.5rem 4rem 1.5rem;
+    }
 
-					<!-- Chapter 3 -->
-					<div class="content-section" id="chapter3">
-						<h2>3. 歴史的な買収拒絶ミス —— YahooとExciteの誤算</h2>
-						<p>創業初期のGoogleは技術にこだわりすぎて、ビジネスモデルを持たず、資金難に陥っていました。そこで創業者二人は、検索システムをポータルサイト大手へ売却しようと試みます。</p>
-						<div class="timeline-visual">
-							<div class="timeline-item">
-								<span class="time-label">1998年</span>
-								<strong>Yahoo!へ「100万ドル（約1.5億円）」で売却提案</strong>
-								<p>Yahooは「検索はポータルの便利機能の一つにすぎない」と一蹴し拒絶。</p>
-							</div>
-							<div class="timeline-item">
-								<span class="time-label">1999年</span>
-								<strong>Exciteへ「75万ドル（約1.1億円）」で売却提案</strong>
-								<p>ExciteのCEOは「検索が優秀すぎるとユーザーが目的のサイトにすぐ去ってしまい、ポータル内の滞在時間が短くなる」と拒絶。</p>
-							</div>
-							<div class="timeline-item">
-								<span class="time-label">2002年</span>
-								<strong>Yahoo!が「30億ドル」での買収を試みるも決裂</strong>
-								<p>Googleの広告売上が急増し、焦ったYahooが30億ドルを提示するも、Googleは50億ドルを要求し決裂。</p>
-							</div>
-						</div>
-						<p>数年後、Googleへの買収を拒否したExciteは倒産。Yahooは遅れて広告企業Overtureを買収するも追いつけず、最終的にGoogleがかつて要求した50億ドルに近い価格（45億ドル）で自身が買収されることになりました。</p>
-					</div>
+    header {
+      padding: 80px 0 40px;
+      text-align: center;
+    }
 
-					<!-- Chapter 4 -->
-					<div class="content-section" id="chapter4">
-						<h2>4. 検索広告「AdWords」の発明と特許代理戦争</h2>
-						<p>ユーザーが検索したキーワードに連動して広告を出すクリック課金型（PPC）のビジネスモデルは、実はOverture（旧GoTo.com）が発明した特許技術でした。Googleが2002年に同様のクリック課金型「AdWords」をリリースしたため、Overtureから特許侵害で提訴されます。OvertureをYahooが買収したことで、この戦いは「Google vs Yahoo」の全面戦争となりました。</p>
-						<p>上場直前の2004年に和解し、GoogleはYahooに数億ドル相当の自社株式を渡すことで永続的ライセンスを獲得しました。GoogleがYahooを打ち破れた決定打は<strong>「品質スコア」</strong>の概念です。Overtureが単純に入札金額順で広告を並べたのに対し、Googleは「検索意図との関連性」や「クリック率」を加味したアルゴリズムで表示順を決定したため、ユーザーにも広告主にも優しいエコシステムが機能しました。</p>
-					</div>
+    .tag-line {
+      display: inline-block;
+      background: linear-gradient(135deg, rgba(0,242,254,0.15), rgba(176,106,179,0.15));
+      border: 1px solid rgba(0,242,254,0.3);
+      border-radius: 50px;
+      padding: 6px 20px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
 
-					<!-- Chapter 5 -->
-					<div class="content-section" id="chapter5">
-						<h2>5. 「20%ルール」と「Don't be evil」のイノベーション</h2>
-						<p>Googleの驚異的な多角化サービス（Gmail、YouTube、Chrome等）は、ある特徴的な組織文化によって生まれました。それが、勤務時間の2割を自分の興味あるサイドプロジェクトに使って良いという<strong>「20%ルール」</strong>です。</p>
-						<div class="features-grid">
-							<div class="feat-card">
-								<h5>Gmail</h5>
-								<p>2001年にエンジニアのブックハイトが開始。当時の常識の500倍である1GBのストレージを無料提供し業界を破壊。</p>
-							</div>
-							<div class="feat-card">
-								<h5>AdSense</h5>
-								<p>個人サイトのコンテンツを解析し、自動で最適な広告を表示する仕組み。検索外での巨大な収益源に。</p>
-							</div>
-							<div class="feat-card">
-								<h5>Google News</h5>
-								<p>9.11テロ後に「もっと多様なニュースに迅速にアクセスしたい」という個人の情熱から開発。</p>
-							</div>
-						</div>
-						<p>また、有名な行動規範<strong>「Don't be evil（邪悪になるな）」</strong>は、「検索結果を金銭で操作しない」という誓いであり、世界中のユーザーから絶対的な信頼を獲得する強力なブランド力となりました。</p>
-					</div>
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--text-main);
+      line-height: 1.3;
+      margin-bottom: 20px;
+    }
 
-					<!-- Chapter 6 -->
-					<div class="content-section" id="chapter6">
-						<h2>6. DeepMind買収とAI科学イノベーションによるノーベル賞</h2>
-						<p>2015年に持株会社「Alphabet」へと再編し、稼ぎ頭の広告部門と自動運転「Waymo」などの「Other Bets」を分離しました。この中でも最大の英断が、2014年の<strong>DeepMind</strong>の買収（約600億円）です。</p>
-						<p>天才デミス・ハサビス率いるDeepMindは、囲碁AIの<strong>AlphaGo</strong>で世界王者を撃破。さらに、50年間解けなかった生物学の謎であるタンパク質の立体構造を予測するAI<strong>「AlphaFold」</strong>を開発しました。この功績により、DeepMindは2024年に<strong>ノーベル化学賞</strong>を受賞。一民間企業がノーベル賞を獲得する歴史的快挙を成し遂げました。</p>
-					</div>
+    .subtitle {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      margin-top: 12px;
+    }
 
-					<!-- Chapter 7 -->
-					<div class="content-section" id="chapter7">
-						<h2>7. 2026年：AI主導の爆発的成長と「Antigravity」</h2>
-						<p>「生成AIやChatGPTによってGoogle検索が破壊されるのではないか」という市場の懸念は杞憂に終わりました。スンダー・ピチャイCEO率いるGoogleは、自社の巨大サービス（ユーザー数10億人以上が13製品）にAIモデル「Gemini」を深く統合。</p>
-						<p>独自のAI半導体<strong>TPU（Tensor Processing Unit）第8世代</strong>をフル配備し、AI処理コストを過去1年で約8割も削減するハード・ソフト垂直統合を成功させました。また、AIエージェントの開発プラットフォーム<strong>「Antigravity（アンチグラビティ）」</strong>には世界中から数百万人の開発者が集まり、ユーザーの代わりに自動でウェブ操作を行う「物理AI/自律エージェント」が実用化されています。</p>
-					</div>
+    .meta-info {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
 
-					<!-- Chapter 8 -->
-					<div class="content-section" id="chapter8">
-						<h2>8. 私たちがGoogleの歴史から学ぶべき4つの教訓</h2>
-						<div class="lessons-box">
-							<ul>
-								<li>
-									<strong>1. 品質への徹底的なこだわり</strong>
-									<p>「優秀すぎて売れない」と言われようが、検索品質の絶対的な差を追い求めた結果、時代の常識が追いついた。</p>
-								</li>
-								<li>
-									<strong>2. 既存のビジネスモデルの罠からの脱却</strong>
-									<p>「サイトに長居させる」ポータル全盛期に、「最速で別のサイトへ去らせる」検索特化を貫いた不合理が勝利を生んだ。</p>
-								</li>
-								<li>
-									<strong>3. 内発的動機づけ（20%ルール）</strong>
-									<p>最高のエンジニアに自由と裁量を与えることが、命令からは絶対に生まれないメガヒットサービスを生む。</p>
-								</li>
-								<li>
-									<strong>4. 長期的なムーンショット投資</strong>
-									<p>DeepMind（AI科学）、Waymo（自動運転）など、数十年にわたり赤字を許容して投資した領域が2026年に無二の参入障壁となった。</p>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</section>
-			</div>
-		</main>
+    .lead-section {
+      margin-bottom: 40px;
+    }
 
-		<Footer />
-	</body>
+    .lead-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .lead-card p {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--text-main);
+    }
+
+    .chat-section {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin: 30px 0;
+    }
+
+    .chat-message {
+      display: flex;
+      gap: 16px;
+      max-width: 85%;
+      align-items: flex-start;
+      margin-bottom: 4px;
+    }
+
+    .host-message {
+      align-self: flex-start;
+    }
+
+    .guest-message {
+      align-self: flex-end;
+      flex-direction: row-reverse;
+    }
+
+    .avatar-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      min-width: 64px;
+    }
+
+    .chat-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--primary);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      background: #0d111c;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+    }
+
+    .guest-avatar {
+      border-color: var(--secondary);
+      background: #1e293b;
+    }
+
+    .avatar-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .message-bubble {
+      padding: 14px 18px;
+      border-radius: 16px;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      border: 1px solid var(--bubble-guest-border);
+      background: var(--bubble-guest-bg);
+      color: var(--text-main);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    }
+
+    .host-message .message-bubble {
+      background: var(--bubble-host-bg);
+      border-color: var(--bubble-host-border);
+      border-top-left-radius: 4px;
+    }
+
+    .guest-message .message-bubble {
+      background: var(--bubble-guest-bg);
+      border-color: var(--bubble-guest-border);
+      border-top-right-radius: 4px;
+    }
+
+    section {
+      margin-bottom: 50px;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--text-main);
+      border-left: 4px solid var(--primary);
+      padding-left: 16px;
+      margin: 40px 0 20px 0;
+      line-height: 1.35;
+    }
+
+    footer {
+      border-top: 1px solid var(--card-border);
+      padding: 40px 0 20px;
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    .disclaimer {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 20px;
+      max-width: 700px;
+      margin: 0 auto 20px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      text-align: left;
+    }
+
+    .copyright {
+      font-size: 0.8rem;
+      color: rgba(160,160,176,0.4);
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 1.8rem; }
+      h2 { font-size: 1.3rem; }
+      header { padding: 50px 0 30px; }
+      .chat-message { max-width: 95%; }
+    }
+  
+
+    /* Unified Layout Styles */
+    .blog-main {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem 1.5rem;
+    }
+    .breadcrumb {
+        font-size: 0.85rem;
+        color: var(--text-secondary, #cbd5e1);
+        margin-bottom: 2rem;
+    }
+    .breadcrumb a {
+        color: var(--text-secondary, #cbd5e1);
+        text-decoration: none;
+    }
+    .breadcrumb a:hover {
+        color: var(--color-accent, #10B981);
+    }
+    .breadcrumb .separator {
+        margin: 0 0.5rem;
+        color: var(--text-muted, #64748b);
+    }
+    .article-content {
+        display: flex;
+        gap: 3rem;
+        align-items: flex-start;
+        margin-top: 2rem;
+    }
+    .toc-sidebar {
+        width: 280px;
+        position: sticky;
+        top: 6rem;
+        flex-shrink: 0;
+    }
+    .sidebar-toc {
+        background: rgba(28, 37, 65, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 8px;
+        padding: 1.8rem;
+        backdrop-filter: blur(10px);
+    }
+    .sidebar-toc h3 {
+        font-size: 1.1rem;
+        font-weight: 800;
+        margin-bottom: 1.2rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        padding-bottom: 0.6rem;
+        color: var(--text-primary, #f1f5f9);
+    }
+    .sidebar-toc ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        margin-left: 0;
+        padding-left: 0;
+    }
+    .sidebar-toc a {
+        font-size: 0.9rem;
+        color: var(--text-secondary, #cbd5e1);
+        text-decoration: none;
+        transition: color 0.2s ease;
+    }
+    .sidebar-toc a:hover {
+        color: var(--color-accent, #10B981);
+    }
+    .post-body {
+        flex-grow: 1;
+        max-width: calc(100% - 310px);
+    }
+    .anchor-target {
+        position: relative;
+        top: -100px;
+        visibility: hidden;
+        display: block;
+    }
+    .video-container {
+        position: relative;
+        width: 100%;
+        padding-top: 56.25%;
+        margin-bottom: 2rem;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid var(--border-color, rgba(16, 185, 129, 0.15));
+        box-shadow: 0 0 20px rgba(16, 185, 129, 0.1);
+    }
+    .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+    @media (max-width: 992px) {
+        .article-content {
+            flex-direction: column;
+        }
+        .toc-sidebar {
+            display: none;
+        }
+        .post-body {
+            max-width: 100%;
+        }
+    }
+  </style>
+</head>
+<body>
+  <Header />
+  
+  <main class="blog-main">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="/">← ホームに戻る</a>
+        <span class="separator">|</span>
+        <a href="/">トップ</a> &gt; <a href="/blog">ブログ</a> &gt; <span class="current">google</span>
+      </div>
+    </div>
+    
+    <div class="container">
+    <header>
+      <div class="tag-line">📊 投資銘柄・企業分析</div>
+      <h1>google</h1>
+      <p class="subtitle">googleの徹底解説動画の要約記事です。</p>
+      <div class="meta-info">
+        <span>📅 2026年06月04日</span>
+        <span>✍️ TechMoney</span>
+      </div>
+    </header>
+
+    <main>
+            <h2>Google創業物語 YouTube台本</h2>
+      <h2>「ガレージの検索エンジンから、時価総額五百兆円企業へ」</h2>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            突然ですが、質問です。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            あなたが何年もかけて開発した技術を、七五万円で売ろうとしたとき、相手に「それ、優秀すぎて使えないよ」と断られたら、どんな気持ちになると思いますか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            これ、笑い話じゃないんです。実際に起きた話なんです。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            今や世界中の人々が毎日当たり前のように使っている、あのGoogleの話です。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            Googleは今、時価総額が約四百八十兆円という、もはや国家予算を超えるような巨大企業になっています。でも創業期には、自分たちの技術を「高すぎる」と言われて百万ドルで売れず、「優秀すぎる」と言われて七五万ドルでも売れなかった、という信じられない歴史があるんです。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            この動画では、Googleがどのようにして二人の大学院生の研究プロジェクトから始まり、世界のデジタルインフラを支える企業へと成長したのかを、創業の瞬間から二〇二六年現在まで、詳細に語っていきます。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            この物語から僕が最も伝えたいことは一つです。「品質への徹底的なこだわりと、時代の流れを読む勇気が、どれだけ大きな未来を切り開くか」ということです。Googleの歴史は、その生き証人そのものだと思っています。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            時間がない方や、気になるところだけ知りたい方は、概要欄のタイムスタンプから好きな章に飛んでくださいね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            今回の動画は、以下の流れでお届けします。
+          </div>
+        </div>
+      </div>
+      <h2>第一章</h2>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            「二人の天才の出会いと、BackRubの誕生」。第二章「Googleという名前はスペルミスから生まれた」。第三章「断られ続けた売却交渉と、Yahoo・Exciteの歴史的な判断ミス」。第四章「お金の稼ぎ方を発明した日――AdWordsとOverture特許紛争」。第五章「20%ルールと、Don't be evilが生んだ革新の文化」。第六章「型破りな株式公開と、怒涛のM＆A展開」。第七章「AlphabetとDeepMind――AIで知能そのものを解明しようとした野望」。第八章「二〇二五年から二〇二六年、AI主導の爆発的成長」。そして第九章「未来への投資――一兆円を超える設備投資と、Other Betsの結実」。最後に全体のまとめをお伝えします。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            それでは、始めましょう。
+          </div>
+        </div>
+      </div>
+      <h2>第九章</h2>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            「未来への投資――一兆円を超える設備投資と、Other Betsの結実」。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            Alphabetが二〇二六年に発表した設備投資計画、すなわちCapExの規模は、一企業の投資の話とは思えない水準に達しています。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            二〇二六年通年のCapExは一八〇〇億ドルから一九〇〇億ドル。日本円に換算すると二八兆円前後です。これは二〇二五年の約二倍、二〇二二年の約六倍に相当します。その大半はデータセンターの建設、冷却インフラの整備、そして独自AIチップであるTPUの製造に使われます。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            ちなみに二〇二六年にはエージェント推論とトレーニングに特化したデュアルチップ設計の第八世代TPUが配備されており、一部の大企業向けには自社の社内システム（オンプレミス環境）にTPUを直接納入する対応まで行われています。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            これほどの巨額投資をしながら財務の健全性を維持するために、Alphabetは非常に戦略的な動きも見せています。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            直近一二ヶ月で約一七四〇億ドルもの営業キャッシュフローを生み出し、手元には約一二七〇億ドルの現金と有価証券があるにもかかわらず、二〇二六年六月に八〇〇億ドル規模の新規株式発行という大規模な資金調達に踏み切りました。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            この調達ラウンドには、かのウォーレン・バフェット率いるバークシャー・ハサウェイからの一〇〇〇億円規模の出資が含まれており、市場からの需要が申し込み枠を大幅に超えたことで、最終的な調達総額は約八五〇億ドルに達する見込みです。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            また同社は、サイバーセキュリティ大手の「Wiz（ウィズ）」を三二〇億ドル、クリーンエネルギーインフラ企業の「Intersect（インターセクト）」を四七億五〇〇〇万ドルで買収するなど、技術スタック全体の補強にも積極的です。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            そして長年「ムーンショット」として赤字を垂れ流してきた「Other Bets（その他の投資事業）」部門も、AIの進化と相まって二〇二六年には巨大なビジネスとして結実し始めています。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            まず自動運転の「Waymo（ウェイモ）」。二〇二六年時点でアメリカの一一の主要都市で完全自動運転のタクシーサービスを展開し、週五〇万回以上の乗車回数を記録しています。企業評価額は約一二六〇億ドル。テキサス州オースティンやアトランタなど新都市への拡大も続いており、さらなる国際展開も視野に入っています。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            ドローン配送の「Wing（ウィング）」はウォルマートやドアダッシュなどと組んで、すでに一〇〇万回以上の安全な宅配を完了しました。産業ロボット自動化の「Intrinsic（イントリンシック）」は、基盤モデルを活用した産業ロボットソリューションを推し進めています。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            ヘルスケアと生命科学の分野では、AlphaFoldの成功を土台とする「Isomorphic Labs（アイソモーフィック・ラボズ）」が、これまで治療不可能とされていた疾患に対する新規化合物の発見を加速させ、製薬のあり方を根本から変えようとしています。「Calico（カリコ）」は計算機科学を駆使して加齢の生物学的メカニズムを解明し、人間の健康寿命を延ばすための研究を進めています。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            さらに、量子コンピューティングの分野でも「Willow（ウィロー）早期アクセスプログラム」を展開し、今のコンピュータの限界を超える次世代の計算基盤の覇権も着実に狙っています。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            さて、今回はGoogleの創業物語を、始まりから現在まで詳しく見てきました。最後に、この物語全体から得られる学びを整理してお伝えしたいと思います。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            まず何より印象的なのは、ペイジとブリンが一貫して「品質への徹底的なこだわり」を持ち続けたことです。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            「優秀すぎるから売れない」と言われても、技術の品質を下げることはしなかった。「安く売っていいから」と値下げをしても、根本的なアプローチを妥協しなかった。その結果、時代がGoogleの価値観に追いついてきた。品質への妥協を断固拒否した姿勢が、あらゆる逆境を跳ね返す力の源泉だったと思います。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            二つ目は、「既存のビジネスモデルの論理に縛られなかった」ことです。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            ポータルサイト時代のYahooやExciteは、「ユーザーを長くサイトに留める」というビジネスモデルの常識から抜け出せませんでした。しかしGoogleは「ユーザーが最速で目的地にたどり着けること」を最優先にしました。短期的には不合理に見えたこの選択が、結果として検索という行為そのものの覇権を握ることにつながりました。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            三つ目は「人を信頼する文化」です。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            20%ルールは、従業員を単なる労働力ではなく、創造的なアイデアの担い手として尊重する姿勢の象徴です。管理するのではなく、信頼して自律性を与えることで、どれだけ大きなイノベーションが生まれるか。Gmail、AdSense、Google Newsがその証明です。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            四つ目は「長期的な視点で、今は理解されないところに投資し続けること」です。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            DeepMindの買収、Waymoへの継続的な投資、量子コンピューティングへの関与。どれも当初は「なぜそんなことに？」と思われた投資です。しかし今となっては、それらがAlphabetの次の一〇年を支える資産になっています。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            二〇二六年現在、月間で三二〇〇兆個のトークンを処理し、年間の設備投資に二八兆円を注ぎ込み、ノーベル賞研究者を擁し、自動運転タクシーを一一都市で走らせ、ドローン宅配を一〇〇万回以上完了させ、量子コンピュータの実用化に向けて歩み続けるAlphabet。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            この企業の姿勢は、一九九七年のある夜、スタンフォード大学の大学院生が「google.com」とタイプしたあの瞬間から、本質的には変わっていないと思います。「世界中の情報を整理して、誰もがアクセスできるようにする」という使命は今、「AIを通じて人類社会の仕組みを根本から最適化する」という新しい次元へと昇華されています。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            そして彼らは、自分たちが書いたあの目論見書の宣言通り、これからも「従来型の企業」にはなりません。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            今日のGoogleの話、いかがでしたでしょうか。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            七五万ドルで売れなかった技術が、今では四八〇兆円の企業価値を生み出している。「優秀すぎる」と断られた技術が、世界中の三〇億人が毎日使うインフラになった。この物語が、皆さんの日々の仕事や挑戦のヒントになれば嬉しいです。自分のやっていることが今すぐ評価されなくても、品質と信念を持ち続けることの大切さを、Googleの歴史は教えてくれていると思います。皆さんはどう思いましたか？ぜひコメント欄で教えてくださいね。
+          </div>
+        </div>
+      </div>
+      <h2>第一章</h2>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            「二人の天才の出会いと、BackRubの誕生」。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            話は一九九五年、アメリカのカリフォルニア州スタンフォード大学にさかのぼります。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            Googleの共同創業者であるラリー・ペイジとセルゲイ・ブリン、二人はともに一九七三年生まれです。でも育った環境は全く違いました。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            ラリー・ペイジはアメリカのミシガン州生まれ。お父さんがミシガン大学の計算機科学の教授で、人工知能研究の先駆者でもありました。ラリー自身もミシガン大学で工学の学士号を取り、一九九五年にスタンフォード大学の博士課程に進学します。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            一方のセルゲイ・ブリンは、ロシアのモスクワ生まれ。一九七九年、彼が六歳のとき家族でアメリカに移住しました。お父さんは数学の教授で、ブリン自身もメリーランド大学で数学と計算機科学の学士号を取得し、すでにスタンフォードの博士課程に在籍していました。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            二人が初めて出会ったのは、ラリー・ペイジがスタンフォードへの進学を検討してキャンパスを見学に来たとき。案内役を務めたのが、たまたまセルゲイ・ブリンだったんです。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            ところが、この最初の出会いというのが…ほぼすべての話題で意見が対立したという（笑）。「こいつとは合わないな」と思いながらも、二人には共通の関心事がありました。それが、「膨大なデータの中から本当に価値のある情報をどうやって見つけ出すか」という問いです。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            この共通の探求が、強力なパートナーシップへとつながっていきます。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            一九九五年、博士論文のテーマを探していたラリー・ペイジは、あるアイデアに着目します。当時、インターネットは爆発的に拡大していましたが、既存の検索エンジン、たとえばAltaVistaとか初期のYahoo!とかは、検索キーワードがページ内にどれだけたくさん書いてあるかという、かなり単純な基準で検索結果を並べていました。だから、同じキーワードを本文中にたくさん詰め込んだ質の低いページでも上位に来てしまっていたんです。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            ペイジが考えたのは、学術論文の世界を参考にしたアプローチです。学術論文では、他の論文にたくさん引用されているほど、その論文の重要度が高いと判断されます。これをウェブページのリンク構造に応用したらどうか、と。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            つまり、他のページからたくさんリンクを張られているページほど、重要度が高い。さらに、重要度の高いページからリンクを張られているページも価値が高い。この考え方を数学的なアルゴリズムに落とし込んだのが、「PageRank（ページランク）」です。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            一九九六年、ペイジとブリンはこの研究プロジェクトをスタートさせます。プロジェクトの愛称は「BackRub（バックラブ）」。「被リンク（バックリンク）を調べる」という意味からつけた名前です。全米科学財団のフェローシップで支援を受けていたブリンも合流し、スコット・ハッサンらの協力を得ながら、PageRankアルゴリズムを開発していきました。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            このBackRubが提供する検索結果の精度は、当時の他のどんな検索エンジンよりも圧倒的に高かったんです。スタンフォード大学内でその評判はみるみる広まっていきました。
+          </div>
+        </div>
+      </div>
+      <h2>第二章</h2>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            「Googleという名前はスペルミスから生まれた」。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            BackRubの人気が高まるにつれて、プロジェクトが消費するネットワークの帯域幅はスタンフォード大学のインフラを圧迫するまでになりました。これは単なる学術プロジェクトの枠を超えている、と二人は確信します。新しい名前が必要でした。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            一九九七年、チームは新しい名前のブレインストーミングを始めます。彼らが求めていたのは、「膨大な情報量」と「包括的なアクセス」を象徴する言葉でした。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            そこで、スタンフォードの大学院生だったショーン・アンダーソンが提案したのが、数学用語の「Googol（グーゴル）」という言葉です。これは一の後にゼロが一〇〇個続く、極めて巨大な数を表す言葉です。まさに「膨大な情報量」を象徴するのにぴったりですよね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            アンダーソンはその場でドメイン名が使えるか確認しようと、インターネットで検索しました。ところがここで、歴史を変えるタイポが起きます。彼は「Googol」と入力するはずが、間違えて「Google」と打ってしまったんです。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            ラリー・ペイジはこの「Google」という音の響きを気に入りました。そして一九九七年九月一五日、ペイジ自ら「google.com」というドメイン名を登録します。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            こうして、「世界中の情報を整理し、普遍的にアクセス可能で有用なものにする」という使命を体現するブランド名「Google」が、一つのスペルミスから生まれたんです。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            次に、最初の従業員の話をしましょう。ペイジとブリンが事業を本格化させるにあたって、最初に雇ったのがクレイグ・シルバースタインという人物です。社員番号一番ですね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            シルバースタインはハーバード大学卒業生で、スタンフォードの博士課程でデータマイニングやアルゴリズム、情報検索を専門としていました。彼の貢献の中でも特にユニークだったのが、初期の検索インフラの構築方法です。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            当時、高価なエンタープライズ向けサーバーを買うお金がなかった。そこでシルバースタインたちは、安い汎用部品を組み合わせ、冷却ファンをなんとレゴブロックに似た「Mega Bricks」で作った自作の筐体に収めるという手法を採用します。「高価なハードウェアを買わなくても、ソフトウェアの力で安価なコンピュータをたくさん連携させれば勝てる」というこの発想は、その後Googleのデータセンター設計の根本哲学になっていきます。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            シルバースタインは最終的に博士課程を中退し、Googleのテクノロジーディレクターとして一四年間にわたって会社の基盤を支え続けました。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            さて、資金の話です。一九九八年八月、ペイジとブリンはカリフォルニア州パロアルトにあるガレージで、ある人物にデモを見せます。相手はサン・マイクロシステムズの共同創業者であるアンディ・ベクトシャイムです。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            ベクトシャイムはデモを見て興奮しました。まだGoogleが法人として存在していなかったにもかかわらず、「Google Inc.」宛てに一〇万ドルの小切手を即座に切ったんです。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            この最初の外部資金に加え、Amazonを創業したジェフ・ベゾスなど複数のエンジェル投資家からも資金を集め、一九九八年九月四日、Google Inc.がカリフォルニア州で正式に法人として誕生します。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            最初のオフィスは、後にGoogleの社員番号一六番となり、さらにYouTubeのCEOを務めることになるスーザン・ウォジスキが所有していたメンローパークのガレージ。デスクトップPC、卓球台、鮮やかな青いカーペット。この空間で二人は日夜開発に没頭しました。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            一九九八年末には、Googleがインデックス化したウェブページは二千六百万件を超え、当時の競合であったAltaVistaやYahoo!を精度とスピードで圧倒し始めていました。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            ちなみに一九九八年八月には、創業者二人がバーニングマン・フェスティバルに参加して不在にする際、ユーザーへのお知らせとしてGoogleのロゴに棒人間を描き込んだ最初の「Google Doodle」が登場しています。この自由で型破りな文化は、シリコンバレーらしい初期のGoogleを象徴していますよね。
+          </div>
+        </div>
+      </div>
+      <h2>第三章</h2>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            「断られ続けた売却交渉と、Yahoo・Exciteの歴史的な判断ミス」。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            ここが本当に、Googleの歴史の中でも一番「もし〜だったら」と考えてしまう章です。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            時代背景を少し説明します。一九九〇年代後半、インターネットビジネスの主流は「ポータルサイト」と呼ばれるビジネスモデルでした。Yahooに代表されるポータルサイトは、ユーザーを自社サイトの中にできるだけ長く滞在させて、たくさんの広告を見てもらうことで収益を得るモデルです。検索エンジンはその中の「便利な機能の一つ」に過ぎなくて、わざわざ自分たちで開発するより、外から技術を買ってくればいい、という感覚でした。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            資金繰りに苦しんでいたペイジとブリンは、学業に戻ることも視野に入れながら、自分たちの検索エンジン技術を売却しようとします。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            一九九八年、彼らはYahooに対して百万ドルでの買収を提案しました。今の日本円で約一億五千万円くらいです。しかしYahooはこれを断ります。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            翌一九九九年には、当時の主要ポータルサイトの一つ「Excite」のCEOであるジョージ・ベルに対して、七五万ドルまで値を下げてもう一度買収を提案します。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            そのときジョージ・ベルが断った理由が、今となっては衝撃的です。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            「Googleの検索エンジンは優秀すぎる。ユーザーがすぐに目的のページに行ってしまって、うちのサイトに長く滞在してくれなくなる。それは困る。」
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            「優秀すぎるから買えない」というのが断る理由だったんです。当時のビジネスモデルの構造的な盲点を、まさに体現している出来事ですよね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            でもこの話には、さらに大きな続きがあります。最大の転換点は二〇〇二年に訪れます。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            GoogleがAdWords（アドワーズ）という検索連動型広告によって収益化の兆しを見せ始めると、今度はYahooがGoogleを買収しようと動き出すんです。当時のYahooのCEOだったテリー・セメルが交渉を開始し、まず十億ドルを提示します。さらに三十億ドルまで引き上げます。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            しかし、ドットコム・バブルが崩壊した直後というタイミングにもかかわらず、ペイジとブリンは五十億ドルの評価額を要求して全く譲りませんでした。交渉は決裂。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            もしあの時Yahooが百万ドルで、あるいはExciteが七五万ドルでGoogleを手に入れていたら、今のインターネットは全く別のものになっていたはずです。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            その後、GoogleとYahooはどうなったか。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            Googleの買収を拒絶したExciteは二〇〇一年に破産宣告を受けて消滅します。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            Yahooは二〇〇三年に別の検索広告企業「Overture（オーバーチュア）」を十四億ドルで買収し、「Project Panama」という独自の広告システム開発に力を注ぎますが、技術的な遅れを取り戻すことはできませんでした。さらに二〇一七年には過去に起きた三十億アカウント規模の情報漏えいが発覚するという事態も重なり、同じ二〇一七年に通信大手Verizonに約四十五億ドルで身売りする結果となります。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            かつてGoogleに「高すぎる」と百万ドルの買収提案を断ったYahooが、最終的に売却された価格も約四十五億ドル。Googleがその評価額として要求していた五十億ドルに近い金額で、Yahoo自身が売られることになったというのは、歴史の皮肉としか言いようがないですよね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            ちなみに、一九九七年にGoogleの百万ドルでの買収提案を見送ったスタンフォード大学のデビッド・チェリトン教授は、翌一九九八年の最初の資金調達ラウンドで個人として二五万ドルを投資する機会を得ています。そしてこの投資は、Googleの株式上場（IPO）時に約五億ドルのリターンをもたらしました。二〇〇〇倍以上のリターンです。
+          </div>
+        </div>
+      </div>
+      <h2>第四章</h2>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            「お金の稼ぎ方を発明した日――AdWordsとOverture特許紛争」。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            Googleは検索エンジンとしての技術的優位性を確立していましたが、実は最初は明確なビジネスモデルがありませんでした。創業者たちはアルゴリズムの磨き上げを優先していて、「どうやってお金を稼ぐか」はある意味後回しだったんです。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            デジタル広告の歴史の中で、「クリックした時だけ広告費をいただく」というモデル、いわゆる「ペイ・パー・クリック」を最初に発明したのはGoogleではありません。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            ビル・グロスという人物が率いていた「GoTo.com」という会社、後に「Overture（オーバーチュア）」に社名変更する企業が、一九九八年にこのモデルを作り上げました。特定の検索キーワードに対して広告主が入札し、ユーザーが実際にその広告をクリックしたときだけ課金される。今では当たり前ですが、当時は革命的な仕組みでした。Overtureは二〇〇一年にこの技術の特許を取得しています。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            一方のGoogleは二〇〇〇年に独自の広告システム「AdWords」をスタートしますが、最初はクリックではなく「表示された回数」で課金するモデルでした。しかし二〇〇二年二月にOvertureと同様のクリック課金型モデルを導入して、本格的な収益化に乗り出します。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            これに対してOvertureは二〇〇二年四月、「特許侵害だ」としてGoogleを訴えました。そして二〇〇三年にYahooがOvertureを買収したことで、この訴訟は実質的に「Google対Yahoo」の代理戦争へと発展します。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            最終的に、Googleの株式上場の直前である二〇〇四年八月に両社は和解しました。Googleは和解の条件として、Overtureの特許の永続的なライセンスを取得する代わりに、Yahooに対して二七〇万株のGoogle株式を発行しています。金額にして約二億六〇〇〇万円から二億九〇〇〇万円相当という、当時としても巨大な和解でした。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            ではGoogleがOverture、そしてYahooを最終的に完全に超えられた理由は何だったのか。決定的な要因は「品質スコア（Quality Score）」という概念の導入です。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            Overtureのシステムは単純に入札額の高い広告主を上位に表示していました。お金を多く払えば上に出てくる。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            でもGoogleのAdWordsは違った。「入札額」だけでなく、「その広告がどれだけクリックされているか」「検索キーワードと広告の内容がどれだけ関連しているか」をアルゴリズムで評価して、それらを掛け合わせたスコアで表示順位を決めました。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            これによって、資金力のない中小企業であっても、ユーザーにとって本当に役立つ広告を提供すれば上位に表示されるという仕組みができあがりました。広告主にとっても、ユーザーにとっても、フレンドリーなエコシステムです。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            さらに、AOLなど巨大なコンテンツプロバイダーと検索機能の提供契約を結ぶことで、トラフィックの面でもOvertureを圧倒していきます。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            AdWordsが生み出す高い利益率の広告収益は、世界中からの人材採用、高度な研究開発、そして巨大なデータセンターの建設を資金面で支えていきました。二〇二〇年代初頭には年間二〇〇〇億ドル以上、日本円で三〇兆円を超える広告収益を生み出す経済機械へと成長していくことになります。
+          </div>
+        </div>
+      </div>
+      <h2>第五章</h2>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            「20%ルールと、Don't be evilが生んだ革新の文化」。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            Googleが検索エンジンの枠を超えてGmail、YouTube、Chromeなど多彩なサービスを生み出せた背景には、この会社特有の組織文化がありました。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            その象徴が「20%ルール」です。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            これは、全従業員が有給の就業時間の二割、週換算すると週に一日分を、本来の業務とは直接関係がないけれどGoogleにとって価値があると自分が思うサイドプロジェクトに使っていいというポリシーです。ポストイット（付箋）や「サンドイッチバッグ」など数多くの革新的な製品を生み出した3Mの「15%ルール」にヒントを得て、ペイジとブリンが導入しました。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            人間の創造性というのは、外から命令されてやるのではなく、自分が面白いと思ってやるときに最も発揮されます。この「内発的動機づけ」の力を信じた制度が、20%ルールです。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            この制度が生み出した代表的な成果を見てみましょう。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            まず「Gmail」。エンジニアのポール・ブックハイトが二〇〇一年に20%プロジェクトとして始め、二〇〇四年のエイプリルフールに公開されました。当時の競合メールサービスのストレージ容量が数十MBだったのに対して、Gmailは一GBという五〇〇倍以上のストレージを無料で提供し、業界の常識を根底から覆しました。現在は十八億人以上が使うサービスに成長しています。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            次に「AdSense（アドセンス）」。ウェブサイトを持つ人たちがそのコンテンツに関連した広告を掲載して収益を得られる技術です。これは検索連動型広告のAdWordsと並ぶ巨大な収益源に育ち、ピーク時には年間一五〇〇億円以上を稼ぎ出し、ウェブ全体の収益化の仕組みを変えた大きなイノベーションです。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            そして「Google News（グーグルニュース）」。二〇〇一年の九・一一同時多発テロ事件後、ニュース情報へのアクセスをもっと良くしたいと考えたクリシュナ・バラトというエンジニアが個人の探求として開発したサービスです。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            他にも、検索のオートコンプリート機能であるGoogle Suggestや、Google Translate、初期のSNSであるOrkutなど、多くのサービスが20%プロジェクトから生まれています。二〇〇五年時点で、Googleの新製品の約五割が20%プロジェクト発だったとも言われています。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            この制度は製品を生み出すだけでなく、「官僚的な管理よりも創造的な自由を大切にする会社」というメッセージを世界中に発信し、最高の人材を惹きつける採用ツールとしても機能しました。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            もう一つ、Googleの文化を語るうえで欠かせないのが「Don't be evil（邪悪になるな）」というモットーです。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            このフレーズの起源については諸説あります。一説では一九九九年にエンジニアのアミット・パテルが最初に提唱したと言われ、別の説ではGmailの生みの親であるポール・ブックハイトが二〇〇一年頃の会議で提案したと言われています。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            「邪悪な行為」とは何か。当時のテクノロジー業界の文脈では、短期的な利益のためにユーザーを欺いたり、特定の企業に有利なように検索結果を操作したりすることを暗に意味していました。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            このフレーズは二〇〇四年の株式上場の目論見書にも大々的に引用され、世界中に知られることになります。そして、「客観的で偏りのない情報アクセスを提供する」というGoogleの決意表明として、多くの人の信頼を勝ち取りました。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            その後、二〇一五年にAlphabet Inc.として組織再編が行われた際、持株会社の行動規範には「Do the right thing（正しいことをせよ）」という標語が採用されました。Google単体の行動規範の序文からは二〇一八年に削除されましたが、規範の最後の一文として「Don't be evil」の精神は今でも残り続けています。
+          </div>
+        </div>
+      </div>
+      <h2>第六章</h2>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            「型破りな株式公開と、怒涛のM＆A展開」。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            二〇〇四年八月一九日、GoogleはNASDAQ市場に上場します。ティッカーシンボルは「GOOG」。上場時の時価総額は約二三〇億ドル、日本円で約三兆五〇〇〇億円です。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            しかし、このIPOはウォール街の伝統的なやり方に真っ向から挑戦する、極めて異例なものでした。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            一つ目の特徴は「ダッチ・オークション」と呼ばれる株式公募方式の採用です。通常、新規上場の際には投資銀行が大口の機関投資家を優遇する形で株を割り当てますが、Googleはオンラインで一般個人投資家から大口投資家まで誰もが平等に参加できる仕組みを意図的に選びました。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            二つ目は、証券取引委員会（SEC）への目論見書に添付された「創業者からの手紙」です。あのウォーレン・バフェットが株主向けに書いた手紙からインスピレーションを得たというこの文書の中で、ペイジとブリンはこんな言葉を宣言しました。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            「Google is not a conventional company. We do not intend to become one.（Googleは従来型の企業ではない。我々はそうなるつもりもない。）」
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            四半期ごとの短期的な利益追求に縛られることで、Googleがここまで歩んできた長期的な視野と独立性が失われることへの警告です。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            そして経営陣を外部からの圧力から守るため、議決権の異なる「デュアルクラス（種類株式）構造」を導入しました。これにより、ペイジ、ブリン、そして当時のCEOだったエリック・シュミットら経営陣は、上場後も議決権の過半数を握り続け、外部からの短期的な株主圧力に屈することなく、巨額の研究開発投資を続けられる体制を作ったんです。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            上場によって莫大な資金調達能力を手にしたGoogleは、次世代のプラットフォームを支配するための大型買収を次々と実行していきます。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            まず二〇〇五年、Androidを開発していた「Android Inc.」を非公開の金額で買収します。スマートフォンが爆発的に普及することを見越した、モバイルOS市場への先手です。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            二〇〇六年には、当時としては破格の十六億五〇〇〇万ドル、約二五〇〇億円でYouTubeを買収します。テキストから動画へと移行するインターネットのトレンドを完全に掌握するための決断でした。この判断は後に、世界最大の動画プラットフォームを手に入れるという圧倒的なリターンをもたらします。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            二〇〇七年にはウェブ広告ネットワーク大手の「DoubleClick（ダブルクリック）」を三一億ドルで買収し、ウェブ全体のディスプレイ広告の仕組みを傘下に収めました。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            二〇〇八年にはウェブブラウザ「Google Chrome（クローム）」を自社開発してリリース。ユーザーがインターネットにアクセスする入り口そのものをコントロールする戦略です。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            二〇一一年には当時最大の買収案件として、モバイル端末メーカー「Motorola Mobility（モトローラ モビリティ）」を一二五億ドルで買収します。主な目的はモバイル関連の強力な特許ポートフォリオの取得でした。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            これらの自社開発と買収を積み重ねた結果、Googleが提供するサービスは「便利なウェブサイト」から、世界中の人々が毎日依存する「デジタル世界のインフラストラクチャー」へと変貌を遂げていきました。
+          </div>
+        </div>
+      </div>
+      <h2>第七章</h2>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            「AlphabetとDeepMind――AIで知能そのものを解明しようとした野望」。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            二〇一〇年代に入ると、Googleの事業は検索と広告という枠に収まらなくなっていました。自動運転技術、ヘルスケア、スマートホーム機器など、全く異質な分野への「ムーンショット（月に打ち上げるくらい野心的な）投資」が拡大していたんです。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            二〇一五年、これらを整理するために抜本的な組織再編が行われます。新たに持株会社「Alphabet Inc.（アルファベット）」が設立され、Googleはその中の最大の子会社という位置付けになりました。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            この再編により、巨大な収益を生む中核のインターネット事業（Google検索、YouTube、Android、Google Cloudなど）と、長期的な不確実性は高いけれど未来を変える可能性を持つ「Other Bets（その他の投資事業）」、たとえば自動運転のWaymoや生命科学のCalicoといった部門が明確に分離されました。それぞれが独立したCEOと資本配分のもとで運営される体制が整います。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            そして、Alphabetの歴史において最も重要な転換点の一つが、二〇一四年に実施された「DeepMind（ディープマインド）」の買収です。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            DeepMindは、デミス・ハサビス、シェーン・レッグ、ムスタファ・スレイマンの三人によって二〇一〇年にロンドンで設立されました。彼らの目標は、特定のタスクに特化したAIをバラバラに開発することではなく、人間の認知メカニズムのように自律的に学習して意思決定する「汎用人工知能（AGI）」を創造し、「知能そのものを解明する」というものでした。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            Googleはこの会社を二〇一四年に約四億〜六億五〇〇〇万ドルで買収しました。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            DeepMindが採用したアプローチは「深層強化学習」です。報酬と罰による試行錯誤の「強化学習」と、多層のニューラルネットワークを使う「深層学習」を融合させたものです。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            最初の実証実験として彼らは、ルールを一切教えずにAtari 2600という往年のゲーム機の五〇種類のゲームをAIに学習させ、人間を超えるスコアを叩き出すことに成功しました。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            そして次に彼らが挑んだのが、AI研究の長年の「聖杯」と呼ばれてきた囲碁です。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            囲碁の盤面の組み合わせは、宇宙に存在する原子の数よりも多いとされる一〇の一七〇乗以上。人間の直感に大きく依存するため、コンピュータが人間のトッププロを破るのは数十年先だと言われていました。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            しかしDeepMindが開発した「AlphaGo（アルファ碁）」は、二〇一五年にプロ棋士を初めて打倒し、二〇一六年には世界トップクラスのチャンピオン、イ・セドル九段に四対一で勝利するという歴史的な偉業を成し遂げます。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            この成果は単なるゲームの勝利に留まりませんでした。このアルゴリズムは直ちに科学の最前線へと応用されていきます。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            最も衝撃的な成果が「AlphaFold（アルファフォールド）」です。タンパク質がどのように折りたたまれて立体構造を形成するか、これは生物学における五〇年来の難問でした。AlphaFoldはこれを解決し、現在までに自然界に存在するほぼすべてのタンパク質、約二億個の構造を予測しています。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            この功績により、DeepMindのデミス・ハサビスとジョン・ジャンパーは、二〇二四年にノーベル化学賞を受賞しました。一企業のAI研究がノーベル賞を受賞するという、前例のない出来事です。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            その他にも、従来の気象予測モデルを凌駕する「GraphCast（グラフキャスト）」、未知の安定材料を三八万種類も発見した「GNoME（グノーム）」など、AIを通じた科学的発見を量産しています。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            そして生成AI開発競争が激化する中、二〇二三年四月にはGoogleの既存製品の強化を担っていた「Google Brain（グーグルブレイン）」とDeepMindが統合され、「Google DeepMind（グーグルディープマインド）」が誕生しました。世界最高峰の頭脳と計算資源を一点に集中させ、次世代のAI基盤モデル開発を加速させる体制が完成したんです。
+          </div>
+        </div>
+      </div>
+      <h2>第八章</h2>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            「二〇二五年から二〇二六年、AI主導の爆発的成長」。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            一部の投資家や評論家たちは「ChatGPTのような生成AIの台頭によって、GoogleやBingに代わるAI検索が普及すれば、Googleの検索ビジネスモデルは終わりを迎えるのではないか」と懸念していました。実際、二〇二二年末から二〇二三年にかけて、そういった見方が市場でも広まっていました。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            しかし現実はどうだったか。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            CEO（最高経営責任者）のスンダー・ピチャイ率いるAlphabetは、競合他社からの激烈な競争を受けながらも、業績は減速するどころかAIの統合によって歴史的な急拡大を見せています。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            まず大きな数字から見てみましょう。二〇二五年の年間売上高は四〇〇〇億ドルを突破しました。二〇二〇年と比べると二倍以上の規模です。株価はAIの進展を背景に六割以上高騰し、二〇二六年初頭の時価総額は約四八〇兆円に達して、エヌビディアを追い抜いて世界最大の公開企業となる軌道に乗っています。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            では最新の決算、二〇二六年第一四半期の数字を見てみましょう。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            全社の売上高は約一一〇〇億ドルで、前の年の同じ時期と比べてプラス二二パーセント。これで一一四半期連続の二桁成長です。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            全社の営業利益は約四〇〇億ドルで、前年同期比プラス三〇パーセント。過去五年間で営業利益は三倍になりました。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            クラウド事業であるGoogle Cloudは、売上高が二〇〇億三〇〇〇万ドルで前年同期比プラス六三パーセントという急成長です。営業利益は前年比で三倍以上の七〇億ドルに到達しました。企業向けのAI需要が爆発的に伸びていることが主な要因です。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            また、将来の収益を示す指標である「クラウドのバックログ」、つまり企業と結んだ大型AI契約の残高は四六二億ドルで、前の四半期末の二四〇億ドルからほぼ倍増しています。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            YouTubeの広告収益は九八億八〇〇〇万ドルで前年同期比プラス一一パーセント。広告とサブスクリプションを合わせた二〇二五年通期の総売上高は六〇〇億ドルを超えました。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            検索ビジネスについても、売上単体で前年同期比プラス一九パーセントという過去三年間で最速の成長を記録しています。AIは検索を「破壊」するどころか、むしろ検索クエリを過去最高レベルに押し上げているんです。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            なぜそうなっているのか。Googleが導入した「AI Overviews（AIオーバービュー）」という機能は、月に二五億人以上が利用しています。さらに「AI Mode（AIモード）」は、リリースから一年で月間ユーザーが一〇億人を突破しました。AIが検索体験を大幅に向上させることで、ユーザーのエンゲージメントと広告主の費用対効果が共に上がっているわけです。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            基盤モデルの話をしましょう。Alphabetが展開する独自のAIモデル「Gemini（ジェミニ）」は現在、ユーザー数が一〇億人を超えるGoogleの一三の主要製品すべてに深く組み込まれています。そのうち五つの製品は三〇億人以上のユーザーを持ちます。GeminiアプリだけでもDAU（月間アクティブユーザー数）は前年比で倍増し、九億人を突破しています。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            処理するAIのトークン量の増加が特に象徴的です。わずか二年間で、月間九兆七〇〇〇億トークンから三二〇〇兆トークンへと、実に三〇〇倍にまで増加しました。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            そしてAIの応答に必要なコストは、二〇二五年に七割八分削減され、さらにGemini 3のローンチ以降も三割以上のコストダウンに成功しています。これはAlphabetが独自に開発している「TPU（Tensor Processing Unit）」という特製AIチップの進化と、ソフトウェアの最適化が組み合わさった結果です。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            AIの活用フェーズも進化しています。単一のテキスト生成から、自律的にタスクを遂行する「エージェント型AI」への移行が始まっています。二〇二六年に発表された「Gemini 3.5」シリーズは、長期間にわたるタスクの実行や複雑なコーディングを自律的にこなす能力を備えています。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            Alphabetが提供するエージェント開発用プラットフォーム「Antigravity（アンチグラビティ）」を利用する開発者は数百万人にのぼり、ユーザーの代わりにGoogle検索、YouTube、Gmailなどを横断して自動で商品を購入できる「Universal Cart（ユニバーサルカート）」といった革新的なコマース体験が実現しつつあります。
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="disclaimer">
+        <p>⚠️ <strong>免責事項</strong></p>
+        <p>本記事は情報提供を目的としたものであり、特定の銘柄への投資を推奨するものではありません。株式投資にはリスクが伴います。投資はご自身の判断と責任でお願いいたします。</p>
+      </div>
+      <p class="copyright">© TechMoney｜2026年</p>
+    </footer>
+  </div>
+    </div>
+  </div>
+  </main>
+
+  <Footer />
+</body>
 </html>
-
-<style>
-	:root {
-		--g-blue: #4285F4;
-		--g-red: #EA4335;
-		--g-yellow: #FBBC05;
-		--g-green: #34A853;
-		
-		--g-blue-neon: #3a80f7;
-		--g-red-neon: #ff5242;
-		--g-yellow-neon: #ffd214;
-		--g-green-neon: #00e676;
-	}
-
-	.blog-main {
-		max-width: 1200px;
-		margin: 0 auto;
-		padding: 2rem 1.5rem;
-	}
-
-	.breadcrumb {
-		font-size: 0.85rem;
-		color: var(--text-secondary);
-		margin-bottom: 2rem;
-	}
-	.breadcrumb a {
-		color: var(--text-secondary);
-		text-decoration: none;
-	}
-	.breadcrumb a:hover {
-		color: var(--accent-light);
-	}
-
-	/* Hero Section */
-	.article-hero {
-		position: relative;
-		text-align: center;
-		padding: 5rem 2rem;
-		background: rgba(10, 10, 25, 0.8);
-		border: 1px solid rgba(255, 255, 255, 0.05);
-		border-radius: 24px;
-		margin-bottom: 3rem;
-		overflow: hidden;
-	}
-	.glow-bg {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		width: 600px;
-		height: 200px;
-		background: radial-gradient(circle, rgba(66, 133, 244, 0.1) 0%, transparent 70%);
-		filter: blur(50px);
-		z-index: -1;
-	}
-	.category-badge {
-		font-family: var(--font-display);
-		font-size: 0.85rem;
-		font-weight: 800;
-		color: var(--g-blue-neon);
-		letter-spacing: 0.1em;
-		margin-bottom: 1.5rem;
-	}
-	.title-text {
-		font-family: 'Outfit', 'Noto Sans JP', sans-serif;
-		font-size: 3rem;
-		font-weight: 900;
-		line-height: 1.25;
-		color: #ffffff;
-		margin-bottom: 1.5rem;
-	}
-	.highlight-g {
-		background: linear-gradient(90deg, var(--g-blue-neon), var(--g-red-neon), var(--g-yellow-neon), var(--g-green-neon));
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-	}
-	.subtitle {
-		font-size: 1.2rem;
-		color: var(--text-secondary);
-		max-width: 800px;
-		margin: 0 auto 2rem auto;
-		font-weight: 300;
-	}
-	.meta-row {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		gap: 1.5rem;
-		font-size: 0.9rem;
-		color: var(--text-muted);
-	}
-	.badge-cat {
-		background: rgba(255, 255, 255, 0.05);
-		border: 1px solid rgba(255, 255, 255, 0.1);
-		padding: 0.2rem 0.6rem;
-		border-radius: 4px;
-		color: #ffffff;
-	}
-
-	/* Metrics Dashboard */
-	.metrics-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-		gap: 1.5rem;
-		margin-bottom: 4rem;
-	}
-	.metric-card {
-		background: rgba(255, 255, 255, 0.02);
-		border: 1px solid rgba(255, 255, 255, 0.05);
-		border-radius: 16px;
-		padding: 1.8rem;
-		transition: all 0.3s ease;
-	}
-	.metric-card:hover {
-		transform: translateY(-3px);
-		box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-	}
-	.metric-card.border-blue:hover { border-color: var(--g-blue-neon); }
-	.metric-card.border-red:hover { border-color: var(--g-red-neon); }
-	.metric-card.border-yellow:hover { border-color: var(--g-yellow-neon); }
-	.metric-card.border-green:hover { border-color: var(--g-green-neon); }
-	
-	.metric-card .label {
-		display: block;
-		font-size: 0.75rem;
-		font-family: var(--font-display);
-		color: var(--text-muted);
-		margin-bottom: 0.5rem;
-		letter-spacing: 0.05em;
-	}
-	.metric-card .value {
-		display: block;
-		font-family: 'Outfit', sans-serif;
-		font-size: 2.2rem;
-		font-weight: 900;
-		margin-bottom: 0.5rem;
-	}
-	.val-blue { color: var(--g-blue-neon); text-shadow: 0 0 15px rgba(66, 133, 244, 0.2); }
-	.val-red { color: var(--g-red-neon); text-shadow: 0 0 15px rgba(234, 67, 53, 0.2); }
-	.val-yellow { color: var(--g-yellow-neon); text-shadow: 0 0 15px rgba(251, 188, 5, 0.2); }
-	.val-green { color: var(--g-green-neon); text-shadow: 0 0 15px rgba(52, 168, 83, 0.2); }
-	
-	.metric-card .desc {
-		font-size: 0.8rem;
-		color: var(--text-secondary);
-		line-height: 1.4;
-	}
-
-	/* Content Layout */
-	.article-content {
-		display: flex;
-		gap: 3rem;
-		align-items: flex-start;
-	}
-	.toc-sidebar {
-		width: 280px;
-		position: sticky;
-		top: 6rem;
-		flex-shrink: 0;
-	}
-	.sidebar-toc {
-		padding: 1.8rem;
-	}
-	.sidebar-toc h3 {
-		font-size: 1.1rem;
-		font-weight: 800;
-		margin-bottom: 1.2rem;
-		border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-		padding-bottom: 0.6rem;
-	}
-	.sidebar-toc ul {
-		list-style: none;
-		display: flex;
-		flex-direction: column;
-		gap: 0.8rem;
-	}
-	.sidebar-toc a {
-		font-size: 0.9rem;
-		color: var(--text-secondary);
-		text-decoration: none;
-		transition: color 0.2s ease;
-	}
-	.sidebar-toc a:hover {
-		color: var(--g-blue-neon);
-	}
-	.post-body {
-		flex-grow: 1;
-		max-width: 800px;
-	}
-	
-	.content-section {
-		margin-bottom: 4rem;
-	}
-	.content-section h2 {
-		font-family: 'Outfit', 'Noto Sans JP', sans-serif;
-		font-size: 1.8rem;
-		font-weight: 800;
-		color: #ffffff;
-		margin-bottom: 1.8rem;
-		border-left: 4px solid var(--g-blue-neon);
-		padding-left: 1rem;
-		line-height: 1.3;
-	}
-	.content-section p {
-		font-size: 1.05rem;
-		color: var(--text-secondary);
-		line-height: 1.8;
-		margin-bottom: 1.5rem;
-	}
-	.content-section p strong {
-		color: #ffffff;
-	}
-
-	/* Custom Highlight Elements */
-	.insight-box {
-		background: rgba(66, 133, 244, 0.03);
-		border-left: 4px solid var(--g-blue-neon);
-		border-radius: 0 12px 12px 0;
-		padding: 1.5rem;
-		margin: 2rem 0;
-	}
-	.insight-box h4 {
-		font-size: 1.05rem;
-		color: var(--g-blue-neon);
-		margin-bottom: 0.5rem;
-		font-weight: 700;
-	}
-	.insight-box p {
-		margin-bottom: 0;
-		font-size: 0.95rem;
-	}
-
-	/* Timeline visual */
-	.timeline-visual {
-		border-left: 2px dashed rgba(255, 255, 255, 0.1);
-		margin: 2.5rem 0 2.5rem 1rem;
-		padding-left: 1.5rem;
-		display: flex;
-		flex-direction: column;
-		gap: 2rem;
-	}
-	.timeline-item {
-		position: relative;
-	}
-	.timeline-item::before {
-		content: '';
-		position: absolute;
-		left: calc(-1.5rem - 6px);
-		top: 4px;
-		width: 10px;
-		height: 10px;
-		border-radius: 50%;
-		background: var(--bg-dark);
-		border: 2px solid var(--g-red-neon);
-	}
-	.timeline-item:nth-child(2)::before { border-color: var(--g-yellow-neon); }
-	.timeline-item:nth-child(3)::before { border-color: var(--g-blue-neon); }
-	
-	.time-label {
-		display: inline-block;
-		font-family: var(--font-display);
-		font-size: 0.8rem;
-		font-weight: 800;
-		color: var(--g-red-neon);
-		background: rgba(234, 67, 53, 0.08);
-		border: 1px solid rgba(234, 67, 53, 0.2);
-		padding: 0.1rem 0.5rem;
-		border-radius: 4px;
-		margin-bottom: 0.5rem;
-	}
-	.timeline-item:nth-child(2) .time-label {
-		color: var(--g-yellow-neon);
-		background: rgba(251, 188, 5, 0.08);
-		border-color: rgba(251, 188, 5, 0.2);
-	}
-	.timeline-item:nth-child(3) .time-label {
-		color: var(--g-blue-neon);
-		background: rgba(66, 133, 244, 0.08);
-		border-color: rgba(66, 133, 244, 0.2);
-	}
-	.timeline-item strong {
-		display: block;
-		font-size: 1.1rem;
-		color: #ffffff;
-		margin-bottom: 0.3rem;
-	}
-	.timeline-item p {
-		font-size: 0.95rem;
-		margin-bottom: 0;
-	}
-
-	/* Feature cards */
-	.features-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-		gap: 1.5rem;
-		margin: 2rem 0;
-	}
-	.feat-card {
-		background: rgba(255, 255, 255, 0.01);
-		border: 1px solid rgba(255, 255, 255, 0.04);
-		border-radius: 12px;
-		padding: 1.5rem;
-	}
-	.feat-card h5 {
-		font-size: 1.1rem;
-		color: #ffffff;
-		margin-bottom: 0.5rem;
-		font-weight: 700;
-	}
-	.feat-card p {
-		font-size: 0.9rem;
-		margin-bottom: 0;
-		line-height: 1.6;
-	}
-
-	.lessons-box {
-		background: rgba(255, 255, 255, 0.02);
-		border: 1px solid rgba(255, 255, 255, 0.05);
-		border-radius: 16px;
-		padding: 2rem;
-	}
-	.lessons-box ul {
-		list-style: none;
-		display: flex;
-		flex-direction: column;
-		gap: 1.8rem;
-	}
-	.lessons-box strong {
-		display: block;
-		font-size: 1.15rem;
-		color: var(--g-green-neon);
-		margin-bottom: 0.4rem;
-	}
-	.lessons-box p {
-		font-size: 0.95rem;
-		margin-bottom: 0;
-		line-height: 1.6;
-	}
-
-	@media (max-width: 992px) {
-		.article-content {
-			flex-direction: column;
-		}
-		.toc-sidebar {
-			display: none; /* Hide TOC on tablets and phones */
-		}
-	}
-	@media (max-width: 768px) {
-		.title-text {
-			font-size: 2.2rem;
-		}
-		.article-hero {
-			padding: 3rem 1rem;
-		}
-		.metrics-grid {
-			grid-template-columns: 1fr;
-		}
-		.timeline-visual {
-			margin-left: 0.2rem;
-		}
-	}
-</style>

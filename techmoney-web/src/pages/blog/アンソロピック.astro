@@ -1,0 +1,911 @@
+---
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import BaseHead from '../../components/BaseHead.astro';
+import { SITE_TITLE } from '../../consts';
+
+// Generated from video_summary.html
+---
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <BaseHead title="非上場企業であるAnthropicに投資できるETFを徹底解説 - {SITE_TITLE}" description="アンソロピックの徹底解説動画の要約記事です。" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <style is:global>
+
+    :root {
+      --bg-dark: #050510;
+      --bg-gradient: linear-gradient(180deg, #0a0a1a 0%, #050510 100%);
+      --primary: #00f2fe;
+      --secondary: #4facfe;
+      --accent: #b06ab3;
+      --text-main: #ffffff;
+      --text-muted: #a0a0b0;
+      --card-bg: rgba(255, 255, 255, 0.03);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --bubble-host-bg: rgba(35, 55, 255, 0.15);
+      --bubble-host-border: rgba(35, 55, 255, 0.3);
+      --bubble-guest-bg: rgba(255, 255, 255, 0.03);
+      --bubble-guest-border: rgba(255, 255, 255, 0.06);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg-gradient);
+      min-height: 100vh;
+      color: var(--text-muted);
+      font-family: 'Inter', 'Noto Sans JP', sans-serif;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1.5rem 4rem 1.5rem;
+    }
+
+    header {
+      padding: 80px 0 40px;
+      text-align: center;
+    }
+
+    .tag-line {
+      display: inline-block;
+      background: linear-gradient(135deg, rgba(0,242,254,0.15), rgba(176,106,179,0.15));
+      border: 1px solid rgba(0,242,254,0.3);
+      border-radius: 50px;
+      padding: 6px 20px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--text-main);
+      line-height: 1.3;
+      margin-bottom: 20px;
+    }
+
+    .subtitle {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      margin-top: 12px;
+    }
+
+    .meta-info {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .lead-section {
+      margin-bottom: 40px;
+    }
+
+    .lead-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .lead-card p {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--text-main);
+    }
+
+    .chat-section {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin: 30px 0;
+    }
+
+    .chat-message {
+      display: flex;
+      gap: 16px;
+      max-width: 85%;
+      align-items: flex-start;
+      margin-bottom: 4px;
+    }
+
+    .host-message {
+      align-self: flex-start;
+    }
+
+    .guest-message {
+      align-self: flex-end;
+      flex-direction: row-reverse;
+    }
+
+    .avatar-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      min-width: 64px;
+    }
+
+    .chat-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--primary);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      background: #0d111c;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+    }
+
+    .guest-avatar {
+      border-color: var(--secondary);
+      background: #1e293b;
+    }
+
+    .avatar-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .message-bubble {
+      padding: 14px 18px;
+      border-radius: 16px;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      border: 1px solid var(--bubble-guest-border);
+      background: var(--bubble-guest-bg);
+      color: var(--text-main);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    }
+
+    .host-message .message-bubble {
+      background: var(--bubble-host-bg);
+      border-color: var(--bubble-host-border);
+      border-top-left-radius: 4px;
+    }
+
+    .guest-message .message-bubble {
+      background: var(--bubble-guest-bg);
+      border-color: var(--bubble-guest-border);
+      border-top-right-radius: 4px;
+    }
+
+    section {
+      margin-bottom: 50px;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--text-main);
+      border-left: 4px solid var(--primary);
+      padding-left: 16px;
+      margin: 40px 0 20px 0;
+      line-height: 1.35;
+    }
+
+    footer {
+      border-top: 1px solid var(--card-border);
+      padding: 40px 0 20px;
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    .disclaimer {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 20px;
+      max-width: 700px;
+      margin: 0 auto 20px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      text-align: left;
+    }
+
+    .copyright {
+      font-size: 0.8rem;
+      color: rgba(160,160,176,0.4);
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 1.8rem; }
+      h2 { font-size: 1.3rem; }
+      header { padding: 50px 0 30px; }
+      .chat-message { max-width: 95%; }
+    }
+  
+
+    /* Unified Layout Styles */
+    .blog-main {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem 1.5rem;
+    }
+    .breadcrumb {
+        font-size: 0.85rem;
+        color: var(--text-secondary, #cbd5e1);
+        margin-bottom: 2rem;
+    }
+    .breadcrumb a {
+        color: var(--text-secondary, #cbd5e1);
+        text-decoration: none;
+    }
+    .breadcrumb a:hover {
+        color: var(--color-accent, #10B981);
+    }
+    .breadcrumb .separator {
+        margin: 0 0.5rem;
+        color: var(--text-muted, #64748b);
+    }
+    .article-content {
+        display: flex;
+        gap: 3rem;
+        align-items: flex-start;
+        margin-top: 2rem;
+    }
+    .toc-sidebar {
+        width: 280px;
+        position: sticky;
+        top: 6rem;
+        flex-shrink: 0;
+    }
+    .sidebar-toc {
+        background: rgba(28, 37, 65, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 8px;
+        padding: 1.8rem;
+        backdrop-filter: blur(10px);
+    }
+    .sidebar-toc h3 {
+        font-size: 1.1rem;
+        font-weight: 800;
+        margin-bottom: 1.2rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        padding-bottom: 0.6rem;
+        color: var(--text-primary, #f1f5f9);
+    }
+    .sidebar-toc ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        margin-left: 0;
+        padding-left: 0;
+    }
+    .sidebar-toc a {
+        font-size: 0.9rem;
+        color: var(--text-secondary, #cbd5e1);
+        text-decoration: none;
+        transition: color 0.2s ease;
+    }
+    .sidebar-toc a:hover {
+        color: var(--color-accent, #10B981);
+    }
+    .post-body {
+        flex-grow: 1;
+        max-width: calc(100% - 310px);
+    }
+    .anchor-target {
+        position: relative;
+        top: -100px;
+        visibility: hidden;
+        display: block;
+    }
+    .video-container {
+        position: relative;
+        width: 100%;
+        padding-top: 56.25%;
+        margin-bottom: 2rem;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid var(--border-color, rgba(16, 185, 129, 0.15));
+        box-shadow: 0 0 20px rgba(16, 185, 129, 0.1);
+    }
+    .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+    @media (max-width: 992px) {
+        .article-content {
+            flex-direction: column;
+        }
+        .toc-sidebar {
+            display: none;
+        }
+        .post-body {
+            max-width: 100%;
+        }
+    }
+  </style>
+</head>
+<body>
+  <Header />
+  
+  <main class="blog-main">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="/">← ホームに戻る</a>
+        <span class="separator">|</span>
+        <a href="/">トップ</a> &gt; <a href="/blog">ブログ</a> &gt; <span class="current">非上場企業であるAnthropicに投資できるETFを徹底解説</span>
+      </div>
+    </div>
+    
+    <div class="container">
+
+  <div class="video-container">
+    <iframe src="https://www.youtube.com/embed/5IoN4HeE9EU" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+  
+    <header>
+      <div class="tag-line">📊 投資銘柄・企業分析</div>
+      <h1>アンソロピック</h1>
+      <p class="subtitle">アンソロピックの徹底解説動画の要約記事です。</p>
+      <div class="meta-info">
+        <span>📅 2026年05月09日</span>
+        <span>✍️ TechMoney</span>
+      </div>
+    </header>
+
+    <main>
+            <p style="margin-bottom: 1.5rem;">世界トップエンジニアが熱狂する「Claude」と投資のカラクリ</p>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            皆さん、突然ですが一つ質問です。今この瞬間、世界中のトップエンジニアたちが「毎日欠かせない道具」として使い倒しているAIがあります。グーグル、マイクロソフト、メタ……そういったビッグテックの現役エンジニアたちが、コーディングの七割近くをそのAIに任せていて、しかもそれが本当に、確実に、業務を自動化しているんです。そのAIの名前は「Claude（クロード）」。そしてClaudeを作った会社・Anthropicに、実は日本にいながら、しかも東証上場のETFを通じて投資できる方法があるって知っていましたか？
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            え！？Anthropicって非上場の会社ですよね？なのに投資できるんですか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            そうなんです。しかも新NISAの成長投資枠を使って、非課税で。今日はそのカラクリを丸ごとお話しします。結論を先に言うと、ブラックロックが運用する東証上場ETF「ベストAI」、銘柄コード四〇八Aが、その手段です。今日の動画ではまず、なぜAnthropicがここまで注目されているのかを「エンジニアの現場」という視点で深掘りして、その後にこのETFの詳細を解説していきます。時間がない方や気になるところだけ知りたい方は、概要欄のタイムスタンプから飛んでくださいね。
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">エンジニアがClaudeを選ぶ理由：GitHub連携とコードの精度</p>
+      <div class="chat-section">
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            わかりました！でも、Claudeって名前は聞いたことあるんですが、ChatGPTとどう違うんですか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            その違いが今日の話の核心なんですよ。簡単に言うと、エンジニアたちの間ではClaudeは「仕事の相棒」として選ばれているんです。理由のひとつが、コードの精度の高さです。世界の開発者が使うプラットフォーム・GitHubには今やClaudeが組み込まれていて、エンジニアがプルリクエストやイシューに「@claude」とメンションするだけで、Claudeが自動的にコードをレビューしたり修正案を出したりしてくれるんです。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            え、GitHubって世界中のエンジニアが使ってるやつですよね。そこにClaudeが入り込んでいるんですか！？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            そうです。開発のプラットフォームそのものに、Claudeががっつり入り込んでいるんです。
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">現場の衝撃：生産性50％向上とエンジニアの役割の変容</p>
+      <div class="chat-section">
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            なるほど！じゃあ、ビッグテックのエンジニアたちって実際どうやって使ってるんですか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            例えばAnthropicの社内で二〇二五年に行われた調査があって、エンジニア一三二名を対象にした研究なんですが、その結果がかなり衝撃的でした。調査の一年前は、Claudeを業務で使っているエンジニアの割合が二八パーセントで、生産性の向上が二〇パーセントだったんです。それが調査時点では、使用率が五九パーセントに跳ね上がり、生産性の向上が五〇パーセントに達していたんです。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            たった一年で使用率が二倍以上になって、生産性も五〇パーセント向上！？それはすごいですね！
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            しかも数字だけじゃなく、現場の働き方が根本的に変わっているんです。Anthropicのエンジニアたちは、三つから八つものClaudeのウィンドウを同時に立ち上げて、機能の実装、バグの修正、調査を並行して進める、という働き方をしているそうです。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            三つから八つ！？一人のエンジニアが複数のAIを同時に動かして、並列で仕事を進めているということですか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            まさにそうです。エンジニアは自らコードを書くというよりも、Claudeが出してきたコードをレビューして修正するという役割にシフトしている。そしてインフラの障害対応なんかは、ログ解析から原因特定、修復手順の策定まで全部Claudeが自動でやってしまう事例も出てきているんです。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            障害対応まで自動化されているんですか！もうエンジニアって何をするんだろうって感じですね……。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            Claude Codeの開発者であるボリス・チェルニー氏は「私にとってコーディングは実質的に解決された課題だ」とまで言い切っていて。エンジニアはこれから、仕様書の作成やユーザーとの対話といった別の仕事を担うようになるだろうとも述べています。
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">驚異の成長：楽天の導入事例と評価額57兆円の衝撃</p>
+      <div class="chat-section">
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            うわー、それは本当に時代が変わっているんですね。ビッグテックの話だけかと思ったら、楽天とかも使ってるんですか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            日本企業の事例もあるんです。楽天はClaude Codeを導入して、新機能の市場投入にかかる期間を二四営業日から五営業日に短縮、実に八〇パーセント削減したと報告しています。NECもAnthropicと戦略的協業を結んで、グループ約三万人にClaudeを導入する計画を進めています。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            楽天や日本のNECまで！　もうビッグテックだけの話じゃないんですね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            それどころかAnthropicの成長スピードは本当に尋常じゃなくて。Claude Codeというコーディングツールだけで、リリースから六ヶ月で年間売上一〇億ドル、つまり約一四五〇億円を突破したんです。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            六ヶ月で一四五〇億円！？それはもはやどんなスタートアップの話ですか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            二〇二六年二月にAnthropicが発表した資金調達のニュースを見ると、そのすごさがより鮮明になります。調達額は三〇〇億ドル、つまり約四兆五〇〇〇億円。ポストマネー評価額が三八〇〇億ドル、日本円で約五七兆円に達したんです。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            五七兆円って……日本の国家予算の半分くらいじゃないですか！？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            正確にはそれ以上ですね。二〇二六年時点の日本の国家予算が約一一五兆円ですから、その約半分の評価額を一社のスタートアップが持っているという、本当に前例のない話なんです。しかも、五年弱前の評価額と比較すると約六九〇倍になっているんですよ。
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">ブラックロックが放つETF「ベストAI（408A）」の正体</p>
+      <div class="chat-section">
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            六九〇倍！？五年でですか……。そのAnthropicに投資できるETFがあるってことですよね。どうやって投資できるんですか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            ここからが今日のメインです。Anthropicは非上場企業なので、普通は個人投資家が株を買うことはできません。ところがブラックロックが運用する「ベストAI」、証券コード四〇八Aという東証上場のETFが、Anthropicの優先株を直接保有しているんです。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            非上場株を、東証上場のETFが保有しているということですか？それは珍しくないですか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            とても珍しいんです。二〇二六年四月時点のブラックロックの公式開示データによると、このETFはAnthropicの優先株（シリーズG）を〇・四七パーセント、さらにOpenAI의 優先株（シリーズC）も〇・三九パーセント保有していることが確認されています。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            え！OpenAIまで入ってるんですか！？ClaudeとChatGPTの両方に、一本のETFで投資できるということですか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            そうです。AIの二大巨頭、どちらが勝っても恩恵を受けられる構造になっているわけです。しかもこのETFを運用しているのが、運用資産残高が約一二兆五〇〇〇億米ドル、円換算でおよそ一八一〇兆円という世界最大の資産運用会社、ブラックロックです。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            一八一〇兆円……。そこまで大きい会社が運用しているから、そういう非上場企業の株にもアクセスできるんですね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            まさにそうです。個人投資家には絶対に手が届かない非上場のトップAI企業の株式に、ブラックロックのネットワークとスケールだからこそ投資できる。それをETFという形にまとめて、僕たちにも開放してくれているわけです。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            なるほど！それは確かに「ブラックロックの本気のAI投資」って感じですね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            このETFの運用責任者は、テクノロジー企業への投資経験が二五年以上あるトニー・キムというファンドマネージャーで、AIイノベーションの中心地サンフランシスコに拠点を置いています。投資先企業と年間一〇〇〇件以上のミーティングを重ねて、精緻なファンダメンタルリサーチを行いながら銘柄を選んでいます。
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">新NISAでの投資戦略と知っておくべきリスク・将来性</p>
+      <div class="chat-section">
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            年間一〇〇〇件のミーティング……それだけ現場の情報に近い人が選んでくれているんですね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            「ベストAI」の運用スタイルをもう少し説明すると、世界で一〇〇〇社を超えるとも言われるAI関連銘柄の中から、厳選した四〇銘柄前後に集中投資するアクティブ運用型のETFです。インデックス型だと時価総額の大きい有名企業に偏りがちですが、このETFは中小型のこれから伸びる企業も積極的に組み入れられるのが特徴なんです。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            じゃあ、今は無名でも、将来大化けするような会社を早めに仕込んでくれているかもしれないということですね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            そういうことです。投資先はAnthropicやOpenAIのような非上場のAI企業だけでなく、エヌビディアのような半導体、クラウドプラットフォーム、そして日立やアドバンテスト、ソフトバンクグループのような日本企業も含まれています。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            日本企業まで入っているんですか！それは嬉しいですね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            基本的なスペックも確認しておきましょう。銘柄コード四〇八A、東京証券取引所に上場、設定日は二〇二五年九月八日です。取引単位は一〇口単位、二〇二六年三月時点の市場価格が二二五円台から二九五円台で推移していて、一売買単位でおよそ二二五〇円から二九五〇円程度から始められます。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            そんなに少額から買えるんですか！私でも買えそうです。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            NISAの成長投資枠でも買えるので、運用益が非課税になります。信託報酬は現在税込みで年〇・八四七パーセント程度で、二〇二六年七月以降は年〇・九九パーセント程度になる予定です。分配金は年二回、二月と八月に決算があります。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            NISAで買えて非課税というのは大きいですよね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            設定来のリターンについては、二〇二六年二月末時点での累積トータルリターンが一四・六九パーセントという実績があります。ただし、設定からまだ半年あまりなので、これはあくまで短期の数字です。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            半年で一四・六九パーセントはすごいですね。驚きですが、リスクも当然ありますよね？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            もちろんです。いくつか重要なリスクをしっかり整理しておきますね。まず元本保証はありません。AI関連株は変動が大きく、二〇二六年三月には二一三円台まで下落した局面もありました。また、為替ヘッジを原則行わないため、円高が進むと資産の価値が目減りするリスクがあります。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            確かに最近の円ドルの動きは激しいですもんね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            さらに、アクティブ運用なのでファンドマネージャーの判断が外れるリスクもゼロではありません。それからAnthropicの優先株など非上場株については、流動性が低くて上場株とは性質が異なる点も理解しておく必要があります。非上場株は値付けが難しく、市場での売買ができないので、ETFが保有するうえでの特有のリスクがあります。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            なるほど。非上場株だからこそ投資できる旨味がある一方で、それ特有のリスクも抱えているということですね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            そうです。そのリスクを理解したうえで、でも見方を変えれば、AnthropicやOpenAIのIPO、つまり株式公開が実現したときに、その恩恵を真っ先に受けられる可能性を秘めているという見方もできます。Anthropicは今まさにIPOの準備を進めていると言われていて、もし上場すれば、普通の個人投資家はその段階でしか買えないわけです。でもこのETFを持っていれば、もうすでにそのポジションを持っているということになります。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            なるほど！先に仕込んでおけるということですね。それは確かに夢がありますね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            改めてまとめると、「ベストAI」四〇八Aは、世界のエンジニアが業務の六割で使い、楽天の開発期間を八〇パーセント短縮し、評価額が五七兆円に達したAnthropicの優先株を保有する、数少ない個人投資家向けの投資手段の一つです。世界最大の資産運用会社ブラックロックが、AI投資のスペシャリスト・トニー・キムの目線で一〇〇〇銘柄超から厳選した四〇銘柄前後に集中投資し、NISAの成長投資枠でも使えて、少額から始められる。為替ヘッジなし、元本保証なし、コストは年〇・八四七パーセント程度という条件と、非上場株保有という独自のリスクをしっかり理解したうえで、AIの黎明期に長期目線で向き合いたいという方には、非常に検討価値のある商品だと僕は思っています。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            すごい！本当に情報がぎゅっと詰まっていて、めちゃくちゃ勉強になりました。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            最後に必ず申し上げたいのですが、今日お伝えした内容はあくまで情報の整理と僕個人の見解です。実際に投資を検討される際は、ブラックロックの公式サイトや各証券会社で目論見書を必ずご確認ください。投資はあくまで自己責任でお願いしますね。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            はい、ありがとうございました！
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            皆さんはClaude Codeを使っていますか？また、Anthropicが上場したら買いたいと思いますか？ぜひコメント欄で教えてください！
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="disclaimer">
+        <p>⚠️ <strong>免責事項</strong></p>
+        <p>本記事は情報提供を目的としたものであり、特定の銘柄への投資を推奨するものではありません。株式投資にはリスクが伴います。投資はご自身の判断と責任でお願いいたします。</p>
+      </div>
+      <p class="copyright">© TechMoney｜2026年</p>
+    </footer>
+  </div>
+    </div>
+  </div>
+  </main>
+
+  <Footer />
+</body>
+</html>

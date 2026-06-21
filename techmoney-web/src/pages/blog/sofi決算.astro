@@ -1,0 +1,705 @@
+---
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import BaseHead from '../../components/BaseHead.astro';
+import { SITE_TITLE } from '../../consts';
+
+// Generated from video_summary.html
+---
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <BaseHead title="sofi決算 - {SITE_TITLE}" description="sofi決算の徹底解説動画の要約記事です。" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <style is:global>
+
+    :root {
+      --bg-dark: #050510;
+      --bg-gradient: linear-gradient(180deg, #0a0a1a 0%, #050510 100%);
+      --primary: #00f2fe;
+      --secondary: #4facfe;
+      --accent: #b06ab3;
+      --text-main: #ffffff;
+      --text-muted: #a0a0b0;
+      --card-bg: rgba(255, 255, 255, 0.03);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --bubble-host-bg: rgba(35, 55, 255, 0.15);
+      --bubble-host-border: rgba(35, 55, 255, 0.3);
+      --bubble-guest-bg: rgba(255, 255, 255, 0.03);
+      --bubble-guest-border: rgba(255, 255, 255, 0.06);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg-gradient);
+      min-height: 100vh;
+      color: var(--text-muted);
+      font-family: 'Inter', 'Noto Sans JP', sans-serif;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1.5rem 4rem 1.5rem;
+    }
+
+    header {
+      padding: 80px 0 40px;
+      text-align: center;
+    }
+
+    .tag-line {
+      display: inline-block;
+      background: linear-gradient(135deg, rgba(0,242,254,0.15), rgba(176,106,179,0.15));
+      border: 1px solid rgba(0,242,254,0.3);
+      border-radius: 50px;
+      padding: 6px 20px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--text-main);
+      line-height: 1.3;
+      margin-bottom: 20px;
+    }
+
+    .subtitle {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      margin-top: 12px;
+    }
+
+    .meta-info {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .lead-section {
+      margin-bottom: 40px;
+    }
+
+    .lead-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .lead-card p {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--text-main);
+    }
+
+    .chat-section {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin: 30px 0;
+    }
+
+    .chat-message {
+      display: flex;
+      gap: 16px;
+      max-width: 85%;
+      align-items: flex-start;
+      margin-bottom: 4px;
+    }
+
+    .host-message {
+      align-self: flex-start;
+    }
+
+    .guest-message {
+      align-self: flex-end;
+      flex-direction: row-reverse;
+    }
+
+    .avatar-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      min-width: 64px;
+    }
+
+    .chat-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--primary);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      background: #0d111c;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+    }
+
+    .guest-avatar {
+      border-color: var(--secondary);
+      background: #1e293b;
+    }
+
+    .avatar-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .message-bubble {
+      padding: 14px 18px;
+      border-radius: 16px;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      border: 1px solid var(--bubble-guest-border);
+      background: var(--bubble-guest-bg);
+      color: var(--text-main);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    }
+
+    .host-message .message-bubble {
+      background: var(--bubble-host-bg);
+      border-color: var(--bubble-host-border);
+      border-top-left-radius: 4px;
+    }
+
+    .guest-message .message-bubble {
+      background: var(--bubble-guest-bg);
+      border-color: var(--bubble-guest-border);
+      border-top-right-radius: 4px;
+    }
+
+    section {
+      margin-bottom: 50px;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--text-main);
+      border-left: 4px solid var(--primary);
+      padding-left: 16px;
+      margin: 40px 0 20px 0;
+      line-height: 1.35;
+    }
+
+    footer {
+      border-top: 1px solid var(--card-border);
+      padding: 40px 0 20px;
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    .disclaimer {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 20px;
+      max-width: 700px;
+      margin: 0 auto 20px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      text-align: left;
+    }
+
+    .copyright {
+      font-size: 0.8rem;
+      color: rgba(160,160,176,0.4);
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 1.8rem; }
+      h2 { font-size: 1.3rem; }
+      header { padding: 50px 0 30px; }
+      .chat-message { max-width: 95%; }
+    }
+  
+
+    /* Unified Layout Styles */
+    .blog-main {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem 1.5rem;
+    }
+    .breadcrumb {
+        font-size: 0.85rem;
+        color: var(--text-secondary, #cbd5e1);
+        margin-bottom: 2rem;
+    }
+    .breadcrumb a {
+        color: var(--text-secondary, #cbd5e1);
+        text-decoration: none;
+    }
+    .breadcrumb a:hover {
+        color: var(--color-accent, #10B981);
+    }
+    .breadcrumb .separator {
+        margin: 0 0.5rem;
+        color: var(--text-muted, #64748b);
+    }
+    .article-content {
+        display: flex;
+        gap: 3rem;
+        align-items: flex-start;
+        margin-top: 2rem;
+    }
+    .toc-sidebar {
+        width: 280px;
+        position: sticky;
+        top: 6rem;
+        flex-shrink: 0;
+    }
+    .sidebar-toc {
+        background: rgba(28, 37, 65, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 8px;
+        padding: 1.8rem;
+        backdrop-filter: blur(10px);
+    }
+    .sidebar-toc h3 {
+        font-size: 1.1rem;
+        font-weight: 800;
+        margin-bottom: 1.2rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        padding-bottom: 0.6rem;
+        color: var(--text-primary, #f1f5f9);
+    }
+    .sidebar-toc ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        margin-left: 0;
+        padding-left: 0;
+    }
+    .sidebar-toc a {
+        font-size: 0.9rem;
+        color: var(--text-secondary, #cbd5e1);
+        text-decoration: none;
+        transition: color 0.2s ease;
+    }
+    .sidebar-toc a:hover {
+        color: var(--color-accent, #10B981);
+    }
+    .post-body {
+        flex-grow: 1;
+        max-width: calc(100% - 310px);
+    }
+    .anchor-target {
+        position: relative;
+        top: -100px;
+        visibility: hidden;
+        display: block;
+    }
+    .video-container {
+        position: relative;
+        width: 100%;
+        padding-top: 56.25%;
+        margin-bottom: 2rem;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid var(--border-color, rgba(16, 185, 129, 0.15));
+        box-shadow: 0 0 20px rgba(16, 185, 129, 0.1);
+    }
+    .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+    @media (max-width: 992px) {
+        .article-content {
+            flex-direction: column;
+        }
+        .toc-sidebar {
+            display: none;
+        }
+        .post-body {
+            max-width: 100%;
+        }
+    }
+  </style>
+</head>
+<body>
+  <Header />
+  
+  <main class="blog-main">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="/">← ホームに戻る</a>
+        <span class="separator">|</span>
+        <a href="/">トップ</a> &gt; <a href="/blog">ブログ</a> &gt; <span class="current">sofi決算</span>
+      </div>
+    </div>
+    
+    <div class="container">
+    <header>
+      <div class="tag-line">📊 投資銘柄・企業分析</div>
+      <h1>sofi決算</h1>
+      <p class="subtitle">sofi決算の徹底解説動画の要約記事です。</p>
+      <div class="meta-info">
+        <span>📅 2026年04月30日</span>
+        <span>✍️ TechMoney</span>
+      </div>
+    </header>
+
+    <main>
+            <p style="margin-bottom: 1.5rem;">【導入】SoFi決算の衝撃と「数字」のギャップ</p>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            この動画では、二〇二六年四月二十九日に発表されたSoFiテクノロジーズの二〇二六年第一四半期決算について、徹底的に解説していきます。決算の中身、株価が大きく下落した本当の理由、そして今後ホールドし続けていいのかどうかの投資判断まで、一本で全部わかるように話していくつもりです。SoFiの株を持っている方、あるいはこれから買おうか迷っている方、フィンテック銘柄に興味がある方は、ぜひ最後まで見ていってください。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            テックマネーさん、よろしくお願いします！SoFiって、個人ローンや銀行口座なんかを手掛けてる、あの「金融のスーパーアプリ」を目指してる会社ですよね。私も個人的に注目してたんですけど、ニュースを見たら株価がすごく下がっててびっくりしちゃって。今回の決算、どうだったんですか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            そうなんです。視聴者の方のためにも少し補足しておくと、SoFiはもともと学生ローンから始まり、今では銀行免許も取得し、「Galileo（ガリレオ）」という決済インフラ事業も持つ、注目のフィンテック企業です。そんな期待の銘柄なんですが、今回は株価が一時一三パーセント以上下落しました。でもね、面白いのが、決算の中身自体は決して悪くなかったんです。むしろ数字だけ見ると、かなり良かった。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            え、良かったのに下がったんですか？それって……なんか変じゃないですか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            それがまさに今回の核心なんですよね。順番に見ていきましょう。まず売上高は一一億ドル、前年比で四十一パーセント増です。アナリスト予想は一〇億五千万ドルでしたから、しっかりビート、つまり予想超えしています。一株あたり利益、いわゆるEPSは〇・一二ドルで、こちらは予想通りでした。そして新規会員数は一四七〇万人、前年比三十五パーセント増で、一四半期で一一〇万人という過去最高の純増数を記録しています。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            一一〇万人！すごい数ですね。それで下がったのが不思議すぎます……。
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">株価急落の真相：失望を呼んだ「3つの理由」</p>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            ここからが本題です。株が下がった理由は大きく三つあります。一つ目は、通期ガイダンスの据え置きです。SoFiは二〇二六年通期の売上高を約四六億五千万ドル、EPSを〇・六〇ドルと据え置きました。ガイダンスというのは、会社が「今年はこのくらい稼ぎますよ」と宣言する予測数値のことなんですが、四四半期連続で売上予想を上回っておきながら、一切の引き上げ、つまりじょうほうしゅうせいをしなかった。市場はじょうほうしゅうせいを「当然来る」と期待していたのに、来なかった。この失望感が売りを呼んだんです。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            じょうほうしゅうせい……つまり、「もっと稼げます！」って言ってほしかったのに、「変わりません」って言ったってことですよね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            まさにそうです。しかもQ二、つまり四月から六月の売上成長率ガイダンスも前年比約三〇パーセントと、アナリスト予想をわずかに下回りました。ここでも追い打ちをかけてしまったわけです。そして二つ目の理由が、テクノロジー部門の大幅な落ち込みです。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            テック部門って、さっき言ってたGalileoのことですか？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            そうです。Galileoを中心としたテクノロジープラットフォーム部門の売上が、前年比二十七パーセント減の七五〇〇万ドルにまで落ち込みました。これはSNSでも「smoking gun（スモーキングガン）」、直訳すると「動かぬ証拠」と言われていて、売りの核心的な材料として注目されました。原因は、大口顧客だった「Chime（チャイム）」というフィンテック企業が、二〇二五年末にプラットフォームから離脱したことです。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            Chimeって、アメリカでよく聞くネット銀行ですよね？大きな顧客だったんですね……それが抜けたのは痛いですね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            そうなんです。Galileoは手数料型のビジネスで、利益率が高い優良事業なんですよ。そこから大口が抜けた影響が、数字にそのまま出てしまいました。経営陣はQ一に十三社の新パートナーが加わったとアピールしていますし、大手銀行一行の実装が今夏に完了予定で後半に挽回できると言っています。ただ市場は「今すぐ結果を見せてくれ」という反応でした。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            将来は明るいかもしれないけど、今の数字が悪いから信用しきれない、みたいな感じですね。
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">バリュエーションの壁と、驚異の「Rule of 40」</p>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            的確な表現ですね。そして三つ目の理由が、バリュエーションの高さです。SoFiのPERは約四十九倍。同業の銀行株の平均が八倍前後ということを考えると、約六倍以上の評価を受けている。これは「SoFiは将来すごく成長する」という期待が株価に先取りされている状態なんです。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            期待が高いほど、少しでも外れたときに落ちやすくなるってことですね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            まさに。しかもSoFiはこの「ビートしても株価が下がる」パターンが繰り返されているんです。Q三二〇二五年は三十四パーセントものEPS超えをしたのに株価は下落。Q四二〇二五年も十八パーセントのEPS超えで同じく下落。今回もその流れの繰り返しです。バリュエーションが高い成長株特有の宿命と言えます。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            じゃあ……逆に良かったところも教えてほしいです。ネガティブなことばかりだと、ちょっと怖くなってきちゃって。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            もちろんです。ポジティブな面もしっかりあります。まず「Rule of 40（ルール・オブ・フォーティ）」というSaaS企業の健全性指標があるんですが、これは売上成長率とEBITDA利益率を足した数値が四〇以上であれば健全とされるものです。SoFiは今回、成長率四十一パーセントとEBITDA率三十一パーセントを足してスコア七十二。これを十八四半期、四年半以上連続で達成しています。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            七十二！基準の四十より三十以上も上じゃないですか！それってかなり優秀なんですよね？
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            非常に優秀です。そして純金利マージンは五・九四パーセントまで改善しており、預金残高は四〇二億ドルに到達。負債の九〇パーセント以上を預金で賄えている点は、資金調達の安定性という意味でかなり評価できます。それからGAAPベースの純利益、つまり会計基準に沿った正式な利益は一六七億円相当の一億六六七〇万ドルで、前年から二倍超になっています。連続黒字もこれで十四半期目です。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            黒字が続いているのはやっぱり安心感がありますね。でも……テックマネーさん、正直なところ、今SoFiを持っていたらどうしますか？
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">徹底分析！今後の投資判断と潜むリスク</p>
+      <div class="chat-section">
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            正直に言いますね。今回の下落は、ファンダメンタルズ、つまり事業の本質的な悪化によるものではなく、ガイダンス据え置きという「市場の期待との乖離」が主因だと僕は見ています。本業の貸付事業は過去最高ペース、個人ローンは五十一パーセント増、学生ローンは百十九パーセント増。これは景気後退懸念がある中でも非常に力強い数字です。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            そう聞くと、むしろ下がったのが買い場になるんじゃないかって思えてきます。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            ただし、懸念点も正直にお伝えしなければなりません。一点目は信用リスクです。SoFiは今、積極的にローンを組成しています。景気が悪化すれば、借り手が返済できなくなる貸し倒れが増えるリスクがあります。二点目はテクノロジー部門の先行き。Galileoの回復が経営陣の言う通りに進むかどうか、ここは引き続き注視が必要です。三点目は株価の位置。今年に入ってすでに株価は三十パーセント近く下落しており、そのうえ今回さらに一三パーセントの下落を食らった。ただ、それでもバリュエーションはまだ高めです。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            でも下がった分、少しは買いやすくなってますよね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            ええ。ただ投資家として確認すべきは、「なぜこの株を持つのか」という理由が今でも有効かどうかです。SoFiのストーリーは、「フィンテックと銀行を融合した金融のスーパーアプリになる」というものです。会員数は増え続け、収益は多角化され、黒字化も達成した。このストーリーが崩れていないうちは、ビジネスの成長を信じてホールドするという判断は合理的だと思います。一方で、高バリュエーションへの不安が精神的な負担になるなら、比率を下げて様子を見るというのも立派な戦略です。
+          </div>
+        </div>
+      </div>
+      <p style="margin-bottom: 1.5rem;">まとめ：SoFiは「買い」か「オワコン」か？</p>
+      <div class="chat-section">
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            なるほど……自分が何を期待してその株を買ったのかを、もう一回確認することが大事なんですね。
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            そうです。それが投資の基本です。うまくいっていない時ほど、そこに立ち戻ることが大切です。SoFiはまだ成長途上の企業ですし、これから何が起きるかは誰にも断言できません。ただ、今回の決算で「会社が終わった」とは全く思いません。どちらかというと、じっくり腰を据えて持てる人が報われる銘柄だと、僕は感じています。
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            テックマネーさん、今日もとってもわかりやすかったです！SoFiのこと、ちゃんと自分でも調べてみます！
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            ぜひ調べてみてください。自分で調べた上で納得して持つのが、一番強い投資スタイルですから。そして視聴者の皆さんにもお聞きしたいんですが、今回の決算と株価の暴落を受けて、皆さんは「SoFiはもうオワコンだ」と思いますか？それとも「絶好の買い場だ」と思いますか？ぜひコメント欄で率率なご意見を教えてください！
+          </div>
+        </div>
+        <div class="chat-message guest-message">
+          <div class="avatar-container">
+            <div class="chat-avatar guest-avatar">🤖</div>
+            <span class="avatar-label">アシスタント</span>
+          </div>
+          <div class="message-bubble">
+            皆さんのコメント、お待ちしてます！
+          </div>
+        </div>
+        <div class="chat-message host-message">
+          <div class="avatar-container">
+            <img src="/_astro/techmoney-character.CMxCyBvm_2diuXQ.webp" alt="株オタク" class="chat-avatar">
+            <span class="avatar-label">株オタク</span>
+          </div>
+          <div class="message-bubble">
+            最後に必ずお伝えしておきたいのですが、今日お話しした内容はあくまで僕個人の見解と情報整理に過ぎません。投資の最終判断はご自身の責任でお願いしますね。それでは、また次回の動画でお会いしましょう！
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="disclaimer">
+        <p>⚠️ <strong>免責事項</strong></p>
+        <p>本記事は情報提供を目的としたものであり、特定の銘柄への投資を推奨するものではありません。株式投資にはリスクが伴います。投資はご自身の判断と責任でお願いいたします。</p>
+      </div>
+      <p class="copyright">© TechMoney｜2026年</p>
+    </footer>
+  </div>
+    </div>
+  </div>
+  </main>
+
+  <Footer />
+</body>
+</html>
